@@ -5,6 +5,6 @@ import tech.intellispaces.jaquarius.ixora.data.dictionary.UnmovableDictionaryHan
 public interface Dictionaries {
 
   static UnmovableDictionaryHandle of(java.util.Map<String, Object> map) {
-    return new MapBasedDictionaryImpl(map);
+    return new MapBasedDictionaryWrapper(map);
   }
 }

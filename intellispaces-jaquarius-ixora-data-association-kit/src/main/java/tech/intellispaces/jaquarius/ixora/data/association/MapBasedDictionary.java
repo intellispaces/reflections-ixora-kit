@@ -49,7 +49,7 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedDictionaryImpl((Map<String, Object>) result);
+      return new MapBasedDictionaryWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -106,7 +106,7 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new MapBasedDictionaryImpl((Map<String, Object>) value);
+    return new MapBasedDictionaryWrapper((Map<String, Object>) value);
   }
 
   @Mapper
@@ -160,7 +160,7 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<DictionaryHandle> propertyList = values.stream()
-        .map(MapBasedDictionaryImpl::new)
+        .map(MapBasedDictionaryWrapper::new)
         .map(p -> (DictionaryHandle) p)
         .toList();
     return Lists.of(propertyList, DictionaryHandle.class);

@@ -33,7 +33,7 @@ abstract class ByteListHandleOverArray implements UnmovableByteListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Byte> asCollection() {
-    return new JavaCollectionHandleImpl<>(nativeList(), elementType);
+    return new JavaCollectionHandleWrapper<>(nativeList(), elementType);
   }
 
   @Mapper

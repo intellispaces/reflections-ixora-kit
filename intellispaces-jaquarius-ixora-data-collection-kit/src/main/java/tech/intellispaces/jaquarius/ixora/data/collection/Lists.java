@@ -17,7 +17,7 @@ public interface Lists {
    * @param <E> element type.
    */
   static <E> UnmovableListHandle<E> of(java.util.List<E> list, Class<E> elementClass) {
-    return new JavaListHandleImpl<>(list, elementClass);
+    return new JavaListHandleWrapper<>(list, elementClass);
   }
 
   /**
@@ -29,7 +29,7 @@ public interface Lists {
    * @param <E> element type.
    */
   static <E> UnmovableListHandle<E> of(java.util.List<E> list, Type<E> elementType) {
-    return new JavaListHandleImpl<>(list, elementType);
+    return new JavaListHandleWrapper<>(list, elementType);
   }
 
   static <E> UnmovableListHandle<E> empty(Class<E> elementClass) {
@@ -37,43 +37,43 @@ public interface Lists {
   }
 
   static UnmovableByteListHandle ofBytes(byte[] array) {
-    return new ByteListHandleOverArrayImpl(array);
+    return new ByteListHandleOverArrayWrapper(array);
   }
 
   static UnmovableByteListHandle ofBytes(java.util.List<Byte> list) {
-    return new ByteListHandleOverArrayImpl(list);
+    return new ByteListHandleOverArrayWrapper(list);
   }
 
   static UnmovableByteListHandle ofBytes(byte value1, byte value2) {
-    return new ByteListHandleOverArrayImpl(new byte[] { value1, value2 });
+    return new ByteListHandleOverArrayWrapper(new byte[] { value1, value2 });
   }
 
   static UnmovableByteListHandle ofBytes(byte value1, byte value2, byte value3) {
-    return new ByteListHandleOverArrayImpl(new byte[] { value1, value2, value3 });
+    return new ByteListHandleOverArrayWrapper(new byte[] { value1, value2, value3 });
   }
 
   static UnmovableInteger32ListHandle ofIntegers(int[] array) {
-    return new IntegerListHandleOverArrayImpl(array);
+    return new IntegerListHandleOverArrayWrapper(array);
   }
 
   static UnmovableInteger32ListHandle ofIntegers(java.util.List<Integer> list) {
-    return new IntegerListHandleOverArrayImpl(list);
+    return new IntegerListHandleOverArrayWrapper(list);
   }
 
   static UnmovableInteger32ListHandle ofIntegers(int value1, int value2) {
-    return new IntegerListHandleOverArrayImpl(new int[] { value1, value2 });
+    return new IntegerListHandleOverArrayWrapper(new int[] { value1, value2 });
   }
 
   static UnmovableInteger32ListHandle ofIntegers(int value1, int value2, int value3) {
-    return new IntegerListHandleOverArrayImpl(new int[] { value1, value2, value3 });
+    return new IntegerListHandleOverArrayWrapper(new int[] { value1, value2, value3 });
   }
 
   static UnmovableFloat64ListHandle ofDoubles(double[] array) {
-    return new DoubleListHandleOverArrayImpl(array);
+    return new DoubleListHandleOverArrayWrapper(array);
   }
 
   static UnmovableFloat64ListHandle ofDoubles(java.util.List<Double> list) {
-    return new DoubleListHandleOverArrayImpl(list);
+    return new DoubleListHandleOverArrayWrapper(list);
   }
 
   static UnmovableListHandle<String> ofStrings(java.util.List<String> list) {

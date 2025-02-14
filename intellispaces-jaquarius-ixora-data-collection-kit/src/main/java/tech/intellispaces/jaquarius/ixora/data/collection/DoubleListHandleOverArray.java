@@ -32,7 +32,7 @@ abstract class DoubleListHandleOverArray implements UnmovableFloat64ListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Double> asCollection() {
-    return new JavaCollectionHandleImpl<>(nativeList(), elementType);
+    return new JavaCollectionHandleWrapper<>(nativeList(), elementType);
   }
 
   @Mapper

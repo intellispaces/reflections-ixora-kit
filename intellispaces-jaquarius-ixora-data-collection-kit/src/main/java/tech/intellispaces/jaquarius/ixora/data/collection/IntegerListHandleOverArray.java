@@ -33,7 +33,7 @@ abstract class IntegerListHandleOverArray implements UnmovableInteger32ListHandl
   @Mapper
   @Override
   public UnmovableCollectionHandle<Integer> asCollection() {
-    return new JavaCollectionHandleImpl<>(nativeList(), elementType);
+    return new JavaCollectionHandleWrapper<>(nativeList(), elementType);
   }
 
   @Mapper
