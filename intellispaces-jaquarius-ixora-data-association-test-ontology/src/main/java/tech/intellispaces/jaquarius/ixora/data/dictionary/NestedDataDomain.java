@@ -1,10 +1,10 @@
 package tech.intellispaces.jaquarius.ixora.data.dictionary;
 
 import tech.intellispaces.jaquarius.annotation.Channel;
-import tech.intellispaces.jaquarius.annotation.Data;
+import tech.intellispaces.jaquarius.annotation.Dataset;
 import tech.intellispaces.jaquarius.annotation.Domain;
 
-@Data
+@Dataset
 @Domain("b833c1fc-e71e-43fc-b996-f8869642c807")
 public interface NestedDataDomain {
 

@@ -1,10 +1,10 @@
 package tech.intellispaces.jaquarius.ixora.data.dictionary;
 
 import tech.intellispaces.jaquarius.annotation.Channel;
-import tech.intellispaces.jaquarius.annotation.Data;
+import tech.intellispaces.jaquarius.annotation.Dataset;
 import tech.intellispaces.jaquarius.annotation.Domain;
 
-@Data
+@Dataset
 @Domain("610bdc9a-6054-4777-b1de-4a7e6441317d")
 public interface PrimitiveDataDomain {
 

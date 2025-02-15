@@ -1,0 +1,23 @@
+package {{$generatedArtifactPackageName}};
+
+{{for importedClass : $importedClasses}}
+import {{$importedClass}};
+{{end}}
+
+/**
+ * CRUD ontology for entities of the domain {@link {{$sourceArtifactName}}}.<p/>
+ *
+ * This class was generated automatically. Don't try to change it.
+ */
+@Ontology
+{{$generatedAnnotation}}
+public interface {{$generatedArtifactSimpleName}} {
+
+{{when $entityHasIdentifier}}
+  @Channel(name = "{{$identifierToEntityChannelSimpleName}}", value = "{{$identifierToEntityCid}}")
+  {{$sourceArtifactSimpleName}} getById({{$identifierType}} id);
+
+  @Channel(name = "{{$transactionToEntityByIdentifierChannelSimpleName}}", value = "{{$transactionToEntityByIdentifierCid}}")
+  {{$sourceArtifactSimpleName}} getById(TransactionDomain tx, {{$identifierType}} id);
+{{end}}
+}

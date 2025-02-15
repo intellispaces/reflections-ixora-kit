@@ -21,6 +21,8 @@
         <module>intellispaces-jaquarius-ixora-data-stream-kit</module>
         <module>intellispaces-jaquarius-ixora-data-snakeyaml</module>
         <module>intellispaces-jaquarius-ixora-data-yaml-test-kit</module>
+        <module>intellispaces-jaquarius-ixora-rdb-kit</module>
+        <module>intellispaces-jaquarius-ixora-hikaricp-kit</module>
     </modules>
 
     <dependencyManagement>

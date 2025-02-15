@@ -7,7 +7,7 @@ import tech.intellispaces.commons.base.type.Type;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.data.DataFunctions;
+import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
 import tech.intellispaces.jaquarius.ixora.data.dictionary.DictionaryHandle;
 import tech.intellispaces.jaquarius.ixora.data.dictionary.DictionaryToDataGuide;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
@@ -22,7 +22,7 @@ public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
   @Mapper
   @Override
   public <D> D dictionaryToData(DictionaryHandle dictionary, Type<D> dataType) {
-    if (DataFunctions.isDataObjectHandle(dataType.asClassType().baseClass())) {
+    if (DatasetFunctions.isDatasetObjectHandle(dataType.asClassType().baseClass())) {
       return process(dictionary, dataType);
     }
     throw new UnsupportedOperationException("Not implemented");
@@ -31,7 +31,7 @@ public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
   @SuppressWarnings("unchecked")
   private <D> D process(DictionaryHandle dictionary, Type<D> dataType) {
     Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
-    String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
+    String dataHandleObjectCanonicalName = NameConventionFunctions.getDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
                 "expected data handle class {1}", domainClass.getCanonicalName(), dataHandleObjectCanonicalName));
