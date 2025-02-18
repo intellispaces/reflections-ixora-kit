@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Guide
-public class StringToParameterizedNamedQueryGuideImpl implements StringToParameterizedNamedQueryGuide {
+public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringToParameterizedNamedQueryGuide {
 
   @Override
-  public ParameterizedNamedQueryHandle stringToParameterizedNamedQuery(String query) {
+  public ParameterizedNamedQueryHandle castStringToParameterizedNamedQuery(String query) {
     char[] originQuery = query.toCharArray();
     char[] blindQuery = new char[query.length()];
     List<String> paramNames = new ArrayList<>();

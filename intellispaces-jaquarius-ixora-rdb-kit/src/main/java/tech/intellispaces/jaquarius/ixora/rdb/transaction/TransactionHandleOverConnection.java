@@ -12,8 +12,8 @@ import tech.intellispaces.jaquarius.ixora.data.cursor.MovableCursorHandle;
 import tech.intellispaces.jaquarius.ixora.rdb.datasource.ConnectionHandle;
 import tech.intellispaces.jaquarius.ixora.rdb.datasource.MovableConnectionHandle;
 import tech.intellispaces.jaquarius.ixora.rdb.exception.RdbExceptions;
+import tech.intellispaces.jaquarius.ixora.rdb.query.CastStringToParameterizedNamedQueryGuide;
 import tech.intellispaces.jaquarius.ixora.rdb.query.ParameterizedNamedQueryHandle;
-import tech.intellispaces.jaquarius.ixora.rdb.query.StringToParameterizedNamedQueryGuide;
 import tech.intellispaces.jaquarius.ixora.rdb.statement.MovablePreparedStatementHandle;
 import tech.intellispaces.jaquarius.ixora.rdb.statement.MovableResultSetHandle;
 
@@ -23,7 +23,7 @@ abstract class TransactionHandleOverConnection implements MovableTransactionHand
 
   @Inject
   @AutoGuide
-  abstract StringToParameterizedNamedQueryGuide stringToParameterizedNamedQueryGuide();
+  abstract CastStringToParameterizedNamedQueryGuide castStringToParameterizedNamedQueryGuide();
 
   TransactionHandleOverConnection(MovableConnectionHandle connection) {
     this.connection = connection;
@@ -81,7 +81,7 @@ abstract class TransactionHandleOverConnection implements MovableTransactionHand
   @Override
   public <D> D fetchData(Type<D> dataType, String query, MapHandle<String, Object> params) {
     ParameterizedNamedQueryHandle parameterizedQuery = (
-        stringToParameterizedNamedQueryGuide().stringToParameterizedNamedQuery(query)
+        castStringToParameterizedNamedQueryGuide().castStringToParameterizedNamedQuery(query)
     );
     MovablePreparedStatementHandle ps = connection.createPreparedStatement(parameterizedQuery.query());
     setParamValues(ps, parameterizedQuery.paramNames(), params);

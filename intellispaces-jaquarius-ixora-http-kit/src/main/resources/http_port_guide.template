@@ -1,0 +1,31 @@
+package {{$generatedArtifactPackageName}};
+
+{{for importedClass : $importedClasses}}
+import {{$importedClass}};
+{{end}}
+
+/**
+ * Guide for HTTP port {@link {{$portSimpleName}}} according to ontology {@link {{$ontologySimpleName}}}.<p/>
+ *
+ * This class was generated automatically. Don't try to change it.
+ */
+ {{$generatedAnnotation}}
+public abstract class {{$generatedArtifactSimpleName}} {
+{{when $needUriToQueryParamGuide}}
+   @AutoGuide
+   abstract GetUriQueryParamGuide getUriQueryParamGuide();
+{{end}}
+
+{{for method : $guideMethods}}
+  @MapperOfMoving({{$method."channelClass"}}.class)
+  public {{$method."signature"}} {
+    {{$method."body"}}
+  }
+
+{{end}}
+
+{{for method : $ontologyMethods}}
+  public abstract {{$method."signature"}};
+
+{{end}}
+}

@@ -1,0 +1,17 @@
+package {{$generatedArtifactPackageName}};
+
+{{for importedClass : $importedClasses}}
+import {{$importedClass}};
+{{end}}
+
+/**
+ * HTTP port {@link {{$portSimpleName}}} exchange channel according to method '{{$channelMethodName}}' in ontology {@link {{$ontologySimpleName}}}.<p/>
+ *
+ * This class was generated automatically. Don't try to change it.
+ */
+ {{$generatedAnnotation}}
+@Channel("{{$cid}}")
+public interface {{$generatedArtifactSimpleName}} extends {{$superChannelSimpleName}} {
+
+  HttpResponseDomain exchange({{$portSimpleName}} port, HttpRequestDomain request) throws HttpException;
+}
