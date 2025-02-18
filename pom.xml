@@ -8,7 +8,7 @@
     </parent>
 
     <groupId>tech.intellispaces.jaquarius</groupId>
-    <artifactId>intellispaces-jaquarius-ixora-parent</artifactId>
+    <artifactId>intellispaces-jaquarius-ixora-kit-parent</artifactId>
     <packaging>pom</packaging>
 
     <modules>
