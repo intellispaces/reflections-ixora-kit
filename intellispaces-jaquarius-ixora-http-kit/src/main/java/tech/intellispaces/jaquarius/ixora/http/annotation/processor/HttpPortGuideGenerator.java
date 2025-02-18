@@ -136,7 +136,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   private String getGeneralObjectHandleDeclaration(TypeReference domain) {
-    return ObjectHandleFunctions.getGeneralObjectHandleDeclaration(domain, this::addImportAndGetSimpleName);
+    return ObjectHandleFunctions.getGeneralObjectHandleDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {
