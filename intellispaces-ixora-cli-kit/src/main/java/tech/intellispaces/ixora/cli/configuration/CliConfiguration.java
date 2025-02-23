@@ -1,5 +1,7 @@
-package tech.intellispaces.ixora.cli;
+package tech.intellispaces.ixora.cli.configuration;
 
+import tech.intellispaces.ixora.cli.Consoles;
+import tech.intellispaces.ixora.cli.MovableConsoleHandle;
 import tech.intellispaces.jaquarius.annotation.Configuration;
 import tech.intellispaces.jaquarius.annotation.Projection;
 

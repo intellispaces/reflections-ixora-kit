@@ -3,6 +3,7 @@ package tech.intellispaces.ixora.cli;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tech.intellispaces.ixora.cli.configuration.CliConfiguration;
 import tech.intellispaces.jaquarius.system.Modules;
 
 import java.io.ByteArrayOutputStream;
