@@ -8,8 +8,6 @@ import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
-import tech.intellispaces.ixora.data.dictionary.DictionaryHandle;
-import tech.intellispaces.ixora.data.dictionary.DictionaryToDataGuide;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
 
@@ -17,11 +15,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
+public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
 
   @Mapper
   @Override
-  public <D> D dictionaryToData(DictionaryHandle dictionary, Type<D> dataType) {
+  public <D> D propertiesToData(PropertiesHandle dictionary, Type<D> dataType) {
     if (DatasetFunctions.isDatasetObjectHandle(dataType.asClassType().baseClass())) {
       return process(dictionary, dataType);
     }
@@ -29,7 +27,7 @@ public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
   }
 
   @SuppressWarnings("unchecked")
-  private <D> D process(DictionaryHandle dictionary, Type<D> dataType) {
+  private <D> D process(PropertiesHandle dictionary, Type<D> dataType) {
     Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
@@ -53,8 +51,8 @@ public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof DictionaryHandle && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
-        value = process((DictionaryHandle) value, Types.get(param.getType()));
+      if (value instanceof PropertiesHandle && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
+        value = process((PropertiesHandle) value, Types.get(param.getType()));
       }
       arguments[index++] = value;
     }

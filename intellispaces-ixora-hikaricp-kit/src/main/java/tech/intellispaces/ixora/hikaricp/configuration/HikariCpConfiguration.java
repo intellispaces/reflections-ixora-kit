@@ -1,18 +1,18 @@
 package tech.intellispaces.ixora.hikaricp.configuration;
 
-import tech.intellispaces.jaquarius.annotation.Configuration;
-import tech.intellispaces.jaquarius.annotation.Projection;
-import tech.intellispaces.jaquarius.annotation.Settings;
 import tech.intellispaces.ixora.hikaricp.datasource.HikariDataSourceFactoryHandleImplWrapper;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactoryHandle;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettingsHandle;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceHandle;
+import tech.intellispaces.jaquarius.annotation.Configuration;
+import tech.intellispaces.jaquarius.annotation.Projection;
+import tech.intellispaces.jaquarius.annotation.Properties;
 
 @Configuration
 public abstract class HikariCpConfiguration {
 
   @Projection
-  @Settings("datasource")
+  @Properties("datasource")
   public abstract HikariDataSourceSettingsHandle hikariDataSourceSettings();
 
   @Projection

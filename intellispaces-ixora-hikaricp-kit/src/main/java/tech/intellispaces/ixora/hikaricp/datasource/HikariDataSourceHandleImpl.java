@@ -2,15 +2,15 @@ package tech.intellispaces.ixora.hikaricp.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.exception.TraverseExceptions;
 import tech.intellispaces.ixora.rdb.datasource.JavaConnectionHandleWrapper;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnectionHandle;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettingsHandle;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceHandle;
+import tech.intellispaces.jaquarius.annotation.Mapper;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.exception.TraverseExceptions;
 
 import java.sql.SQLException;
 

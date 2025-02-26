@@ -4,13 +4,11 @@ import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.base.type.Type;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
-import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
-import tech.intellispaces.ixora.data.stream.ByteInputStreamDomain;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
 
 import java.io.IOException;
 import java.io.InputStream;

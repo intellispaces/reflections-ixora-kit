@@ -4,9 +4,6 @@ import tech.intellispaces.commons.base.type.Type;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.ixora.data.collection.Integer32ListDomain;
-import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
-import tech.intellispaces.ixora.data.collection.UnmovableInteger32ListHandle;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.base.text.StringFunctions;
-import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.ixora.data.stream.DataStreams;
+import tech.intellispaces.jaquarius.annotation.Guide;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

@@ -2,23 +2,20 @@ package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
+import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.UnmovableListHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.ixora.data.collection.ListHandle;
-import tech.intellispaces.ixora.data.collection.UnmovableListHandle;
-import tech.intellispaces.ixora.data.dictionary.DictionaryDomain;
-import tech.intellispaces.ixora.data.dictionary.DictionaryHandle;
-import tech.intellispaces.ixora.data.dictionary.UnmovableDictionaryHandle;
 
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(DictionaryDomain.class)
-abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
+@ObjectHandle(PropertiesDomain.class)
+abstract class MapBasedProperties implements UnmovablePropertiesHandle {
   private final Map<String, Object> map;
 
-  MapBasedDictionary(Map<String, Object> map) {
+  MapBasedProperties(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -49,7 +46,7 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedDictionaryWrapper((Map<String, Object>) result);
+      return new MapBasedPropertiesWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -67,7 +64,7 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     } else if (firstElement instanceof String) {
       return stringList(path, list);
     } else if (firstElement instanceof Map<?, ?>) {
-      return dictionaryList(path, list);
+      return propertiesList(path, list);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -100,13 +97,13 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public DictionaryHandle dictionaryValue(String path) throws InvalidPropertyException {
+  public PropertiesHandle propertiesValue(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new MapBasedDictionaryWrapper((Map<String, Object>) value);
+    return new MapBasedPropertiesWrapper((Map<String, Object>) value);
   }
 
   @Mapper
@@ -150,20 +147,20 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
 
   @Mapper
   @Override
-  public UnmovableListHandle<DictionaryHandle> dictionaryList(String path) throws InvalidPropertyException {
+  public UnmovableListHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return dictionaryList(path, value);
+    return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableListHandle<DictionaryHandle> dictionaryList(String path, Object value) {
+  private UnmovableListHandle<PropertiesHandle> propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
-    java.util.List<DictionaryHandle> propertyList = values.stream()
-        .map(MapBasedDictionaryWrapper::new)
-        .map(p -> (DictionaryHandle) p)
+    java.util.List<PropertiesHandle> propertyList = values.stream()
+        .map(MapBasedPropertiesWrapper::new)
+        .map(p -> (PropertiesHandle) p)
         .toList();
-    return Lists.of(propertyList, DictionaryHandle.class);
+    return Lists.of(propertyList, PropertiesHandle.class);
   }
 
   @Mapper
@@ -176,10 +173,10 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
     if (value == null) {
       throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
     }
-    if (value instanceof DictionaryHandle & expectedType != Map.class) {
+    if (value instanceof PropertiesHandle & expectedType != Map.class) {
       throw InvalidPropertyExceptions.withMessage("Expected property value of {0} type, " +
               "but actual is {1}. Path '{2}'",
-          expectedType.getCanonicalName(), DictionaryHandle.class.getCanonicalName(), path);
+          expectedType.getCanonicalName(), PropertiesHandle.class.getCanonicalName(), path);
 
     }
     if (!expectedType.isAssignableFrom(value.getClass())) {
@@ -212,8 +209,8 @@ abstract class MapBasedDictionary implements UnmovableDictionaryHandle {
 
   private static Class<?> getActualType(Object value) {
     final Class<?> actualType;
-    if (DictionaryHandle.class.isAssignableFrom(value.getClass())) {
-      actualType = DictionaryHandle.class;
+    if (PropertiesHandle.class.isAssignableFrom(value.getClass())) {
+      actualType = PropertiesHandle.class;
     } else if (Map.class.isAssignableFrom(value.getClass())) {
       actualType = Map.class;
     } else if (java.util.List.class.isAssignableFrom(value.getClass())) {

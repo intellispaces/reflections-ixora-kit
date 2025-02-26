@@ -4,13 +4,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.ixora.http.HttpMethodHandle;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.http.exception.HttpExceptions;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.io.IOException;
 

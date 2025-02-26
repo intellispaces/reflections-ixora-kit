@@ -1,10 +1,6 @@
 package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
-import tech.intellispaces.ixora.data.collection.UnmovableFloat64ListHandle;
-import tech.intellispaces.ixora.data.collection.UnmovableInteger32ListHandle;
-import tech.intellispaces.ixora.data.collection.UnmovableListHandle;
 
 public interface Lists {
 

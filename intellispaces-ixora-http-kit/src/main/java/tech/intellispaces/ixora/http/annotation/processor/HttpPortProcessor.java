@@ -6,9 +6,9 @@ import tech.intellispaces.commons.annotation.processor.ArtifactProcessor;
 import tech.intellispaces.commons.annotation.processor.ArtifactValidator;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
+import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
-import tech.intellispaces.ixora.http.annotation.HttpPort;
 
 import javax.lang.model.element.ElementKind;
 import java.util.ArrayList;

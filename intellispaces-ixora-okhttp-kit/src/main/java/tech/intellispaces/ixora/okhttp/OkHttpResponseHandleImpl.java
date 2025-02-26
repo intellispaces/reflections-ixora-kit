@@ -2,13 +2,13 @@ package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.ixora.data.stream.ByteStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
 import tech.intellispaces.ixora.http.HttpStatusHandle;
 import tech.intellispaces.ixora.http.HttpStatuses;
+import tech.intellispaces.jaquarius.annotation.Mapper;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(OkHttpResponseDomain.class)
 public abstract class OkHttpResponseHandleImpl implements UnmovableOkHttpResponseHandle {

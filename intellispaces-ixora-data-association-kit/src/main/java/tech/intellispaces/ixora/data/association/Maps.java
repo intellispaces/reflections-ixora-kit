@@ -1,7 +1,6 @@
 package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.ixora.data.association.UnmovableMapHandle;
 
 public interface Maps {
 

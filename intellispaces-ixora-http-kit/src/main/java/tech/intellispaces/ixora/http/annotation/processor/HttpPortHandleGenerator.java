@@ -3,16 +3,16 @@ package tech.intellispaces.ixora.http.annotation.processor;
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.base.entity.Reference;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.Mover;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.MovableInboundHttpPortHandle;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
 import tech.intellispaces.ixora.http.exception.HttpException;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.jaquarius.annotation.Mover;
+import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 
 public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {

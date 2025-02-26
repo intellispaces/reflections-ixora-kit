@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.annotation;
 
-import tech.intellispaces.jaquarius.annotation.AnnotationProcessor;
 import tech.intellispaces.ixora.http.annotation.processor.HttpPortProcessor;
+import tech.intellispaces.jaquarius.annotation.AnnotationProcessor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

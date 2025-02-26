@@ -1,15 +1,15 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.AutoGuide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.ixora.data.stream.ByteStreams;
 import tech.intellispaces.ixora.data.stream.InputDataStreamHandle;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
 import tech.intellispaces.ixora.internet.uri.UriHandle;
 import tech.intellispaces.ixora.internet.uri.Uris;
+import tech.intellispaces.jaquarius.annotation.AutoGuide;
+import tech.intellispaces.jaquarius.annotation.Mapper;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(DedicatedHttpPortDomain.class)
 public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHttpPortHandle {

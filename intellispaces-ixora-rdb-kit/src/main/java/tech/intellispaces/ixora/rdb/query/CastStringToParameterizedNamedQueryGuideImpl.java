@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.rdb.query;
 
-import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.jaquarius.annotation.Guide;
 
 import java.util.ArrayList;
 import java.util.List;

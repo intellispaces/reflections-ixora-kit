@@ -1,7 +1,6 @@
 package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
 
 public interface Collections {
 

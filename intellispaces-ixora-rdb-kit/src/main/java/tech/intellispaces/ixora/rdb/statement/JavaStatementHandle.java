@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.rdb.statement;
 
+import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
 
 import java.sql.SQLException;
 import java.sql.Statement;

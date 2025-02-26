@@ -1,7 +1,6 @@
 package tech.intellispaces.ixora.data.cursor;
 
 import tech.intellispaces.ixora.data.collection.CollectionDomain;
-import tech.intellispaces.ixora.data.cursor.CursorHandle;
 
 public interface Cursors {
 

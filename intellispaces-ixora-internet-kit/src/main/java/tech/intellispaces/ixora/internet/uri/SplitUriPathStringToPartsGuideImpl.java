@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.jaquarius.annotation.Guide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.jaquarius.annotation.Guide;
+import tech.intellispaces.jaquarius.annotation.Mapper;
 
 import java.util.Arrays;
 

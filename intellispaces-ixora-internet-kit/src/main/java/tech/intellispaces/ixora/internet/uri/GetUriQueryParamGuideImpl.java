@@ -3,10 +3,10 @@ package tech.intellispaces.ixora.internet.uri;
 import tech.intellispaces.commons.base.data.Pair;
 import tech.intellispaces.commons.base.data.Pairs;
 import tech.intellispaces.commons.base.text.StringFunctions;
-import tech.intellispaces.jaquarius.annotation.Guide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.jaquarius.annotation.Guide;
+import tech.intellispaces.jaquarius.annotation.Mapper;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
