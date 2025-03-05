@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.rdb.annotation.processor;
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
-import tech.intellispaces.ixora.rdb.transaction.TransactionHandle;
+import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.Ontology;
@@ -43,7 +43,7 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
     addImport(Guide.class);
     addImport(Mapper.class);
-    addImport(TransactionHandle.class);
+    addImport(Transaction.class);
 
     entityHandleSimpleName = addImportAndGetSimpleName(
         EntityAnnotationFunctions.getEntityHandleCanonicalName(sourceArtifact())

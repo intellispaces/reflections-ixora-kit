@@ -4,7 +4,7 @@ import java.net.URI;
 
 public interface Uris {
 
-  static UriHandle get(String string) {
-    return new JavaUriHandleWrapper(URI.create(string));
+  static Uri get(String string) {
+    return new JavaUriWrapper(URI.create(string));
   }
 }

@@ -3,19 +3,20 @@ package tech.intellispaces.ixora.okhttp;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import tech.intellispaces.ixora.data.stream.ByteStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
-import tech.intellispaces.ixora.http.HttpStatusHandle;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
+import tech.intellispaces.ixora.http.HttpStatus;
 import tech.intellispaces.ixora.http.HttpStatuses;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.object.reference.UnmovableObjectHandle;
 
 @ObjectHandle(OkHttpResponseDomain.class)
-public abstract class OkHttpResponseHandleImpl implements UnmovableOkHttpResponseHandle {
+public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, UnmovableObjectHandle<OkHttpResponseDomain> {
   private final Response response;
-  private final MovableByteInputStreamHandle bodyStream;
+  private final MovableByteInputStream bodyStream;
 
-  OkHttpResponseHandleImpl(Response response) {
+  OkHttpResponseImpl(Response response) {
     this.response = response;
 
     ResponseBody body = response.body();
@@ -33,13 +34,13 @@ public abstract class OkHttpResponseHandleImpl implements UnmovableOkHttpRespons
 
   @Mapper
   @Override
-  public HttpStatusHandle status() {
+  public HttpStatus status() {
     return HttpStatuses.get(response.code());
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStreamHandle bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 }

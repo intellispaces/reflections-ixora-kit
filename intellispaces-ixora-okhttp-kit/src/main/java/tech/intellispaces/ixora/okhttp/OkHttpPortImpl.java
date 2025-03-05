@@ -4,9 +4,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
-import tech.intellispaces.ixora.http.HttpMethodHandle;
-import tech.intellispaces.ixora.http.HttpRequestHandle;
-import tech.intellispaces.ixora.http.HttpResponseHandle;
+import tech.intellispaces.ixora.http.HttpMethod;
+import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.http.exception.HttpExceptions;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
@@ -15,10 +15,10 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.io.IOException;
 
 @ObjectHandle(OkHttpPortDomain.class)
-public abstract class OkHttpPortHandleImpl implements MovableOkHttpPortHandle {
+public abstract class OkHttpPortImpl implements MovableOkHttpPort {
   private final OkHttpClient client;
 
-  public OkHttpPortHandleImpl(OkHttpClient client) {
+  public OkHttpPortImpl(OkHttpClient client) {
     this.client = client;
   }
 
@@ -28,7 +28,7 @@ public abstract class OkHttpPortHandleImpl implements MovableOkHttpPortHandle {
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(HttpRequestHandle request) throws HttpException {
+  public HttpResponse exchange(HttpRequest request) throws HttpException {
     Request req = buildRequest(request);
     try {
       Response res = client.newCall(req).execute();
@@ -38,10 +38,10 @@ public abstract class OkHttpPortHandleImpl implements MovableOkHttpPortHandle {
     }
   }
 
-  private Request buildRequest(HttpRequestHandle request) {
+  private Request buildRequest(HttpRequest request) {
     Request.Builder reqBuilder = new Request.Builder()
         .url(request.requestURI().toString());
-    HttpMethodHandle method = request.method();
+    HttpMethod method = request.method();
     if (method.isGetMethod()) {
       reqBuilder = reqBuilder.get();
     } else {

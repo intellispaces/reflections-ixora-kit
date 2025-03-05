@@ -9,9 +9,9 @@ import tech.intellispaces.commons.java.reflection.method.MethodParam;
 import tech.intellispaces.commons.java.reflection.method.MethodSignatureDeclarations;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
 import tech.intellispaces.commons.java.reflection.reference.TypeReference;
-import tech.intellispaces.ixora.data.collection.ListHandle;
-import tech.intellispaces.ixora.http.HttpRequestHandle;
-import tech.intellispaces.ixora.http.HttpResponseHandle;
+import tech.intellispaces.ixora.data.collection.List;
+import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.annotation.QueryParam;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
@@ -23,15 +23,14 @@ import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;
   private final CustomType ontology;
-  private final List<Map<String, Object>> guideMethods = new ArrayList<>();
-  private final List<Map<String, Object>> ontologyMethods = new ArrayList<>();
+  private final java.util.List<Map<String, Object>> guideMethods = new ArrayList<>();
+  private final java.util.List<Map<String, Object>> ontologyMethods = new ArrayList<>();
   private boolean needUriToQueryParamGuide = false;
 
   public HttpPortGuideGenerator(CustomType portDomain, CustomType ontology) {
@@ -87,13 +86,13 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
   private String buildGuideMethodSignature(MethodStatement method) {
     var sb = new StringBuilder();
-    sb.append(addImportAndGetSimpleName(HttpResponseHandle.class));
+    sb.append(addImportAndGetSimpleName(HttpResponse.class));
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ObjectHandleFunctions.getUndefinedPureObjectTypename(portDomain)));
     sb.append(" port, ");
-    sb.append(addImportAndGetSimpleName(HttpRequestHandle.class));
+    sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
     sb.append(addImportAndGetSimpleName(HttpException.class));
     return sb.toString();
@@ -126,8 +125,8 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
   private Map<String, Object> buildMethod(MethodStatement method) {
     String signature = MethodSignatureDeclarations.build(method)
-        .paramDeclarationMapper(this::getGeneralObjectHandleDeclaration)
-        .returnType(getGeneralObjectHandleDeclaration(method.returnType().orElseThrow()))
+        .paramDeclarationMapper(this::getUndefinedPureObjectDeclaration)
+        .returnType(getUndefinedPureObjectDeclaration(method.returnType().orElseThrow()))
         .get(this::addImport, this::addImportAndGetSimpleName);
 
     Map<String, Object> map = new HashMap<>();
@@ -135,8 +134,8 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     return map;
   }
 
-  private String getGeneralObjectHandleDeclaration(TypeReference domain) {
-    return ObjectHandleFunctions.getGeneralObjectHandleDeclaration(domain, true, this::addImportAndGetSimpleName);
+  private String getUndefinedPureObjectDeclaration(TypeReference domain) {
+    return ObjectHandleFunctions.geUndefinedPureObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {
@@ -156,7 +155,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   protected Function<MethodParam, String> getMethodArgumentExtractorDeclarationMapper(MethodParam param) {
-    if (param.type().isCustomTypeReference() && HttpRequestHandle.class.getCanonicalName().equals(
+    if (param.type().isCustomTypeReference() && HttpRequest.class.getCanonicalName().equals(
         param.type().asCustomTypeReferenceOrElseThrow().targetClass().getCanonicalName())
     ) {
       return this::buildMethodArgumentExtractorDeclarationEmpty;
@@ -168,7 +167,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   protected Function<MethodParam, String> getMethodArgumentValueDeclarationMapper(MethodParam param) {
-    if (param.type().isCustomTypeReference() && HttpRequestHandle.class.getCanonicalName().equals(
+    if (param.type().isCustomTypeReference() && HttpRequest.class.getCanonicalName().equals(
         param.type().asCustomTypeReferenceOrElseThrow().targetClass().getCanonicalName())
     ) {
       return this::buildMethodArgumentValueDeclarationDirect;
@@ -188,7 +187,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     includeUriToQueryParamGuide();
 
     StringBuilder sb = new StringBuilder();
-    sb.append(addImportAndGetSimpleName(ListHandle.class));
+    sb.append(addImportAndGetSimpleName(List.class));
     sb.append("<String> ");
     sb.append(valuesVariable);
     sb.append(" = getUriQueryParamGuide().map(request.requestURI(), \"");

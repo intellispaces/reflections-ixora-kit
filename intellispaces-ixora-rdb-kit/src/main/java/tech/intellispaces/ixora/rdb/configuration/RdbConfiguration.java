@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.rdb.configuration;
 
-import tech.intellispaces.ixora.rdb.datasource.DataSourceSettingsHandle;
-import tech.intellispaces.ixora.rdb.datasource.MovableDataSourceHandle;
+import tech.intellispaces.ixora.rdb.datasource.DataSourceSettings;
+import tech.intellispaces.ixora.rdb.datasource.MovableDataSource;
 import tech.intellispaces.ixora.rdb.query.CastStringToParameterizedNamedQueryGuideImpl;
 import tech.intellispaces.ixora.rdb.statement.ResultSetToDataGuideImpl;
-import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactoryHandle;
-import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryHandleOverDataSourceWrapper;
+import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactory;
+import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryOverDataSourceWrapper;
 import tech.intellispaces.jaquarius.annotation.Configuration;
 import tech.intellispaces.jaquarius.annotation.Projection;
 import tech.intellispaces.jaquarius.annotation.Properties;
@@ -21,13 +21,13 @@ public abstract class RdbConfiguration {
    */
   @Projection
   @Properties("datasource")
-  public abstract DataSourceSettingsHandle dataSourceSettings();
+  public abstract DataSourceSettings dataSourceSettings();
 
   /**
    * Transaction factory.
    */
   @Projection
-  public MovableTransactionFactoryHandle transactionFactory(MovableDataSourceHandle dataSource) {
-    return new TransactionFactoryHandleOverDataSourceWrapper(dataSource);
+  public MovableTransactionFactory transactionFactory(MovableDataSource dataSource) {
+    return new TransactionFactoryOverDataSourceWrapper(dataSource);
   }
 }

@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -13,7 +13,7 @@ public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToP
 
   @Mapper
   @Override
-  public ListHandle<String> splitUriPathStringToParts(String uriPath) {
+  public List<String> splitUriPathStringToParts(String uriPath) {
     if (uriPath == null) {
       return null;
     }

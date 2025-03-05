@@ -5,6 +5,7 @@ import org.assertj.core.api.Fail;
 import tech.intellispaces.commons.base.collection.ArraysFunctions;
 import tech.intellispaces.ixora.internet.uri.Uris;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -16,37 +17,37 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link OutboundHttpPortHandle} implementations.
+ * Tests for {@link OutboundHttpPort} implementations.
  */
 public abstract class OutboundHttpPortTest {
   private static final String TEST_ADDRESS = "http://localhost";
   private static final String HELLO_ENDPOINT = "/hello";
   private static final String HELLO_RESPONSE = "Hello!";
 
-  protected abstract MovableOutboundHttpPortHandle getPort();
+  protected abstract MovableOutboundHttpPort getPort();
 
   public void testHello() {
     HttpServer server = null;
-    HttpResponseHandle response = null;
+    HttpResponse response = null;
     try {
       // Given
       server = getServer();
       server.start();
 
-      HttpMethodHandle methodHandle = mock(HttpMethodHandle.class);
+      HttpMethod methodHandle = mock(HttpMethod.class);
       when(methodHandle.isGetMethod()).thenReturn(true);
 
-      HttpRequestHandle requestHandle = mock(HttpRequestHandle.class);
+      HttpRequest requestHandle = mock(HttpRequest.class);
       when(requestHandle.method()).thenReturn(methodHandle);
       when(requestHandle.requestURI()).thenReturn(Uris.get(TEST_ADDRESS + HELLO_ENDPOINT));
 
-      MovableOutboundHttpPortHandle port = getPort();
+      MovableOutboundHttpPort port = getPort();
 
       // When
       response = port.exchange(requestHandle);
 
       // Then
-      HttpStatusHandle status = response.status();
+      HttpStatus status = response.status();
       assertThat(status.isOkStatus()).isTrue();
 
       byte[] body = ArraysFunctions.toByteArray(response.bodyStream().readAll().nativeList());
@@ -54,7 +55,7 @@ public abstract class OutboundHttpPortTest {
     } catch (Exception e) {
       Fail.fail("Unexpected exception", e);
     } finally {
-      ObjectHandleFunctions.releaseSilently(response);
+      ObjectHandleFunctions.releaseSilently(ObjectHandles.handle(response));
       if (server != null) {
         server.stop(0);
       }

@@ -8,19 +8,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @ObjectHandle(StatementDomain.class)
-abstract class JavaStatementHandle implements MovableStatementHandle {
+abstract class JavaStatement implements MovableStatement {
   private final Statement statement;
 
-  JavaStatementHandle(Statement statement) {
+  JavaStatement(Statement statement) {
     this.statement = statement;
   }
 
   @Mapper
   @Override
-  public MovableResultSetHandle executeQuery(String query) {
+  public MovableResultSet executeQuery(String query) {
     try {
       java.sql.ResultSet rs = statement.executeQuery(query);
-      return new JavaResultSetHandleWrapper(rs);
+      return new JavaResultSetWrapper(rs);
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not execute query {0}", query);
     }

@@ -4,20 +4,21 @@ import tech.intellispaces.commons.base.type.Type;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.object.reference.UnmovableObjectHandle;
 
 import java.util.List;
 
 @ObjectHandle(ListDomain.class)
-abstract class JavaListHandle<E> implements UnmovableListHandle<E> {
+abstract class JavaList<E> implements UnmovableList<E>, UnmovableObjectHandle<ListDomain<E>> {
   private final List<E> list;
   private final Type<E> elementType;
 
-  JavaListHandle(List<E> list, Class<E> elementClass) {
+  JavaList(List<E> list, Class<E> elementClass) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = Types.get(elementClass);
   }
 
-  JavaListHandle(List<E> list, Type<E> elementType) {
+  JavaList(List<E> list, Type<E> elementType) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = elementType;
   }
@@ -28,7 +29,7 @@ abstract class JavaListHandle<E> implements UnmovableListHandle<E> {
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<E> asCollection() {
+  public UnmovableCollection<E> asCollection() {
     return Collections.of(list, elementType);
   }
 

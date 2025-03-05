@@ -12,14 +12,14 @@ import {{$importedClass}};
 @ObjectHandle({{$sourceArtifactSimpleName}}.class)
 {{$generatedAnnotation}}
 public abstract class {{$generatedArtifactSimpleName}} implements {{$movableHandleSimpleName}} {
-  private final MovableInboundHttpPortHandle operativePort;
+  private final MovableInboundHttpPort operativePort;
   private final Reference<?> reference = HttpPortEngines.get().bridge(this, {{$sourceArtifactSimpleName}}.class);
 
-  public {{$generatedArtifactSimpleName}}(MovableInboundHttpPortHandle operativePort) {
+  public {{$generatedArtifactSimpleName}}(MovableInboundHttpPort operativePort) {
     this.operativePort = operativePort;
   }
 
-  public MovableInboundHttpPortHandle getOperativePort() {
+  public MovableInboundHttpPort getOperativePort() {
     return operativePort;
   }
 
@@ -39,7 +39,7 @@ public abstract class {{$generatedArtifactSimpleName}} implements {{$movableHand
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(HttpRequestHandle request) throws HttpException {
+  public HttpResponse exchange(HttpRequest request) throws HttpException {
     return HttpPortEngines.get().exchange(reference, request);
   }
 }

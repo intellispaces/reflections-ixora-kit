@@ -11,7 +11,7 @@ public interface Cursors {
    * @return created cursor.
    * @param <E> collection elements type.
    */
-  static <E> CursorHandle<E> get(CollectionDomain<E> collection) {
+  static <E> Cursor<E> get(CollectionDomain<E> collection) {
     throw new RuntimeException("Not implemented");
   }
 }

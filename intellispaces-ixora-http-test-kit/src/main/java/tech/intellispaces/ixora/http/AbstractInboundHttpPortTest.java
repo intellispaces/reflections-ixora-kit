@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.http;
 
+import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
 import tech.intellispaces.jaquarius.system.Modules;
 
 import java.net.URI;
@@ -12,7 +13,7 @@ public abstract class AbstractInboundHttpPortTest {
 
   private static final int PORT_NUMBER = 8080;
 
-  public abstract MovableInboundHttpPortHandle getOperativePort(
+  public abstract MovableInboundHttpPort getOperativePort(
       int portNumber, Class<? extends HttpPortExchangeChannel> exchangeChannel
   );
 
@@ -25,9 +26,9 @@ public abstract class AbstractInboundHttpPortTest {
   }
 
   public void testHello() throws Exception {
-    MovableInboundHttpPortHandle operativePort = getOperativePort(PORT_NUMBER, TestPortExchangeChannel.class);
-    MovableTestPortHandle logicalPort = TestPorts.get(operativePort);
-    operativePort.addProjection(TestPortDomain.class, logicalPort);
+    MovableInboundHttpPort operativePort = getOperativePort(PORT_NUMBER, TestPortExchangeChannel.class);
+    MovableTestPort logicalPort = TestPorts.get(operativePort);
+    ObjectHandles.handle(operativePort).addProjection(TestPortDomain.class, logicalPort);
 
     operativePort.open();
 

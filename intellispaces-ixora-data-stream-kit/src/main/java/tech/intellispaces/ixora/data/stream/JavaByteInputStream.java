@@ -4,22 +4,23 @@ import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.base.type.Type;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
+import tech.intellispaces.ixora.data.collection.UnmovableByteList;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
+import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @ObjectHandle(ByteInputStreamDomain.class)
-abstract class JavaByteInputStreamHandle implements MovableByteInputStreamHandle {
+abstract class JavaByteInputStream implements MovableByteInputStream, MovableObjectHandle<ByteInputStreamDomain> {
   private final InputStream is;
   private int buffer;
   private boolean buffered;
 
-  JavaByteInputStreamHandle(InputStream is) {
+  JavaByteInputStream(InputStream is) {
     this.is = is;
   }
 
@@ -64,13 +65,13 @@ abstract class JavaByteInputStreamHandle implements MovableByteInputStreamHandle
 
   @Override
   @MapperOfMoving
-  public UnmovableByteListHandle readMultiple(int number) {
+  public UnmovableByteList readMultiple(int number) {
     return Lists.ofBytes(nextBytes(number));
   }
 
   @Override
   @MapperOfMoving
-  public UnmovableByteListHandle readAll() {
+  public UnmovableByteList readAll() {
     return Lists.ofBytes(allBytes());
   }
 

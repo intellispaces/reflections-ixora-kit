@@ -12,8 +12,8 @@ public interface Collections {
    * @return handle to collection.
    * @param <E> element type.
    */
-  static <E> UnmovableCollectionHandle<E> of(java.util.List<E> list, Class<E> elementClass) {
-    return new JavaCollectionHandleWrapper<>(list, elementClass);
+  static <E> UnmovableCollection<E> of(java.util.List<E> list, Class<E> elementClass) {
+    return new JavaCollectionWrapper<>(list, elementClass);
   }
 
   /**
@@ -24,7 +24,7 @@ public interface Collections {
    * @return handle to collection.
    * @param <E> element type.
    */
-  static <E> UnmovableCollectionHandle<E> of(java.util.List<E> list, Type<E> elementType) {
-    return new JavaCollectionHandleWrapper<>(list, elementType);
+  static <E> UnmovableCollection<E> of(java.util.List<E> list, Type<E> elementType) {
+    return new JavaCollectionWrapper<>(list, elementType);
   }
 }

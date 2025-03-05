@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.ixora.data.stream.ByteStreams;
-import tech.intellispaces.ixora.data.stream.InputDataStreamHandle;
+import tech.intellispaces.ixora.data.stream.InputDataStream;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
-import tech.intellispaces.ixora.internet.uri.UriHandle;
+import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.ixora.internet.uri.Uris;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -12,11 +12,11 @@ import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(DedicatedHttpPortDomain.class)
-public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHttpPortHandle {
+public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort {
   private final String baseUrl;
-  private final MovableHttpPortHandle underlyingPort;
+  private final MovableHttpPort underlyingPort;
 
-  public DedicatedHttpPortHandleImpl(String baseUrl, MovableHttpPortHandle underlyingPort) {
+  public DedicatedHttpPortImpl(String baseUrl, MovableHttpPort underlyingPort) {
     this.baseUrl = baseUrl;
     this.underlyingPort = underlyingPort;
   }
@@ -25,7 +25,7 @@ public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHtt
     return baseUrl;
   }
 
-  public MovableHttpPortHandle getUnderlyingPort() {
+  public MovableHttpPort getUnderlyingPort() {
     return underlyingPort;
   }
 
@@ -34,9 +34,7 @@ public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHtt
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(
-      String endpoint, HttpMethodHandle method
-  ) throws HttpException {
+  public HttpResponse exchange(String endpoint, HttpMethod method) throws HttpException {
     return exchange(
         endpoint,
         method,
@@ -47,14 +45,14 @@ public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHtt
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(
+  public HttpResponse exchange(
       String endpoint,
-      HttpMethodHandle method,
-      HttpHeaderListHandle headers,
-      InputDataStreamHandle<Byte> body
+      HttpMethod method,
+      HttpHeaderList headers,
+      InputDataStream<Byte> body
   ) throws HttpException {
-    UriHandle uri = Uris.get(joinUrlGuide().map(baseUrl, endpoint));
-    HttpRequestHandle request = HttpRequests.get(method, uri);
+    Uri uri = Uris.get(joinUrlGuide().map(baseUrl, endpoint));
+    HttpRequest request = HttpRequests.get(method, uri);
     return underlyingPort.exchange(request);
   }
 

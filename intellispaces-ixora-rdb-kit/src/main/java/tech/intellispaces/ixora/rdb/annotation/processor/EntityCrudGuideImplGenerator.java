@@ -7,11 +7,11 @@ import tech.intellispaces.commons.base.text.StringFunctions;
 import tech.intellispaces.commons.base.type.Types;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
-import tech.intellispaces.ixora.data.association.MapHandle;
+import tech.intellispaces.ixora.data.association.Map;
 import tech.intellispaces.ixora.data.association.Maps;
 import tech.intellispaces.ixora.rdb.annotation.Transactional;
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.ixora.rdb.transaction.TransactionHandle;
+import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.ixora.rdb.transaction.Transactions;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Ontology;
@@ -55,8 +55,8 @@ public class EntityCrudGuideImplGenerator extends JaquariusArtifactGenerator {
     addImport(Maps.class);
     addImport(Guide.class);
     addImport(Transactional.class);
-    addImport(TransactionHandle.class);
-    addImport(MapHandle.class);
+    addImport(Transaction.class);
+    addImport(Map.class);
     addImport(Transactions.class);
 
     guideType = addImportAndGetSimpleName(EntityAnnotationFunctions.getCrudGuideCanonicalName(sourceArtifact()));

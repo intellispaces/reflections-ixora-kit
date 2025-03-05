@@ -1,20 +1,20 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.ixora.data.stream.DataStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
-import tech.intellispaces.ixora.internet.uri.UriHandle;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
+import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.io.InputStream;
 
 @ObjectHandle(HttpRequestDomain.class)
-abstract class HttpRequestHandleImpl implements UnmovableHttpRequestHandle {
-  private final HttpMethodHandle method;
-  private final UriHandle requestURI;
-  private final MovableByteInputStreamHandle bodyStream;
+abstract class HttpRequestImpl implements UnmovableHttpRequest {
+  private final HttpMethod method;
+  private final Uri requestURI;
+  private final MovableByteInputStream bodyStream;
 
-  HttpRequestHandleImpl(HttpMethodHandle method, UriHandle requestURI) {
+  HttpRequestImpl(HttpMethod method, Uri requestURI) {
     this.method = method;
     this.requestURI = requestURI;
     this.bodyStream = DataStreams.get(InputStream.nullInputStream());
@@ -22,18 +22,18 @@ abstract class HttpRequestHandleImpl implements UnmovableHttpRequestHandle {
 
   @Mapper
   @Override
-  public UriHandle requestURI() {
+  public Uri requestURI() {
     return this.requestURI;
   }
 
   @Mapper
   @Override
-  public HttpMethodHandle method() {
+  public HttpMethod method() {
     return this.method;
   }
 
   @Override
-  public MovableByteInputStreamHandle bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 }

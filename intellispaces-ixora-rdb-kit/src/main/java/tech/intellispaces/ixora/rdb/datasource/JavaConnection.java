@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.rdb.datasource;
 
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.ixora.rdb.statement.JavaPreparedStatementHandleWrapper;
-import tech.intellispaces.ixora.rdb.statement.JavaStatementHandleWrapper;
-import tech.intellispaces.ixora.rdb.statement.MovablePreparedStatementHandle;
-import tech.intellispaces.ixora.rdb.statement.MovableStatementHandle;
+import tech.intellispaces.ixora.rdb.statement.JavaPreparedStatementWrapper;
+import tech.intellispaces.ixora.rdb.statement.JavaStatementWrapper;
+import tech.intellispaces.ixora.rdb.statement.MovablePreparedStatement;
+import tech.intellispaces.ixora.rdb.statement.MovableStatement;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
@@ -12,18 +12,18 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.sql.SQLException;
 
 @ObjectHandle(ConnectionDomain.class)
-abstract class JavaConnectionHandle implements MovableConnectionHandle {
+abstract class JavaConnection implements MovableConnection {
   private final java.sql.Connection connection;
 
-  JavaConnectionHandle(java.sql.Connection connection) {
+  JavaConnection(java.sql.Connection connection) {
     this.connection = connection;
   }
 
   @Override
   @MapperOfMoving
-  public MovableStatementHandle createStatement() {
+  public MovableStatement createStatement() {
     try {
-      return new JavaStatementHandleWrapper(connection.createStatement());
+      return new JavaStatementWrapper(connection.createStatement());
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not create statement");
     }
@@ -31,9 +31,9 @@ abstract class JavaConnectionHandle implements MovableConnectionHandle {
 
   @Override
   @MapperOfMoving
-  public MovablePreparedStatementHandle createPreparedStatement(String query) {
+  public MovablePreparedStatement createPreparedStatement(String query) {
     try {
-      return new JavaPreparedStatementHandleWrapper(connection.prepareStatement(query));
+      return new JavaPreparedStatementWrapper(connection.prepareStatement(query));
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not create statement");
     }
@@ -41,7 +41,7 @@ abstract class JavaConnectionHandle implements MovableConnectionHandle {
 
   @Mover
   @Override
-  public MovableConnectionHandle disableAutoCommit() {
+  public MovableConnection disableAutoCommit() {
     try {
       connection.setAutoCommit(false);
     } catch (SQLException e) {
@@ -52,7 +52,7 @@ abstract class JavaConnectionHandle implements MovableConnectionHandle {
 
   @Mover
   @Override
-  public MovableConnectionHandle commit() {
+  public MovableConnection commit() {
     try {
       connection.commit();
     } catch (SQLException e) {
@@ -63,7 +63,7 @@ abstract class JavaConnectionHandle implements MovableConnectionHandle {
 
   @Mover
   @Override
-  public MovableConnectionHandle rollback() {
+  public MovableConnection rollback() {
     try {
       connection.rollback();
     } catch (SQLException e) {
@@ -74,7 +74,7 @@ abstract class JavaConnectionHandle implements MovableConnectionHandle {
 
   @Mover
   @Override
-  public MovableConnectionHandle close() {
+  public MovableConnection close() {
     try {
       connection.close();
     } catch (SQLException e) {

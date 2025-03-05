@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.internet.uri;
 import tech.intellispaces.commons.base.data.Pair;
 import tech.intellispaces.commons.base.data.Pairs;
 import tech.intellispaces.commons.base.text.StringFunctions;
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -17,7 +17,7 @@ public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {
 
   @Mapper
   @Override
-  public ListHandle<String> getUriQueryParam(UriHandle uri, String paramName) {
+  public List<String> getUriQueryParam(Uri uri, String paramName) {
     if (uri == null || paramName == null) {
       return Lists.empty(String.class);
     }

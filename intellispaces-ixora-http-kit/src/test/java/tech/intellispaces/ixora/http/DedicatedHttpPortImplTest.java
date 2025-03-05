@@ -12,9 +12,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link DedicatedHttpPortHandleImpl} class.
+ * Tests for {@link DedicatedHttpPortImpl} class.
  */
-public class DedicatedHttpPortHandleImplTest {
+public class DedicatedHttpPortImplTest {
 
   @BeforeEach
   public void init() {
@@ -29,29 +29,29 @@ public class DedicatedHttpPortHandleImplTest {
   @Test
   public void test() {
     // Given
-    HttpMethodHandle httpGetMethod = HttpMethods.get();
-    HttpMethodHandle httpPostMethod = HttpMethods.post();
+    HttpMethod httpGetMethod = HttpMethods.get();
+    HttpMethod httpPostMethod = HttpMethods.post();
 
-    MovableHttpPortHandle underlyingPort = mock(MovableHttpPortHandle.class);
+    MovableHttpPort underlyingPort = mock(MovableHttpPort.class);
 
-    HttpResponseHandle response1 = mock(HttpResponseHandle.class);
+    HttpResponse response1 = mock(HttpResponse.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpGetMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response1);
 
-    HttpResponseHandle response2 = mock(HttpResponseHandle.class);
+    HttpResponse response2 = mock(HttpResponse.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpPostMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response2);
 
     String baseUrl = "http:localhost:8080/api";
-    var dedicatedHttpPort = new DedicatedHttpPortHandleImplWrapper(baseUrl, underlyingPort);
+    var dedicatedHttpPort = new DedicatedHttpPortImplWrapper(baseUrl, underlyingPort);
 
     // When
-    HttpResponseHandle actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);
-    HttpResponseHandle actualResponse2 = dedicatedHttpPort.exchange("test", httpPostMethod);
+    HttpResponse actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);
+    HttpResponse actualResponse2 = dedicatedHttpPort.exchange("test", httpPostMethod);
 
     // Then
     assertThat(actualResponse1).isSameAs(response1);

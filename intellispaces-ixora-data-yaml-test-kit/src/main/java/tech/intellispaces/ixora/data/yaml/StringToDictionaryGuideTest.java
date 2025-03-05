@@ -3,8 +3,8 @@ package tech.intellispaces.ixora.data.yaml;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.ixora.data.association.PropertiesHandle;
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.association.Properties;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.jaquarius.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,7 +32,7 @@ public abstract class StringToDictionaryGuideTest {
     String yaml = "";
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -49,7 +49,7 @@ public abstract class StringToDictionaryGuideTest {
         """;
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -77,7 +77,7 @@ public abstract class StringToDictionaryGuideTest {
         """;
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -88,10 +88,10 @@ public abstract class StringToDictionaryGuideTest {
     assertThat(properties.integer32List("values").get(1)).isEqualTo(2);
     assertThat(properties.integer32List("values").get(2)).isEqualTo(3);
 
-    assertThat(((ListHandle<Integer>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((ListHandle<Integer>) properties.value("values")).get(0)).isEqualTo(1);
-    assertThat(((ListHandle<Integer>) properties.value("values")).get(1)).isEqualTo(2);
-    assertThat(((ListHandle<Integer>) properties.value("values")).get(2)).isEqualTo(3);
+    assertThat(((List<Integer>) properties.value("values")).size()).isEqualTo(3);
+    assertThat(((List<Integer>) properties.value("values")).get(0)).isEqualTo(1);
+    assertThat(((List<Integer>) properties.value("values")).get(1)).isEqualTo(2);
+    assertThat(((List<Integer>) properties.value("values")).get(2)).isEqualTo(3);
   }
 
   @Test
@@ -106,7 +106,7 @@ public abstract class StringToDictionaryGuideTest {
         """;
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -117,10 +117,10 @@ public abstract class StringToDictionaryGuideTest {
     assertThat(properties.float64List("values").get(1)).isEqualTo(2.2);
     assertThat(properties.float64List("values").get(2)).isEqualTo(3.3);
 
-    assertThat(((ListHandle<Double>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((ListHandle<Double>) properties.value("values")).get(0)).isEqualTo(1.1);
-    assertThat(((ListHandle<Double>) properties.value("values")).get(1)).isEqualTo(2.2);
-    assertThat(((ListHandle<Double>) properties.value("values")).get(2)).isEqualTo(3.3);
+    assertThat(((List<Double>) properties.value("values")).size()).isEqualTo(3);
+    assertThat(((List<Double>) properties.value("values")).get(0)).isEqualTo(1.1);
+    assertThat(((List<Double>) properties.value("values")).get(1)).isEqualTo(2.2);
+    assertThat(((List<Double>) properties.value("values")).get(2)).isEqualTo(3.3);
   }
 
   @Test
@@ -135,7 +135,7 @@ public abstract class StringToDictionaryGuideTest {
         """;
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();
@@ -146,10 +146,10 @@ public abstract class StringToDictionaryGuideTest {
     assertThat(properties.stringList("values").get(1)).isEqualTo("b");
     assertThat(properties.stringList("values").get(2)).isEqualTo("c");
 
-    assertThat(((ListHandle<String>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((ListHandle<String>) properties.value("values")).get(0)).isEqualTo("a");
-    assertThat(((ListHandle<String>) properties.value("values")).get(1)).isEqualTo("b");
-    assertThat(((ListHandle<String>) properties.value("values")).get(2)).isEqualTo("c");
+    assertThat(((List<String>) properties.value("values")).size()).isEqualTo(3);
+    assertThat(((List<String>) properties.value("values")).get(0)).isEqualTo("a");
+    assertThat(((List<String>) properties.value("values")).get(1)).isEqualTo("b");
+    assertThat(((List<String>) properties.value("values")).get(2)).isEqualTo("c");
   }
 
   @Test
@@ -162,7 +162,7 @@ public abstract class StringToDictionaryGuideTest {
         """;
 
     // When
-    PropertiesHandle properties = guide().yamlStringToProperties(yaml);
+    Properties properties = guide().yamlStringToProperties(yaml);
 
     // Then
     assertThat(properties).isNotNull();

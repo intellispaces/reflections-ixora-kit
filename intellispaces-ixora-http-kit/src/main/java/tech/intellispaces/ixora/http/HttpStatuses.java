@@ -4,55 +4,55 @@ import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 
 public final class HttpStatuses {
 
-  public static HttpStatusHandleImpl ok() {
+  public static HttpStatusImpl ok() {
     return STATUS_OK;
   }
 
-  public static HttpStatusHandleImpl created() {
+  public static HttpStatusImpl created() {
     return STATUS_CREATED;
   }
 
-  public static HttpStatusHandleImpl accepted() {
+  public static HttpStatusImpl accepted() {
     return STATUS_ACCEPTED;
   }
 
-  public static HttpStatusHandleImpl noContent() {
+  public static HttpStatusImpl noContent() {
     return STATUS_NO_CONTENT;
   }
 
-  public static HttpStatusHandleImpl movedPermanently() {
+  public static HttpStatusImpl movedPermanently() {
     return STATUS_MOVED_PERMANENTLY;
   }
 
-  public static HttpStatusHandleImpl notModified() {
+  public static HttpStatusImpl notModified() {
     return STATUS_NOT_MODIFIED;
   }
 
-  public static HttpStatusHandleImpl badRequest() {
+  public static HttpStatusImpl badRequest() {
     return STATUS_BAD_REQUEST;
   }
 
-  public static HttpStatusHandleImpl unauthorized() {
+  public static HttpStatusImpl unauthorized() {
     return STATUS_UNAUTHORIZED;
   }
 
-  public static HttpStatusHandleImpl forbidden() {
+  public static HttpStatusImpl forbidden() {
     return STATUS_FORBIDDEN;
   }
 
-  public static HttpStatusHandleImpl notFound() {
+  public static HttpStatusImpl notFound() {
     return STATUS_NOT_FOUND;
   }
 
-  public static HttpStatusHandleImpl notAcceptable() {
+  public static HttpStatusImpl notAcceptable() {
     return STATUS_NOT_ACCEPTABLE;
   }
 
-  public static HttpStatusHandleImpl internalServerError() {
+  public static HttpStatusImpl internalServerError() {
     return STATUS_INTERNAL_SERVER_ERROR;
   }
 
-  public static HttpStatusHandleImpl get(int code) {
+  public static HttpStatusImpl get(int code) {
     return switch (code) {
       case CODE_OK -> STATUS_OK;
       case CODE_CREATED -> STATUS_CREATED;
@@ -87,16 +87,16 @@ public final class HttpStatuses {
   private static final int CODE_NOT_ACCEPTABLE = 406;
   private static final int CODE_INTERNAL_SERVER_ERROR = 500;
 
-  private static final HttpStatusHandleImpl STATUS_OK = new HttpStatusHandleImplWrapper(CODE_OK);
-  private static final HttpStatusHandleImpl STATUS_CREATED = new HttpStatusHandleImplWrapper(CODE_CREATED);
-  private static final HttpStatusHandleImpl STATUS_ACCEPTED = new HttpStatusHandleImplWrapper(CODE_ACCEPTED);
-  private static final HttpStatusHandleImpl STATUS_NO_CONTENT = new HttpStatusHandleImplWrapper(CODE_NO_CONTENT);
-  private static final HttpStatusHandleImpl STATUS_MOVED_PERMANENTLY = new HttpStatusHandleImplWrapper(CODE_MOVED_PERMANENTLY);
-  private static final HttpStatusHandleImpl STATUS_NOT_MODIFIED = new HttpStatusHandleImplWrapper(CODE_NOT_MODIFIED);
-  private static final HttpStatusHandleImpl STATUS_BAD_REQUEST = new HttpStatusHandleImplWrapper(CODE_BAD_REQUEST);
-  private static final HttpStatusHandleImpl STATUS_UNAUTHORIZED = new HttpStatusHandleImplWrapper(CODE_UNAUTHORIZED);
-  private static final HttpStatusHandleImpl STATUS_FORBIDDEN = new HttpStatusHandleImplWrapper(CODE_FORBIDDEN);
-  private static final HttpStatusHandleImpl STATUS_NOT_FOUND = new HttpStatusHandleImplWrapper(CODE_NOT_FOUND);
-  private static final HttpStatusHandleImpl STATUS_NOT_ACCEPTABLE = new HttpStatusHandleImplWrapper(CODE_NOT_ACCEPTABLE);
-  private static final HttpStatusHandleImpl STATUS_INTERNAL_SERVER_ERROR = new HttpStatusHandleImplWrapper(CODE_INTERNAL_SERVER_ERROR);
+  private static final HttpStatusImpl STATUS_OK = new HttpStatusImplWrapper(CODE_OK);
+  private static final HttpStatusImpl STATUS_CREATED = new HttpStatusImplWrapper(CODE_CREATED);
+  private static final HttpStatusImpl STATUS_ACCEPTED = new HttpStatusImplWrapper(CODE_ACCEPTED);
+  private static final HttpStatusImpl STATUS_NO_CONTENT = new HttpStatusImplWrapper(CODE_NO_CONTENT);
+  private static final HttpStatusImpl STATUS_MOVED_PERMANENTLY = new HttpStatusImplWrapper(CODE_MOVED_PERMANENTLY);
+  private static final HttpStatusImpl STATUS_NOT_MODIFIED = new HttpStatusImplWrapper(CODE_NOT_MODIFIED);
+  private static final HttpStatusImpl STATUS_BAD_REQUEST = new HttpStatusImplWrapper(CODE_BAD_REQUEST);
+  private static final HttpStatusImpl STATUS_UNAUTHORIZED = new HttpStatusImplWrapper(CODE_UNAUTHORIZED);
+  private static final HttpStatusImpl STATUS_FORBIDDEN = new HttpStatusImplWrapper(CODE_FORBIDDEN);
+  private static final HttpStatusImpl STATUS_NOT_FOUND = new HttpStatusImplWrapper(CODE_NOT_FOUND);
+  private static final HttpStatusImpl STATUS_NOT_ACCEPTABLE = new HttpStatusImplWrapper(CODE_NOT_ACCEPTABLE);
+  private static final HttpStatusImpl STATUS_INTERNAL_SERVER_ERROR = new HttpStatusImplWrapper(CODE_INTERNAL_SERVER_ERROR);
 }

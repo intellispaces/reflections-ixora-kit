@@ -9,16 +9,16 @@ import java.util.Arrays;
 import java.util.List;
 
 @ObjectHandle(Integer32ListDomain.class)
-abstract class IntegerListHandleOverArray implements UnmovableInteger32ListHandle {
+abstract class IntegerListOverArray implements UnmovableInteger32List {
   private final int[] array;
   private final Type<Integer> elementType = Types.get(Integer.class);
   private List<Integer> list;
 
-  IntegerListHandleOverArray(int[] array) {
+  IntegerListOverArray(int[] array) {
     this.array = array;
   }
 
-  IntegerListHandleOverArray(List<Integer> list) {
+  IntegerListOverArray(List<Integer> list) {
     this.array = list.stream().mapToInt(i -> i).toArray();
     this.list = list;
   }
@@ -29,8 +29,8 @@ abstract class IntegerListHandleOverArray implements UnmovableInteger32ListHandl
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<Integer> asCollection() {
-    return new JavaCollectionHandleWrapper<>(nativeList(), elementType);
+  public UnmovableCollection<Integer> asCollection() {
+    return new JavaCollectionWrapper<>(nativeList(), elementType);
   }
 
   @Mapper

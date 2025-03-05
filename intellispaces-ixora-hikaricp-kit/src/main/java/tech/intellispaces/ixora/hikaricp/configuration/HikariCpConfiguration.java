@@ -1,9 +1,10 @@
 package tech.intellispaces.ixora.hikaricp.configuration;
 
-import tech.intellispaces.ixora.hikaricp.datasource.HikariDataSourceFactoryHandleImplWrapper;
-import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactoryHandle;
-import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettingsHandle;
-import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceHandle;
+import tech.intellispaces.ixora.hikaricp.datasource.HikariDataSourceFactoryHandleWrapper;
+import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactory;
+import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
+import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
+import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceFactory;
 import tech.intellispaces.jaquarius.annotation.Configuration;
 import tech.intellispaces.jaquarius.annotation.Projection;
 import tech.intellispaces.jaquarius.annotation.Properties;
@@ -13,21 +14,18 @@ public abstract class HikariCpConfiguration {
 
   @Projection
   @Properties("datasource")
-  public abstract HikariDataSourceSettingsHandle hikariDataSourceSettings();
+  public abstract HikariDataSourceSettings hikariDataSourceSettings();
 
   @Projection
-  public HikariDataSourceFactoryHandle hikariDataSourceFactory() {
-    return new HikariDataSourceFactoryHandleImplWrapper();
+  public HikariDataSourceFactory hikariDataSourceFactory() {
+    return new HikariDataSourceFactoryHandleWrapper();
   }
 
   @Projection
-  public MovableHikariDataSourceHandle dataSource(
-      HikariDataSourceFactoryHandle hikariDataSourceFactory,
-      HikariDataSourceSettingsHandle hikariDataSourceSettings
+  public MovableHikariDataSource dataSource(
+      HikariDataSourceFactory hikariDataSourceFactory,
+      HikariDataSourceSettings hikariDataSourceSettings
   ) {
-    return hikariDataSourceFactory
-        .asMovableOrElseThrow()
-        .create(hikariDataSourceSettings)
-        .asMovableOrElseThrow();
+    return ((MovableHikariDataSourceFactory) hikariDataSourceFactory).create(hikariDataSourceSettings);
   }
 }

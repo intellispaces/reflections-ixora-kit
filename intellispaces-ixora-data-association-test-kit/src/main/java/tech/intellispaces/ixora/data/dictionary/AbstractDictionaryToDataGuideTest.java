@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.data.dictionary;
 
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.commons.base.type.Types;
-import tech.intellispaces.ixora.data.association.PropertiesHandle;
+import tech.intellispaces.ixora.data.association.Properties;
 import tech.intellispaces.ixora.data.association.PropertiesToDataGuide;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,10 +19,10 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
 
     // When
-    PrimitiveDataHandle data = getGuide().propertiesToData(dictionary, Types.get(PrimitiveDataHandle.class));
+    PrimitiveData data = getGuide().propertiesToData(dictionary, Types.get(PrimitiveData.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -33,10 +33,10 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testSimpleData_whenEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
 
     // When
-    SimpleDataHandle data = getGuide().propertiesToData(dictionary, Types.get(SimpleDataHandle.class));
+    SimpleData data = getGuide().propertiesToData(dictionary, Types.get(SimpleData.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -48,10 +48,10 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testNestedData_whenEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
 
     // When
-    NestedDataHandle data = getGuide().propertiesToData(dictionary, Types.get(NestedDataHandle.class));
+    NestedData data = getGuide().propertiesToData(dictionary, Types.get(NestedData.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -62,12 +62,12 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testPrimitiveData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
     when(dictionary.value("intValue")).thenReturn(1);
     when(dictionary.value("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveDataHandle data = getGuide().propertiesToData(dictionary, Types.get(PrimitiveDataHandle.class));
+    PrimitiveData data = getGuide().propertiesToData(dictionary, Types.get(PrimitiveData.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -78,13 +78,13 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testSimpleData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
     when(dictionary.value("intValue")).thenReturn(1);
     when(dictionary.value("doubleValue")).thenReturn(2.2);
     when(dictionary.value("stringValue")).thenReturn("abc");
 
     // When
-    SimpleDataHandle data = getGuide().propertiesToData(dictionary, Types.get(SimpleDataHandle.class));
+    SimpleData data = getGuide().propertiesToData(dictionary, Types.get(SimpleData.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -96,14 +96,14 @@ public abstract class AbstractDictionaryToDataGuideTest {
   @Test
   public void testNestedData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle dictionary = mock(PropertiesHandle.class);
-    PropertiesHandle nestedDictionary = mock(PropertiesHandle.class);
+    Properties dictionary = mock(Properties.class);
+    Properties nestedDictionary = mock(Properties.class);
     when(dictionary.value("stringValue")).thenReturn("abc");
     when(dictionary.value("nestedValue")).thenReturn(nestedDictionary);
     when(nestedDictionary.value("stringValue")).thenReturn("def");
 
     // When
-    NestedDataHandle data = getGuide().propertiesToData(dictionary, Types.get(NestedDataHandle.class));
+    NestedData data = getGuide().propertiesToData(dictionary, Types.get(NestedData.class));
 
     // Then
     assertThat(data).isNotNull();

@@ -9,16 +9,16 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
-abstract class ByteListHandleOverArray implements UnmovableByteListHandle {
+abstract class ByteListOverArray implements UnmovableByteList {
   private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;
 
-  ByteListHandleOverArray(byte[] array) {
+  ByteListOverArray(byte[] array) {
     this.array = array;
   }
 
-  ByteListHandleOverArray(List<Byte> list) {
+  ByteListOverArray(List<Byte> list) {
     this.array = ArraysFunctions.toByteArray(list);
     this.list = list;
   }
@@ -29,8 +29,8 @@ abstract class ByteListHandleOverArray implements UnmovableByteListHandle {
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<Byte> asCollection() {
-    return new JavaCollectionHandleWrapper<>(nativeList(), elementType);
+  public UnmovableCollection<Byte> asCollection() {
+    return new JavaCollectionWrapper<>(nativeList(), elementType);
   }
 
   @Mapper

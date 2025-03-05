@@ -4,11 +4,11 @@ import java.io.InputStream;
 
 public interface ByteStreams {
 
-  static MovableByteInputStreamHandle get(InputStream is) {
-    return new JavaByteInputStreamHandleWrapper(is);
+  static MovableByteInputStream get(InputStream is) {
+    return new JavaByteInputStreamWrapper(is);
   }
 
-  static MovableByteInputStreamHandle empty() {
+  static MovableByteInputStream empty() {
     return get(InputStream.nullInputStream());
   }
 }

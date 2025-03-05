@@ -4,9 +4,9 @@ import tech.intellispaces.commons.action.Action;
 import tech.intellispaces.commons.action.wrapper.AbstractWrapperAction;
 
 public class TransactionalAction extends AbstractWrapperAction {
-  private final MovableTransactionFactoryHandle transactionFactory;
+  private final MovableTransactionFactory transactionFactory;
 
-  public TransactionalAction(MovableTransactionFactoryHandle transactionFactory, Action wrappedAction) {
+  public TransactionalAction(MovableTransactionFactory transactionFactory, Action wrappedAction) {
     super(wrappedAction);
     this.transactionFactory = transactionFactory;
   }

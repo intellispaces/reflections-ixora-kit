@@ -6,7 +6,7 @@ import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.base.text.StringFunctions;
 import tech.intellispaces.commons.base.type.ClassFunctions;
 import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Dataset;
 import tech.intellispaces.jaquarius.annotation.Guide;
@@ -28,7 +28,7 @@ public class ResultSetToDataGuideImpl {
 
   @Mapper(ResultSetToDataChannel.class)
   @SuppressWarnings("unchecked")
-  public <D> D resultSetToData(ResultSetHandle resultSet, Type<D> dataType) {
+  public <D> D resultSetToData(ResultSet resultSet, Type<D> dataType) {
     var dataClass = (Class<D>) dataType.asClassType().baseClass();
     Class<?> domainClass = getDomainClass(dataClass);
     Constructor<D> constructor = getDataHandleConstructor(dataClass, domainClass);
@@ -42,12 +42,12 @@ public class ResultSetToDataGuideImpl {
 
   @MapperOfMoving(ResultSetToDataListChannel.class)
   @SuppressWarnings("unchecked")
-  public <D> ListHandle<D> resultSetToDataList(ResultSetHandle resultSet, Type<D> dataType) {
+  public <D> List<D> resultSetToDataList(ResultSet resultSet, Type<D> dataType) {
     var dataClass = (Class<D>) dataType.asClassType().baseClass();
     Class<?> domainClass = getDomainClass(dataClass);
     Constructor<D> constructor = getDataHandleConstructor(dataClass, domainClass);
     java.util.List<D> values = new ArrayList<>();
-    while (resultSet.asMovableOrElseThrow().next()) {
+    while (((MovableResultSet) resultSet).next()) {
       Object[] arguments = makeDataHandleArguments(resultSet, dataClass, domainClass, constructor);
       try {
         values.add(constructor.newInstance(arguments));
@@ -83,7 +83,7 @@ public class ResultSetToDataGuideImpl {
   }
 
   private <D> Object[] makeDataHandleArguments(
-      ResultSetHandle resultSet, Class<D> dataClass, Class<?> domainClass, Constructor<D> constructor
+      ResultSet resultSet, Class<D> dataClass, Class<?> domainClass, Constructor<D> constructor
   ) {
     Map<String, String> mapping = makeChannelAliasToColumnNameMapping(domainClass);
 
@@ -103,7 +103,7 @@ public class ResultSetToDataGuideImpl {
   }
 
   private void setArgument(
-      ResultSetHandle resultSet, Object[] arguments, int index, String columnName, Class<?> paramClass
+      ResultSet resultSet, Object[] arguments, int index, String columnName, Class<?> paramClass
   ) {
     if (paramClass == int.class) {
       Integer value = resultSet.integer32Value(columnName);

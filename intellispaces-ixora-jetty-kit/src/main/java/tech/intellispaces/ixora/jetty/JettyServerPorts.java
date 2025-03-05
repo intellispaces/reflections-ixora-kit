@@ -4,10 +4,10 @@ import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
 
 public interface JettyServerPorts {
 
-  static MovableJettyServerPortHandle get(
+  static MovableJettyServerPort get(
       int portNumber,
       Class<? extends HttpPortExchangeChannel> exchangeChannel
   ) {
-    return new JettyServerPortHandleImplWrapper(portNumber, exchangeChannel);
+    return new JettyServerPortImplWrapper(portNumber, exchangeChannel);
   }
 }

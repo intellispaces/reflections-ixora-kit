@@ -23,13 +23,13 @@ public class TransactionalInterceptor extends Interceptor {
 
   @Override
   public Object execute(Object[] data) {
-    MovableTransactionFactoryHandle transactionFactory = getDefaultTransactionFactory();
+    MovableTransactionFactory transactionFactory = getDefaultTransactionFactory();
     Action joinAction = joinAction();
     return TransactionFunctions.transactional(transactionFactory, joinAction::execute, data);
   }
 
-  private MovableTransactionFactoryHandle getDefaultTransactionFactory() {
-    List<MovableTransactionFactoryHandle> transactionFactories = projectionProvider.getProjections(MovableTransactionFactoryHandle.class);
+  private MovableTransactionFactory getDefaultTransactionFactory() {
+    List<MovableTransactionFactory> transactionFactories = projectionProvider.getProjections(MovableTransactionFactory.class);
     if (transactionFactories.isEmpty()) {
       throw TransactionExceptions.withMessage("Transaction factory is not found");
     }

@@ -4,7 +4,7 @@ import okhttp3.Response;
 
 public interface OkHttpResponses {
 
-  static UnmovableOkHttpResponseHandle get(Response response) {
-    return new OkHttpResponseHandleImplWrapper(response);
+  static UnmovableOkHttpResponse get(Response response) {
+    return new OkHttpResponseImplWrapper(response);
   }
 }

@@ -4,7 +4,7 @@ import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 
 public final class HttpMethods {
 
-  public static HttpMethodHandle get(String name) {
+  public static HttpMethod get(String name) {
     if (GET.name().equals(name)) {
       return GET;
     } else if (HEAD.name().equals(name)) {
@@ -26,46 +26,46 @@ public final class HttpMethods {
     }
   }
 
-  public static HttpMethodHandle get() {
+  public static HttpMethod get() {
     return GET;
   }
 
-  public static HttpMethodHandle head() {
+  public static HttpMethod head() {
     return HEAD;
   }
 
-  public static HttpMethodHandle post() {
+  public static HttpMethod post() {
     return POST;
   }
 
-  public static HttpMethodHandle put() {
+  public static HttpMethod put() {
     return PUT;
   }
 
-  public static HttpMethodHandle patch() {
+  public static HttpMethod patch() {
     return PATCH;
   }
 
-  public static HttpMethodHandle delete() {
+  public static HttpMethod delete() {
     return DELETE;
   }
 
-  public static HttpMethodHandle options() {
+  public static HttpMethod options() {
     return OPTIONS;
   }
 
-  public static HttpMethodHandle trace() {
+  public static HttpMethod trace() {
     return TRACE;
   }
 
   private HttpMethods() {}
 
-  private static final HttpMethodHandle GET = new HttpMethodHandleImplWrapper("GET");
-  private static final HttpMethodHandle HEAD = new HttpMethodHandleImplWrapper("HEAD");
-  private static final HttpMethodHandle POST = new HttpMethodHandleImplWrapper("POST");
-  private static final HttpMethodHandle PUT = new HttpMethodHandleImplWrapper("PUT");
-  private static final HttpMethodHandle PATCH = new HttpMethodHandleImplWrapper("PATCH");
-  private static final HttpMethodHandle DELETE = new HttpMethodHandleImplWrapper("DELETE");
-  private static final HttpMethodHandle OPTIONS = new HttpMethodHandleImplWrapper("OPTIONS");
-  private static final HttpMethodHandle TRACE = new HttpMethodHandleImplWrapper("TRACE");
+  private static final HttpMethod GET = new HttpMethodImplWrapper("GET");
+  private static final HttpMethod HEAD = new HttpMethodImplWrapper("HEAD");
+  private static final HttpMethod POST = new HttpMethodImplWrapper("POST");
+  private static final HttpMethod PUT = new HttpMethodImplWrapper("PUT");
+  private static final HttpMethod PATCH = new HttpMethodImplWrapper("PATCH");
+  private static final HttpMethod DELETE = new HttpMethodImplWrapper("DELETE");
+  private static final HttpMethod OPTIONS = new HttpMethodImplWrapper("OPTIONS");
+  private static final HttpMethod TRACE = new HttpMethodImplWrapper("TRACE");
 }

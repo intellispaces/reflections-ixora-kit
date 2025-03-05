@@ -19,15 +19,15 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
 
   @Mapper
   @Override
-  public <D> D propertiesToData(PropertiesHandle dictionary, Type<D> dataType) {
+  public <D> D propertiesToData(Properties properties, Type<D> dataType) {
     if (DatasetFunctions.isDatasetObjectHandle(dataType.asClassType().baseClass())) {
-      return process(dictionary, dataType);
+      return process(properties, dataType);
     }
     throw new UnsupportedOperationException("Not implemented");
   }
 
   @SuppressWarnings("unchecked")
-  private <D> D process(PropertiesHandle dictionary, Type<D> dataType) {
+  private <D> D process(Properties properties, Type<D> dataType) {
     Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
@@ -47,12 +47,12 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
     Object[] arguments = new Object[constructor.getParameterCount()];
     int index = 0;
     for (Parameter param : constructor.getParameters()) {
-      Object value = dictionary.value(param.getName());
+      Object value = properties.value(param.getName());
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof PropertiesHandle && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
-        value = process((PropertiesHandle) value, Types.get(param.getType()));
+      if (value instanceof Properties && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
+        value = process((Properties) value, Types.get(param.getType()));
       }
       arguments[index++] = value;
     }

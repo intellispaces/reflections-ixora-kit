@@ -2,9 +2,9 @@ package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.ixora.data.collection.UnmovableListHandle;
+import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.Map;
 
 @ObjectHandle(PropertiesDomain.class)
-abstract class MapBasedProperties implements UnmovablePropertiesHandle {
+abstract class MapBasedProperties implements UnmovableProperties {
   private final Map<String, Object> map;
 
   MapBasedProperties(Map<String, Object> map) {
@@ -52,7 +52,7 @@ abstract class MapBasedProperties implements UnmovablePropertiesHandle {
     }
   }
 
-  private ListHandle<?> convertObjectToList(String path, java.util.List<?> list) {
+  private List<?> convertObjectToList(String path, java.util.List<?> list) {
     if (list.isEmpty()) {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -97,7 +97,7 @@ abstract class MapBasedProperties implements UnmovablePropertiesHandle {
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public PropertiesHandle propertiesValue(String path) throws InvalidPropertyException {
+  public Properties propertiesValue(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
@@ -108,59 +108,59 @@ abstract class MapBasedProperties implements UnmovablePropertiesHandle {
 
   @Mapper
   @Override
-  public UnmovableListHandle<Integer> integer32List(String path) throws InvalidPropertyException {
+  public UnmovableList<Integer> integer32List(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return integer32List(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableListHandle<Integer> integer32List(String path, Object value) {
+  private UnmovableList<Integer> integer32List(String path, Object value) {
     validateListValueType(path, value, Integer.class);
     return Lists.ofIntegers((java.util.List<Integer>) value);
   }
 
   @Mapper
   @Override
-  public UnmovableListHandle<Double> float64List(String path) throws InvalidPropertyException {
+  public UnmovableList<Double> float64List(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return float64List(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableListHandle<Double> float64List(String path, Object value) {
+  private UnmovableList<Double> float64List(String path, Object value) {
     validateListValueType(path, value, Double.class);
     return Lists.ofDoubles((java.util.List<Double>) value);
   }
 
   @Mapper
   @Override
-  public UnmovableListHandle<String> stringList(String path) throws InvalidPropertyException {
+  public UnmovableList<String> stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableListHandle<String> stringList(String path, Object value) {
+  private UnmovableList<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
     return Lists.of((java.util.List<String>) value, String.class);
   }
 
   @Mapper
   @Override
-  public UnmovableListHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
+  public UnmovableList<Properties> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableListHandle<PropertiesHandle> propertiesList(String path, Object value) {
+  private UnmovableList<Properties> propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
-    java.util.List<PropertiesHandle> propertyList = values.stream()
+    java.util.List<Properties> propertyList = values.stream()
         .map(MapBasedPropertiesWrapper::new)
-        .map(p -> (PropertiesHandle) p)
+        .map(p -> (Properties) p)
         .toList();
-    return Lists.of(propertyList, PropertiesHandle.class);
+    return Lists.of(propertyList, Properties.class);
   }
 
   @Mapper
@@ -173,10 +173,10 @@ abstract class MapBasedProperties implements UnmovablePropertiesHandle {
     if (value == null) {
       throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
     }
-    if (value instanceof PropertiesHandle & expectedType != Map.class) {
+    if (value instanceof Properties & expectedType != Map.class) {
       throw InvalidPropertyExceptions.withMessage("Expected property value of {0} type, " +
               "but actual is {1}. Path '{2}'",
-          expectedType.getCanonicalName(), PropertiesHandle.class.getCanonicalName(), path);
+          expectedType.getCanonicalName(), Properties.class.getCanonicalName(), path);
 
     }
     if (!expectedType.isAssignableFrom(value.getClass())) {
@@ -209,8 +209,8 @@ abstract class MapBasedProperties implements UnmovablePropertiesHandle {
 
   private static Class<?> getActualType(Object value) {
     final Class<?> actualType;
-    if (PropertiesHandle.class.isAssignableFrom(value.getClass())) {
-      actualType = PropertiesHandle.class;
+    if (Properties.class.isAssignableFrom(value.getClass())) {
+      actualType = Properties.class;
     } else if (Map.class.isAssignableFrom(value.getClass())) {
       actualType = Map.class;
     } else if (java.util.List.class.isAssignableFrom(value.getClass())) {

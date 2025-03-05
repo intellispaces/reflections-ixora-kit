@@ -9,19 +9,19 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @ObjectHandle(PreparedStatementDomain.class)
-abstract class JavaPreparedStatementHandle implements MovablePreparedStatementHandle {
+abstract class JavaPreparedStatement implements MovablePreparedStatement {
   private final PreparedStatement preparedStatement;
 
-  JavaPreparedStatementHandle(PreparedStatement preparedStatement) {
+  JavaPreparedStatement(PreparedStatement preparedStatement) {
     this.preparedStatement = preparedStatement;
   }
 
   @Mapper
   @Override
-  public MovableResultSetHandle executeQuery() {
+  public MovableResultSet executeQuery() {
     try {
       java.sql.ResultSet rs = preparedStatement.executeQuery();
-      return new JavaResultSetHandleWrapper(rs);
+      return new JavaResultSetWrapper(rs);
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not execute prepared statement");
     }
@@ -29,7 +29,7 @@ abstract class JavaPreparedStatementHandle implements MovablePreparedStatementHa
 
   @Mover
   @Override
-  public MovablePreparedStatementHandle setInt(int parameterIndex, int value) {
+  public MovablePreparedStatement setInt(int parameterIndex, int value) {
     try {
       preparedStatement.setInt(parameterIndex, value);
       return this;

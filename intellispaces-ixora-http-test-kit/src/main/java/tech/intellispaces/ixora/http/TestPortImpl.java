@@ -5,34 +5,34 @@ import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(TestPortDomain.class)
-public abstract class TestPortHandleImpl implements MovableTestPortHandle {
-  private final MovableInboundHttpPortHandle operativePort;
+public abstract class TestPortImpl implements MovableTestPort {
+  private final MovableInboundHttpPort operativePort;
 
-  public TestPortHandleImpl(MovableInboundHttpPortHandle operativePort) {
+  public TestPortImpl(MovableInboundHttpPort operativePort) {
     this.operativePort = operativePort;
   }
 
-  public MovableInboundHttpPortHandle getOperativePort() {
+  public MovableInboundHttpPort getOperativePort() {
     return operativePort;
   }
 
   @Mover
   @Override
-  public MovableTestPortHandle open() {
+  public MovableTestPort open() {
     operativePort.open();
     return this;
   }
 
   @Mover
   @Override
-  public MovableTestPortHandle close() {
+  public MovableTestPort close() {
     operativePort.close();
     return this;
   }
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(HttpRequestHandle request) {
+  public HttpResponse exchange(HttpRequest request) {
     return operativePort.exchange(request);
   }
 }

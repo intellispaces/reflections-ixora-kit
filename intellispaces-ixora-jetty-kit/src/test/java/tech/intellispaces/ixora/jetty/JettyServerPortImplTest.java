@@ -5,12 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.http.AbstractInboundHttpPortTest;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
-import tech.intellispaces.ixora.http.MovableInboundHttpPortHandle;
+import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 
 /**
- * Tests for {@link JettyServerPortHandleImpl} class.
+ * Tests for {@link JettyServerPortImpl} class.
  */
-public class JettyServerPortHandleImplTest extends AbstractInboundHttpPortTest {
+public class JettyServerPortImplTest extends AbstractInboundHttpPortTest {
 
   @BeforeEach
   public void init() {
@@ -23,7 +23,7 @@ public class JettyServerPortHandleImplTest extends AbstractInboundHttpPortTest {
   }
 
   @Override
-  public MovableInboundHttpPortHandle getOperativePort(
+  public MovableInboundHttpPort getOperativePort(
       int portNumber, Class<? extends HttpPortExchangeChannel> exchangeChannel
   ) {
     return JettyServerPorts.get(portNumber, exchangeChannel).asInboundHttpPort();

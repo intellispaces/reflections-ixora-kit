@@ -4,10 +4,10 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(HttpMethodDomain.class)
-abstract class HttpMethodHandleImpl implements UnmovableHttpMethodHandle {
+abstract class HttpMethodImpl implements UnmovableHttpMethod {
   private final String name;
 
-  HttpMethodHandleImpl(String name) {
+  HttpMethodImpl(String name) {
     this.name = name;
   }
 

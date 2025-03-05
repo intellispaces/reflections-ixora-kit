@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 public interface OkHttpPorts {
 
-  static MovableOkHttpPortHandle get() {
-    return new OkHttpPortHandleImplWrapper(new OkHttpClient());
+  static MovableOkHttpPort get() {
+    return new OkHttpPortImplWrapper(new OkHttpClient());
   }
 
-  static MovableOkHttpPortHandle get(OkHttpPortSettingsHandle properties) {
+  static MovableOkHttpPort get(OkHttpPortSettings properties) {
     var builder = new OkHttpClient().newBuilder();
     if (properties.connectTimeoutMs() != null) {
       builder.connectTimeout(properties.connectTimeoutMs(), TimeUnit.MILLISECONDS);
@@ -21,6 +21,6 @@ public interface OkHttpPorts {
     if (properties.writeTimeoutMs() != null) {
        builder.writeTimeout(properties.writeTimeoutMs(), TimeUnit.MILLISECONDS);
     }
-    return new OkHttpPortHandleImplWrapper(builder.build());
+    return new OkHttpPortImplWrapper(builder.build());
   }
 }
