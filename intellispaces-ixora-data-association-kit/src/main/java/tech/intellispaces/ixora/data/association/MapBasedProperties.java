@@ -72,7 +72,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
 
   @Mapper
   @Override
-  public Integer integer32Value(String path) throws InvalidPropertyException {
+  public int integer32Value(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Integer.class);
     return (int) value;
@@ -80,7 +80,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
 
   @Mapper
   @Override
-  public Double float64Value(String path) throws InvalidPropertyException {
+  public double float64Value(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Double.class);
     return (double) value;
@@ -165,7 +165,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
 
   @Mapper
   @Override
-  public Integer size() {
+  public int size() {
     return nativeMap().size();
   }
 

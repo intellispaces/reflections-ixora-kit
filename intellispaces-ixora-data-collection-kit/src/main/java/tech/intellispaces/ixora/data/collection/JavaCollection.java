@@ -40,7 +40,7 @@ abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableObj
 
   @Mapper
   @Override
-  public Integer size() {
+  public int size() {
     return collection.size();
   }
 

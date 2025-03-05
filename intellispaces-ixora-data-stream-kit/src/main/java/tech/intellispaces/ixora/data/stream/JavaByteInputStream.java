@@ -41,12 +41,11 @@ abstract class JavaByteInputStream implements MovableByteInputStream, MovableObj
 
   @Mapper
   @Override
-  public Boolean isExhausted() {
+  public boolean isExhausted() {
     return hasNextElement();
   }
 
   @Mapper
-  @Override
   public boolean isExhaustedAsPrimitive() {
     return hasNextElement();
   }

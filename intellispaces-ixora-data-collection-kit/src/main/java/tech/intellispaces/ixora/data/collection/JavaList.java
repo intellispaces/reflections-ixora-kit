@@ -52,13 +52,7 @@ abstract class JavaList<E> implements UnmovableList<E>, UnmovableObjectHandle<Li
 
   @Mapper
   @Override
-  public Integer size() {
-    return list.size();
-  }
-
-  @Mapper
-  @Override
-  public int sizeAsPrimitive() {
+  public int size() {
     return list.size();
   }
 

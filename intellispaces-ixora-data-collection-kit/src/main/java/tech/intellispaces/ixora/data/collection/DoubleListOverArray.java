@@ -56,12 +56,11 @@ abstract class DoubleListOverArray implements UnmovableFloat64List {
 
   @Mapper
   @Override
-  public Integer size() {
+  public int size() {
     return getSize();
   }
 
   @Mapper
-  @Override
   public int sizeAsPrimitive() {
     return getSize();
   }
