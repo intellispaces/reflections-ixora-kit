@@ -58,15 +58,6 @@ abstract class ByteListOverArray implements UnmovableByteList {
   @Mapper
   @Override
   public int size() {
-    return getSize();
-  }
-
-  @Mapper
-  public int sizeAsPrimitive() {
-    return getSize();
-  }
-
-  private int getSize() {
     return array.length;
   }
 

@@ -18,7 +18,7 @@ abstract class JavaResultSet implements MovableResultSet {
 
   @Override
   @MapperOfMoving
-  public Boolean next() {
+  public boolean next() {
     try {
       return rs.next();
     } catch (SQLException e) {
@@ -28,15 +28,15 @@ abstract class JavaResultSet implements MovableResultSet {
 
   @Mapper
   @Override
-  public Integer integer32Value(String name) {
+  public int integer32Value(String name) {
     try {
       int value = rs.getInt(name);
       if (rs.wasNull()) {
-        return null;
+        throw TraverseExceptions.withMessage("Could not read integer primitive value by name '{0}'. Value is null", name);
       }
       return value;
     } catch (SQLException e) {
-      throw TraverseExceptions.withCauseAndMessage(e, "Could not read integer value by name {0}", name);
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not read integer value by name '{0}'", name);
     }
   }
 

@@ -9,8 +9,8 @@ import tech.intellispaces.jaquarius.annotation.Domain;
 public interface PrimitiveDataDomain {
 
   @Channel("756b6fa0-5d0c-4143-bf40-fcf171ae9fe9")
-  Integer intValue();
+  int intValue();
 
   @Channel("3b17bdd4-525c-4616-890f-444045e65346")
-  Double doubleValue();
+  double doubleValue();
 }

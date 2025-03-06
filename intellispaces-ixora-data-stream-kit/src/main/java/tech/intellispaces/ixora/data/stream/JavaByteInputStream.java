@@ -45,11 +45,6 @@ abstract class JavaByteInputStream implements MovableByteInputStream, MovableObj
     return hasNextElement();
   }
 
-  @Mapper
-  public boolean isExhaustedAsPrimitive() {
-    return hasNextElement();
-  }
-
   @Override
   @MapperOfMoving
   public Byte read() {

@@ -82,13 +82,7 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPort, Mov
 
   @Mapper
   @Override
-  public Integer portNumber() {
-    return portNumber;
-  }
-
-  @Mapper
-  @Override
-  public int portNumberAsPrimitive() {
+  public int portNumber() {
     return portNumber;
   }
 

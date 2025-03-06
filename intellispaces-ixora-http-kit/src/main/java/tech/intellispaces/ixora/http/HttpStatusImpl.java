@@ -13,13 +13,13 @@ abstract class HttpStatusImpl implements UnmovableHttpStatus {
 
   @Mapper
   @Override
-  public Integer code() {
+  public int code() {
     return code;
   }
 
   @Mapper
   @Override
-  public Boolean isOkStatus() {
+  public boolean isOkStatus() {
     return HttpStatuses.ok().code() == code;
   }
 }
