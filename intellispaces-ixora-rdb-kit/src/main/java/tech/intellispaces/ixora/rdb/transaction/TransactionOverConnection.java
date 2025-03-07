@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
-import tech.intellispaces.commons.base.type.Type;
+import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.association.Map;
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.cursor.MovableCursor;

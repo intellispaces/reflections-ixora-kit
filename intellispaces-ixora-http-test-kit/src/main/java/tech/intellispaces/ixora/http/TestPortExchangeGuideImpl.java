@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.commons.base.text.StringFunctions;
+import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.DataStreams;
 import tech.intellispaces.jaquarius.annotation.Guide;
 

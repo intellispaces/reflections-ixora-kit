@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
-import tech.intellispaces.commons.base.entity.Reference;
+import tech.intellispaces.commons.entity.Reference;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;

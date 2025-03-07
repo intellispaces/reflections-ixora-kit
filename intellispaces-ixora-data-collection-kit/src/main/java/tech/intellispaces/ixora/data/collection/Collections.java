@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.data.collection;
 
-import tech.intellispaces.commons.base.type.Type;
+import tech.intellispaces.commons.type.Type;
 
 public interface Collections {
 

@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http;
 
 import com.sun.net.httpserver.HttpServer;
 import org.assertj.core.api.Fail;
-import tech.intellispaces.commons.base.collection.ArraysFunctions;
+import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.internet.uri.Uris;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandles;

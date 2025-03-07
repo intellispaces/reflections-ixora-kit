@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.jetty;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import tech.intellispaces.commons.base.collection.ArraysFunctions;
+import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
 import tech.intellispaces.ixora.http.HttpRequest;

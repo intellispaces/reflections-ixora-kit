@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.stream;
 
-import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
-import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.commons.base.type.Types;
+import tech.intellispaces.commons.exception.UnexpectedExceptions;
+import tech.intellispaces.commons.type.Type;
+import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableByteList;
 import tech.intellispaces.jaquarius.annotation.Mapper;

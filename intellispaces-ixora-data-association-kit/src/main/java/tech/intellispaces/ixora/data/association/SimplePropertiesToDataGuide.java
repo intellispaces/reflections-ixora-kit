@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.data.association;
 
-import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
-import tech.intellispaces.commons.base.function.FunctionFunctions;
-import tech.intellispaces.commons.base.type.ClassFunctions;
-import tech.intellispaces.commons.base.type.Type;
-import tech.intellispaces.commons.base.type.Types;
+import tech.intellispaces.commons.exception.UnexpectedExceptions;
+import tech.intellispaces.commons.function.FunctionFunctions;
+import tech.intellispaces.commons.type.ClassFunctions;
+import tech.intellispaces.commons.type.Type;
+import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
