@@ -4,8 +4,8 @@ import com.sun.net.httpserver.HttpServer;
 import org.assertj.core.api.Fail;
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.internet.uri.Uris;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -55,7 +55,7 @@ public abstract class OutboundHttpPortTest {
     } catch (Exception e) {
       Fail.fail("Unexpected exception", e);
     } finally {
-      ObjectHandleFunctions.releaseSilently(ObjectHandles.handle(response));
+      ObjectReferenceFunctions.releaseSilently(ObjectHandles.handle(response));
       if (server != null) {
         server.stop(0);
       }

@@ -9,7 +9,7 @@ import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -28,7 +28,7 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
 
   @SuppressWarnings("unchecked")
   private <D> D process(Properties properties, Type<D> dataType) {
-    Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
+    Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
@@ -51,7 +51,7 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof Properties && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
+      if (value instanceof Properties && ObjectReferenceFunctions.isObjectHandleClass(param.getType())) {
         value = process((Properties) value, Types.get(param.getType()));
       }
       arguments[index++] = value;

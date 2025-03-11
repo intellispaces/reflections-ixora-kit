@@ -19,7 +19,7 @@ import tech.intellispaces.ixora.internet.uri.GetUriQueryParamGuide;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +90,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addImportAndGetSimpleName(ObjectHandleFunctions.getUndefinedPureObjectTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(portDomain)));
     sb.append(" port, ");
     sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
@@ -135,7 +135,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   private String getUndefinedPureObjectDeclaration(TypeReference domain) {
-    return ObjectHandleFunctions.geUndefinedPureObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
+    return ObjectReferenceFunctions.geUndefinedSimpleObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {

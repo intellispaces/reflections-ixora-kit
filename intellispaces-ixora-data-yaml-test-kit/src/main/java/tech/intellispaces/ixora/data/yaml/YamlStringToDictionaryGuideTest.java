@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Tests for guide {@link YamlStringToPropertiesGuide}.
  */
-public abstract class StringToDictionaryGuideTest {
+public abstract class YamlStringToDictionaryGuideTest {
 
   @BeforeEach
   public void init() {

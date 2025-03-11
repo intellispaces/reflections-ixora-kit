@@ -10,11 +10,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The persistable entity stored in the relational database.
+ * The persisted entity stored in the relational database.
  */
 @Dataset
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @AnnotationProcessor(PersistableEntityAnnotationProcessor.class)
-public @interface PersistableEntity {
+public @interface PersistedEntity {
 }

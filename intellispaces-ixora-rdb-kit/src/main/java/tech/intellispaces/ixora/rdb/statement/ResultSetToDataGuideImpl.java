@@ -15,7 +15,7 @@ import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Name;
 import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -74,7 +74,7 @@ public class ResultSetToDataGuideImpl {
   }
 
   private <D> Class<?> getDomainClass(Class<D> dataClass) {
-    Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataClass);
+    Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataClass);
     if (!DatasetFunctions.isDatasetDomain(domainClass)) {
       throw UnexpectedExceptions.withMessage("Expected object handle class of the data domain. " +
           "Data domain should be annotated with @{0}", Dataset.class.getSimpleName());

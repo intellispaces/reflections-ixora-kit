@@ -8,7 +8,7 @@ import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
 import tech.intellispaces.commons.java.reflection.reference.TypeReference;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -16,7 +16,7 @@ import java.util.function.Function;
 public interface EntityAnnotationFunctions {
 
   static String getEntityHandleCanonicalName(CustomType entityType) {
-    return ObjectHandleFunctions.getUndefinedPureObjectTypename(entityType);
+    return ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(entityType);
   }
 
   static String getCrudOntologyCanonicalName(CustomType entityType) {
@@ -49,7 +49,7 @@ public interface EntityAnnotationFunctions {
             "Entity identifier method {0} of the entity {1} should return value",
             identifierMethod.name(), entityType.canonicalName()
         ));
-    return ObjectHandleFunctions.getUndefinedPureObjectTypename(returnType, Function.identity());
+    return ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(returnType, Function.identity());
   }
 
   static String getIdentifierToEntityChannelSimpleName(CustomType entityType) {

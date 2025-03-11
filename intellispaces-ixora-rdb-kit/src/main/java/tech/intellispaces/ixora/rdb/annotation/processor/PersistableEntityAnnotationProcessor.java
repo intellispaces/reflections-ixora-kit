@@ -5,7 +5,7 @@ import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.annotation.processor.ArtifactProcessor;
 import tech.intellispaces.commons.annotation.processor.ArtifactValidator;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
-import tech.intellispaces.ixora.rdb.annotation.PersistableEntity;
+import tech.intellispaces.ixora.rdb.annotation.PersistedEntity;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class PersistableEntityAnnotationProcessor extends ArtifactProcessor {
 
   public PersistableEntityAnnotationProcessor() {
-    super(ElementKind.INTERFACE, PersistableEntity.class, JaquariusArtifactProcessor.SOURCE_VERSION);
+    super(ElementKind.INTERFACE, PersistedEntity.class, JaquariusArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override
