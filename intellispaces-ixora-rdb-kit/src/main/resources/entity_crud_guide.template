@@ -14,9 +14,6 @@ import {{$importedClass}};
 public interface {{$generatedArtifactSimpleName}} {
 
 {{when $entityHasIdentifier}}
-  @Mapper({{$identifierToEntityChannelSimpleName}}.class)
-  {{$entityHandleSimpleName}} getById({{$identifierType}} id);
-
   @Mapper({{$transactionToEntityByIdentifierChannelSimpleName}}.class)
   {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id);
 {{end}}

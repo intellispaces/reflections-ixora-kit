@@ -14,12 +14,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
-  private String identifierToEntityCid;
   private String transactionToEntityByIdentifierCid;
 
   private boolean entityHasIdentifier;
   private String identifierType;
-  private String identifierToEntityChannelSimpleName;
   private String transactionToEntityByIdentifierChannelSimpleName;
 
   public EntityCrudOntologyGenerator(CustomType entityType) {
@@ -52,9 +50,7 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
 
     addVariable("entityHasIdentifier", entityHasIdentifier);
     addVariable("identifierType", identifierType);
-    addVariable("identifierToEntityChannelSimpleName", identifierToEntityChannelSimpleName);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
-    addVariable("identifierToEntityCid", identifierToEntityCid);
     addVariable("transactionToEntityByIdentifierCid", transactionToEntityByIdentifierCid);
     return true;
   }
@@ -62,7 +58,6 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
   private void defineIdentifiers() {
     String did = DomainFunctions.getDomainId(sourceArtifact());
     var identifierGenerator = new RepetableUuidIdentifierGenerator(UUID.fromString(did));
-    identifierToEntityCid = identifierGenerator.next();
     transactionToEntityByIdentifierCid = identifierGenerator.next();
   }
 
@@ -74,9 +69,6 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
     }
     entityHasIdentifier = true;
 
-    identifierToEntityChannelSimpleName = EntityAnnotationFunctions.getIdentifierToEntityChannelSimpleName(
-        sourceArtifact()
-    );
     transactionToEntityByIdentifierChannelSimpleName = EntityAnnotationFunctions.getTransactionToEntityByIdentifierChannelSimpleName(
         sourceArtifact()
     );

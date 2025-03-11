@@ -52,22 +52,10 @@ public interface EntityAnnotationFunctions {
     return ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(returnType, Function.identity());
   }
 
-  static String getIdentifierToEntityChannelSimpleName(CustomType entityType) {
-    return "IdentifierTo" +
-        StringFunctions.capitalizeFirstLetter(StringFunctions.removeTailOrElseThrow(entityType.simpleName(), "Domain")) +
-        "Channel";
-  }
-
   static String getTransactionToEntityByIdentifierChannelSimpleName(CustomType entityType) {
     return "TransactionTo" +
         StringFunctions.capitalizeFirstLetter(StringFunctions.removeTailOrElseThrow(entityType.simpleName(), "Domain")) +
         "ByIdentifierChannel";
-  }
-
-  static String getIdentifierToEntityGuideSimpleName(CustomType entityType) {
-    return "IdentifierTo" +
-        StringFunctions.capitalizeFirstLetter(StringFunctions.removeTailOrElseThrow(entityType.simpleName(), "Domain")) +
-        "Guide";
   }
 
   static String getTransactionToEntityByIdentifierGuideSimpleName(CustomType entityType) {

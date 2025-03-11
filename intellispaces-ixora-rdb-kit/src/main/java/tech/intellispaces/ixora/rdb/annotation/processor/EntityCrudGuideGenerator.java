@@ -15,7 +15,6 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   private boolean entityHasIdentifier;
   private String entityHandleSimpleName;
   private String identifierType;
-  private String identifierToEntityChannelSimpleName;
   private String transactionToEntityByIdentifierChannelSimpleName;
 
   public EntityCrudGuideGenerator(CustomType entityType) {
@@ -54,7 +53,6 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
     addVariable("entityHasIdentifier", entityHasIdentifier);
     addVariable("entityHandleSimpleName", entityHandleSimpleName);
     addVariable("identifierType", identifierType);
-    addVariable("identifierToEntityChannelSimpleName", identifierToEntityChannelSimpleName);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
     return true;
   }
@@ -70,8 +68,6 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
     identifierType = addImportAndGetSimpleName(
         EntityAnnotationFunctions.getIdentifierType(sourceArtifact(), identifierMethod.orElseThrow())
     );
-    identifierToEntityChannelSimpleName = EntityAnnotationFunctions.getIdentifierToEntityChannelSimpleName(
-        sourceArtifact());
     transactionToEntityByIdentifierChannelSimpleName = EntityAnnotationFunctions.getTransactionToEntityByIdentifierChannelSimpleName(
         sourceArtifact()
     );

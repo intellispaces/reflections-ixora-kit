@@ -15,12 +15,6 @@ public class {{$generatedArtifactSimpleName}} implements {{$guideType}} {
 
 {{when $entityHasIdentifier}}
   @Override
-  @Transactional
-  public {{$entityHandleSimpleName}} getById({{$identifierType}} id) {
-    return getById(Transactions.current(), id);
-  }
-
-  @Override
   public {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id) {
     Map<String, Object> params = Maps.of(String.class, Object.class, "id", id);
     return tx.fetchData(Types.get({{$entityHandleSimpleName}}.class), "SELECT * FROM {{$entityTable}} {{$entityAlias}} WHERE {{$entityAlias}}.{{$identifierColumn}} = :id", params);
