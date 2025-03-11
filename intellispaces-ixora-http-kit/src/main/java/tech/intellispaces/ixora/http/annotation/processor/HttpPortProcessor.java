@@ -7,7 +7,7 @@ import tech.intellispaces.commons.annotation.processor.ArtifactValidator;
 import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.commons.java.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
-import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorFunctions;
+import tech.intellispaces.jaquarius.annotationprocessor.ArtifactGenerationAnnotationFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 
 import javax.lang.model.element.ElementKind;
@@ -22,7 +22,7 @@ public class HttpPortProcessor extends ArtifactProcessor {
 
   @Override
   public boolean isApplicable(CustomType entityType) {
-    return AnnotationProcessorFunctions.isAutoGenerationEnabled(entityType);
+    return ArtifactGenerationAnnotationFunctions.isAutoGenerationEnabled(entityType);
   }
 
   @Override
