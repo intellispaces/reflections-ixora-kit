@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http.pathtree;
 
-import tech.intellispaces.commons.java.reflection.customtype.ClassType;
-import tech.intellispaces.commons.java.reflection.customtype.Classes;
-import tech.intellispaces.commons.java.reflection.customtype.CustomType;
-import tech.intellispaces.commons.java.reflection.customtype.CustomTypes;
-import tech.intellispaces.commons.java.reflection.method.MethodStatement;
+import tech.intellispaces.commons.reflection.customtype.ClassType;
+import tech.intellispaces.commons.reflection.customtype.Classes;
+import tech.intellispaces.commons.reflection.customtype.CustomType;
+import tech.intellispaces.commons.reflection.customtype.CustomTypes;
+import tech.intellispaces.commons.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.http.HttpMethod;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequest;

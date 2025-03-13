@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
-import tech.intellispaces.commons.java.reflection.customtype.CustomType;
+import tech.intellispaces.commons.reflection.customtype.CustomType;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
