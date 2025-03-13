@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.util.Objects;
 
 @ObjectHandle(ConsoleDomain.class)
-public abstract class PrintStreamBasedConsole implements MovableConsole {
+public abstract class PrintStreamBasedConsole implements MovableConsoleHandle {
   private final PrintStream ps;
 
   public PrintStreamBasedConsole(PrintStream ps) {
@@ -20,7 +20,7 @@ public abstract class PrintStreamBasedConsole implements MovableConsole {
 
   @Mover
   @Override
-  public MovableConsole print(String string) {
+  public MovableConsoleHandle print(String string) {
     Objects.requireNonNull(string);
     ps.print(string);
     return this;
@@ -28,14 +28,14 @@ public abstract class PrintStreamBasedConsole implements MovableConsole {
 
   @Mover
   @Override
-  public MovableConsole print(int number) {
+  public MovableConsoleHandle print(int number) {
     ps.print(number);
     return this;
   }
 
   @Mover
   @Override
-  public MovableConsole println(String string) {
+  public MovableConsoleHandle println(String string) {
     Objects.requireNonNull(string);
     ps.println(string);
     return this;
@@ -43,7 +43,7 @@ public abstract class PrintStreamBasedConsole implements MovableConsole {
 
   @Mover
   @Override
-  public MovableConsole println(int number) {
+  public MovableConsoleHandle println(int number) {
     ps.println(number);
     return this;
   }

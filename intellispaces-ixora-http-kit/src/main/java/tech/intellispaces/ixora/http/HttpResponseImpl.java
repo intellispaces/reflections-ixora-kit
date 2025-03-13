@@ -12,23 +12,23 @@ import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
 abstract class HttpResponseImpl implements UnmovableHttpResponse {
-  private final HttpStatusImpl status;
+  private final HttpStatusHandle status;
   private final MovableByteInputStream bodyStream;
 
-  HttpResponseImpl(HttpStatusImpl status, InputStream body) {
+  HttpResponseImpl(HttpStatusHandle status, InputStream body) {
     this.status = status;
     this.bodyStream = DataStreams.get(body);
   }
 
-  HttpResponseImpl(HttpStatusImpl status, String body) {
+  HttpResponseImpl(HttpStatusHandle status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusImpl status, byte[] body) {
+  HttpResponseImpl(HttpStatusHandle status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusImpl status) {
+  HttpResponseImpl(HttpStatusHandle status) {
     this(status, InputStream.nullInputStream());
   }
 

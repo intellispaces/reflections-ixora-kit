@@ -29,7 +29,7 @@ abstract class IntegerListOverArray implements UnmovableInteger32List {
 
   @Mapper
   @Override
-  public UnmovableCollection<Integer> asCollection() {
+  public UnmovableCollectionHandle<Integer> asCollection() {
     return new JavaCollectionWrapper<>(nativeList(), elementType);
   }
 

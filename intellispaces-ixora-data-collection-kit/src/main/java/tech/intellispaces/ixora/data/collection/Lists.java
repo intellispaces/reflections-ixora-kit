@@ -32,35 +32,35 @@ public interface Lists {
     return null;
   }
 
-  static UnmovableByteList ofBytes(byte[] array) {
+  static UnmovableByteListHandle ofBytes(byte[] array) {
     return new ByteListOverArrayWrapper(array);
   }
 
-  static UnmovableByteList ofBytes(java.util.List<Byte> list) {
+  static UnmovableByteListHandle ofBytes(java.util.List<Byte> list) {
     return new ByteListOverArrayWrapper(list);
   }
 
-  static UnmovableByteList ofBytes(byte value1, byte value2) {
+  static UnmovableByteListHandle ofBytes(byte value1, byte value2) {
     return new ByteListOverArrayWrapper(new byte[] { value1, value2 });
   }
 
-  static UnmovableByteList ofBytes(byte value1, byte value2, byte value3) {
+  static UnmovableByteListHandle ofBytes(byte value1, byte value2, byte value3) {
     return new ByteListOverArrayWrapper(new byte[] { value1, value2, value3 });
   }
 
-  static UnmovableInteger32List ofIntegers(int[] array) {
+  static UnmovableInteger32ListHandle ofIntegers(int[] array) {
     return new IntegerListOverArrayWrapper(array);
   }
 
-  static UnmovableInteger32List ofIntegers(java.util.List<Integer> list) {
+  static UnmovableInteger32ListHandle ofIntegers(java.util.List<Integer> list) {
     return new IntegerListOverArrayWrapper(list);
   }
 
-  static UnmovableInteger32List ofIntegers(int value1, int value2) {
+  static UnmovableInteger32ListHandle ofIntegers(int value1, int value2) {
     return new IntegerListOverArrayWrapper(new int[] { value1, value2 });
   }
 
-  static UnmovableInteger32List ofIntegers(int value1, int value2, int value3) {
+  static UnmovableInteger32ListHandle ofIntegers(int value1, int value2, int value3) {
     return new IntegerListOverArrayWrapper(new int[] { value1, value2, value3 });
   }
 

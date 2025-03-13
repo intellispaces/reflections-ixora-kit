@@ -28,7 +28,7 @@ abstract class DoubleListOverArray implements UnmovableFloat64List {
 
   @Mapper
   @Override
-  public UnmovableCollection<Double> asCollection() {
+  public UnmovableCollectionHandle<Double> asCollection() {
     return new JavaCollectionWrapper<>(nativeList(), elementType);
   }
 

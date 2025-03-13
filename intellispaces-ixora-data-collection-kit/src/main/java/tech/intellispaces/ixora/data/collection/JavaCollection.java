@@ -4,12 +4,11 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.object.reference.UnmovableObjectHandle;
 
 import java.util.Collection;
 
 @ObjectHandle(CollectionDomain.class)
-abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableObjectHandle<CollectionDomain<E>> {
+abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableCollectionHandle<E> {
   private final Collection<E> collection;
   private final Type<E> elementDomain;
 

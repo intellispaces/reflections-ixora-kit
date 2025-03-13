@@ -2,15 +2,14 @@ package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.ixora.data.collection.UnmovableCollection;
+import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.object.reference.UnmovableObjectHandle;
 
 import java.util.Collections;
 import java.util.Map;
 
 @ObjectHandle(MapDomain.class)
-abstract class JavaMap<K, V> implements UnmovableMap<K, V>, UnmovableObjectHandle<MapDomain<K, V>> {
+abstract class JavaMap<K, V> implements UnmovableMap<K, V>, UnmovableMapHandle<K, V> {
   private final Map<K, V> map;
   private final Type<K> keyType;
   private final Type<V> valueType;
@@ -37,7 +36,7 @@ abstract class JavaMap<K, V> implements UnmovableMap<K, V>, UnmovableObjectHandl
   }
 
   @Override
-  public UnmovableCollection<KeyValuePair<K, V>> keyValuePairs() {
+  public UnmovableCollectionHandle<KeyValuePair<K, V>> keyValuePairs() {
     throw new RuntimeException("Not implemented");
   }
 

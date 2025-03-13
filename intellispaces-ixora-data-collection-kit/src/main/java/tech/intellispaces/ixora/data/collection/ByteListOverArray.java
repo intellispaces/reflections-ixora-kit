@@ -29,7 +29,7 @@ abstract class ByteListOverArray implements UnmovableByteList {
 
   @Mapper
   @Override
-  public UnmovableCollection<Byte> asCollection() {
+  public UnmovableCollectionHandle<Byte> asCollection() {
     return new JavaCollectionWrapper<>(nativeList(), elementType);
   }
 

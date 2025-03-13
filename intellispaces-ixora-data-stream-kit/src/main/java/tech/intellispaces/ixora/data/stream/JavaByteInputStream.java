@@ -5,17 +5,17 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableByteList;
+import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
-import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @ObjectHandle(ByteInputStreamDomain.class)
-abstract class JavaByteInputStream implements MovableByteInputStream, MovableObjectHandle<ByteInputStreamDomain> {
+abstract class JavaByteInputStream implements MovableByteInputStream, MovableByteInputStreamHandle {
   private final InputStream is;
   private int buffer;
   private boolean buffered;
@@ -59,13 +59,13 @@ abstract class JavaByteInputStream implements MovableByteInputStream, MovableObj
 
   @Override
   @MapperOfMoving
-  public UnmovableByteList readMultiple(int number) {
+  public UnmovableByteListHandle readMultiple(int number) {
     return Lists.ofBytes(nextBytes(number));
   }
 
   @Override
   @MapperOfMoving
-  public UnmovableByteList readAll() {
+  public UnmovableByteListHandle readAll() {
     return Lists.ofBytes(allBytes());
   }
 
