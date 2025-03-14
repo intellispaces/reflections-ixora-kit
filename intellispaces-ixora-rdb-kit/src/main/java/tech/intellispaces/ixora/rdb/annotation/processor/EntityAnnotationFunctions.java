@@ -16,7 +16,7 @@ import java.util.function.Function;
 public interface EntityAnnotationFunctions {
 
   static String getEntityHandleCanonicalName(CustomType entityType) {
-    return ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(entityType);
+    return ObjectReferenceFunctions.getUndefinedPlainObjectTypename(entityType);
   }
 
   static String getCrudOntologyCanonicalName(CustomType entityType) {
@@ -49,7 +49,7 @@ public interface EntityAnnotationFunctions {
             "Entity identifier method {0} of the entity {1} should return value",
             identifierMethod.name(), entityType.canonicalName()
         ));
-    return ObjectReferenceFunctions.getUndefinedSimpleObjectTypename(returnType, Function.identity());
+    return ObjectReferenceFunctions.getUndefinedPlainObjectTypename(returnType, Function.identity());
   }
 
   static String getTransactionToEntityByIdentifierChannelSimpleName(CustomType entityType) {
