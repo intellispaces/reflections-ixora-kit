@@ -10,7 +10,7 @@ import java.util.List;
 public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringToParameterizedNamedQueryGuide {
 
   @Override
-  public ParameterizedNamedQuery castStringToParameterizedNamedQuery(String query) {
+  public ParameterizedNamedQueryHandle castStringToParameterizedNamedQuery(String query) {
     char[] originQuery = query.toCharArray();
     char[] blindQuery = new char[query.length()];
     List<String> paramNames = new ArrayList<>();

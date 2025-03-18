@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.data.collection;
 
+import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 
 public interface Lists {
@@ -12,7 +13,7 @@ public interface Lists {
    * @return handle to list.
    * @param <E> element type.
    */
-  static <E> UnmovableList<E> of(java.util.List<E> list, Class<E> elementClass) {
+  static <E> UnmovableListHandle<E> of(java.util.List<E> list, Class<E> elementClass) {
     return new JavaListWrapper<>(list, elementClass);
   }
 
@@ -24,11 +25,11 @@ public interface Lists {
    * @return handle to list.
    * @param <E> element type.
    */
-  static <E> UnmovableList<E> of(java.util.List<E> list, Type<E> elementType) {
+  static <E> UnmovableListHandle<E> of(java.util.List<E> list, Type<E> elementType) {
     return new JavaListWrapper<>(list, elementType);
   }
 
-  static <E> UnmovableList<E> empty(Class<E> elementClass) {
+  static <E> UnmovableListHandle<E> empty(Class<E> elementClass) {
     return null;
   }
 
@@ -64,15 +65,26 @@ public interface Lists {
     return new IntegerListOverArrayWrapper(new int[] { value1, value2, value3 });
   }
 
-  static UnmovableFloat64List ofDoubles(double[] array) {
+  static UnmovableFloat64ListHandle ofDoubles(double[] array) {
     return new DoubleListOverArrayWrapper(array);
   }
 
-  static UnmovableFloat64List ofDoubles(java.util.List<Double> list) {
+  static UnmovableFloat64ListHandle ofDoubles(java.util.List<Double> list) {
     return new DoubleListOverArrayWrapper(list);
   }
 
-  static UnmovableList<String> ofStrings(java.util.List<String> list) {
+  static UnmovableListHandle<String> ofStrings(java.util.List<String> list) {
     return of(list, String.class);
+  }
+
+  @SuppressWarnings("unchecked")
+  static <E> ListHandle<E> listHandle(Object handle, Class<E> elementClass) {
+    if (handle == null) {
+      return null;
+    }
+    if (ListHandle.class.isAssignableFrom(handle.getClass())) {
+      return (ListHandle<E>) handle;
+    }
+    throw UnexpectedExceptions.withMessage("Not a list handle");
   }
 }

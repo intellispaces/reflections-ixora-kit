@@ -11,14 +11,13 @@ import static org.mockito.Mockito.when;
 public class TestPortExchangeGuideImpl implements TestPortExchangeGuide {
 
   @Override
-  public HttpResponse exchange(TestPort port, HttpRequest request) {
-    HttpStatus statusHandle = mock(HttpStatus.class);
-    when(statusHandle.isOkStatus()).thenReturn(true);
+  public HttpResponseHandle exchange(TestPort port, HttpRequest request) {
+    var status = mock(HttpStatusHandle.class);
+    when(status.isOkStatus()).thenReturn(true);
 
-    UnmovableHttpResponse  responseHandle = mock(UnmovableHttpResponse .class);
-    when(responseHandle.status()).thenReturn(statusHandle);
+    var responseHandle = mock(UnmovableHttpResponseHandle.class);
+    when(responseHandle.status()).thenReturn(status);
     when(responseHandle.bodyStream()).thenReturn(DataStreams.get(StringFunctions.stringToInputStream("Hello")));
-
     return responseHandle;
   }
 }

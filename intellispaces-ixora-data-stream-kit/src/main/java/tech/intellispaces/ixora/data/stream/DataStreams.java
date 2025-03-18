@@ -4,11 +4,11 @@ import java.io.InputStream;
 
 public interface DataStreams {
 
-  static MovableByteInputStream get(InputStream is) {
+  static MovableByteInputStreamHandle get(InputStream is) {
     return ByteStreams.get(is);
   }
 
-  static MovableByteInputStream emptyByteStream() {
+  static MovableByteInputStreamHandle emptyByteStream() {
     return ByteStreams.empty();
   }
 }

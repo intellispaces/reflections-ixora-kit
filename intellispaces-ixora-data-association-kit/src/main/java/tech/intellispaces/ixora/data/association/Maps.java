@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.data.association;
 
+import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 
 public interface Maps {
@@ -58,5 +59,16 @@ public interface Maps {
     K key3, V value3
   ) {
     return new JavaMapWrapper<>(java.util.Map.of(key1, value1, key2, value2, key3, value3), keyType, valueType);
+  }
+
+  @SuppressWarnings("unchecked")
+  static <K, V> MapHandle<K, V> mapHandle(Object handle, Class<K> keyClass, Class<V> valueClass) {
+    if (handle == null) {
+      return null;
+    }
+    if (MapHandle.class.isAssignableFrom(handle.getClass())) {
+      return (MapHandle<K, V>) handle;
+    }
+    throw UnexpectedExceptions.withMessage("Not a map handle");
   }
 }

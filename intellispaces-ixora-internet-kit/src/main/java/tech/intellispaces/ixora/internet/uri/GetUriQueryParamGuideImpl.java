@@ -4,6 +4,7 @@ import tech.intellispaces.commons.data.Pair;
 import tech.intellispaces.commons.data.Pairs;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.collection.List;
+import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -17,7 +18,7 @@ public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {
 
   @Mapper
   @Override
-  public List<String> getUriQueryParam(Uri uri, String paramName) {
+  public ListHandle<String> getUriQueryParam(Uri uri, String paramName) {
     if (uri == null || paramName == null) {
       return Lists.empty(String.class);
     }

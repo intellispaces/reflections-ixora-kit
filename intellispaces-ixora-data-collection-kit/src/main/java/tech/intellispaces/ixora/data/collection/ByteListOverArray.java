@@ -9,7 +9,7 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
-abstract class ByteListOverArray implements UnmovableByteList {
+abstract class ByteListOverArray implements UnmovableByteListHandle {
   private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;

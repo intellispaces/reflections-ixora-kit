@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @ObjectHandle(Integer32ListDomain.class)
-abstract class IntegerListOverArray implements UnmovableInteger32List {
+abstract class IntegerListOverArray implements UnmovableInteger32ListHandle {
   private final int[] array;
   private final Type<Integer> elementType = Types.get(Integer.class);
   private List<Integer> list;

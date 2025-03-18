@@ -2,6 +2,7 @@ package tech.intellispaces.ixora.data.snakeyaml;
 
 import org.yaml.snakeyaml.Yaml;
 import tech.intellispaces.ixora.data.association.Properties;
+import tech.intellispaces.ixora.data.association.PropertiesHandle;
 import tech.intellispaces.ixora.data.association.PropertiesProvides;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
@@ -14,7 +15,7 @@ public class SnakeyamlGuide implements YamlStringToPropertiesGuide {
 
   @Mapper
   @Override
-  public Properties yamlStringToProperties(String string) throws InvalidPropertyException {
+  public PropertiesHandle yamlStringToProperties(String string) throws InvalidPropertyException {
     try {
       var yaml = new Yaml();
       return PropertiesProvides.of(yaml.load(string));

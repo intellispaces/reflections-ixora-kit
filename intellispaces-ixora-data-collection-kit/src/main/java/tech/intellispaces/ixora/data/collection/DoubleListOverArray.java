@@ -8,7 +8,7 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.util.Arrays;
 
 @ObjectHandle(Float64ListDomain.class)
-abstract class DoubleListOverArray implements UnmovableFloat64List {
+abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
   private final double[] array;
   private final Type<Double> elementType = Types.get(Double.class);
   private java.util.List<Double> list;

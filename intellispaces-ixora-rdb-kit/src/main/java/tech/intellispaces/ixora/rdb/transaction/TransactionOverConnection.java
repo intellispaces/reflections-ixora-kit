@@ -2,7 +2,8 @@ package tech.intellispaces.ixora.rdb.transaction;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.association.Map;
-import tech.intellispaces.ixora.data.collection.List;
+import tech.intellispaces.ixora.data.association.MapHandle;
+import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.cursor.MovableCursor;
 import tech.intellispaces.ixora.rdb.datasource.Connection;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
@@ -16,6 +17,9 @@ import tech.intellispaces.jaquarius.annotation.Inject;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+
+import static tech.intellispaces.ixora.data.association.Maps.mapHandle;
+import static tech.intellispaces.ixora.data.collection.Lists.listHandle;
 
 @ObjectHandle(TransactionDomain.class)
 abstract class TransactionOverConnection implements MovableTransaction {
@@ -84,7 +88,11 @@ abstract class TransactionOverConnection implements MovableTransaction {
         castStringToParameterizedNamedQueryGuide().castStringToParameterizedNamedQuery(query)
     );
     MovablePreparedStatement ps = connection.createPreparedStatement(parameterizedQuery.query());
-    setParamValues(ps, parameterizedQuery.paramNames(), params);
+    setParamValues(
+        ps,
+        listHandle(parameterizedQuery.paramNames(), String.class),
+        mapHandle(params, String.class, Object.class)
+    );
     MovableResultSet rs = ps.executeQuery();
     return fetchData(dataType, rs);
   }
@@ -101,7 +109,7 @@ abstract class TransactionOverConnection implements MovableTransaction {
   }
 
   private void setParamValues(
-      MovablePreparedStatement ps, List<String> paramNames, Map<String, Object> params
+      MovablePreparedStatement ps, ListHandle<String> paramNames, MapHandle<String, Object> params
   ) {
     int index = 1;
     for (Object paramName : paramNames.nativeList()) {
