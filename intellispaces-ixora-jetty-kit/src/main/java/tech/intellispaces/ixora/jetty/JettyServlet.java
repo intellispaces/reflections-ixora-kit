@@ -13,6 +13,8 @@ import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
 import java.io.IOException;
 
+import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
+
 class JettyServlet extends HttpServlet {
   private MovableObjectHandle<?> logicalPort;
   private Class<? extends HttpPortExchangeChannel> exchangeChannel;
@@ -50,7 +52,7 @@ class JettyServlet extends HttpServlet {
       throw new RuntimeException();
     }
 
-    byte[] body = ArraysFunctions.toByteArray(response.bodyStream().readAll().nativeList());
+    byte[] body = ArraysFunctions.toByteArray(toList(response.bodyStream().readAll().iterator()));
     servletResponse.getOutputStream().write(body);
   }
 }

@@ -6,6 +6,7 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 @ObjectHandle(Integer32ListDomain.class)
@@ -30,7 +31,7 @@ abstract class IntegerListOverArray implements UnmovableInteger32ListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Integer> asCollection() {
-    return new JavaCollectionWrapper<>(nativeList(), elementType);
+    return new JavaCollectionWrapper<>(list(), elementType);
   }
 
   @Mapper
@@ -62,16 +63,15 @@ abstract class IntegerListOverArray implements UnmovableInteger32ListHandle {
   }
 
   @Override
-  public List<Integer> nativeList() {
+  public Iterator<Integer> iterator() {
+    return list().iterator();
+  }
+
+  private List<Integer> list() {
     if (list == null) {
       list = Arrays.stream(array).boxed().toList();
     }
     return list;
-  }
-
-  @Override
-  public java.util.Collection<Integer> nativeCollection() {
-    return List.of();
   }
 }
 

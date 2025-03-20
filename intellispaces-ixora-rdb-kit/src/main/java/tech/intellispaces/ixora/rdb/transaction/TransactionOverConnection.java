@@ -112,11 +112,11 @@ abstract class TransactionOverConnection implements MovableTransaction {
       MovablePreparedStatement ps, ListHandle<String> paramNames, MapHandle<String, Object> params
   ) {
     int index = 1;
-    for (Object paramName : paramNames.nativeList()) {
-      if (!params.nativeMap().containsKey(paramName)) {
+    for (String paramName : paramNames) {
+      if (!params.containsKey(paramName)) {
         throw RdbExceptions.withMessage("Value of parameter {0} is not found", paramName);
       }
-      Object paramValue = params.nativeMap().get(paramName);
+      Object paramValue = params.value(paramName);
       if (paramValue instanceof Integer) {
         ps.setInt(index++, (int) paramValue);
       } else {

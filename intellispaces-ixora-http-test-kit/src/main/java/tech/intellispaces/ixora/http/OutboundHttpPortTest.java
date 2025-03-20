@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 /**
  * Tests for {@link OutboundHttpPort} implementations.
@@ -50,7 +51,7 @@ public abstract class OutboundHttpPortTest {
       HttpStatus status = response.status();
       assertThat(status.isOkStatus()).isTrue();
 
-      byte[] body = ArraysFunctions.toByteArray(response.bodyStream().readAll().nativeList());
+      byte[] body = ArraysFunctions.toByteArray(toList(response.bodyStream().readAll().iterator()));
       assertThat(new String(body, StandardCharsets.UTF_8)).isEqualTo(HELLO_RESPONSE);
     } catch (Exception e) {
       Fail.fail("Unexpected exception", e);

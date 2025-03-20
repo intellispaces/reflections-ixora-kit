@@ -39,6 +39,16 @@ public class TransactionFunctions {
     );
   }
 
+  public static void transactional(MovableTransactionFactoryHandle factory, Consumer<TransactionHandle> operation) {
+    transactional(factory,
+        data -> {
+          operation.accept((TransactionHandle) Transactions.current());
+          return null;
+        },
+        null
+    );
+  }
+
   public static <R, E extends Exception> R transactional(
       MovableTransactionFactory factory,
       ThrowingFunction<Object[], R, E> operation,

@@ -6,6 +6,7 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 @ObjectHandle(CollectionDomain.class)
 abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableCollectionHandle<E> {
@@ -44,7 +45,7 @@ abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableCol
   }
 
   @Override
-  public Collection<E> nativeCollection() {
-    return collection;
+  public Iterator<E> iterator() {
+    return collection.iterator();
   }
 }

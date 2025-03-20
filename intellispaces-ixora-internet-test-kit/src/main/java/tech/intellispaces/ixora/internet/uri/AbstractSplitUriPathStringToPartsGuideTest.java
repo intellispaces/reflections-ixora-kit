@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.internet.uri;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 public abstract class AbstractSplitUriPathStringToPartsGuideTest {
 
@@ -10,11 +11,11 @@ public abstract class AbstractSplitUriPathStringToPartsGuideTest {
     SplitUriPathStringToPartsGuide guide = getGuide();
 
     assertThat(guide.splitUriPathStringToParts(null)).isNull();
-    assertThat(guide.splitUriPathStringToParts("").nativeList()).containsExactly("");
-    assertThat(guide.splitUriPathStringToParts("/").nativeList()).containsExactly("");
-    assertThat(guide.splitUriPathStringToParts("/b").nativeList()).containsExactly("b");
-    assertThat(guide.splitUriPathStringToParts("/a/b").nativeList()).containsExactly("a", "b");
-    assertThat(guide.splitUriPathStringToParts("/a/b/").nativeList()).containsExactly("a", "b");
-    assertThat(guide.splitUriPathStringToParts("/a//b/").nativeList()).containsExactly("a", "", "b");
+    assertThat(toList(guide.splitUriPathStringToParts("").iterator())).containsExactly("");
+    assertThat(toList(guide.splitUriPathStringToParts("/").iterator())).containsExactly("");
+    assertThat(toList(guide.splitUriPathStringToParts("/b").iterator())).containsExactly("b");
+    assertThat(toList(guide.splitUriPathStringToParts("/a/b").iterator())).containsExactly("a", "b");
+    assertThat(toList(guide.splitUriPathStringToParts("/a/b/").iterator())).containsExactly("a", "b");
+    assertThat(toList(guide.splitUriPathStringToParts("/a//b/").iterator())).containsExactly("a", "", "b");
   }
 }

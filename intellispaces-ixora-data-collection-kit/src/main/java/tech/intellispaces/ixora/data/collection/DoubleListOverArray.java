@@ -6,6 +6,7 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 @ObjectHandle(Float64ListDomain.class)
 abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
@@ -29,7 +30,7 @@ abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Double> asCollection() {
-    return new JavaCollectionWrapper<>(nativeList(), elementType);
+    return new JavaCollectionWrapper<>(list(), elementType);
   }
 
   @Mapper
@@ -61,15 +62,14 @@ abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
   }
 
   @Override
-  public java.util.List<Double> nativeList() {
+  public Iterator<Double> iterator() {
+    return list().iterator();
+  }
+
+  private java.util.List<Double> list() {
     if (list == null) {
       list = Arrays.stream(array).boxed().toList();
     }
     return list;
-  }
-
-  @Override
-  public java.util.Collection<Double> nativeCollection() {
-    return nativeList();
   }
 }

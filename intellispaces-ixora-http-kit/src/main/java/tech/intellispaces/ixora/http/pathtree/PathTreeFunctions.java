@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
+
 public class PathTreeFunctions {
   private static final JoinBasePathStringWithEndpointStringGuide JOIN_URL_GUIDE = new JoinBasePathStringWithEndpointStringAutoGuide();
   private static final SplitUriPathStringToPartsGuide SPLIT_URI_PATH_GUIDE = new SplitUriPathStringToPartsAutoGuide();
@@ -60,7 +62,7 @@ public class PathTreeFunctions {
       HttpMethod httpMethod,
       MethodStatement channelMethod
   ) {
-    List<String> pathSegments = SPLIT_URI_PATH_GUIDE.map(path).nativeList();
+    List<String> pathSegments = toList(SPLIT_URI_PATH_GUIDE.map(path).iterator());
     addSegments(port, portDomain, ontologyType, rootSegments, pathSegments, httpMethod, channelMethod);
   }
 
@@ -111,7 +113,7 @@ public class PathTreeFunctions {
       HttpRequest request, List<PathSegment> rootSegments
   ) {
     String path = request.requestURI().path();
-    List<String> pathSegments = SPLIT_URI_PATH_GUIDE.map(path).nativeList();
+    List<String> pathSegments = toList(SPLIT_URI_PATH_GUIDE.map(path).iterator());
 
     PathSegment finishSegment = null;
     Collection<PathSegment> curSegments = rootSegments;

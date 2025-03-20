@@ -5,6 +5,7 @@ import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
+import java.util.Iterator;
 import java.util.List;
 
 @ObjectHandle(ListDomain.class)
@@ -56,12 +57,7 @@ abstract class JavaList<E> implements UnmovableList<E>, UnmovableListHandle<E> {
   }
 
   @Override
-  public List<E> nativeList() {
-    return list;
-  }
-
-  @Override
-  public java.util.Collection<E> nativeCollection() {
-    return list;
+  public Iterator<E> iterator() {
+    return list.iterator();
   }
 }

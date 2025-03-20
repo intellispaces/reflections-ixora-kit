@@ -6,6 +6,7 @@ import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
+import java.util.Iterator;
 import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
@@ -30,7 +31,7 @@ abstract class ByteListOverArray implements UnmovableByteListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Byte> asCollection() {
-    return new JavaCollectionWrapper<>(nativeList(), elementType);
+    return new JavaCollectionWrapper<>(list(), elementType);
   }
 
   @Mapper
@@ -62,16 +63,15 @@ abstract class ByteListOverArray implements UnmovableByteListHandle {
   }
 
   @Override
-  public List<Byte> nativeList() {
+  public Iterator<Byte> iterator() {
+    return list().iterator();
+  }
+
+  private List<Byte> list() {
     if (list == null) {
       list = ArraysFunctions.toByteList(array);
     }
     return list;
-  }
-
-  @Override
-  public java.util.Collection<Byte> nativeCollection() {
-    return List.of();
   }
 }
 

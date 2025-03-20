@@ -3,6 +3,7 @@ package tech.intellispaces.ixora.data.association;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
+import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Collections;
@@ -40,8 +41,15 @@ abstract class JavaMap<K, V> implements UnmovableMap<K, V>, UnmovableMapHandle<K
     throw new RuntimeException("Not implemented");
   }
 
+  @Mapper
   @Override
-  public Map<K, V> nativeMap() {
-    return map;
+  public boolean containsKey(K key) {
+    return map.containsKey(key);
+  }
+
+  @Mapper
+  @Override
+  public V value(K key) {
+    return map.get(key);
   }
 }
