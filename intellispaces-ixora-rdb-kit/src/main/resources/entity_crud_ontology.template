@@ -17,4 +17,7 @@ public interface {{$generatedArtifactSimpleName}} {
   @Channel(name = "{{$transactionToEntityByIdentifierChannelSimpleName}}", value = "{{$transactionToEntityByIdentifierCid}}")
   {{$sourceArtifactSimpleName}} getById(TransactionDomain tx, {{$identifierType}} id);
 {{end}}
+
+  @Channel(name = "{{$transactionToNewEntityChannelSimpleName}}", value = "{{$transactionToNewEntityCid}}")
+  {{$sourceArtifactSimpleName}} create(TransactionDomain tx, {{$sourceArtifactSimpleName}} contract);
 }

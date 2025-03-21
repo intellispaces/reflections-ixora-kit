@@ -6,6 +6,7 @@ import tech.intellispaces.commons.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
+import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 
@@ -16,6 +17,7 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   private String entityHandleSimpleName;
   private String identifierType;
   private String transactionToEntityByIdentifierChannelSimpleName;
+  private String transactionToNewEntityChannelSimpleName;
 
   public EntityCrudGuideGenerator(CustomType entityType) {
     super(entityType);
@@ -42,6 +44,7 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
     addImport(Guide.class);
     addImport(Mapper.class);
+    addImport(MapperOfMoving.class);
     addImport(Transaction.class);
 
     entityHandleSimpleName = addImportAndGetSimpleName(
@@ -54,6 +57,7 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
     addVariable("entityHandleSimpleName", entityHandleSimpleName);
     addVariable("identifierType", identifierType);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
+    addVariable("transactionToNewEntityChannelSimpleName", transactionToNewEntityChannelSimpleName);
     return true;
   }
 
@@ -69,6 +73,9 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
         EntityAnnotationFunctions.getIdentifierType(sourceArtifact(), identifierMethod.orElseThrow())
     );
     transactionToEntityByIdentifierChannelSimpleName = EntityAnnotationFunctions.getTransactionToEntityByIdentifierChannelSimpleName(
+        sourceArtifact()
+    );
+    transactionToNewEntityChannelSimpleName = EntityAnnotationFunctions.getTransactionToNewEntityChannelSimpleName(
         sourceArtifact()
     );
   }

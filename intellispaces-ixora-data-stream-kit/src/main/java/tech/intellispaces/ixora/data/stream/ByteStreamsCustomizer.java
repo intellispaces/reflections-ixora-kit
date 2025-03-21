@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.data.stream;
 
 import java.io.InputStream;
 
-public interface ByteStreams {
+public interface ByteStreamsCustomizer {
 
   static MovableByteInputStreamHandle get(InputStream is) {
     return new JavaByteInputStreamWrapper(is);

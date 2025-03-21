@@ -6,7 +6,7 @@ import tech.intellispaces.commons.annotation.processor.ArtifactProcessor;
 import tech.intellispaces.commons.annotation.processor.ArtifactValidator;
 import tech.intellispaces.commons.reflection.customtype.CustomType;
 import tech.intellispaces.ixora.rdb.annotation.PersistedEntity;
-import tech.intellispaces.jaquarius.annotationprocessor.ArtifactGenerationAnnotationFunctions;
+import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 
 import javax.lang.model.element.ElementKind;
@@ -21,7 +21,7 @@ public class PersistableEntityAnnotationProcessor extends ArtifactProcessor {
 
   @Override
   public boolean isApplicable(CustomType entityType) {
-    return ArtifactGenerationAnnotationFunctions.isAutoGenerationEnabled(entityType);
+    return AnnotationFunctions.isAutoGenerationEnabled(entityType);
   }
 
   @Override

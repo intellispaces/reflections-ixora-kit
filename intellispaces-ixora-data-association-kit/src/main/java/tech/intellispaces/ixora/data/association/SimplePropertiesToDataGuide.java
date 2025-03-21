@@ -29,7 +29,7 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
   @SuppressWarnings("unchecked")
   private <D> D process(Properties properties, Type<D> dataType) {
     Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
-    String dataHandleObjectCanonicalName = NameConventionFunctions.getDatasetClassName(domainClass.getName());
+    String dataHandleObjectCanonicalName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
                 "expected data handle class {1}", domainClass.getCanonicalName(), dataHandleObjectCanonicalName));

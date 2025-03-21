@@ -10,7 +10,7 @@ public interface ParameterizedNamedQueries {
       String query,
       UnmovableList<String> paramNames
   ) {
-    return new ParameterizedNamedQueryDataset(
+    return new UnmovableParameterizedNamedQueryDataset(
         null,
         query,
         ObjectHandles.handle(paramNames, UnmovableListHandle.class)

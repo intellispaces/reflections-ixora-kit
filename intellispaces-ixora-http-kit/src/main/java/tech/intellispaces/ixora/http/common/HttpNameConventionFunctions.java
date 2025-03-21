@@ -22,7 +22,7 @@ public interface HttpNameConventionFunctions {
   }
 
   static String getPortProviderCanonicalName(CustomType httpPortDomain) {
-    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "s");
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "s2");
   }
 
   static String getPortGuideCanonicalName(CustomType ontology) {

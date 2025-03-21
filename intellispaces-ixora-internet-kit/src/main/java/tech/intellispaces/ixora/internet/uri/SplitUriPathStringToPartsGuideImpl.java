@@ -1,8 +1,7 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.ListHandle;
-import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.ListsCustomizer;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 
@@ -20,6 +19,6 @@ public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToP
     }
     String path = uriPath.startsWith(SLASH) ? uriPath.substring(1) : uriPath;
     path = path.endsWith(SLASH) ? path.substring(0, path.length() - 1) : path;
-    return Lists.of(Arrays.asList(path.split(SLASH)), String.class);
+    return ListsCustomizer.of(Arrays.asList(path.split(SLASH)), String.class);
   }
 }

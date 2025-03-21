@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.data.collection;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 
-public interface Lists {
+public interface ListsCustomizer {
 
   /**
    * Creates handle of unmovable list based on Java list.

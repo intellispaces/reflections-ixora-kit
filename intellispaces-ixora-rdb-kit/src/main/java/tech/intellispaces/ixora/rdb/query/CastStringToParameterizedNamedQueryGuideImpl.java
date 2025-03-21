@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.rdb.query;
 
-import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.ListsCustomizer;
 import tech.intellispaces.jaquarius.annotation.Guide;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringT
     }
     return ParameterizedNamedQueries.get(
         new String(blindQuery, 0, index2),
-        Lists.of(paramNames, String.class)
+        ListsCustomizer.of(paramNames, String.class)
     );
   }
 }

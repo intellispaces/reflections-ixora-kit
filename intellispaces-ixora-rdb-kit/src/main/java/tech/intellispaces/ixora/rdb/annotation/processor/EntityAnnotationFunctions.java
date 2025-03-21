@@ -58,6 +58,12 @@ public interface EntityAnnotationFunctions {
         "ByIdentifierChannel";
   }
 
+  static String getTransactionToNewEntityChannelSimpleName(CustomType entityType) {
+    return "TransactionToNew" +
+        StringFunctions.capitalizeFirstLetter(StringFunctions.removeTailOrElseThrow(entityType.simpleName(), "Domain")) +
+        "Channel";
+  }
+
   static String getTransactionToEntityByIdentifierGuideSimpleName(CustomType entityType) {
     return "TransactionTo" +
         StringFunctions.capitalizeFirstLetter(StringFunctions.removeTailOrElseThrow(entityType.simpleName(), "Domain")) +

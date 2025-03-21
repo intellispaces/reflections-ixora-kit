@@ -2,13 +2,13 @@ package tech.intellispaces.ixora.data.stream;
 
 import java.io.InputStream;
 
-public interface DataStreams {
+public interface DataStreamsCustomizer {
 
   static MovableByteInputStreamHandle get(InputStream is) {
-    return ByteStreams.get(is);
+    return ByteStreamsCustomizer.get(is);
   }
 
   static MovableByteInputStreamHandle emptyByteStream() {
-    return ByteStreams.empty();
+    return ByteStreamsCustomizer.empty();
   }
 }

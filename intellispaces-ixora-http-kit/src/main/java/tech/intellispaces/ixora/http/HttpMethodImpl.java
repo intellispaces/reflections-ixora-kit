@@ -24,6 +24,6 @@ abstract class HttpMethodImpl implements UnmovableHttpMethod {
   @Mapper
   @Override
   public boolean isGetMethod() {
-    return HttpMethods.get().name().equals(name);
+    return HttpMethodsCustomizer.get().name().equals(name);
   }
 }

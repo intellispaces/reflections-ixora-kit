@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.data.association;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 
-public interface Maps {
+public interface MapsCustomizer {
 
   static <K, V> UnmovableMap<K, V> of(java.util.Map<K, V> map, Class<K> keyClass, Class<V> valueClass) {
     return new JavaMapWrapper<>(map, keyClass, valueClass);

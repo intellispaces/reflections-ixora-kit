@@ -29,8 +29,8 @@ public class DedicatedHttpPortImplTest {
   @Test
   public void test() {
     // Given
-    HttpMethod httpGetMethod = HttpMethods.get();
-    HttpMethod httpPostMethod = HttpMethods.post();
+    HttpMethod httpGetMethod = HttpMethodsCustomizer.get();
+    HttpMethod httpPostMethod = HttpMethodsCustomizer.post();
 
     MovableHttpPort underlyingPort = mock(MovableHttpPortHandle.class);
 

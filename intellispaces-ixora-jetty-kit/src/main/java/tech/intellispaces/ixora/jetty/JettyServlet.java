@@ -4,10 +4,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import tech.intellispaces.commons.collection.ArraysFunctions;
-import tech.intellispaces.ixora.http.HttpMethods;
+import tech.intellispaces.ixora.http.HttpMethodsCustomizer;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
 import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpRequests;
+import tech.intellispaces.ixora.http.HttpRequestsCustomizer;
 import tech.intellispaces.ixora.http.UnmovableHttpResponseHandle;
 import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
@@ -37,8 +37,8 @@ class JettyServlet extends HttpServlet {
     String url = req.getRequestURL().toString();
     String query = req.getQueryString();
     String uri = (query == null ? url : url + '?' + query);
-    return HttpRequests.get(
-      HttpMethods.get(req.getMethod()),
+    return HttpRequestsCustomizer.get(
+      HttpMethodsCustomizer.get(req.getMethod()),
       uri
     );
   }

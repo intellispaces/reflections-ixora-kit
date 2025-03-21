@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.data.stream;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.ListsCustomizer;
 import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
@@ -59,13 +59,13 @@ abstract class JavaByteInputStream implements MovableByteInputStream, MovableByt
   @Override
   @MapperOfMoving
   public UnmovableByteListHandle readMultiple(int number) {
-    return Lists.ofBytes(nextBytes(number));
+    return ListsCustomizer.ofBytes(nextBytes(number));
   }
 
   @Override
   @MapperOfMoving
   public UnmovableByteListHandle readAll() {
-    return Lists.ofBytes(allBytes());
+    return ListsCustomizer.ofBytes(allBytes());
   }
 
   private boolean hasNextElement() {

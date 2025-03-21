@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.data.association;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.ListsCustomizer;
 import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
@@ -116,7 +116,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private UnmovableList<Integer> integer32List(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return Lists.ofIntegers((java.util.List<Integer>) value);
+    return ListsCustomizer.ofIntegers((java.util.List<Integer>) value);
   }
 
   @Mapper
@@ -129,7 +129,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private UnmovableList<Double> float64List(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return Lists.ofDoubles((java.util.List<Double>) value);
+    return ListsCustomizer.ofDoubles((java.util.List<Double>) value);
   }
 
   @Mapper
@@ -142,7 +142,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private UnmovableList<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return Lists.of((java.util.List<String>) value, String.class);
+    return ListsCustomizer.of((java.util.List<String>) value, String.class);
   }
 
   @Mapper
@@ -160,7 +160,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
         .map(MapBasedPropertiesWrapper::new)
         .map(p -> (Properties) p)
         .toList();
-    return Lists.of(propertyList, Properties.class);
+    return ListsCustomizer.of(propertyList, Properties.class);
   }
 
   @Mapper

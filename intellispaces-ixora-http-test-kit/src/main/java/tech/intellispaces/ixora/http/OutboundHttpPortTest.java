@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http;
 import com.sun.net.httpserver.HttpServer;
 import org.assertj.core.api.Fail;
 import tech.intellispaces.commons.collection.ArraysFunctions;
-import tech.intellispaces.ixora.internet.uri.Uris;
+import tech.intellispaces.ixora.internet.uri.UrisCustomizer;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
@@ -40,7 +40,7 @@ public abstract class OutboundHttpPortTest {
 
       HttpRequest requestHandle = mock(HttpRequest.class);
       when(requestHandle.method()).thenReturn(methodHandle);
-      when(requestHandle.requestURI()).thenReturn(Uris.get(TEST_ADDRESS + HELLO_ENDPOINT));
+      when(requestHandle.requestURI()).thenReturn(UrisCustomizer.get(TEST_ADDRESS + HELLO_ENDPOINT));
 
       MovableOutboundHttpPortHandle port = getPort();
 

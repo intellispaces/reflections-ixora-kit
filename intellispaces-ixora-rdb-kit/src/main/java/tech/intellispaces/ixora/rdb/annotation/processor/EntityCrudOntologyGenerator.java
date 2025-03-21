@@ -15,10 +15,12 @@ import java.util.UUID;
 
 public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
   private String transactionToEntityByIdentifierCid;
+  private String transactionToNewEntityCid;
 
   private boolean entityHasIdentifier;
   private String identifierType;
   private String transactionToEntityByIdentifierChannelSimpleName;
+  private String transactionToNewEntityChannelSimpleName;
 
   public EntityCrudOntologyGenerator(CustomType entityType) {
     super(entityType);
@@ -51,7 +53,10 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
     addVariable("entityHasIdentifier", entityHasIdentifier);
     addVariable("identifierType", identifierType);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
+    addVariable("transactionToNewEntityChannelSimpleName", transactionToNewEntityChannelSimpleName);
+
     addVariable("transactionToEntityByIdentifierCid", transactionToEntityByIdentifierCid);
+    addVariable("transactionToNewEntityCid", transactionToNewEntityCid);
     return true;
   }
 
@@ -59,6 +64,7 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
     String did = DomainFunctions.getDomainId(sourceArtifact());
     var identifierGenerator = new RepetableUuidIdentifierGenerator(UUID.fromString(did));
     transactionToEntityByIdentifierCid = identifierGenerator.next();
+    transactionToNewEntityCid = identifierGenerator.next();
   }
 
   private void analyzeEntityIdentifier() {
@@ -72,6 +78,10 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
     transactionToEntityByIdentifierChannelSimpleName = EntityAnnotationFunctions.getTransactionToEntityByIdentifierChannelSimpleName(
         sourceArtifact()
     );
+    transactionToNewEntityChannelSimpleName = EntityAnnotationFunctions.getTransactionToNewEntityChannelSimpleName(
+        sourceArtifact()
+    );
+
     identifierType = addImportAndGetSimpleName(
       EntityAnnotationFunctions.getIdentifierType(sourceArtifact(), identifierMethod.orElseThrow())
     );

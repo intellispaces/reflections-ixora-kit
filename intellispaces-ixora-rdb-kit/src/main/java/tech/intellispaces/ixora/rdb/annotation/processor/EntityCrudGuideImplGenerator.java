@@ -8,7 +8,7 @@ import tech.intellispaces.commons.reflection.method.MethodStatement;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.association.Map;
-import tech.intellispaces.ixora.data.association.Maps;
+import tech.intellispaces.ixora.data.association.MapsCustomizer;
 import tech.intellispaces.ixora.rdb.annotation.Transactional;
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
@@ -52,7 +52,7 @@ public class EntityCrudGuideImplGenerator extends JaquariusArtifactGenerator {
   @Override
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
     addImport(Types.class);
-    addImport(Maps.class);
+    addImport(MapsCustomizer.class);
     addImport(Guide.class);
     addImport(Transactional.class);
     addImport(Transaction.class);

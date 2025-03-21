@@ -17,4 +17,8 @@ public interface {{$generatedArtifactSimpleName}} {
   @Mapper({{$transactionToEntityByIdentifierChannelSimpleName}}.class)
   {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id);
 {{end}}
+
+  @MapperOfMoving({{$transactionToNewEntityChannelSimpleName}}.class)
+  {{$entityHandleSimpleName}} create(Transaction tx, {{$entityHandleSimpleName}} contract);
+
 }

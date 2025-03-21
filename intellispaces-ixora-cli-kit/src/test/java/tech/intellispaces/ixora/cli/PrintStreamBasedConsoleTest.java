@@ -32,7 +32,7 @@ public class PrintStreamBasedConsoleTest {
     // Given
     var os = new ByteArrayOutputStream();
     var ps = new PrintStream(os, true, StandardCharsets.UTF_8);
-    var console = Consoles.get(ps);
+    var console = ConsolesCustomizer.get(ps);
 
     // When
     console.println("abc");

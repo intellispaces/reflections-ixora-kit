@@ -7,7 +7,7 @@ import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.ixora.data.collection.ListsCustomizer;
 import tech.intellispaces.jaquarius.annotation.Dataset;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -55,12 +55,12 @@ public class ResultSetToDataGuideImpl {
         throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data handle");
       }
     }
-    return Lists.of(values, dataClass);
+    return ListsCustomizer.of(values, dataClass);
   }
 
   @SuppressWarnings("unchecked")
   private <D> Constructor<D> getDataHandleConstructor(Class<D> dataClass, Class<?> domainClass) {
-    String dataHandleClassName = NameConventionFunctions.getDatasetClassName(domainClass.getCanonicalName());
+    String dataHandleClassName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getCanonicalName());
     Class<D> dataHandleClass = (Class<D>) ClassFunctions.getClass(dataHandleClassName).orElseThrow(() ->
         UnexpectedExceptions.withMessage("Could not find data handle class by name {0} ",
             dataHandleClassName)

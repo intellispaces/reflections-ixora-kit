@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 
-public final class HttpMethods {
+public final class HttpMethodsCustomizer {
 
   public static HttpMethod get(String name) {
     if (GET.name().equals(name)) {
@@ -58,7 +58,7 @@ public final class HttpMethods {
     return TRACE;
   }
 
-  private HttpMethods() {}
+  private HttpMethodsCustomizer() {}
 
   private static final HttpMethod GET = new HttpMethodImplWrapper("GET");
   private static final HttpMethod HEAD = new HttpMethodImplWrapper("HEAD");
