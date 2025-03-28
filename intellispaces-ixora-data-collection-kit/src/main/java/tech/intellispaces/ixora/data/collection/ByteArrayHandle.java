@@ -10,16 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
-abstract class ByteListOverArray implements UnmovableByteListHandle {
+abstract class ByteArrayHandle implements UnmovableByteListHandle {
   private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;
 
-  ByteListOverArray(byte[] array) {
+  ByteArrayHandle(byte[] array) {
     this.array = array;
   }
 
-  ByteListOverArray(List<Byte> list) {
+  ByteArrayHandle(List<Byte> list) {
     this.array = ArraysFunctions.toByteArray(list);
     this.list = list;
   }
@@ -31,7 +31,7 @@ abstract class ByteListOverArray implements UnmovableByteListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Byte> asCollection() {
-    return new JavaCollectionWrapper<>(list(), elementType);
+    return new JavaCollectionHandleWrapper<>(list(), elementType);
   }
 
   @Mapper

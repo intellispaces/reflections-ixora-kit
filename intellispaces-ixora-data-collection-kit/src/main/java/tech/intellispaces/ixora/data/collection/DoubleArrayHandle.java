@@ -9,16 +9,16 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 @ObjectHandle(Float64ListDomain.class)
-abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
+abstract class DoubleArrayHandle implements UnmovableFloat64ListHandle {
   private final double[] array;
   private final Type<Double> elementType = Types.get(Double.class);
   private java.util.List<Double> list;
 
-  DoubleListOverArray(double[] array) {
+  DoubleArrayHandle(double[] array) {
     this.array = array;
   }
 
-  DoubleListOverArray(java.util.List<Double> list) {
+  DoubleArrayHandle(java.util.List<Double> list) {
     this.array = list.stream().mapToDouble(d -> d).toArray();
     this.list = list;
   }
@@ -30,7 +30,7 @@ abstract class DoubleListOverArray implements UnmovableFloat64ListHandle {
   @Mapper
   @Override
   public UnmovableCollectionHandle<Double> asCollection() {
-    return new JavaCollectionWrapper<>(list(), elementType);
+    return new JavaCollectionHandleWrapper<>(list(), elementType);
   }
 
   @Mapper

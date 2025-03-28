@@ -4,7 +4,7 @@ import tech.intellispaces.commons.data.Pair;
 import tech.intellispaces.commons.data.Pairs;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.collection.ListHandle;
-import tech.intellispaces.ixora.data.collection.ListsCustomizer;
+import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 
@@ -19,11 +19,11 @@ public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {
   @Override
   public ListHandle<String> getUriQueryParam(Uri uri, String paramName) {
     if (uri == null || paramName == null) {
-      return ListsCustomizer.empty(String.class);
+      return Lists.empty(String.class);
     }
     String query = uri.query();
     if (StringFunctions.isNullOrBlank(query)) {
-      return ListsCustomizer.empty(String.class);
+      return Lists.empty(String.class);
     }
 
     java.util.List<String> values = Arrays.stream(query.split("&"))
@@ -31,7 +31,7 @@ public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {
         .filter(p -> paramName.equals(p.value1()))
         .map(Pair::value2)
         .toList();
-    return ListsCustomizer.of(values, String.class);
+    return Lists.handleOf(values, String.class);
   }
 
   private Pair<String, String> decode(String pair) {

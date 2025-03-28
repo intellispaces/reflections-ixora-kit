@@ -7,7 +7,7 @@ import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.ixora.data.collection.ListsCustomizer;
+import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Dataset;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -55,7 +55,7 @@ public class ResultSetToDataGuideImpl {
         throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data handle");
       }
     }
-    return ListsCustomizer.of(values, dataClass);
+    return Lists.handleOf(values, dataClass);
   }
 
   @SuppressWarnings("unchecked")

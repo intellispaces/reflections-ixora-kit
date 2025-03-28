@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.List;
 
 @ObjectHandle(ListDomain.class)
-abstract class JavaList<E> implements UnmovableList<E>, UnmovableListHandle<E> {
+abstract class JavaListHandle<E> implements UnmovableList<E>, UnmovableListHandle<E> {
   private final List<E> list;
   private final Type<E> elementType;
 
-  JavaList(List<E> list, Class<E> elementClass) {
+  JavaListHandle(List<E> list, Class<E> elementClass) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = Types.get(elementClass);
   }
 
-  JavaList(List<E> list, Type<E> elementType) {
+  JavaListHandle(List<E> list, Type<E> elementType) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = elementType;
   }

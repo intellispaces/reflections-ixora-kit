@@ -9,16 +9,16 @@ import java.util.Collection;
 import java.util.Iterator;
 
 @ObjectHandle(CollectionDomain.class)
-abstract class JavaCollection<E> implements UnmovableCollection<E>, UnmovableCollectionHandle<E> {
+abstract class JavaCollectionHandle<E> implements UnmovableCollection<E>, UnmovableCollectionHandle<E> {
   private final Collection<E> collection;
   private final Type<E> elementDomain;
 
-  JavaCollection(Collection<E> collection, Class<E> elementClass) {
+  JavaCollectionHandle(Collection<E> collection, Class<E> elementClass) {
     this.collection = collection;
     this.elementDomain = Types.get(elementClass);
   }
 
-  JavaCollection(Collection<E> collection, Type<E> elementType) {
+  JavaCollectionHandle(Collection<E> collection, Type<E> elementType) {
     this.collection = collection;
     this.elementDomain = elementType;
   }
