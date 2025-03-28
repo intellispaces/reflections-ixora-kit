@@ -3,6 +3,8 @@ package tech.intellispaces.ixora.data.collection;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.jaquarius.annotation.ObjectProvider;
 
+import java.util.List;
+
 @ObjectProvider
 public class ListProvider {
 
@@ -20,6 +22,10 @@ public class ListProvider {
 
   public UnmovableInteger32ListHandle create(int value1, int value2, int value3) {
     return new IntegerArrayHandleWrapper(new int[] { value1, value2, value3 });
+  }
+
+  public <E> UnmovableListHandle<E> empty(Class<E> elementClass) {
+    return handleOf(List.of(), elementClass);
   }
 
   public <E> UnmovableListHandle<E> handleOf(java.util.List<E> list, Class<E> elementClass) {
