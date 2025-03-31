@@ -3,7 +3,6 @@ package tech.intellispaces.ixora.cli;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.ixora.cli.configuration.CliConfiguration;
 import tech.intellispaces.jaquarius.system.Modules;
 
 import java.io.ByteArrayOutputStream;
@@ -19,7 +18,7 @@ public class PrintStreamBasedConsoleTest {
 
   @BeforeEach
   public void init() {
-    Modules.load(CliConfiguration.class).start();
+    Modules.load().start();
   }
 
   @AfterEach
@@ -32,7 +31,7 @@ public class PrintStreamBasedConsoleTest {
     // Given
     var os = new ByteArrayOutputStream();
     var ps = new PrintStream(os, true, StandardCharsets.UTF_8);
-    var console = ConsolesCustomizer.get(ps);
+    var console = new PrintStreamBasedConsoleWrapper(ps);
 
     // When
     console.println("abc");

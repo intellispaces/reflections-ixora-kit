@@ -30,7 +30,7 @@ abstract class JavaListHandle<E> implements UnmovableList<E>, UnmovableListHandl
   @Mapper
   @Override
   public UnmovableCollectionHandle<E> asCollection() {
-    return Collections.of(list, elementType);
+    return Collections.handleOf(list, elementType);
   }
 
   @Override

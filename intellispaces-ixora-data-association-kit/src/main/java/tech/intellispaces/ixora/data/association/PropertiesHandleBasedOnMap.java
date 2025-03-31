@@ -12,10 +12,10 @@ import java.util.Collections;
 import java.util.Map;
 
 @ObjectHandle(PropertiesDomain.class)
-abstract class MapBasedProperties implements UnmovableProperties {
+abstract class PropertiesHandleBasedOnMap implements UnmovableProperties {
   private final Map<String, Object> map;
 
-  MapBasedProperties(Map<String, Object> map) {
+  PropertiesHandleBasedOnMap(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -46,7 +46,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedPropertiesWrapper((Map<String, Object>) result);
+      return new PropertiesHandleBasedOnMapWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -103,7 +103,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new MapBasedPropertiesWrapper((Map<String, Object>) value);
+    return new PropertiesHandleBasedOnMapWrapper((Map<String, Object>) value);
   }
 
   @Mapper
@@ -157,7 +157,7 @@ abstract class MapBasedProperties implements UnmovableProperties {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<Properties> propertyList = values.stream()
-        .map(MapBasedPropertiesWrapper::new)
+        .map(PropertiesHandleBasedOnMapWrapper::new)
         .map(p -> (Properties) p)
         .toList();
     return Lists.handleOf(propertyList, Properties.class);

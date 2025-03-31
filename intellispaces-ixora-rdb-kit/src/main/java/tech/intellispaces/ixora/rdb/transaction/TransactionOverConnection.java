@@ -18,7 +18,7 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
-import static tech.intellispaces.ixora.data.association.MapsCustomizer.mapHandle;
+import static tech.intellispaces.ixora.data.association.Maps.mapHandle;
 import static tech.intellispaces.ixora.data.collection.Lists.listHandle;
 
 @ObjectHandle(TransactionDomain.class)
