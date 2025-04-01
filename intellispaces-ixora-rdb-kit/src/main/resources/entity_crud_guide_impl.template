@@ -16,7 +16,7 @@ public class {{$generatedArtifactSimpleName}} implements {{$guideType}} {
 {{when $entityHasIdentifier}}
   @Override
   public {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id) {
-    Map<String, Object> params = MapsCustomizer.of(String.class, Object.class, "id", id);
+    Map<String, Object> params = Maps.create(String.class, Object.class, "id", id);
     return tx.fetchData(Types.get({{$entityHandleSimpleName}}.class), "SELECT * FROM {{$entityTable}} {{$entityAlias}} WHERE {{$entityAlias}}.{{$identifierColumn}} = :id", params);
   }
 {{end}}
