@@ -26,6 +26,6 @@ abstract class TransactionFactoryOverDataSource implements MovableTransactionFac
   @MapperOfMoving
   public MovableTransaction getTransaction() throws TransactionException {
     MovableConnection connection = dataSource.getConnection();
-    return new TransactionOverConnectionWrapper(connection);
+    return new TransactionOverConnectionHandleWrapper(connection);
   }
 }

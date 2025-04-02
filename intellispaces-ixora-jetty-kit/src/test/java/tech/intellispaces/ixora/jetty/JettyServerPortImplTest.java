@@ -26,7 +26,7 @@ public class JettyServerPortImplTest extends AbstractInboundHttpPortTest {
   public MovableInboundHttpPort getOperativePort(
       int portNumber, Class<? extends HttpPortExchangeChannel> exchangeChannel
   ) {
-    return JettyServerPorts.get(portNumber, exchangeChannel).asInboundHttpPort();
+    return JettyServerPorts.create(portNumber, exchangeChannel).asInboundHttpPort();
   }
 
   @Test

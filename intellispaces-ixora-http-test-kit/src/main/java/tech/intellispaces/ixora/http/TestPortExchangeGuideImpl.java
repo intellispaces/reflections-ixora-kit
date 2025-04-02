@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.text.StringFunctions;
-import tech.intellispaces.ixora.data.stream.DataStreamsCustomizer;
+import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.jaquarius.annotation.Guide;
 
 import static org.mockito.Mockito.mock;
@@ -17,7 +17,7 @@ public class TestPortExchangeGuideImpl implements TestPortExchangeGuide {
 
     var responseHandle = mock(UnmovableHttpResponseHandle.class);
     when(responseHandle.status()).thenReturn(status);
-    when(responseHandle.bodyStream()).thenReturn(DataStreamsCustomizer.get(StringFunctions.stringToInputStream("Hello")));
+    when(responseHandle.bodyStream()).thenReturn(ByteInputStreams.handleOf(StringFunctions.stringToInputStream("Hello")));
     return responseHandle;
   }
 }

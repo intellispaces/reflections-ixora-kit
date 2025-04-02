@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import tech.intellispaces.ixora.data.stream.ByteStreamsCustomizer;
+import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
 import tech.intellispaces.ixora.http.HttpStatusHandle;
 import tech.intellispaces.ixora.http.HttpStatuses;
@@ -19,7 +19,7 @@ public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, Unm
     this.response = response;
 
     ResponseBody body = response.body();
-    this.bodyStream = (body != null ? ByteStreamsCustomizer.get(body.byteStream()) : ByteStreamsCustomizer.empty());
+    this.bodyStream = (body != null ? ByteInputStreams.handleOf(body.byteStream()) : ByteInputStreams.empty());
   }
 
   public Response getResponse() {

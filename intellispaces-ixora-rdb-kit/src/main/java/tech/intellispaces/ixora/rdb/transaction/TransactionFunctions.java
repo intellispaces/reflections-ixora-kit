@@ -55,9 +55,9 @@ public class TransactionFunctions {
       Object[] data
   ) {
     R result;
-    MovableTransaction tx = null;
+    MovableTransactionHandle tx = null;
     try {
-      tx = factory.getTransaction();
+      tx = (MovableTransactionHandle) factory.getTransaction();
       storeTransactionInContext(tx);
       result = operation.applyThrows(data);
       tx.commit();
@@ -89,13 +89,13 @@ public class TransactionFunctions {
     return result;
   }
 
-  private static void storeTransactionInContext(MovableTransaction tx) {
-    Transactions.setCurrent(tx);
+  private static void storeTransactionInContext(MovableTransactionHandle tx) {
+    TransactionProvider.setCurrentTransaction(tx);
     ContextProjections.add(TRANSACTION_PROJECTION_NAME, MovableTransaction.class, tx);
   }
 
   private static void removeTransactionFromContext() {
-    Transactions.setCurrent(null);
+    TransactionProvider.setCurrentTransaction(null);
     ContextProjections.remove(TRANSACTION_PROJECTION_NAME);
   }
 

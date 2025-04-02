@@ -32,7 +32,7 @@ public abstract class OkHttpPortImpl implements MovableOkHttpPort {
     Request req = buildRequest(request);
     try {
       Response res = client.newCall(req).execute();
-      return OkHttpResponses.get(res).asHttpResponse();
+      return OkHttpResponses.handleOf(res).asHttpResponse();
     } catch (IOException e) {
       throw HttpExceptions.withCauseAndMessage(e, "Could not call HTTP server");
     }

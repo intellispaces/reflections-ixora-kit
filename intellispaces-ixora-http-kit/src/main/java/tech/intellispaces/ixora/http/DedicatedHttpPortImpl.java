@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.stream.ByteStreamsCustomizer;
+import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.InputDataStream;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
 import tech.intellispaces.ixora.internet.uri.Uri;
-import tech.intellispaces.ixora.internet.uri.UrisCustomizer;
+import tech.intellispaces.ixora.internet.uri.Uris;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
@@ -39,7 +39,7 @@ public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort 
         endpoint,
         method,
         null,
-        ByteStreamsCustomizer.empty()
+        ByteInputStreams.empty()
     );
   }
 
@@ -51,8 +51,8 @@ public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort 
       HttpHeaderList headers,
       InputDataStream<Byte> body
   ) throws HttpException {
-    Uri uri = UrisCustomizer.get(joinUrlGuide().map(baseUrl, endpoint));
-    HttpRequest request = HttpRequestsCustomizer.get(method, uri);
+    Uri uri = Uris.create(joinUrlGuide().map(baseUrl, endpoint));
+    HttpRequest request = HttpRequests.create(method, uri);
     return underlyingPort.exchange(request);
   }
 

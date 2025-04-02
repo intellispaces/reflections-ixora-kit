@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.text.StringFunctions;
-import tech.intellispaces.ixora.data.stream.DataStreamsCustomizer;
+import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
@@ -17,7 +17,7 @@ abstract class HttpResponseImpl implements UnmovableHttpResponse {
 
   HttpResponseImpl(HttpStatusHandle status, InputStream body) {
     this.status = status;
-    this.bodyStream = DataStreamsCustomizer.get(body);
+    this.bodyStream = ByteInputStreams.handleOf(body);
   }
 
   HttpResponseImpl(HttpStatusHandle status, String body) {

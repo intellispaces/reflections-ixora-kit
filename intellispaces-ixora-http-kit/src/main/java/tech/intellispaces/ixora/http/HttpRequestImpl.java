@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.stream.DataStreamsCustomizer;
+import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
 import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.jaquarius.annotation.Mapper;
@@ -17,7 +17,7 @@ abstract class HttpRequestImpl implements UnmovableHttpRequest {
   HttpRequestImpl(HttpMethod method, Uri requestURI) {
     this.method = method;
     this.requestURI = requestURI;
-    this.bodyStream = DataStreamsCustomizer.get(InputStream.nullInputStream());
+    this.bodyStream = ByteInputStreams.handleOf(InputStream.nullInputStream());
   }
 
   @Mapper

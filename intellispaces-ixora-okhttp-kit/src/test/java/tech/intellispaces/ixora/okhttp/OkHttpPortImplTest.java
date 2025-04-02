@@ -22,7 +22,7 @@ public class OkHttpPortImplTest extends OutboundHttpPortTest {
 
   @Override
   protected MovableOutboundHttpPortHandle getPort() {
-    return OkHttpPorts.get().asOutboundHttpPort();
+    return OkHttpPorts.create().asOutboundHttpPort();
   }
 
   @Test

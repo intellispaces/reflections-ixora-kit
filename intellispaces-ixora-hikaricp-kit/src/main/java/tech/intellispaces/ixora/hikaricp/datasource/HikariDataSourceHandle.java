@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.hikaricp.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.intellispaces.ixora.rdb.datasource.JavaConnectionWrapper;
+import tech.intellispaces.ixora.rdb.datasource.JavaConnectionHandleWrapper;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
@@ -43,7 +43,7 @@ public abstract class HikariDataSourceHandle implements MovableHikariDataSource 
     }
     try {
       java.sql.Connection connection = dataSource.getConnection();
-      return new JavaConnectionWrapper(connection);
+      return new JavaConnectionHandleWrapper(connection);
     } catch (SQLException e) {
       throw TraverseExceptions.withCauseAndMessage(e, "Could not get JDBC connection from Hikari data source. " +
           "URL '{}', username '{}'");

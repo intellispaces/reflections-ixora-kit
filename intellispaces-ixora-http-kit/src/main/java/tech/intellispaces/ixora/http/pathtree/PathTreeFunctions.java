@@ -6,7 +6,7 @@ import tech.intellispaces.commons.reflection.customtype.CustomType;
 import tech.intellispaces.commons.reflection.customtype.CustomTypes;
 import tech.intellispaces.commons.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.http.HttpMethod;
-import tech.intellispaces.ixora.http.HttpMethodsCustomizer;
+import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.annotation.Get;
 import tech.intellispaces.ixora.http.annotation.HttpOntology;
@@ -41,7 +41,7 @@ public class PathTreeFunctions {
         String path;
         HttpMethod httpMethod;
         if (channelMethod.hasAnnotation(Get.class)) {
-          httpMethod = HttpMethodsCustomizer.get();
+          httpMethod = HttpMethods.get();
           path = channelMethod.selectAnnotation(Get.class).orElseThrow().value();
         } else {
           continue;
