@@ -1,0 +1,17 @@
+package {{$generatedArtifactPackageName}};
+
+{{for importedClass : $importedClasses}}
+import {{$importedClass}};
+{{end}}
+
+/**
+ * HTTP port provider customizer. Domain {@link {{$sourceArtifactSimpleName}}}.
+ * <p>
+ * This class was generated automatically. Don't try to change it.
+ */
+@ArtifactCustomizer(origin = {{$sourceArtifactSimpleName}}.class, target = "ObjectProvider")
+{{$generatedAnnotation}}
+public interface {{$generatedArtifactSimpleName}} {
+
+  {{$movableHandleSimpleName}} create(MovableInboundHttpPort operativePort);
+}

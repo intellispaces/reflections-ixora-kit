@@ -1,5 +1,0 @@
-tech.intellispaces.ixora.http.HttpStatusProviderWrapper
-tech.intellispaces.ixora.http.HttpMethodProviderWrapper
-tech.intellispaces.ixora.http.DedicatedHttpPortProviderWrapper
-tech.intellispaces.ixora.http.HttpRequestProviderWrapper
-tech.intellispaces.ixora.http.HttpResponseProviderWrapper
