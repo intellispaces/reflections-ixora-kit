@@ -9,9 +9,9 @@ import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerat
 import tech.intellispaces.jaquarius.artifact.ArtifactTypes;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 
-public class HttpPortProviderCustomizerGenerator extends JaquariusArtifactGenerator {
+public class HttpPortAssistantExtensionGenerator extends JaquariusArtifactGenerator {
 
-  public HttpPortProviderCustomizerGenerator(CustomType portDomain) {
+  public HttpPortAssistantExtensionGenerator(CustomType portDomain) {
     super(portDomain);
   }
 
@@ -22,12 +22,12 @@ public class HttpPortProviderCustomizerGenerator extends JaquariusArtifactGenera
 
   @Override
   public String generatedArtifactName() {
-    return HttpNameConventionFunctions.getPortProviderCustomizerCanonicalName(sourceArtifact());
+    return HttpNameConventionFunctions.getPortAssistantExtensionCanonicalName(sourceArtifact());
   }
 
   @Override
   protected String templateName() {
-    return "/http_port_provider_customizer.template";
+    return "/http_port_assistant_extension.template";
   }
 
   @Override

@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.data.stream;
 
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
-import tech.intellispaces.jaquarius.ixora.data.stream.ByteInputStreamProviderCustomizer;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.ixora.data.stream.ByteInputStreamAssistantExtension;
 
 import java.io.InputStream;
 
-@ObjectProvider
-public class ByteInputStreamProvider implements ByteInputStreamProviderCustomizer {
+@ObjectFactory
+public class ByteInputStreamFactory implements ByteInputStreamAssistantExtension {
 
   @Override
   public MovableByteInputStreamHandle empty() {

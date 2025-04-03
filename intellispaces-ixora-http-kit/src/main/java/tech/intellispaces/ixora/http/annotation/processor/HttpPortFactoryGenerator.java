@@ -4,7 +4,7 @@ import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.reflection.customtype.CustomType;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 
@@ -31,11 +31,11 @@ public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
 
   @Override
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
-    addImport(ObjectProvider.class);
+    addImport(ObjectFactory.class);
     addImport(MovableInboundHttpPort.class);
 
     String providerCustomizerSimpleName = addImportAndGetSimpleName(
-        HttpNameConventionFunctions.getPortProviderCustomizerCanonicalName(sourceArtifact())
+        HttpNameConventionFunctions.getPortAssistantExtensionCanonicalName(sourceArtifact())
     );
     String handleImplSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortHandleImplCanonicalName(sourceArtifact())

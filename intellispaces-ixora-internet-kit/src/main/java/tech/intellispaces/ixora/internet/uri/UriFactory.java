@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 
 import java.net.URI;
 
-@ObjectProvider
-public class UriProvider implements UriProviderCustomizer {
+@ObjectFactory
+public class UriFactory implements UriAssistantExtension {
 
   @Override
   public UriHandle create(String string) {

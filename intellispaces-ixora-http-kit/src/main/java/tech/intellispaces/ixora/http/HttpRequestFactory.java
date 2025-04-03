@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.ixora.internet.uri.Uri;
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 
-@ObjectProvider
-public class HttpRequestProvider implements HttpRequestProviderCustomizer {
+@ObjectFactory
+public class HttpRequestFactory implements HttpRequestAssistantExtension {
 
   @Override
   public UnmovableHttpRequestHandle create(HttpMethod method, Uri requestURI) {

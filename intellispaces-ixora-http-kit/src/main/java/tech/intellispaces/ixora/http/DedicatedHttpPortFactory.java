@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 
-@ObjectProvider
-public class DedicatedHttpPortProvider implements DedicatedHttpPortProviderCustomizer {
+@ObjectFactory
+public class DedicatedHttpPortFactory implements DedicatedHttpPortAssistantExtension {
 
   @Override
   public MovableDedicatedHttpPortHandle create(String baseUrl, MovableHttpPort httpPort) {

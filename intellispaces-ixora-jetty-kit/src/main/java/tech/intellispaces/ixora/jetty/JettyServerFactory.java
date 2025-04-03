@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.jetty;
 
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 
-@ObjectProvider
-public class JettyServerProvider implements JettyServerPortProviderCustomizer {
+@ObjectFactory
+public class JettyServerFactory implements JettyServerPortAssistantExtension {
 
   @Override
   public MovableJettyServerPortHandle create(

@@ -10,7 +10,7 @@ import {{$importedClass}};
  * This class was generated automatically. Don't try to change it.
  */
 {{$generatedAnnotation}}
-@ObjectProvider
+@ObjectFactory
 public class {{$generatedArtifactSimpleName}} implements {{$providerCustomizerSimpleName}} {
 
   @Override

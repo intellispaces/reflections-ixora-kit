@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.ObjectProvider;
+import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 
 import java.io.InputStream;
 
-@ObjectProvider
-public class HttpResponseProvider implements HttpResponseProviderCustomizer {
+@ObjectFactory
+public class HttpResponseFactory implements HttpResponseAssistantExtension {
 
   @Override
   public HttpResponseHandle create(HttpStatusHandle status) {
