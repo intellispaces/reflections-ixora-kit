@@ -9,7 +9,7 @@ import {{$importedClass}};
  * <p>
  * This class was generated automatically. Don't try to change it.
  */
-@ArtifactCustomizer(origin = {{$sourceArtifactSimpleName}}.class, target = "ObjectProvider")
+@ArtifactExtension(origin = {{$sourceArtifactSimpleName}}.class, target = ArtifactTypes.ObjectProvider)
 {{$generatedAnnotation}}
 public interface {{$generatedArtifactSimpleName}} {
 
