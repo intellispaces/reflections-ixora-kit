@@ -1,5 +1,6 @@
-package tech.intellispaces.ixora.http.annotation.processor;
+package tech.intellispaces.ixora.http.annotationprocessor;
 
+import com.google.auto.service.AutoService;
 import tech.intellispaces.commons.annotation.processor.ArtifactGenerator;
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.annotation.processor.ArtifactProcessor;
@@ -10,10 +11,12 @@ import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 
+import javax.annotation.processing.Processor;
 import javax.lang.model.element.ElementKind;
 import java.util.ArrayList;
 import java.util.List;
 
+@AutoService(Processor.class)
 public class HttpPortProcessor extends ArtifactProcessor {
 
   public HttpPortProcessor() {

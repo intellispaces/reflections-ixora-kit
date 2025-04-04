@@ -1,5 +1,6 @@
-package tech.intellispaces.ixora.rdb.annotation.processor;
+package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import com.google.auto.service.AutoService;
 import tech.intellispaces.commons.annotation.processor.ArtifactGenerator;
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.annotation.processor.ArtifactProcessor;
@@ -9,13 +10,15 @@ import tech.intellispaces.ixora.rdb.annotation.PersistedEntity;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 
+import javax.annotation.processing.Processor;
 import javax.lang.model.element.ElementKind;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersistableEntityAnnotationProcessor extends ArtifactProcessor {
+@AutoService(Processor.class)
+public class PersistedEntityAnnotationProcessor extends ArtifactProcessor {
 
-  public PersistableEntityAnnotationProcessor() {
+  public PersistedEntityAnnotationProcessor() {
     super(ElementKind.INTERFACE, PersistedEntity.class, JaquariusArtifactProcessor.SOURCE_VERSION);
   }
 

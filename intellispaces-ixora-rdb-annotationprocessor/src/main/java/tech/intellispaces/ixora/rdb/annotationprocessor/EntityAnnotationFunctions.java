@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.rdb.annotation.processor;
+package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import jakarta.persistence.Id;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;

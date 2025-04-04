@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.http.annotation.processor;
+package tech.intellispaces.ixora.http.annotationprocessor;
 
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.reflection.customtype.CustomType;

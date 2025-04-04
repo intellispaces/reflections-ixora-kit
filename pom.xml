@@ -22,10 +22,12 @@
         <module>intellispaces-ixora-data-snakeyaml</module>
         <module>intellispaces-ixora-data-yaml-test-kit</module>
         <module>intellispaces-ixora-rdb-kit</module>
+        <module>intellispaces-ixora-rdb-annotationprocessor</module>
         <module>intellispaces-ixora-hikaricp-kit</module>
         <module>intellispaces-ixora-internet-kit</module>
         <module>intellispaces-ixora-internet-test-kit</module>
         <module>intellispaces-ixora-http-kit</module>
+        <module>intellispaces-ixora-http-annotationprocessor</module>
         <module>intellispaces-ixora-http-test-kit</module>
         <module>intellispaces-ixora-http-test-ontology</module>
         <module>intellispaces-ixora-okhttp-kit</module>

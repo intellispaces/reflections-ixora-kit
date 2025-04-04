@@ -1,64 +1,70 @@
-package tech.intellispaces.ixora.rdb.annotation.processor;
+package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.reflection.customtype.CustomType;
 import tech.intellispaces.commons.reflection.method.MethodStatement;
-import tech.intellispaces.ixora.rdb.transaction.Transaction;
-import tech.intellispaces.jaquarius.annotation.Guide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
+import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
+import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.jaquarius.id.RepetableUuidIdentifierGenerator;
+import tech.intellispaces.jaquarius.space.domain.DomainFunctions;
 
 import java.util.Optional;
+import java.util.UUID;
 
-public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
+public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
+  private String transactionToEntityByIdentifierCid;
+  private String transactionToNewEntityCid;
+
   private boolean entityHasIdentifier;
-  private String entityHandleSimpleName;
   private String identifierType;
   private String transactionToEntityByIdentifierChannelSimpleName;
   private String transactionToNewEntityChannelSimpleName;
 
-  public EntityCrudGuideGenerator(CustomType entityType) {
+  public EntityCrudOntologyGenerator(CustomType entityType) {
     super(entityType);
   }
 
   @Override
   public boolean isRelevant(ArtifactGeneratorContext context) {
-    return context.isProcessingFinished(
-        EntityAnnotationFunctions.getCrudOntologyCanonicalName(sourceArtifact()), Ontology.class
-    );
+    return true;
   }
 
   @Override
   public String generatedArtifactName() {
-    return EntityAnnotationFunctions.getCrudGuideCanonicalName(sourceArtifact());
+    return EntityAnnotationFunctions.getCrudOntologyCanonicalName(sourceArtifact());
   }
 
   @Override
   protected String templateName() {
-    return "/entity_crud_guide.template";
+    return "/entity_crud_ontology.template";
   }
 
   @Override
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
-    addImport(Guide.class);
-    addImport(Mapper.class);
-    addImport(MapperOfMoving.class);
-    addImport(Transaction.class);
+    addImport(Ontology.class);
+    addImport(Channel.class);
+    addImport(TransactionDomain.class);
 
-    entityHandleSimpleName = addImportAndGetSimpleName(
-        EntityAnnotationFunctions.getEntityHandleCanonicalName(sourceArtifact())
-    );
-
+    defineIdentifiers();
     analyzeEntityIdentifier();
 
     addVariable("entityHasIdentifier", entityHasIdentifier);
-    addVariable("entityHandleSimpleName", entityHandleSimpleName);
     addVariable("identifierType", identifierType);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
     addVariable("transactionToNewEntityChannelSimpleName", transactionToNewEntityChannelSimpleName);
+
+    addVariable("transactionToEntityByIdentifierCid", transactionToEntityByIdentifierCid);
+    addVariable("transactionToNewEntityCid", transactionToNewEntityCid);
     return true;
+  }
+
+  private void defineIdentifiers() {
+    String did = DomainFunctions.getDomainId(sourceArtifact());
+    var identifierGenerator = new RepetableUuidIdentifierGenerator(UUID.fromString(did));
+    transactionToEntityByIdentifierCid = identifierGenerator.next();
+    transactionToNewEntityCid = identifierGenerator.next();
   }
 
   private void analyzeEntityIdentifier() {
@@ -69,14 +75,15 @@ public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
     }
     entityHasIdentifier = true;
 
-    identifierType = addImportAndGetSimpleName(
-        EntityAnnotationFunctions.getIdentifierType(sourceArtifact(), identifierMethod.orElseThrow())
-    );
     transactionToEntityByIdentifierChannelSimpleName = EntityAnnotationFunctions.getTransactionToEntityByIdentifierChannelSimpleName(
         sourceArtifact()
     );
     transactionToNewEntityChannelSimpleName = EntityAnnotationFunctions.getTransactionToNewEntityChannelSimpleName(
         sourceArtifact()
+    );
+
+    identifierType = addImportAndGetSimpleName(
+      EntityAnnotationFunctions.getIdentifierType(sourceArtifact(), identifierMethod.orElseThrow())
     );
   }
 }

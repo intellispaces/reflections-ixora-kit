@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.rdb.annotation.processor;
+package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
