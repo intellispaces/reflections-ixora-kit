@@ -1,14 +1,14 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
-import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
-import tech.intellispaces.commons.reflection.customtype.CustomType;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
+import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.reflection.method.MethodStatement;
 
 import java.util.Optional;
 

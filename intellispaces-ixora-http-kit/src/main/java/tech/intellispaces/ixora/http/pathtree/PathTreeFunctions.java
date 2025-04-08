@@ -1,10 +1,5 @@
 package tech.intellispaces.ixora.http.pathtree;
 
-import tech.intellispaces.commons.reflection.customtype.ClassType;
-import tech.intellispaces.commons.reflection.customtype.Classes;
-import tech.intellispaces.commons.reflection.customtype.CustomType;
-import tech.intellispaces.commons.reflection.customtype.CustomTypes;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.http.HttpMethod;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequest;
@@ -16,6 +11,11 @@ import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStrin
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
 import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsAutoGuide;
 import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsGuide;
+import tech.intellispaces.reflection.customtype.ClassType;
+import tech.intellispaces.reflection.customtype.Classes;
+import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.reflection.customtype.CustomTypes;
+import tech.intellispaces.reflection.method.MethodStatement;
 
 import java.util.ArrayList;
 import java.util.Collection;

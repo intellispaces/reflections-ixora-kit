@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http.pathtree;
 
-import tech.intellispaces.commons.action.Action2;
-import tech.intellispaces.commons.reflection.method.MethodSignature;
+import tech.intellispaces.actions.Action2;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.jaquarius.action.TraverseActions;
 import tech.intellispaces.jaquarius.channel.Channel1;
+import tech.intellispaces.reflection.method.MethodSignature;
 
 public class FinalExecutor {
   private final Object port;

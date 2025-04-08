@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+        <groupId>tech.intellispaces</groupId>
         <artifactId>intellispaces-ixora-jaquarius-kit-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -26,15 +26,15 @@
     <dependencies>
         <!-- Intellispaces Jaquarius -->
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-jetty-ontology</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-data-collection-kit</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-http-kit</artifactId>
         </dependency>
 
@@ -50,11 +50,11 @@
 
         <!-- Testing -->
         <dependency>
-            <groupId>tech.intellispaces.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-jaquarius-engine</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-http-test-kit</artifactId>
         </dependency>
         <dependency>

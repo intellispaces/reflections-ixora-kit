@@ -2,13 +2,13 @@ package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import jakarta.persistence.Id;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
-import tech.intellispaces.commons.reflection.customtype.CustomType;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
-import tech.intellispaces.commons.reflection.reference.TypeReference;
 import tech.intellispaces.commons.stream.Collectors;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.reflection.reference.TypeReference;
 
 import java.util.Optional;
 import java.util.function.Function;

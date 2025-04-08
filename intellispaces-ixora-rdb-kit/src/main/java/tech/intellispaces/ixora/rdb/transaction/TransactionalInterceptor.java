@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
-import tech.intellispaces.commons.action.Action;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
+import tech.intellispaces.actions.Action;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
 import tech.intellispaces.jaquarius.aop.Interceptor;
 import tech.intellispaces.jaquarius.system.ProjectionProvider;
+import tech.intellispaces.reflection.method.MethodStatement;
 
 import java.util.List;
 

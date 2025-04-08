@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.http.common;
 
-import tech.intellispaces.commons.reflection.customtype.CustomType;
-import tech.intellispaces.commons.reflection.method.MethodParam;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
-import tech.intellispaces.commons.reflection.reference.CustomTypeReferences;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.ixora.http.HttpRequestDomain;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.reflection.method.MethodParam;
+import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.reflection.reference.CustomTypeReferences;
 
 import java.util.List;
 

@@ -1,13 +1,8 @@
 package tech.intellispaces.ixora.http.annotationprocessor;
 
-import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
+import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.exception.NotImplementedExceptions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
-import tech.intellispaces.commons.reflection.customtype.CustomType;
-import tech.intellispaces.commons.reflection.method.MethodParam;
-import tech.intellispaces.commons.reflection.method.MethodSignatureDeclarations;
-import tech.intellispaces.commons.reflection.method.MethodStatement;
-import tech.intellispaces.commons.reflection.reference.TypeReference;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.http.HttpRequest;
@@ -20,6 +15,11 @@ import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.reflection.method.MethodParam;
+import tech.intellispaces.reflection.method.MethodSignatureDeclarations;
+import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.reflection.reference.TypeReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;

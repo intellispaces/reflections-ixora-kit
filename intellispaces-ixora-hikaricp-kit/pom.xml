@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+        <groupId>tech.intellispaces</groupId>
         <artifactId>intellispaces-ixora-jaquarius-kit-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -26,22 +26,22 @@
     <dependencies>
         <!-- Intellispaces -->
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-hikaricp-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-rdb-kit</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-rdb-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-data-association-kit</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -55,11 +55,11 @@
 
         <!-- Intellispaces test -->
         <dependency>
-            <groupId>tech.intellispaces.ixora.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-ixora-data-yaml-test-kit</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces.jaquarius</groupId>
+            <groupId>tech.intellispaces</groupId>
             <artifactId>intellispaces-jaquarius-engine</artifactId>
         </dependency>
 

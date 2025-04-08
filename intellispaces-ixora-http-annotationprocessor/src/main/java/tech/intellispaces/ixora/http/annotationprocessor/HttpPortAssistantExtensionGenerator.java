@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.http.annotationprocessor;
 
-import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
-import tech.intellispaces.commons.reflection.customtype.CustomType;
+import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.jaquarius.annotation.AssistantExtension;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.artifact.ArtifactTypes;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.reflection.customtype.CustomType;
 
 public class HttpPortAssistantExtensionGenerator extends JaquariusArtifactGenerator {
 

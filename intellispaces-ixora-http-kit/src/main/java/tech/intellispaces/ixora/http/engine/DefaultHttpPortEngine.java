@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http.engine;
 
-import tech.intellispaces.commons.action.conditional.ConditionalActions;
+import tech.intellispaces.actions.conditional.ConditionalActions;
 import tech.intellispaces.commons.entity.Reference;
 import tech.intellispaces.commons.entity.References;
 import tech.intellispaces.commons.exception.NotImplementedExceptions;

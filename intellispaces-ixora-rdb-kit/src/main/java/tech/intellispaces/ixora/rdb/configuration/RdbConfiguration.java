@@ -4,7 +4,6 @@ import tech.intellispaces.ixora.rdb.datasource.DataSourceSettings;
 import tech.intellispaces.ixora.rdb.datasource.MovableDataSource;
 import tech.intellispaces.ixora.rdb.query.CastStringToParameterizedNamedQueryGuideImpl;
 import tech.intellispaces.ixora.rdb.statement.ResultSetToDataGuideImpl;
-import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactory;
 import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactoryHandle;
 import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryOverDataSourceWrapper;
 import tech.intellispaces.jaquarius.annotation.Configuration;
