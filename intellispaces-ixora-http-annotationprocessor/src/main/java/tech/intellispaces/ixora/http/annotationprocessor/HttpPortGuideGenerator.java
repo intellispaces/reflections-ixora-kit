@@ -90,7 +90,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getUndefinedPlainObjectTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getGeneralPlainObjectTypename(portDomain)));
     sb.append(" port, ");
     sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
@@ -125,8 +125,8 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
   private Map<String, Object> buildMethod(MethodStatement method) {
     String signature = MethodSignatureDeclarations.build(method)
-        .paramDeclarationMapper(this::getUndefinedPureObjectDeclaration)
-        .returnType(getUndefinedPureObjectDeclaration(method.returnType().orElseThrow()))
+        .paramDeclarationMapper(this::getGeneralPureObjectDeclaration)
+        .returnType(getGeneralPureObjectDeclaration(method.returnType().orElseThrow()))
         .get(this::addImport, this::addImportAndGetSimpleName);
 
     Map<String, Object> map = new HashMap<>();
@@ -134,8 +134,8 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     return map;
   }
 
-  private String getUndefinedPureObjectDeclaration(TypeReference domain) {
-    return ObjectReferenceFunctions.geUndefinedPlainObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
+  private String getGeneralPureObjectDeclaration(TypeReference domain) {
+    return ObjectReferenceFunctions.geGeneralPlainObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {
