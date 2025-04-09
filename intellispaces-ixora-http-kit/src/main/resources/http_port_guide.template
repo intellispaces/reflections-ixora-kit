@@ -17,15 +17,15 @@ public abstract class {{$generatedArtifactSimpleName}} {
 {{end}}
 
 {{for method : $guideMethods}}
-  @MapperOfMoving({{$method."channelClass"}}.class)
-  public {{$method."signature"}} {
-    {{$method."body"}}
+  @MapperOfMoving({{$method["channelClass"]}}.class)
+  public {{$method["signature"]}} {
+    {{$method["body"]}}
   }
 
 {{end}}
 
 {{for method : $ontologyMethods}}
-  public abstract {{$method."signature"}};
+  public abstract {{$method["signature"]}};
 
 {{end}}
 }
