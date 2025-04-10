@@ -13,6 +13,6 @@ public class CliConfiguration {
    */
   @Projection
   public MovableConsoleHandle console() {
-    return Consoles.create(System.out);
+    return Consoles.dummy(System.out);
   }
 }

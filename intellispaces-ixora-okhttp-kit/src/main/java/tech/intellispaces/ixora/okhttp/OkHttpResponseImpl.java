@@ -27,7 +27,7 @@ public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, Unm
   }
 
   @Override
-  public void release() {
+  public void unbind() {
     response.close();
   }
 

@@ -7,7 +7,7 @@ import java.io.PrintStream;
 @ObjectFactory
 public class ConsoleProvider {
 
-  public MovableConsoleHandle create(PrintStream ps) {
-    return new PrintStreamBasedConsoleWrapper(ps);
+  public MovableConsoleHandle dummy(PrintStream ps) {
+    return new PrintStreamBasedConsoleWrapper(ps).asConsole();
   }
 }

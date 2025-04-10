@@ -24,7 +24,7 @@ abstract class JavaByteInputStreamHandle implements MovableByteInputStream, Mova
   }
 
   @Override
-  public void release() {
+  public void unbind() {
     try {
       is.close();
     } catch (IOException e) {

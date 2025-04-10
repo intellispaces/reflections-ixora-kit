@@ -56,7 +56,7 @@ public abstract class OutboundHttpPortTest {
     } catch (Exception e) {
       Fail.fail("Unexpected exception", e);
     } finally {
-      ObjectReferenceFunctions.releaseSilently(ObjectHandles.handle(response));
+      ObjectReferenceFunctions.unbindSilently(ObjectHandles.handle(response));
       if (server != null) {
         server.stop(0);
       }
