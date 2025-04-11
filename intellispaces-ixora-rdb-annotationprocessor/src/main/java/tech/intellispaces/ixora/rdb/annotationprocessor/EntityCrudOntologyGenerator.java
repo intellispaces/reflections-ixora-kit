@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
+import tech.intellispaces.core.id.IdentifierFunctions;
 import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Ontology;
@@ -63,8 +64,8 @@ public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
   private void defineIdentifiers() {
     String did = DomainFunctions.getDomainId(sourceArtifact());
     var identifierGenerator = new RepetableUuidIdentifierGenerator(UUID.fromString(did));
-    transactionToEntityByIdentifierCid = identifierGenerator.next();
-    transactionToNewEntityCid = identifierGenerator.next();
+    transactionToEntityByIdentifierCid = IdentifierFunctions.convertToHexString(identifierGenerator.next());
+    transactionToNewEntityCid = IdentifierFunctions.convertToHexString(identifierGenerator.next());
   }
 
   private void analyzeEntityIdentifier() {
