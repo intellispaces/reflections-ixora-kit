@@ -8,16 +8,16 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @Guide
-public class TestPortExchangeGuideImpl implements TestPortExchangeGuide {
+public class TestHttpPortExchangeGuideImpl implements TestHttpPortExchangeGuide {
 
   @Override
   public HttpResponseHandle exchange(TestPort port, HttpRequest request) {
     var status = mock(HttpStatusHandle.class);
     when(status.isOkStatus()).thenReturn(true);
 
-    var responseHandle = mock(UnmovableHttpResponseHandle.class);
-    when(responseHandle.status()).thenReturn(status);
-    when(responseHandle.bodyStream()).thenReturn(ByteInputStreams.handleOf(StringFunctions.stringToInputStream("Hello")));
-    return responseHandle;
+    var res = mock(UnmovableHttpResponseHandle.class);
+    when(res.status()).thenReturn(status);
+    when(res.bodyStream()).thenReturn(ByteInputStreams.handleOf(StringFunctions.stringToInputStream("Hello")));
+    return res;
   }
 }

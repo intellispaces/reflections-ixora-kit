@@ -3,7 +3,8 @@ package tech.intellispaces.ixora.http.annotationprocessor;
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.entity.Reference;
 import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponse;
+import tech.intellispaces.ixora.http.HttpResponseHandle;
+import tech.intellispaces.ixora.http.InboundHttpPortDomain;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
@@ -13,6 +14,8 @@ import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
+import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 import tech.intellispaces.reflection.customtype.CustomType;
 
 public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
@@ -42,15 +45,17 @@ public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
     addImport(ObjectHandle.class);
     addImport(Mover.class);
     addImport(MapperOfMoving.class);
-    addImport(HttpResponse.class);
+    addImport(HttpResponseHandle.class);
     addImport(HttpRequest.class);
     addImport(HttpException.class);
+    addImport(MovableObjectHandle.class);
     addImport(MovableInboundHttpPort.class);
+    addImport(DownwardObjectFactory.class);
     addImport(Reference.class);
     addImport(HttpPortEngines.class);
 
     movableHandleSimpleName = addImportAndGetSimpleName(
-        NameConventionFunctions.getMovablePlainObjectTypename(sourceArtifact().canonicalName(), true)
+        NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName(), true)
     );
 
     addVariable("movableHandleSimpleName", movableHandleSimpleName);

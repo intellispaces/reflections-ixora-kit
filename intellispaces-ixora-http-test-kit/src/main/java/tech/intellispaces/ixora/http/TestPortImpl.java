@@ -1,38 +1,28 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
 
 @ObjectHandle(TestPortDomain.class)
-public abstract class TestPortImpl implements MovableTestPort {
-  private final MovableInboundHttpPort operativePort;
+public abstract class TestPortImpl implements MovableTestPortHandle {
+  private final MovableInboundHttpPort underlyingPort;
 
-  public TestPortImpl(MovableInboundHttpPort operativePort) {
-    this.operativePort = operativePort;
-  }
-
-  public MovableInboundHttpPort getOperativePort() {
-    return operativePort;
+  public TestPortImpl(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory) {
+    this.underlyingPort = underlyingPortHandleFactory.create(this);
   }
 
   @Mover
   @Override
-  public MovableTestPort open() {
-    operativePort.open();
+  public MovableTestPortHandle open() {
+    underlyingPort.open();
     return this;
   }
 
   @Mover
   @Override
-  public MovableTestPort close() {
-    operativePort.close();
+  public MovableTestPortHandle shut() {
+    underlyingPort.shut();
     return this;
-  }
-
-  @Override
-  @MapperOfMoving
-  public HttpResponse exchange(HttpRequest request) {
-    return operativePort.exchange(request);
   }
 }

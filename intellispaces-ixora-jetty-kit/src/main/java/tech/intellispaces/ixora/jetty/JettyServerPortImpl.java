@@ -5,28 +5,24 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
-import tech.intellispaces.ixora.http.InboundHttpPortDomain;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
 import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
-import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
+import tech.intellispaces.jaquarius.object.reference.OverlyingHandleController;
+import tech.intellispaces.jaquarius.object.reference.PostRegistrationHandleProcessor;
 
 @ObjectHandle(JettyServerPortDomain.class)
-public abstract class JettyServerPortImpl implements MovableJettyServerPort, MovableJettyServerPortHandle {
+public abstract class JettyServerPortImpl implements MovableJettyServerPortHandle, OverlyingHandleController, PostRegistrationHandleProcessor {
   private final int portNumber;
-  private final Class<? extends HttpPortExchangeChannel> exchangeChannel;
   private final Server server;
   private final JettyServlet servlet;
+  private MovableObjectHandle<?> overlyingHandle;
 
-  public JettyServerPortImpl(
-      int portNumber,
-      Class<? extends HttpPortExchangeChannel> exchangeChannel
-  ) {
+  public JettyServerPortImpl(int portNumber, MovableObjectHandle<?> overlyingHandle) {
     this.portNumber = portNumber;
-    this.exchangeChannel = exchangeChannel;
+    this.overlyingHandle = overlyingHandle;
 
     this.server = new Server();
 
@@ -34,34 +30,40 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPort, Mov
     connector.setPort(portNumber);
     server.setConnectors(new Connector[] { connector });
 
-    ServletHandler servletHandler = new ServletHandler();
+    var servletHandler = new ServletHandler();
     server.setHandler(servletHandler);
 
     servlet = new JettyServlet();
-    ServletHolder servletHolder = new ServletHolder(servlet);
+    var servletHolder = new ServletHolder(servlet);
     servletHandler.addServletWithMapping(servletHolder, "/");
+  }
+
+  @Override
+  public void postRegistration() {
+    setOverlyingHandle(overlyingHandle);
+  }
+
+  @Mapper
+  @Override
+  public int portNumber() {
+    return portNumber;
   }
 
   @Mover
   @Override
   public MovableJettyServerPortHandle open() {
     try {
-      MovableObjectHandle<?> logicalPort = getLogicalPort();
-      if (logicalPort == null) {
-        throw TraverseExceptions.withMessage("Could not define logical port");
-      }
-      servlet.init(logicalPort, exchangeChannel);
-
+      servlet.init(this);
       server.start();
     } catch (Exception e) {
-      throw TraverseExceptions.withCauseAndMessage(e, "Could not open HTTP server");
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not open Jetty HTTP server");
     }
     return this;
   }
 
   @Mover
   @Override
-  public MovableJettyServerPortHandle close() {
+  public MovableJettyServerPortHandle shut() {
     stopServer();
     return this;
   }
@@ -77,21 +79,5 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPort, Mov
     } catch (Exception e) {
       throw TraverseExceptions.withCauseAndMessage(e, "Could not close HTTP server");
     }
-  }
-
-  @Mapper
-  @Override
-  public int portNumber() {
-    return portNumber;
-  }
-
-  private MovableObjectHandle<?> getLogicalPort() {
-    Class<? extends InboundHttpPortDomain> logicalPortDomain = getLogicalPortDomain();
-    return mapTo(logicalPortDomain);
-  }
-
-  @SuppressWarnings("unchecked")
-  private Class<? extends InboundHttpPortDomain> getLogicalPortDomain() {
-    return (Class<? extends InboundHttpPortDomain>) ChannelFunctions.getChannelSourceDomainClass(exchangeChannel);
   }
 }

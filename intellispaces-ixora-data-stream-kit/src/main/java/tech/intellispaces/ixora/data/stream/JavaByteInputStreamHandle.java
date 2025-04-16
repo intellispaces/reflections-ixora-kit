@@ -23,15 +23,6 @@ abstract class JavaByteInputStreamHandle implements MovableByteInputStream, Mova
     this.is = is;
   }
 
-  @Override
-  public void unbind() {
-    try {
-      is.close();
-    } catch (IOException e) {
-      throw UnexpectedExceptions.withCauseAndMessage(e, "Could not close input stream");
-    }
-  }
-
   @Mapper
   @Override
   public Type<Byte> elementDomain() {
@@ -66,6 +57,20 @@ abstract class JavaByteInputStreamHandle implements MovableByteInputStream, Mova
   @MapperOfMoving
   public UnmovableByteListHandle readAll() {
     return ByteLists.handleOf(allBytes());
+  }
+
+  @Override
+  public void unbind() {
+    try {
+      is.close();
+    } catch (IOException e) {
+      throw UnexpectedExceptions.withCauseAndMessage(e, "Could not close input stream");
+    }
+  }
+
+  @Override
+  public void close() {
+    unbind();
   }
 
   private boolean hasNextElement() {

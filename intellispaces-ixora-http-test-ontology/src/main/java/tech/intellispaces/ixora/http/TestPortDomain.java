@@ -14,5 +14,13 @@ public interface TestPortDomain extends InboundHttpPortDomain {
   TestPortDomain open();
 
   @Channel(value = "af7ad7ba-d029-4ff2-8b0e-cd34155d046a", allowedTraverse = TraverseTypes.Moving)
-  TestPortDomain close();
+  TestPortDomain shut();
+
+  @Override
+  @Channel(
+      value = "279f7e16-e59b-474d-96d0-8e53cbca9478",
+      name = "TestHttpPortExchangeChannel",
+      allowedTraverse = TraverseTypes.MappingOfMoving
+  )
+  HttpResponseDomain exchange(HttpRequestDomain request);
 }

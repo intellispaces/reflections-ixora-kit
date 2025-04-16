@@ -1,9 +1,10 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.collection.ArraysFunctions;
+import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
@@ -11,9 +12,9 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
-abstract class HttpResponseImpl implements UnmovableHttpResponse {
+abstract class HttpResponseImpl implements UnmovableHttpResponseHandle {
   private final HttpStatusHandle status;
-  private final MovableByteInputStream bodyStream;
+  private final MovableByteInputStreamHandle bodyStream;
 
   HttpResponseImpl(HttpStatusHandle status, InputStream body) {
     this.status = status;
@@ -34,13 +35,27 @@ abstract class HttpResponseImpl implements UnmovableHttpResponse {
 
   @Mapper
   @Override
-  public HttpStatus status() {
+  public HttpStatusHandle status() {
     return this.status;
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStream bodyStream() {
+  public MovableByteInputStreamHandle bodyStream() {
     return bodyStream;
+  }
+
+  @Override
+  public void unbind() {
+    try {
+      bodyStream.close();
+    } catch (Exception e) {
+      throw UnexpectedExceptions.withCauseAndMessage(e, "Could not close body stream");
+    }
+  }
+
+  @Override
+  public void close() {
+    unbind();
   }
 }

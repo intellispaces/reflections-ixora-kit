@@ -6,50 +6,50 @@ import jakarta.servlet.http.HttpServletResponse;
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
-import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.UnmovableHttpResponseHandle;
-import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
+import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
 
 import java.io.IOException;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 class JettyServlet extends HttpServlet {
-  private MovableObjectHandle<?> logicalPort;
-  private Class<? extends HttpPortExchangeChannel> exchangeChannel;
+  private MovableJettyServerPortHandle port;
+  private String httpPortExchangeChannelCid;
 
-  void init(MovableObjectHandle<?> logicalPort, Class<? extends HttpPortExchangeChannel> exchangeChannel) {
-    this.logicalPort = logicalPort;
-    this.exchangeChannel = exchangeChannel;
+  void init(MovableJettyServerPortHandle port) {
+    this.port = port;
+    this.httpPortExchangeChannelCid = ChannelFunctions.getChannelId(HttpPortExchangeChannel.class);
   }
 
   @Override
   protected void doGet(
       HttpServletRequest servletRequest, HttpServletResponse servletResponse
   ) throws IOException {
-    HttpRequest request = buildRequest(servletRequest);
-    UnmovableHttpResponseHandle response = logicalPort.mapOfMovingThru(exchangeChannel, request);
-    populateServletResponse(servletResponse, response);
+    HttpRequestHandle req = requestHandle(servletRequest);
+    UnmovableHttpResponseHandle res = port.mapOfMovingThru(httpPortExchangeChannelCid, req);
+    populateResponse(servletResponse, res);
   }
 
-  private HttpRequest buildRequest(HttpServletRequest req) {
+  private HttpRequestHandle requestHandle(HttpServletRequest req) {
     String url = req.getRequestURL().toString();
     String query = req.getQueryString();
     String uri = (query == null ? url : url + '?' + query);
     return HttpRequests.create(HttpMethods.get(req.getMethod()), uri);
   }
 
-  private void populateServletResponse(
-      HttpServletResponse servletResponse, UnmovableHttpResponseHandle response
+  private void populateResponse(
+      HttpServletResponse servletResponse, UnmovableHttpResponseHandle responseHandle
   ) throws IOException {
-    if (response.status().isOkStatus()) {
+    if (responseHandle.status().isOkStatus()) {
       servletResponse.setStatus(HttpServletResponse.SC_OK);
     } else {
       throw new RuntimeException();
     }
 
-    byte[] body = ArraysFunctions.toByteArray(toList(response.bodyStream().readAll().iterator()));
+    byte[] body = ArraysFunctions.toByteArray(toList(responseHandle.bodyStream().readAll().iterator()));
     servletResponse.getOutputStream().write(body);
   }
 }

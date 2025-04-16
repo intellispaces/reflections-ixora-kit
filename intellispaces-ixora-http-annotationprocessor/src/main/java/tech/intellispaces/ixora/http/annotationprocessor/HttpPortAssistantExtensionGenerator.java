@@ -7,6 +7,7 @@ import tech.intellispaces.jaquarius.annotation.AssistantExtension;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.artifact.ArtifactTypes;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
 import tech.intellispaces.reflection.customtype.CustomType;
 
 public class HttpPortAssistantExtensionGenerator extends JaquariusArtifactGenerator {
@@ -35,6 +36,7 @@ public class HttpPortAssistantExtensionGenerator extends JaquariusArtifactGenera
     addImport(ArtifactTypes.class);
     addImport(AssistantExtension.class);
     addImport(MovableInboundHttpPort.class);
+    addImport(DownwardObjectFactory.class);
 
     String movableHandleSimpleName = addImportAndGetSimpleName(
         NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName(), true)

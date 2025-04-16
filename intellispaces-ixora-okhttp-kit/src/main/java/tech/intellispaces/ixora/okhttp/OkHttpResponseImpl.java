@@ -12,34 +12,39 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(OkHttpResponseDomain.class)
 public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseHandle {
-  private final Response response;
+  private final Response underlyingResponse;
   private final MovableByteInputStreamHandle bodyStream;
 
-  OkHttpResponseImpl(Response response) {
-    this.response = response;
+  OkHttpResponseImpl(Response underlyingResponse) {
+    this.underlyingResponse = underlyingResponse;
 
-    ResponseBody body = response.body();
+    ResponseBody body = underlyingResponse.body();
     this.bodyStream = (body != null ? ByteInputStreams.handleOf(body.byteStream()) : ByteInputStreams.empty());
   }
 
-  public Response getResponse() {
-    return response;
-  }
-
-  @Override
-  public void unbind() {
-    response.close();
+  public Response getUnderlyingResponse() {
+    return underlyingResponse;
   }
 
   @Mapper
   @Override
   public HttpStatusHandle status() {
-    return HttpStatuses.get(response.code());
+    return HttpStatuses.get(underlyingResponse.code());
   }
 
   @MapperOfMoving
   @Override
   public MovableByteInputStreamHandle bodyStream() {
     return bodyStream;
+  }
+
+  @Override
+  public void unbind() {
+    underlyingResponse.close();
+  }
+
+  @Override
+  public void close() {
+    unbind();
   }
 }

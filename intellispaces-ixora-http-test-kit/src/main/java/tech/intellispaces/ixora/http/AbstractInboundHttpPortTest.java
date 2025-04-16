@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
+import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 import tech.intellispaces.jaquarius.system.Modules;
 
 import java.net.URI;
@@ -13,12 +13,12 @@ public abstract class AbstractInboundHttpPortTest {
 
   private static final int PORT_NUMBER = 8080;
 
-  public abstract MovableInboundHttpPort getOperativePort(
-      int portNumber, Class<? extends HttpPortExchangeChannel> exchangeChannel
+  public abstract MovableInboundHttpPort createPort(
+      int portNumber, MovableObjectHandle<?> overlyingHandle
   );
 
   public void init() {
-    Modules.load(TestPortExchangeGuideImpl.class).start();
+    Modules.load(TestHttpPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {
@@ -26,17 +26,11 @@ public abstract class AbstractInboundHttpPortTest {
   }
 
   public void testHello() throws Exception {
-    MovableInboundHttpPort operativePort = getOperativePort(PORT_NUMBER, TestPortExchangeChannel.class);
-    MovableTestPort logicalPort = TestPorts.get(operativePort);
-    ObjectHandles.handle(operativePort).addProjection(TestPortDomain.class, logicalPort);
-
-    operativePort.open();
-
+    MovableTestPortHandle testPort = TestPorts.create(overlyingHandle -> this.createPort(PORT_NUMBER, overlyingHandle));
+    testPort.open();
     HttpResponse<String> res = callServer();
     String message = res.body();
-
-    operativePort.close();
-
+    testPort.shut();
     assertThat(message).isEqualTo("Hello");
   }
 

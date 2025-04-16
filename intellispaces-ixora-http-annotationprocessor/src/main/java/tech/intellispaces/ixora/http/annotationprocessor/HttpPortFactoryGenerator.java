@@ -6,6 +6,7 @@ import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.jaquarius.annotation.ObjectFactory;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
 import tech.intellispaces.reflection.customtype.CustomType;
 
 public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
@@ -33,6 +34,7 @@ public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
   protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
     addImport(ObjectFactory.class);
     addImport(MovableInboundHttpPort.class);
+    addImport(DownwardObjectFactory.class);
 
     String providerCustomizerSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortAssistantExtensionCanonicalName(sourceArtifact())
