@@ -1,13 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
-import tech.intellispaces.jaquarius.ixora.data.collection.ListAssistantExtension;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 import java.util.List;
 
-@ObjectFactory
-public class ListFactory implements ListAssistantExtension {
+@Factory
+public class ListFactory implements ListAssistantCustomizer {
 
   @Override
   public UnmovableByteListHandle create(byte value1, byte value2) {

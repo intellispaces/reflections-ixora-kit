@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-@ObjectFactory
-public class TransactionProvider implements TransactionAssistantExtension {
+@Factory
+public class TransactionProvider implements TransactionAssistantCustomizer {
   private static final ThreadLocal<Deque<MovableTransactionHandle>> CURRENT_TRANSACTIONS = new ThreadLocal<>();
 
   @Override

@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
-@ObjectFactory
-public class HttpStatusFactory implements HttpStatusAssistantExtension {
+@Factory
+public class HttpStatusFactory implements HttpStatusAssistantCustomizer {
 
   @Override
   public HttpStatusHandle ok() {

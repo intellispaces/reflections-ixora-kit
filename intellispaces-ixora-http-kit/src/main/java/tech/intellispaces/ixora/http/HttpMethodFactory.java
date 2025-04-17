@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
-@ObjectFactory
-public class HttpMethodFactory implements HttpMethodAssistantExtension {
+@Factory
+public class HttpMethodFactory implements HttpMethodAssistantCustomizer {
 
   public HttpMethodHandle get() {
     return GET;

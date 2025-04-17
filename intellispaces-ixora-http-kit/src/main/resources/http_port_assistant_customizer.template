@@ -9,7 +9,7 @@ import {{$importedClass}};
  * <p>
  * This class was generated automatically. Don't try to change it.
  */
-@AssistantExtension({{$sourceArtifactSimpleName}}.class)
+@AssistantCustomizer({{$sourceArtifactSimpleName}}.class)
 {{$generatedAnnotation}}
 public interface {{$generatedArtifactSimpleName}} {
 

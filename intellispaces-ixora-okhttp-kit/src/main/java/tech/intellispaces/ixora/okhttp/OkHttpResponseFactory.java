@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.Response;
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
-@ObjectFactory
-public class OkHttpResponseFactory implements OkHttpResponseAssistantExtension {
+@Factory
+public class OkHttpResponseFactory implements OkHttpResponseAssistantCustomizer {
 
   @Override
   public UnmovableOkHttpResponseHandle handleOf(Response response) {

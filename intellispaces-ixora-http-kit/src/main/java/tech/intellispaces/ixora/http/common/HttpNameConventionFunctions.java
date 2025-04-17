@@ -21,8 +21,8 @@ public interface HttpNameConventionFunctions {
     return getPortHandleCanonicalName(httpPortDomain) + "Wrapper";
   }
 
-  static String getPortAssistantExtensionCanonicalName(CustomType httpPortDomain) {
-    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "AssistantExtension");
+  static String getPortAssistantCustomizerCanonicalName(CustomType httpPortDomain) {
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "AssistantCustomizer");
   }
 
   static String getPortFactoryCanonicalName(CustomType httpPortDomain) {

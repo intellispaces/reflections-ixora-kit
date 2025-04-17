@@ -38,7 +38,7 @@ public class HttpPortProcessor extends ArtifactProcessor {
     List<ArtifactGenerator> generators = new ArrayList<>();
     generators.add(new HttpPortHandleGenerator(portDomain));
     generators.add(new HttpPortFactoryGenerator(portDomain));
-    generators.add(new HttpPortAssistantExtensionGenerator(portDomain));
+    generators.add(new HttpPortAssistantCustomizerGenerator(portDomain));
 
     List<CustomType> ontologies = portDomain.selectAnnotation(HttpPort.class.getCanonicalName()).orElseThrow()
         .value().orElseThrow()

@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.jetty;
 
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
-@ObjectFactory
-public class JettyServerFactory implements JettyServerPortAssistantExtension {
+@Factory
+public class JettyServerFactory implements JettyServerPortAssistantCustomizer {
 
   @Override
   public MovableJettyServerPortHandle create(int portNumber, MovableObjectHandle<?> overlyingHandle) {

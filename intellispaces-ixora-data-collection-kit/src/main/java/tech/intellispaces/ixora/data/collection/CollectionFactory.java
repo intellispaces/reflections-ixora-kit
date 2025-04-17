@@ -1,13 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
-import tech.intellispaces.jaquarius.ixora.data.collection.CollectionAssistantExtension;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 import java.util.List;
 
-@ObjectFactory
-public class CollectionFactory implements CollectionAssistantExtension {
+@Factory
+public class CollectionFactory implements CollectionAssistantCustomizer {
 
   @Override
   public <E> UnmovableCollectionHandle<E> handleOf(List<E> list, Class<E> elementClass) {

@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.OkHttpClient;
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 import java.util.concurrent.TimeUnit;
 
-@ObjectFactory
-public class OkHttpPortFactory implements OkHttpPortAssistantExtension {
+@Factory
+public class OkHttpPortFactory implements OkHttpPortAssistantCustomizer {
 
   @Override
   public MovableOkHttpPortHandle create() {

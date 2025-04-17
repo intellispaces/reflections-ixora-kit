@@ -1,11 +1,10 @@
 package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
-import tech.intellispaces.jaquarius.ixora.data.association.MapAssistantExtension;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
-@ObjectFactory
-public class MapFactory implements MapAssistantExtension {
+@Factory
+public class MapFactory implements MapAssistantCustomizer {
 
   public <K, V> UnmovableMapHandle<K, V> create(
     Class<K> keyClass, Class<V> valueClass,

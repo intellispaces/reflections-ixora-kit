@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.cli;
 
-import tech.intellispaces.jaquarius.annotation.ObjectFactory;
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 import java.io.PrintStream;
 
-@ObjectFactory
+@Factory
 public class ConsoleProvider {
 
   public MovableConsoleHandle dummy(PrintStream ps) {

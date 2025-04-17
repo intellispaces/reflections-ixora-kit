@@ -90,7 +90,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getGeneralPlainObjectTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getGeneralRegularObjectTypename(portDomain)));
     sb.append(" port, ");
     sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
@@ -135,7 +135,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   private String getGeneralPureObjectDeclaration(TypeReference domain) {
-    return ObjectReferenceFunctions.geGeneralPlainObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
+    return ObjectReferenceFunctions.geGeneralRegularObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {
