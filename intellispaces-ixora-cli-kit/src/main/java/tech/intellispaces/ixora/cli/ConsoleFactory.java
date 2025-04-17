@@ -5,7 +5,7 @@ import tech.intellispaces.jaquarius.annotation.Factory;
 import java.io.PrintStream;
 
 @Factory
-public class ConsoleProvider {
+public class ConsoleFactory {
 
   public MovableConsoleHandle dummy(PrintStream ps) {
     return new PrintStreamBasedConsoleWrapper(ps).asConsole();
