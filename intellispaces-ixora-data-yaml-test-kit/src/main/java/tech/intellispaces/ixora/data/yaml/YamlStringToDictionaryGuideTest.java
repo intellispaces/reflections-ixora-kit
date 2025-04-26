@@ -3,9 +3,10 @@ package tech.intellispaces.ixora.data.yaml;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import tech.intellispaces.ixora.data.association.Properties;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.jaquarius.system.Modules;
+import tech.intellispaces.jaquarius.Jaquarius;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,12 +17,12 @@ public abstract class YamlStringToDictionaryGuideTest {
 
   @BeforeEach
   public void init() {
-    Modules.load().start();
+    Jaquarius.createModule().start();
   }
 
   @AfterEach
   public void destroy() {
-    Modules.unload();
+    Jaquarius.releaseModule();
   }
 
   public abstract YamlStringToPropertiesGuide guide();

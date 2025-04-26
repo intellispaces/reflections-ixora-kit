@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.Iterator;
+import java.util.List;
+
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-
-import java.util.Iterator;
-import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
 abstract class ByteArrayHandle implements UnmovableByteListHandle {

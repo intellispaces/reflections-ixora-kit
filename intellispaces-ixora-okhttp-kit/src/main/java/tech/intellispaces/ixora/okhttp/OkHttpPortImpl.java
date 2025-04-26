@@ -1,8 +1,11 @@
 package tech.intellispaces.ixora.okhttp;
 
+import java.io.IOException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.ixora.http.HttpMethod;
 import tech.intellispaces.ixora.http.HttpRequest;
@@ -11,8 +14,6 @@ import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.http.exception.HttpExceptions;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-
-import java.io.IOException;
 
 @ObjectHandle(OkHttpPortDomain.class)
 public abstract class OkHttpPortImpl implements MovableOkHttpPort {

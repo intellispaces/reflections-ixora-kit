@@ -1,14 +1,15 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import tech.intellispaces.jaquarius.system.Modules;
 
-import java.util.ArrayList;
-import java.util.List;
+import tech.intellispaces.jaquarius.Jaquarius;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -21,12 +22,12 @@ public class TransactionFunctionsTest {
 
   @BeforeEach
   public void init() {
-    Modules.load().start();
+    Jaquarius.createModule().start();
   }
 
   @AfterEach
   public void deinit() {
-    Modules.unload();
+    Jaquarius.releaseModule();
   }
 
   @Test

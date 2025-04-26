@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http.port;
 
-import tech.intellispaces.ixora.http.pathtree.PathSegment;
-
 import java.util.List;
+
+import tech.intellispaces.ixora.http.pathtree.PathSegment;
 
 public class PortDescriptor {
   private final Object port;

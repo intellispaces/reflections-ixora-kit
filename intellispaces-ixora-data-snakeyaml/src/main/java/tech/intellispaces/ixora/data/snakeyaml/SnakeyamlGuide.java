@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.data.snakeyaml;
 
 import org.yaml.snakeyaml.Yaml;
+
 import tech.intellispaces.ixora.data.association.PropertiesHandle;
 import tech.intellispaces.ixora.data.association.Propertiess;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;

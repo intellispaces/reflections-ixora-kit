@@ -1,8 +1,11 @@
 package tech.intellispaces.ixora.jetty;
 
+import java.io.IOException;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
@@ -10,8 +13,6 @@ import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.UnmovableHttpResponseHandle;
 import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
-
-import java.io.IOException;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 

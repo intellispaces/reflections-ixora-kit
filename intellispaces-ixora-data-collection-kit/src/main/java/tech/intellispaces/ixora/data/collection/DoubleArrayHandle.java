@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.Arrays;
+import java.util.Iterator;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-
-import java.util.Arrays;
-import java.util.Iterator;
 
 @ObjectHandle(Float64ListDomain.class)
 abstract class DoubleArrayHandle implements UnmovableFloat64ListHandle {

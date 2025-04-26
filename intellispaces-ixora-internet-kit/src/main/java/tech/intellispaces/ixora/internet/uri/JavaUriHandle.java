@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.internet.uri;
 
+import java.net.URI;
+
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-
-import java.net.URI;
 
 @ObjectHandle(UriDomain.class)
 public abstract class JavaUriHandle implements UnmovableUri {

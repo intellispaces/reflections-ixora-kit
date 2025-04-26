@@ -1,7 +1,10 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.Types;
@@ -16,8 +19,6 @@ import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.reflection.customtype.CustomType;
 import tech.intellispaces.reflection.method.MethodStatement;
-
-import java.util.Optional;
 
 public class EntityCrudGuideImplGenerator extends JaquariusArtifactGenerator {
   private String entityHandleSimpleName;

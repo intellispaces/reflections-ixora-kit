@@ -1,16 +1,17 @@
 package tech.intellispaces.ixora.http;
 
-import com.sun.net.httpserver.HttpServer;
-import org.assertj.core.api.Fail;
-import tech.intellispaces.commons.collection.ArraysFunctions;
-import tech.intellispaces.ixora.internet.uri.Uris;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
-import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
+
+import com.sun.net.httpserver.HttpServer;
+import org.assertj.core.api.Fail;
+
+import tech.intellispaces.commons.collection.ArraysFunctions;
+import tech.intellispaces.ixora.internet.uri.Uris;
+import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
+import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

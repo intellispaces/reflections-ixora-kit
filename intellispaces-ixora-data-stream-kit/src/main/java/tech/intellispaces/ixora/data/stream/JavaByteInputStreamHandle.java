@@ -1,5 +1,8 @@
 package tech.intellispaces.ixora.data.stream;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
@@ -9,9 +12,6 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 @ObjectHandle(ByteInputStreamDomain.class)
 abstract class JavaByteInputStreamHandle implements MovableByteInputStream, MovableByteInputStreamHandle {

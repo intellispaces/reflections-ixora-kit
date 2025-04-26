@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.stream;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
-
 import java.io.InputStream;
+
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 @Factory
 public class ByteInputStreamFactory implements ByteInputStreamAssistantCustomizer {

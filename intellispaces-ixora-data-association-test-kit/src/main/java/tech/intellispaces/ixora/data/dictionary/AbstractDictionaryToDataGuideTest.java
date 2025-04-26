@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.data.dictionary;
 
 import org.junit.jupiter.api.Test;
+
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.association.Properties;
 import tech.intellispaces.ixora.data.association.PropertiesToDataGuide;

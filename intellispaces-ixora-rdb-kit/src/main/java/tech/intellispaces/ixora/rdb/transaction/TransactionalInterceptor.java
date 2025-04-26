@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
+import java.util.List;
+
 import tech.intellispaces.actions.Action;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
 import tech.intellispaces.jaquarius.aop.Interceptor;
 import tech.intellispaces.jaquarius.system.ProjectionProvider;
 import tech.intellispaces.reflection.method.MethodStatement;
-
-import java.util.List;
 
 public class TransactionalInterceptor extends Interceptor {
 

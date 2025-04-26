@@ -3,8 +3,9 @@ package tech.intellispaces.ixora.http;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuideImpl;
-import tech.intellispaces.jaquarius.system.Modules;
+import tech.intellispaces.jaquarius.Jaquarius;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -18,12 +19,12 @@ public class DedicatedHttpPortImplTest {
 
   @BeforeEach
   public void init() {
-    Modules.load(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
+    Jaquarius.createModule(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
   }
 
   @AfterEach
   public void deinit() {
-    Modules.unload();
+    Jaquarius.releaseModule();
   }
 
   @Test

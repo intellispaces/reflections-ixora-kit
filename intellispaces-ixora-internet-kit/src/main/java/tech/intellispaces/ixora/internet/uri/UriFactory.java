@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
-
 import java.net.URI;
+
+import tech.intellispaces.jaquarius.annotation.Factory;
 
 @Factory
 public class UriFactory implements UriAssistantCustomizer {

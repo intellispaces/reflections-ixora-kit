@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.Response;
+
 import tech.intellispaces.jaquarius.annotation.Factory;
 
 @Factory

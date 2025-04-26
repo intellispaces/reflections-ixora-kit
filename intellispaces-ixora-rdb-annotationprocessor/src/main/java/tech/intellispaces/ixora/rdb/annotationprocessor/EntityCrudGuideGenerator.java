@@ -1,5 +1,7 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.jaquarius.annotation.Guide;
@@ -9,8 +11,6 @@ import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.reflection.customtype.CustomType;
 import tech.intellispaces.reflection.method.MethodStatement;
-
-import java.util.Optional;
 
 public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   private boolean entityHasIdentifier;

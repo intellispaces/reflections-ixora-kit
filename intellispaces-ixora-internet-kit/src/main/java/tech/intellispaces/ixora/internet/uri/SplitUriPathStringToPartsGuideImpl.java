@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.internet.uri;
 
+import java.util.Arrays;
+
 import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
-
-import java.util.Arrays;
 
 @Guide
 public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToPartsGuide {

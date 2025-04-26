@@ -1,5 +1,8 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.core.id.IdentifierFunctions;
 import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
@@ -10,9 +13,6 @@ import tech.intellispaces.jaquarius.id.RepetableUuidIdentifierGenerator;
 import tech.intellispaces.jaquarius.space.domain.DomainFunctions;
 import tech.intellispaces.reflection.customtype.CustomType;
 import tech.intellispaces.reflection.method.MethodStatement;
-
-import java.util.Optional;
-import java.util.UUID;
 
 public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
   private String transactionToEntityByIdentifierCid;

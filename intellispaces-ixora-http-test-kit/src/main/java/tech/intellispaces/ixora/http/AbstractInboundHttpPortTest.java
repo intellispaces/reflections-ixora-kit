@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
-import tech.intellispaces.jaquarius.system.Modules;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
+
+import tech.intellispaces.jaquarius.Jaquarius;
+import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,11 +18,11 @@ public abstract class AbstractInboundHttpPortTest {
   );
 
   public void init() {
-    Modules.load(TestHttpPortExchangeGuideImpl.class).start();
+    Jaquarius.createModule(TestHttpPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {
-    Modules.unload();
+    Jaquarius.releaseModule();
   }
 
   public void testHello() throws Exception {

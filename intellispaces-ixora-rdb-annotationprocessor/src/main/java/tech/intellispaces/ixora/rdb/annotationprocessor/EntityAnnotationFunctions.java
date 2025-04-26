@@ -1,6 +1,10 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+import java.util.function.Function;
+
 import jakarta.persistence.Id;
+
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.stream.Collectors;
 import tech.intellispaces.commons.text.StringFunctions;
@@ -9,9 +13,6 @@ import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 import tech.intellispaces.reflection.customtype.CustomType;
 import tech.intellispaces.reflection.method.MethodStatement;
 import tech.intellispaces.reflection.reference.TypeReference;
-
-import java.util.Optional;
-import java.util.function.Function;
 
 public interface EntityAnnotationFunctions {
 

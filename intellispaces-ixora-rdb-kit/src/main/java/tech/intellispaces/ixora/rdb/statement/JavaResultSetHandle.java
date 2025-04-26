@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.rdb.statement;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.exception.TraverseExceptions;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @ObjectHandle(ResultSetDomain.class)
 abstract class JavaResultSetHandle implements MovableResultSet {

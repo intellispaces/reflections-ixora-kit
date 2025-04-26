@@ -1,5 +1,7 @@
 package tech.intellispaces.ixora.http;
 
+import java.io.InputStream;
+
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.text.StringFunctions;
@@ -8,8 +10,6 @@ import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-
-import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
 abstract class HttpResponseImpl implements UnmovableHttpResponseHandle {

@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.annotationprocessor;
 
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
-import tech.intellispaces.commons.entity.Reference;
+import tech.intellispaces.commons.abstraction.Reference;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;

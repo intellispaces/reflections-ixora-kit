@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.List;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.jaquarius.annotation.Factory;
-
-import java.util.List;
 
 @Factory
 public class CollectionFactory implements CollectionAssistantCustomizer {
