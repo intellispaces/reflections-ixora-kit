@@ -54,8 +54,8 @@ public class ListFactory implements ListAssistantCustomizer {
   }
 
   @Override
-  public UnmovableFloat64ListHandle handleOf(double[] array) {
-    return new DoubleArrayHandleWrapper(array);
+  public UnmovableReal64ListHandle handleOf(double[] array) {
+    return new Real64ArrayHandleWrapper(array);
   }
 
   @Override
@@ -69,7 +69,7 @@ public class ListFactory implements ListAssistantCustomizer {
   }
 
   @Override
-  public UnmovableFloat64ListHandle handleOfDoubleList(java.util.List<Double> list) {
-    return new DoubleArrayHandleWrapper(list);
+  public UnmovableReal64ListHandle handleOfDoubleList(java.util.List<Double> list) {
+    return new Real64ArrayHandleWrapper(list);
   }
 }

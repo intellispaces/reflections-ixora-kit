@@ -59,7 +59,7 @@ public abstract class YamlStringToDictionaryGuideTest {
     assertThat(properties.integer32Value("intValue")).isEqualTo(1);
     assertThat(properties.value("intValue")).isEqualTo(1);
 
-    assertThat(properties.float64Value("doubleValue")).isEqualTo(2.2);
+    assertThat(properties.real64Value("doubleValue")).isEqualTo(2.2);
     assertThat(properties.value("doubleValue")).isEqualTo(2.2);
 
     assertThat(properties.stringValue("stringValue")).isEqualTo("abc");
@@ -113,10 +113,10 @@ public abstract class YamlStringToDictionaryGuideTest {
     assertThat(properties).isNotNull();
     assertThat(properties.size()).isEqualTo(1);
 
-    assertThat(properties.float64List("values").size()).isEqualTo(3);
-    assertThat(properties.float64List("values").get(0)).isEqualTo(1.1);
-    assertThat(properties.float64List("values").get(1)).isEqualTo(2.2);
-    assertThat(properties.float64List("values").get(2)).isEqualTo(3.3);
+    assertThat(properties.real64List("values").size()).isEqualTo(3);
+    assertThat(properties.real64List("values").get(0)).isEqualTo(1.1);
+    assertThat(properties.real64List("values").get(1)).isEqualTo(2.2);
+    assertThat(properties.real64List("values").get(2)).isEqualTo(3.3);
 
     assertThat(((List<Double>) properties.value("values")).size()).isEqualTo(3);
     assertThat(((List<Double>) properties.value("values")).get(0)).isEqualTo(1.1);

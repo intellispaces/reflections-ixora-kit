@@ -8,17 +8,17 @@ import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
-@ObjectHandle(Float64ListDomain.class)
-abstract class DoubleArrayHandle implements UnmovableFloat64ListHandle {
+@ObjectHandle(Real64ListDomain.class)
+abstract class Real64ArrayHandle implements UnmovableReal64ListHandle {
   private final double[] array;
   private final Type<Double> elementType = Types.get(Double.class);
   private java.util.List<Double> list;
 
-  DoubleArrayHandle(double[] array) {
+  Real64ArrayHandle(double[] array) {
     this.array = array;
   }
 
-  DoubleArrayHandle(java.util.List<Double> list) {
+  Real64ArrayHandle(java.util.List<Double> list) {
     this.array = list.stream().mapToDouble(d -> d).toArray();
     this.list = list;
   }

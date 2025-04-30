@@ -80,7 +80,7 @@ abstract class PropertiesHandleBasedOnMap implements UnmovableProperties {
 
   @Mapper
   @Override
-  public double float64Value(String path) throws InvalidPropertyException {
+  public double real64Value(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Double.class);
     return (double) value;
@@ -121,7 +121,7 @@ abstract class PropertiesHandleBasedOnMap implements UnmovableProperties {
 
   @Mapper
   @Override
-  public UnmovableList<Double> float64List(String path) throws InvalidPropertyException {
+  public UnmovableList<Double> real64List(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return float64List(path, value);
   }
