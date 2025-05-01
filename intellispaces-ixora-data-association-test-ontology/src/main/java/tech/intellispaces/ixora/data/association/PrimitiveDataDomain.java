@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.data.dictionary;
+package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Dataset;

@@ -15,19 +15,19 @@ import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
 
 @Guide
-public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
+public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide {
 
   @Mapper
   @Override
-  public <D> D propertiesToData(Properties properties, Type<D> dataType) {
+  public <D> D propertiesSetToData(PropertiesSet props, Type<D> dataType) {
     if (DatasetFunctions.isDatasetObjectHandle(dataType.asClassType().baseClass())) {
-      return process(properties, dataType);
+      return process(props, dataType);
     }
     throw new UnsupportedOperationException("Not implemented");
   }
 
   @SuppressWarnings("unchecked")
-  private <D> D process(Properties properties, Type<D> dataType) {
+  private <D> D process(PropertiesSet properties, Type<D> dataType) {
     Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
     String dataHandleObjectCanonicalName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
@@ -51,8 +51,8 @@ public class SimplePropertiesToDataGuide implements PropertiesToDataGuide {
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof Properties && ObjectReferenceFunctions.isObjectHandleClass(param.getType())) {
-        value = process((Properties) value, Types.get(param.getType()));
+      if (value instanceof PropertiesSet && ObjectReferenceFunctions.isObjectHandleClass(param.getType())) {
+        value = process((PropertiesSet) value, Types.get(param.getType()));
       }
       arguments[index++] = value;
     }
