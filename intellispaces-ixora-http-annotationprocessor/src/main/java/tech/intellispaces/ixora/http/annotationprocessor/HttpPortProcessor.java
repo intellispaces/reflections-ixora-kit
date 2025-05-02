@@ -14,8 +14,8 @@ import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
 
 @AutoService(Processor.class)
 public class HttpPortProcessor extends ArtifactProcessor {

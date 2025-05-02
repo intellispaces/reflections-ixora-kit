@@ -20,11 +20,11 @@ import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodParam;
-import tech.intellispaces.reflection.method.MethodSignatureDeclarations;
-import tech.intellispaces.reflection.method.MethodStatement;
-import tech.intellispaces.reflection.reference.TypeReference;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodParam;
+import tech.intellispaces.statementsj.method.MethodSignatureDeclarations;
+import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.statementsj.reference.TypeReference;
 
 public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;

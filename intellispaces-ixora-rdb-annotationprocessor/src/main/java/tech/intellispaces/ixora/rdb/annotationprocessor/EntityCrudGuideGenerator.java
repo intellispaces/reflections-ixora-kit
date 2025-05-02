@@ -9,8 +9,8 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
 
 public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
   private boolean entityHasIdentifier;

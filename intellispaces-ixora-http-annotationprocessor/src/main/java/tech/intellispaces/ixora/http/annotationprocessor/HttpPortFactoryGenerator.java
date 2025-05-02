@@ -7,7 +7,7 @@ import tech.intellispaces.jaquarius.annotation.Factory;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
-import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.statementsj.customtype.CustomType;
 
 public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
 

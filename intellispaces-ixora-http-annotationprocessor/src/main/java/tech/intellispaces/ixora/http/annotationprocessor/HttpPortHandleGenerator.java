@@ -15,7 +15,7 @@ import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerat
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
 import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
-import tech.intellispaces.reflection.customtype.CustomType;
+import tech.intellispaces.statementsj.customtype.CustomType;
 
 public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
   private String movableHandleSimpleName;

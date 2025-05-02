@@ -17,8 +17,8 @@ import tech.intellispaces.ixora.rdb.transaction.Transactions;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
 
 public class EntityCrudGuideImplGenerator extends JaquariusArtifactGenerator {
   private String entityHandleSimpleName;

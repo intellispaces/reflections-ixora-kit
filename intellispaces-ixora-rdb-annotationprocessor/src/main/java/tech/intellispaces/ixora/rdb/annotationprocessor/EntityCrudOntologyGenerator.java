@@ -11,8 +11,8 @@ import tech.intellispaces.jaquarius.annotation.Ontology;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.id.RepetableUuidIdentifierGenerator;
 import tech.intellispaces.jaquarius.space.domain.DomainFunctions;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
 
 public class EntityCrudOntologyGenerator extends JaquariusArtifactGenerator {
   private String transactionToEntityByIdentifierCid;

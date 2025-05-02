@@ -8,8 +8,8 @@ import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
 
 public class HttpPortExchangeChannelGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;

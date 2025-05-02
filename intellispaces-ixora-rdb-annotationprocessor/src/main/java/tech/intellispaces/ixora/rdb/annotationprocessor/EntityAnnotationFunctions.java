@@ -10,9 +10,9 @@ import tech.intellispaces.commons.stream.Collectors;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
-import tech.intellispaces.reflection.customtype.CustomType;
-import tech.intellispaces.reflection.method.MethodStatement;
-import tech.intellispaces.reflection.reference.TypeReference;
+import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.statementsj.reference.TypeReference;
 
 public interface EntityAnnotationFunctions {
 
