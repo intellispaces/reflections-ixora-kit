@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces</groupId>
-        <artifactId>intellispaces-ixora-jaquarius-kit-parent</artifactId>
+        <groupId>tech.intellispaces.reflections.ixora</groupId>
+        <artifactId>intellispaces-ixora-kit-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -26,11 +26,11 @@
     <dependencies>
         <!-- Intellispaces -->
         <dependency>
-            <groupId>tech.intellispaces</groupId>
+            <groupId>tech.intellispaces.reflections.ixora</groupId>
             <artifactId>intellispaces-ixora-data-ontology</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
+            <groupId>tech.intellispaces.reflections.ixora</groupId>
             <artifactId>intellispaces-ixora-data-association-kit</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -43,12 +43,12 @@
 
         <!-- Intellispaces test -->
         <dependency>
-            <groupId>tech.intellispaces</groupId>
+            <groupId>tech.intellispaces.reflections.ixora</groupId>
             <artifactId>intellispaces-ixora-data-yaml-test-kit</artifactId>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
-            <artifactId>intellispaces-jaquarius-engine</artifactId>
+            <groupId>tech.intellispaces.reflections</groupId>
+            <artifactId>intellispaces-reflections-engine</artifactId>
         </dependency>
 
         <!-- Test -->

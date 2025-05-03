@@ -9,10 +9,10 @@ import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.stream.Collectors;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
-import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodStatement;
-import tech.intellispaces.statementsj.reference.TypeReference;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.jstatements.reference.TypeReference;
+import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
 
 public interface EntityAnnotationFunctions {
 

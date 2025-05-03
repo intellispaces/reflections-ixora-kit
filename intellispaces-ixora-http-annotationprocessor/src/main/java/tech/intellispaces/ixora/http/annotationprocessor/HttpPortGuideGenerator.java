@@ -16,15 +16,15 @@ import tech.intellispaces.ixora.http.annotation.QueryParam;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.GetUriQueryParamGuide;
-import tech.intellispaces.jaquarius.annotation.AutoGuide;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodParam;
-import tech.intellispaces.statementsj.method.MethodSignatureDeclarations;
-import tech.intellispaces.statementsj.method.MethodStatement;
-import tech.intellispaces.statementsj.reference.TypeReference;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodParam;
+import tech.intellispaces.jstatements.method.MethodSignatureDeclarations;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.jstatements.reference.TypeReference;
+import tech.intellispaces.reflections.annotation.AutoGuide;
+import tech.intellispaces.reflections.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
 
 public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;

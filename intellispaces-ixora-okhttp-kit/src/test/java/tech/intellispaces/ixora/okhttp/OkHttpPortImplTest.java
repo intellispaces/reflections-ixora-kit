@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import tech.intellispaces.ixora.http.MovableOutboundHttpPortHandle;
 import tech.intellispaces.ixora.http.OutboundHttpPortTest;
-import tech.intellispaces.jaquarius.Jaquarius;
+import tech.intellispaces.reflections.Jaquarius;
 
 public class OkHttpPortImplTest extends OutboundHttpPortTest {
 

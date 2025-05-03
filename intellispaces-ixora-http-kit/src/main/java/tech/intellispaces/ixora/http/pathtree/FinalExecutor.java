@@ -3,9 +3,9 @@ package tech.intellispaces.ixora.http.pathtree;
 import tech.intellispaces.actions.Action2;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
-import tech.intellispaces.jaquarius.action.TraverseActions;
-import tech.intellispaces.jaquarius.channel.Channel1;
-import tech.intellispaces.statementsj.method.MethodSignature;
+import tech.intellispaces.jstatements.method.MethodSignature;
+import tech.intellispaces.reflections.action.TraverseActions;
+import tech.intellispaces.reflections.channel.Channel1;
 
 public class FinalExecutor {
   private final Object port;

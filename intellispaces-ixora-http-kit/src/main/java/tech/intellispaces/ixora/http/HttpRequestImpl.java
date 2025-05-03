@@ -5,8 +5,8 @@ import java.io.InputStream;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
 import tech.intellispaces.ixora.internet.uri.Uri;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(HttpRequestDomain.class)
 abstract class HttpRequestImpl implements UnmovableHttpRequest {

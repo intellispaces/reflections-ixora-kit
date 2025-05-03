@@ -8,11 +8,11 @@ import tech.intellispaces.commons.function.FunctionFunctions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.jaquarius.annotation.Guide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.dataset.DatasetFunctions;
-import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
-import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.annotation.Guide;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.dataset.DatasetFunctions;
+import tech.intellispaces.reflections.naming.NameConventionFunctions;
+import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
 
 @Guide
 public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide {

@@ -6,8 +6,8 @@ import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactoryD
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceFactory;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(HikariDataSourceFactoryDomain.class)
 public abstract class HikariDataSourceFactoryHandle implements MovableHikariDataSourceFactory {

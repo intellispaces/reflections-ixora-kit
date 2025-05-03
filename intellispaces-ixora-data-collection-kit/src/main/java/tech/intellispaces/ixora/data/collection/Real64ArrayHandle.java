@@ -5,8 +5,8 @@ import java.util.Iterator;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(Real64ListDomain.class)
 abstract class Real64ArrayHandle implements UnmovableReal64ListHandle {

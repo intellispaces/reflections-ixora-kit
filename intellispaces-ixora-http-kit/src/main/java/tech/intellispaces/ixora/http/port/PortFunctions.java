@@ -5,9 +5,9 @@ import java.util.Optional;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
-import tech.intellispaces.jaquarius.channel.Channel1;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.reflections.channel.Channel1;
 
 public interface PortFunctions {
 

@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import tech.intellispaces.jaquarius.annotation.Dataset;
+import tech.intellispaces.reflections.annotation.Dataset;
 
 /**
  * The persisted entity stored in the relational database.

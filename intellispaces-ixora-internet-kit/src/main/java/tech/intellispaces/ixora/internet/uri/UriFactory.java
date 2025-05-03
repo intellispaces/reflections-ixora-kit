@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.internet.uri;
 
 import java.net.URI;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
+import tech.intellispaces.reflections.annotation.Factory;
 
 @Factory
 public class UriFactory implements UriAssistantCustomizer {

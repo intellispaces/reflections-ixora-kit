@@ -15,11 +15,11 @@ import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStrin
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
 import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsAutoGuide;
 import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsGuide;
-import tech.intellispaces.statementsj.customtype.ClassType;
-import tech.intellispaces.statementsj.customtype.Classes;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.customtype.CustomTypes;
-import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.jstatements.customtype.ClassType;
+import tech.intellispaces.jstatements.customtype.Classes;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.customtype.CustomTypes;
+import tech.intellispaces.jstatements.method.MethodStatement;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 

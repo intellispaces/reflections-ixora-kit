@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(StatementDomain.class)
 abstract class JavaStatementHandle implements MovableStatement {

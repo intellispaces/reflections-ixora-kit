@@ -8,10 +8,10 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.ByteLists;
 import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.exception.TraverseExceptions;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.exception.TraverseExceptions;
 
 @ObjectHandle(ByteInputStreamDomain.class)
 abstract class JavaByteInputStreamHandle implements MovableByteInputStream, MovableByteInputStreamHandle {

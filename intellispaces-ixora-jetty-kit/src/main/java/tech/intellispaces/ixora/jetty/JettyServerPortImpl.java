@@ -6,13 +6,13 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.Mover;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.exception.TraverseExceptions;
-import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
-import tech.intellispaces.jaquarius.object.reference.OverlyingHandleController;
-import tech.intellispaces.jaquarius.object.reference.PostRegistrationHandleProcessor;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.Mover;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.exception.TraverseExceptions;
+import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.object.reference.OverlyingHandleController;
+import tech.intellispaces.reflections.object.reference.PostRegistrationHandleProcessor;
 
 @ObjectHandle(JettyServerPortDomain.class)
 public abstract class JettyServerPortImpl implements MovableJettyServerPortHandle, OverlyingHandleController, PostRegistrationHandleProcessor {

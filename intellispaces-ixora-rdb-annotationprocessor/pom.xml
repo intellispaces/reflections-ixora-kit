@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces</groupId>
-        <artifactId>intellispaces-ixora-jaquarius-kit-parent</artifactId>
+        <groupId>tech.intellispaces.reflections.ixora</groupId>
+        <artifactId>intellispaces-ixora-kit-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -25,12 +25,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
+            <groupId>tech.intellispaces.core</groupId>
             <artifactId>intellispaces-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
+            <groupId>tech.intellispaces.reflections.ixora</groupId>
             <artifactId>intellispaces-ixora-rdb-kit</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

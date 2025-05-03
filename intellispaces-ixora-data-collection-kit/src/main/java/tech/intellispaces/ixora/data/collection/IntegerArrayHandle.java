@@ -6,8 +6,8 @@ import java.util.List;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(Integer32ListDomain.class)
 abstract class IntegerArrayHandle implements UnmovableInteger32ListHandle {

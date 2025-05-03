@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tech.intellispaces.jaquarius.Jaquarius;
+import tech.intellispaces.reflections.Jaquarius;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

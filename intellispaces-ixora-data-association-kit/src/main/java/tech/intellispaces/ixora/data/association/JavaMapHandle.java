@@ -6,8 +6,8 @@ import java.util.Map;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(MapDomain.class)
 abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V>, UnmovableMapHandle<K, V> {

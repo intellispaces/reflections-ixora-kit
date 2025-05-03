@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import tech.intellispaces.ixora.data.association.PropertiesSet;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.jaquarius.Jaquarius;
+import tech.intellispaces.reflections.Jaquarius;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http;
 
 import java.io.InputStream;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
+import tech.intellispaces.reflections.annotation.Factory;
 
 @Factory
 public class HttpResponseFactory implements HttpResponseAssistantCustomizer {

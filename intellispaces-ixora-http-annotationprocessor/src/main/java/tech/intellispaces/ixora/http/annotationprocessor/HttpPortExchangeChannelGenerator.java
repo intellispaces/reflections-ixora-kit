@@ -5,11 +5,11 @@ import tech.intellispaces.ixora.http.HttpRequestDomain;
 import tech.intellispaces.ixora.http.HttpResponseDomain;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
-import tech.intellispaces.jaquarius.annotation.Channel;
-import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.reflections.annotation.Channel;
+import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.space.channel.ChannelFunctions;
 
 public class HttpPortExchangeChannelGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;

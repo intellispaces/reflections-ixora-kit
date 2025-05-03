@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.jaquarius.annotation.Mover;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
-import tech.intellispaces.jaquarius.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.annotation.Mover;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.object.reference.DownwardObjectFactory;
 
 @ObjectHandle(TestPortDomain.class)
 public abstract class TestPortImpl implements MovableTestPortHandle {

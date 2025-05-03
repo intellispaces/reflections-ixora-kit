@@ -12,7 +12,7 @@ import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.UnmovableHttpResponseHandle;
-import tech.intellispaces.jaquarius.space.channel.ChannelFunctions;
+import tech.intellispaces.reflections.space.channel.ChannelFunctions;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 

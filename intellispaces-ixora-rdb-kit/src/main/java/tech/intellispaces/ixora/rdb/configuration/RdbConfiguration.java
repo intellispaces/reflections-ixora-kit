@@ -6,9 +6,9 @@ import tech.intellispaces.ixora.rdb.query.CastStringToParameterizedNamedQueryGui
 import tech.intellispaces.ixora.rdb.statement.ResultSetToDataGuideImpl;
 import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactoryHandle;
 import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryOverDataSourceWrapper;
-import tech.intellispaces.jaquarius.annotation.Configuration;
-import tech.intellispaces.jaquarius.annotation.Projection;
-import tech.intellispaces.jaquarius.annotation.Properties;
+import tech.intellispaces.reflections.annotation.Configuration;
+import tech.intellispaces.reflections.annotation.Projection;
+import tech.intellispaces.reflections.annotation.Properties;
 
 @Configuration({
     CastStringToParameterizedNamedQueryGuideImpl.class,

@@ -9,7 +9,7 @@ import tech.intellispaces.commons.exception.WrappedExceptions;
 import tech.intellispaces.commons.function.ThrowingFunction;
 import tech.intellispaces.ixora.rdb.exception.TransactionException;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
-import tech.intellispaces.jaquarius.system.projection.ContextProjections;
+import tech.intellispaces.reflections.system.projection.ContextProjections;
 
 /**
  * Transaction functions.

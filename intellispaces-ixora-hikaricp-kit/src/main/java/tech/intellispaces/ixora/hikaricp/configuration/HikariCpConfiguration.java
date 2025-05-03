@@ -5,9 +5,9 @@ import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactory;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceFactory;
-import tech.intellispaces.jaquarius.annotation.Configuration;
-import tech.intellispaces.jaquarius.annotation.Projection;
-import tech.intellispaces.jaquarius.annotation.Properties;
+import tech.intellispaces.reflections.annotation.Configuration;
+import tech.intellispaces.reflections.annotation.Projection;
+import tech.intellispaces.reflections.annotation.Properties;
 
 @Configuration
 public abstract class HikariCpConfiguration {

@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import tech.intellispaces.jaquarius.annotation.Dataset;
+import tech.intellispaces.reflections.annotation.Dataset;
 
 @Dataset
 @Target({ ElementType.TYPE, ElementType.METHOD })

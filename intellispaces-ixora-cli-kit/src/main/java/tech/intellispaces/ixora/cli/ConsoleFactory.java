@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.cli;
 
 import java.io.PrintStream;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
+import tech.intellispaces.reflections.annotation.Factory;
 
 @Factory
 public class ConsoleFactory {

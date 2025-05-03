@@ -3,8 +3,8 @@ package tech.intellispaces.ixora.cli;
 import java.io.PrintStream;
 import java.util.Objects;
 
-import tech.intellispaces.jaquarius.annotation.Mover;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mover;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(DummyConsoleDomain.class)
 public abstract class PrintStreamBasedConsole implements MovableDummyConsoleHandle {

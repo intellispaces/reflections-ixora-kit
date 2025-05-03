@@ -5,11 +5,11 @@ import java.util.List;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.ixora.http.HttpRequestDomain;
-import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodParam;
-import tech.intellispaces.statementsj.method.MethodStatement;
-import tech.intellispaces.statementsj.reference.CustomTypeReferences;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodParam;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.jstatements.reference.CustomTypeReferences;
+import tech.intellispaces.reflections.naming.NameConventionFunctions;
 
 public interface HttpNameConventionFunctions {
 

@@ -12,9 +12,9 @@ import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.annotationprocessor.ArtifactProcessor;
 import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.rdb.annotation.PersistedEntity;
-import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
-import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
-import tech.intellispaces.statementsj.customtype.CustomType;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.reflections.annotationprocessor.AnnotationFunctions;
+import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactProcessor;
 
 @AutoService(Processor.class)
 public class PersistedEntityAnnotationProcessor extends ArtifactProcessor {

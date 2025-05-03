@@ -4,9 +4,9 @@ import java.util.List;
 
 import tech.intellispaces.actions.Action;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
-import tech.intellispaces.jaquarius.aop.Interceptor;
-import tech.intellispaces.jaquarius.system.ProjectionProvider;
-import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.reflections.aop.Interceptor;
+import tech.intellispaces.reflections.system.ProjectionProvider;
 
 public class TransactionalInterceptor extends Interceptor {
 

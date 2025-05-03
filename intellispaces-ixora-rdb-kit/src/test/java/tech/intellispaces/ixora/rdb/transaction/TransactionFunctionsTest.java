@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import tech.intellispaces.jaquarius.Jaquarius;
+import tech.intellispaces.reflections.Jaquarius;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;

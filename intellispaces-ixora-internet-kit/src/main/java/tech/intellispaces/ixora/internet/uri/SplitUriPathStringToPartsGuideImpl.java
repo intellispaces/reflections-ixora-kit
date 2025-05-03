@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 import tech.intellispaces.ixora.data.collection.ListHandle;
 import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.jaquarius.annotation.Guide;
-import tech.intellispaces.jaquarius.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.Guide;
+import tech.intellispaces.reflections.annotation.Mapper;
 
 @Guide
 public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToPartsGuide {

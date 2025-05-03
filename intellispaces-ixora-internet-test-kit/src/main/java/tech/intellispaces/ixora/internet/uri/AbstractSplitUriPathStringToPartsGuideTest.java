@@ -1,6 +1,5 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 

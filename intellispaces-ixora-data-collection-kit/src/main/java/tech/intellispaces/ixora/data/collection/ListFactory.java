@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.data.collection;
 import java.util.List;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.jaquarius.annotation.Factory;
+import tech.intellispaces.reflections.annotation.Factory;
 
 @Factory
 public class ListFactory implements ListAssistantCustomizer {

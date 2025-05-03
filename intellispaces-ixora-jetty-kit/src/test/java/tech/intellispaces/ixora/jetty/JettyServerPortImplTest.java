@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import tech.intellispaces.ixora.http.AbstractInboundHttpPortTest;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
-import tech.intellispaces.jaquarius.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
 
 /**
  * Tests for {@link JettyServerPortImpl} class.

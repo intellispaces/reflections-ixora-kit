@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.data.association;
 
-import tech.intellispaces.jaquarius.annotation.Factory;
+import tech.intellispaces.reflections.annotation.Factory;
 
 @Factory
 public class PropertiesSetFactory implements PropertiesSetAssistantCustomizer {

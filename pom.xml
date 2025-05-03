@@ -2,13 +2,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces</groupId>
+        <groupId>tech.intellispaces.commons</groupId>
         <artifactId>intellispaces-parent-pom</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>tech.intellispaces</groupId>
-    <artifactId>intellispaces-ixora-jaquarius-kit-parent</artifactId>
+    <groupId>tech.intellispaces.reflections.ixora</groupId>
+    <artifactId>intellispaces-ixora-kit-parent</artifactId>
     <packaging>pom</packaging>
 
     <modules>
@@ -38,97 +38,97 @@
         <dependencies>
             <!-- Intellispaces -->
             <dependency>
-                <groupId>tech.intellispaces</groupId>
-                <artifactId>intellispaces-jaquarius-annotationprocessor</artifactId>
+                <groupId>tech.intellispaces.reflections</groupId>
+                <artifactId>intellispaces-reflections-annotationprocessor</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.commons</groupId>
                 <artifactId>intellispaces-commons</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
-                <artifactId>intellispaces-jaquarius-core</artifactId>
+                <groupId>tech.intellispaces.reflections</groupId>
+                <artifactId>intellispaces-reflections-core</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-cli-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-system-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-data-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-http-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-data-collection-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-data-stream-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-internet-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-internet-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-http-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-http-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-okhttp-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-jetty-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <!-- Intellispaces test -->
             <dependency>
-                <groupId>tech.intellispaces</groupId>
-                <artifactId>intellispaces-jaquarius-engine</artifactId>
+                <groupId>tech.intellispaces.reflections</groupId>
+                <artifactId>intellispaces-reflections-engine</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
                 <artifactId>intellispaces-ixora-data-yaml-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>tech.intellispaces</groupId>
-                <artifactId>intellispaces-jaquarius-ixora-internet-test-kit</artifactId>
+                <groupId>tech.intellispaces.reflections.ixora</groupId>
+                <artifactId>intellispaces-reflections-ixora-internet-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
@@ -137,13 +137,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
-            <artifactId>intellispaces-jaquarius-core</artifactId>
+            <groupId>tech.intellispaces.reflections</groupId>
+            <artifactId>intellispaces-reflections-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>tech.intellispaces</groupId>
-            <artifactId>intellispaces-jaquarius-annotationprocessor</artifactId>
+            <groupId>tech.intellispaces.reflections</groupId>
+            <artifactId>intellispaces-reflections-annotationprocessor</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.jaquarius.annotation.Guide;
+import tech.intellispaces.reflections.annotation.Guide;
 
 @Guide
 public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringToParameterizedNamedQueryGuide {

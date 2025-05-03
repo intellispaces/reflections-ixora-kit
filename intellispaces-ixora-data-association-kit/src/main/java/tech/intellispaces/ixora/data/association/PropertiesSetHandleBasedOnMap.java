@@ -8,8 +8,8 @@ import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExcept
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableList;
-import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(PropertiesSetDomain.class)
 abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {

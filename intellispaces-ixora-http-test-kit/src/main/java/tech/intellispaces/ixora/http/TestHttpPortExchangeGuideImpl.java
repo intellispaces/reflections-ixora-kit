@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.jaquarius.annotation.Guide;
+import tech.intellispaces.reflections.annotation.Guide;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

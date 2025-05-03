@@ -12,10 +12,10 @@ import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.annotationprocessor.ArtifactProcessor;
 import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
-import tech.intellispaces.jaquarius.annotationprocessor.AnnotationFunctions;
-import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
-import tech.intellispaces.statementsj.customtype.CustomType;
-import tech.intellispaces.statementsj.method.MethodStatement;
+import tech.intellispaces.jstatements.customtype.CustomType;
+import tech.intellispaces.jstatements.method.MethodStatement;
+import tech.intellispaces.reflections.annotationprocessor.AnnotationFunctions;
+import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactProcessor;
 
 @AutoService(Processor.class)
 public class HttpPortProcessor extends ArtifactProcessor {

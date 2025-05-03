@@ -10,8 +10,8 @@ import org.assertj.core.api.Fail;
 
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.internet.uri.Uris;
-import tech.intellispaces.jaquarius.object.reference.ObjectHandles;
-import tech.intellispaces.jaquarius.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.object.reference.ObjectHandles;
+import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.association;
 
-import tech.intellispaces.jaquarius.annotation.Channel;
-import tech.intellispaces.jaquarius.annotation.Dataset;
-import tech.intellispaces.jaquarius.annotation.Domain;
+import tech.intellispaces.reflections.annotation.Channel;
+import tech.intellispaces.reflections.annotation.Dataset;
+import tech.intellispaces.reflections.annotation.Domain;
 
 @Dataset
 @Domain("b833c1fc-e71e-43fc-b996-f8869642c807")

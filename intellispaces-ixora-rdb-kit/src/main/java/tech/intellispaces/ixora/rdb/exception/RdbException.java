@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.rdb.exception;
 
-import tech.intellispaces.jaquarius.exception.TraverseException;
+import tech.intellispaces.reflections.exception.TraverseException;
 
 public class RdbException extends TraverseException {
 

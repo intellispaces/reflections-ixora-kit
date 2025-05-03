@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import tech.intellispaces.ixora.rdb.transaction.TransactionalInterceptor;
-import tech.intellispaces.jaquarius.annotation.ApplyAdvice;
+import tech.intellispaces.reflections.annotation.ApplyAdvice;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
