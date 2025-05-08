@@ -8,30 +8,30 @@
     </parent>
 
     <groupId>tech.intellispaces.reflections.ixora</groupId>
-    <artifactId>intellispaces-ixora-kit-parent</artifactId>
+    <artifactId>reflections-ixora-kit-parent</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>intellispaces-ixora-cli-kit</module>
-        <module>intellispaces-ixora-data-association-kit</module>
-        <module>intellispaces-ixora-data-association-test-kit</module>
-        <module>intellispaces-ixora-data-association-test-ontology</module>
-        <module>intellispaces-ixora-data-collection-kit</module>
-        <module>intellispaces-ixora-data-cursor-kit</module>
-        <module>intellispaces-ixora-data-stream-kit</module>
-        <module>intellispaces-ixora-data-snakeyaml</module>
-        <module>intellispaces-ixora-data-yaml-test-kit</module>
-        <module>intellispaces-ixora-rdb-kit</module>
-        <module>intellispaces-ixora-rdb-annotationprocessor</module>
-        <module>intellispaces-ixora-hikaricp-kit</module>
-        <module>intellispaces-ixora-internet-kit</module>
-        <module>intellispaces-ixora-internet-test-kit</module>
-        <module>intellispaces-ixora-http-kit</module>
-        <module>intellispaces-ixora-http-annotationprocessor</module>
-        <module>intellispaces-ixora-http-test-kit</module>
-        <module>intellispaces-ixora-http-test-ontology</module>
-        <module>intellispaces-ixora-okhttp-kit</module>
-        <module>intellispaces-ixora-jetty-kit</module>
+        <module>reflections-ixora-cli-kit</module>
+        <module>reflections-ixora-data-association-kit</module>
+        <module>reflections-ixora-data-association-test-kit</module>
+        <module>reflections-ixora-data-association-test-ontology</module>
+        <module>reflections-ixora-data-collection-kit</module>
+        <module>reflections-ixora-data-cursor-kit</module>
+        <module>reflections-ixora-data-stream-kit</module>
+        <module>reflections-ixora-data-snakeyaml</module>
+        <module>reflections-ixora-data-yaml-test-kit</module>
+        <module>reflections-ixora-rdb-kit</module>
+        <module>reflections-ixora-rdb-annotationprocessor</module>
+        <module>reflections-ixora-hikaricp-kit</module>
+        <module>reflections-ixora-internet-kit</module>
+        <module>reflections-ixora-internet-test-kit</module>
+        <module>reflections-ixora-http-kit</module>
+        <module>reflections-ixora-http-annotationprocessor</module>
+        <module>reflections-ixora-http-test-kit</module>
+        <module>reflections-ixora-http-test-ontology</module>
+        <module>reflections-ixora-okhttp-kit</module>
+        <module>reflections-ixora-jetty-kit</module>
     </modules>
 
     <dependencyManagement>
@@ -39,7 +39,7 @@
             <!-- Intellispaces -->
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
-                <artifactId>intellispaces-reflections-annotationprocessor</artifactId>
+                <artifactId>reflections-annotationprocessor</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -49,86 +49,86 @@
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
-                <artifactId>intellispaces-reflections-core</artifactId>
+                <artifactId>reflections-core</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-cli-ontology</artifactId>
+                <artifactId>reflections-ixora-cli-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-system-ontology</artifactId>
+                <artifactId>reflections-ixora-system-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-data-ontology</artifactId>
+                <artifactId>reflections-ixora-data-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-http-ontology</artifactId>
+                <artifactId>reflections-ixora-http-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-data-collection-kit</artifactId>
+                <artifactId>reflections-ixora-data-collection-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-data-stream-kit</artifactId>
+                <artifactId>reflections-ixora-data-stream-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-internet-ontology</artifactId>
+                <artifactId>reflections-ixora-internet-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-internet-kit</artifactId>
+                <artifactId>reflections-ixora-internet-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-http-kit</artifactId>
+                <artifactId>reflections-ixora-http-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-http-test-kit</artifactId>
+                <artifactId>reflections-ixora-http-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-okhttp-ontology</artifactId>
+                <artifactId>reflections-ixora-okhttp-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-jetty-ontology</artifactId>
+                <artifactId>reflections-ixora-jetty-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <!-- Intellispaces test -->
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
-                <artifactId>intellispaces-reflections-engine</artifactId>
+                <artifactId>reflections-engine</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-ixora-data-yaml-test-kit</artifactId>
+                <artifactId>reflections-ixora-data-yaml-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>tech.intellispaces.reflections.ixora</groupId>
-                <artifactId>intellispaces-reflections-ixora-internet-test-kit</artifactId>
+                <artifactId>reflections-ixora-internet-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
@@ -138,12 +138,12 @@
     <dependencies>
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
-            <artifactId>intellispaces-reflections-core</artifactId>
+            <artifactId>reflections-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
-            <artifactId>intellispaces-reflections-annotationprocessor</artifactId>
+            <artifactId>reflections-annotationprocessor</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
