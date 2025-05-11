@@ -9,13 +9,13 @@ import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.Mover;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
 import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.reflections.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.object.reference.DownwardObjectFactory;
-import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.Mover;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
+import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
 
 public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
   private String movableHandleSimpleName;

@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.cli;
 
-import java.io.PrintStream;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
-import tech.intellispaces.reflections.annotation.Factory;
+import java.io.PrintStream;
 
 @Factory
 public class ConsoleFactory {

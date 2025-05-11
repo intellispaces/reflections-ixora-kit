@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
-import java.util.Iterator;
-import java.util.List;
-
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.util.Iterator;
+import java.util.List;
 
 @ObjectHandle(ListDomain.class)
 abstract class JavaListHandle<E> implements UnmovableList<E>, UnmovableListHandle<E> {

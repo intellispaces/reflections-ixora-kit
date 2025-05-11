@@ -2,8 +2,8 @@ package tech.intellispaces.ixora.rdb.query;
 
 import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.ixora.data.collection.UnmovableListHandle;
-import tech.intellispaces.reflections.annotation.Factory;
-import tech.intellispaces.reflections.object.reference.ObjectHandles;
+import tech.intellispaces.reflections.framework.annotation.Factory;
+import tech.intellispaces.reflections.framework.object.reference.ObjectHandles;
 
 @Factory
 public class ParameterizedNamedQueryFactory implements ParameterizedNamedQueryAssistantCustomizer {

@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.reflections.annotation.Channel;
-import tech.intellispaces.reflections.annotation.Domain;
-import tech.intellispaces.reflections.traverse.TraverseTypes;
+import tech.intellispaces.reflections.framework.annotation.Channel;
+import tech.intellispaces.reflections.framework.annotation.Domain;
+import tech.intellispaces.reflections.framework.traverse.TraverseTypes;
 
 @Domain("d0d4f50d-9042-4970-a523-7af9d6a1a8ff")
 public interface TestPortDomain extends InboundHttpPortDomain {

@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
-import java.util.Collection;
-import java.util.Iterator;
-
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.util.Collection;
+import java.util.Iterator;
 
 @ObjectHandle(CollectionDomain.class)
 abstract class JavaCollectionHandle<E> implements UnmovableCollection<E>, UnmovableCollectionHandle<E> {

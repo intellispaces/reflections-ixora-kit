@@ -1,15 +1,15 @@
 package tech.intellispaces.ixora.http;
 
-import java.io.InputStream;
-
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
 abstract class HttpResponseImpl implements UnmovableHttpResponseHandle {

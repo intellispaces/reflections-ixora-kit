@@ -1,15 +1,14 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
-import java.util.function.Consumer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import tech.intellispaces.commons.exception.WrappedExceptions;
 import tech.intellispaces.commons.function.ThrowingFunction;
 import tech.intellispaces.ixora.rdb.exception.TransactionException;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
-import tech.intellispaces.reflections.system.projection.ContextProjections;
+import tech.intellispaces.reflections.framework.system.projection.ContextProjections;
+
+import java.util.function.Consumer;
 
 /**
  * Transaction functions.

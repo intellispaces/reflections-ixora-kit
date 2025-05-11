@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.rdb.statement;
 
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.sql.Statement;
+import java.sql.SQLException;
 
 @ObjectHandle(StatementDomain.class)
 abstract class JavaStatementHandle implements MovableStatement {

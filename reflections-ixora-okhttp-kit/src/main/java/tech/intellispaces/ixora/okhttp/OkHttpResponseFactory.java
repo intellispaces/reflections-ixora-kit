@@ -1,8 +1,7 @@
 package tech.intellispaces.ixora.okhttp;
 
 import okhttp3.Response;
-
-import tech.intellispaces.reflections.annotation.Factory;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class OkHttpResponseFactory implements OkHttpResponseAssistantCustomizer {

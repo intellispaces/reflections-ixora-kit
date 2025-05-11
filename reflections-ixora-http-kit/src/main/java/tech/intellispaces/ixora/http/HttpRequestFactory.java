@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.ixora.internet.uri.Uri;
-import tech.intellispaces.reflections.annotation.Factory;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class HttpRequestFactory implements HttpRequestAssistantCustomizer {

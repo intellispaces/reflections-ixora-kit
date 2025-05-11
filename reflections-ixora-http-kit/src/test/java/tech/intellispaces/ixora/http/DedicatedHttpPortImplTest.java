@@ -3,9 +3,8 @@ package tech.intellispaces.ixora.http;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuideImpl;
-import tech.intellispaces.reflections.Jaquarius;
+import tech.intellispaces.reflections.framework.Jaquarius;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.argThat;

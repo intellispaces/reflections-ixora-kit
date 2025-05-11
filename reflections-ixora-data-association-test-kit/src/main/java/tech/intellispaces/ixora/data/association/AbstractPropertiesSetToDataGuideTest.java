@@ -1,7 +1,6 @@
 package tech.intellispaces.ixora.data.association;
 
 import org.junit.jupiter.api.Test;
-
 import tech.intellispaces.commons.type.Types;
 
 import static org.assertj.core.api.Assertions.assertThat;

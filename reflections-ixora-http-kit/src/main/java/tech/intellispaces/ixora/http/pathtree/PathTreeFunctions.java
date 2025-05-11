@@ -1,9 +1,5 @@
 package tech.intellispaces.ixora.http.pathtree;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import tech.intellispaces.ixora.http.HttpMethod;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequest;
@@ -20,6 +16,10 @@ import tech.intellispaces.jstatements.customtype.Classes;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.customtype.CustomTypes;
 import tech.intellispaces.jstatements.method.MethodStatement;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 

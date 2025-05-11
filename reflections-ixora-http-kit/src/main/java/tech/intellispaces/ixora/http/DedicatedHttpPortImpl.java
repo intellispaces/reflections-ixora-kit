@@ -6,10 +6,10 @@ import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
 import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.ixora.internet.uri.Uris;
-import tech.intellispaces.reflections.annotation.AutoGuide;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.AutoGuide;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
 
 @ObjectHandle(DedicatedHttpPortDomain.class)
 public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort {

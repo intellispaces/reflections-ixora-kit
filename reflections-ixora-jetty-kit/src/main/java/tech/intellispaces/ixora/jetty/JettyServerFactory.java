@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.jetty;
 
-import tech.intellispaces.reflections.annotation.Factory;
-import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Factory;
+import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
 
 @Factory
 public class JettyServerFactory implements JettyServerPortAssistantCustomizer {

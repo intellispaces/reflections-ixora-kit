@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.data.collection;
 
+import tech.intellispaces.commons.type.Type;
+import tech.intellispaces.commons.type.Types;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
-import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(Integer32ListDomain.class)
 abstract class IntegerArrayHandle implements UnmovableInteger32ListHandle {

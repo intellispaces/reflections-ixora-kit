@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.data.association;
 
-import java.util.Collections;
-import java.util.Map;
-
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.UnmovableCollectionHandle;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.util.Collections;
+import java.util.Map;
 
 @ObjectHandle(MapDomain.class)
 abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V>, UnmovableMapHandle<K, V> {

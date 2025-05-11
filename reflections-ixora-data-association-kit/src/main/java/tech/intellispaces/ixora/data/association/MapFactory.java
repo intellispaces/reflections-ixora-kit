@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.reflections.annotation.Factory;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class MapFactory implements MapAssistantCustomizer {

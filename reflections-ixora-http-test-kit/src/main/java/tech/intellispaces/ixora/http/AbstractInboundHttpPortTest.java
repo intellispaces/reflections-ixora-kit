@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http;
 
+import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
-
-import tech.intellispaces.reflections.Jaquarius;
-import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.association;
 
-import tech.intellispaces.reflections.annotation.Channel;
-import tech.intellispaces.reflections.annotation.Dataset;
-import tech.intellispaces.reflections.annotation.Domain;
+import tech.intellispaces.reflections.framework.annotation.Channel;
+import tech.intellispaces.reflections.framework.annotation.Dataset;
+import tech.intellispaces.reflections.framework.annotation.Domain;
 
 @Dataset
 @Domain("b833c1fc-e71e-43fc-b996-f8869642c807")

@@ -3,10 +3,9 @@ package tech.intellispaces.ixora.jetty;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import tech.intellispaces.ixora.http.AbstractInboundHttpPortTest;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
-import tech.intellispaces.reflections.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
 
 /**
  * Tests for {@link JettyServerPortImpl} class.

@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.reflections.annotation.Factory;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class HttpStatusFactory implements HttpStatusAssistantCustomizer {

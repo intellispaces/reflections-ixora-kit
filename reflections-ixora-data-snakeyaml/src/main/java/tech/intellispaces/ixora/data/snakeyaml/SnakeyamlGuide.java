@@ -1,14 +1,13 @@
 package tech.intellispaces.ixora.data.snakeyaml;
 
 import org.yaml.snakeyaml.Yaml;
-
 import tech.intellispaces.ixora.data.association.PropertiesSetHandle;
 import tech.intellispaces.ixora.data.association.PropertiesSets;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.yaml.YamlStringToPropertiesSetGuide;
-import tech.intellispaces.reflections.annotation.Guide;
-import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.Guide;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
 
 @Guide
 public class SnakeyamlGuide implements YamlStringToPropertiesSetGuide {

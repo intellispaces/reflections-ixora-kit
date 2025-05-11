@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>tech.intellispaces.reflections.ixora</groupId>
+        <groupId>tech.intellispaces.reflections</groupId>
         <artifactId>reflections-ixora-kit-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -26,18 +26,18 @@
     <dependencies>
         <!-- Intellispaces -->
         <dependency>
-            <groupId>tech.intellispaces.reflections.ixora</groupId>
+            <groupId>tech.intellispaces.reflections</groupId>
             <artifactId>reflections-ixora-cli-ontology</artifactId>
         </dependency>
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
-            <artifactId>reflections-core</artifactId>
+            <artifactId>reflections-framework</artifactId>
         </dependency>
 
         <!-- Intellispaces test -->
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
-            <artifactId>reflections-engine</artifactId>
+            <artifactId>reflections-framework-engine</artifactId>
         </dependency>
 
         <!-- Test -->

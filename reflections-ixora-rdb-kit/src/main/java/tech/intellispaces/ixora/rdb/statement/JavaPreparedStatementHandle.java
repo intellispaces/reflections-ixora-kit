@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.rdb.statement;
 
+import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.Mover;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.Mover;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
 
 @ObjectHandle(PreparedStatementDomain.class)
 abstract class JavaPreparedStatementHandle implements MovablePreparedStatement {

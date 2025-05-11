@@ -4,9 +4,9 @@ import tech.intellispaces.ixora.rdb.datasource.DataSource;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
 import tech.intellispaces.ixora.rdb.datasource.MovableDataSource;
 import tech.intellispaces.ixora.rdb.exception.TransactionException;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
 
 @ObjectHandle(TransactionFactoryDomain.class)
 abstract class TransactionFactoryOverDataSource implements MovableTransactionFactory {

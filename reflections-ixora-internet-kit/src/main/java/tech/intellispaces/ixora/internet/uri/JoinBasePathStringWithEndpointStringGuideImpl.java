@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.reflections.annotation.Guide;
-import tech.intellispaces.reflections.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.Guide;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
 
 @Guide
 public class JoinBasePathStringWithEndpointStringGuideImpl implements JoinBasePathStringWithEndpointStringGuide {

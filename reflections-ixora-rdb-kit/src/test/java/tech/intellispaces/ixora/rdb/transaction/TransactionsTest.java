@@ -1,8 +1,7 @@
 package tech.intellispaces.ixora.rdb.transaction;
 
 import org.junit.jupiter.api.Test;
-
-import tech.intellispaces.reflections.exception.TraverseException;
+import tech.intellispaces.reflections.framework.exception.TraverseException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

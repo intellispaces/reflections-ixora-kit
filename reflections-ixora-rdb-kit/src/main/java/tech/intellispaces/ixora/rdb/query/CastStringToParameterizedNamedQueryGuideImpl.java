@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.rdb.query;
 
+import tech.intellispaces.ixora.data.collection.Lists;
+import tech.intellispaces.reflections.framework.annotation.Guide;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.reflections.annotation.Guide;
 
 @Guide
 public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringToParameterizedNamedQueryGuide {

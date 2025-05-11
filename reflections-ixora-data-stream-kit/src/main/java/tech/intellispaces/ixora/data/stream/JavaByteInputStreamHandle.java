@@ -1,17 +1,17 @@
 package tech.intellispaces.ixora.data.stream;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.ByteLists;
 import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
-import tech.intellispaces.reflections.exception.TraverseExceptions;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 @ObjectHandle(ByteInputStreamDomain.class)
 abstract class JavaByteInputStreamHandle implements MovableByteInputStream, MovableByteInputStreamHandle {

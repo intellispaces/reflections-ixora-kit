@@ -1,10 +1,9 @@
 package tech.intellispaces.ixora.okhttp;
 
-import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
-import tech.intellispaces.reflections.annotation.Factory;
+import java.util.concurrent.TimeUnit;
 
 @Factory
 public class OkHttpPortFactory implements OkHttpPortAssistantCustomizer {

@@ -1,13 +1,12 @@
 package tech.intellispaces.ixora.hikaricp.datasource;
 
 import com.zaxxer.hikari.HikariConfig;
-
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactoryDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceFactory;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
 
 @ObjectHandle(HikariDataSourceFactoryDomain.class)
 public abstract class HikariDataSourceFactoryHandle implements MovableHikariDataSourceFactory {

@@ -4,10 +4,10 @@ import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.reflections.annotation.Factory;
 import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.reflections.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.annotation.Factory;
+import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
+import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
 
 public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
 

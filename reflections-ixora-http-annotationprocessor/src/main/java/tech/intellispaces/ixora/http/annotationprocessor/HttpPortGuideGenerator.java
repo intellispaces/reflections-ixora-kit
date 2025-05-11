@@ -1,10 +1,5 @@
 package tech.intellispaces.ixora.http.annotationprocessor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.exception.NotImplementedExceptions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
@@ -21,10 +16,15 @@ import tech.intellispaces.jstatements.method.MethodParam;
 import tech.intellispaces.jstatements.method.MethodSignatureDeclarations;
 import tech.intellispaces.jstatements.method.MethodStatement;
 import tech.intellispaces.jstatements.reference.TypeReference;
-import tech.intellispaces.reflections.annotation.AutoGuide;
-import tech.intellispaces.reflections.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.annotation.AutoGuide;
+import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
 
 public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;

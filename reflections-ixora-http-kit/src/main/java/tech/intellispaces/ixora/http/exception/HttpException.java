@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http.exception;
 
-import tech.intellispaces.reflections.exception.TraverseException;
+import tech.intellispaces.reflections.framework.exception.TraverseException;
 
 public class HttpException extends TraverseException {
 

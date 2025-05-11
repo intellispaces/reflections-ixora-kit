@@ -1,15 +1,15 @@
 package tech.intellispaces.ixora.data.association;
 
-import java.util.Collections;
-import java.util.Map;
-
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableList;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+
+import java.util.Collections;
+import java.util.Map;
 
 @ObjectHandle(PropertiesSetDomain.class)
 abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {

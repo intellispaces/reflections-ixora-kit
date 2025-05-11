@@ -1,18 +1,18 @@
 package tech.intellispaces.ixora.data.association;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Parameter;
-
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.function.FunctionFunctions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
-import tech.intellispaces.reflections.annotation.Guide;
-import tech.intellispaces.reflections.annotation.Mapper;
-import tech.intellispaces.reflections.dataset.DatasetFunctions;
-import tech.intellispaces.reflections.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.annotation.Guide;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.dataset.DatasetFunctions;
+import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
+import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Parameter;
 
 @Guide
 public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide {
