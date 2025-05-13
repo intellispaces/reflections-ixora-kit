@@ -7,7 +7,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class HttpRequestFactory implements HttpRequestAssistantCustomizer {
 
   @Override
-  public UnmovableHttpRequestHandle create(HttpMethod method, Uri requestURI) {
+  public UnmovableHttpRequestReflection create(HttpMethod method, Uri requestURI) {
     return new HttpRequestImplWrapper(method, requestURI);
   }
 }

@@ -3,22 +3,22 @@ package tech.intellispaces.ixora.data.collection;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.util.Iterator;
 import java.util.List;
 
-@ObjectHandle(ListDomain.class)
-abstract class JavaListHandle<E> implements UnmovableList<E>, UnmovableListHandle<E> {
+@Reflection(ListDomain.class)
+abstract class JavaListReflection<E> implements UnmovableList<E>, UnmovableListReflection<E> {
   private final List<E> list;
   private final Type<E> elementType;
 
-  JavaListHandle(List<E> list, Class<E> elementClass) {
+  JavaListReflection(List<E> list, Class<E> elementClass) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = Types.get(elementClass);
   }
 
-  JavaListHandle(List<E> list, Type<E> elementType) {
+  JavaListReflection(List<E> list, Type<E> elementType) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = elementType;
   }
@@ -29,12 +29,12 @@ abstract class JavaListHandle<E> implements UnmovableList<E>, UnmovableListHandl
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<E> asCollection() {
+  public UnmovableCollectionReflection<E> asCollection() {
     return Collections.handleOf(list, elementType);
   }
 
   @Override
-  public Type<ListDomain<E>> domain() {
+  public Type<ListDomain<E>> domainType() {
     return Types.get(ListDomain.class, elementType);
   }
 

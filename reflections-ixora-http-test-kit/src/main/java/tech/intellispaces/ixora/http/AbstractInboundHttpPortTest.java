@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.reflections.framework.Jaquarius;
-import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -14,7 +14,7 @@ public abstract class AbstractInboundHttpPortTest {
   private static final int PORT_NUMBER = 8080;
 
   public abstract MovableInboundHttpPort createPort(
-      int portNumber, MovableObjectHandle<?> overlyingHandle
+      int portNumber, MovableReflection<?> overlyingHandle
   );
 
   public void init() {
@@ -26,7 +26,7 @@ public abstract class AbstractInboundHttpPortTest {
   }
 
   public void testHello() throws Exception {
-    MovableTestPortHandle testPort = TestPorts.create(overlyingHandle -> this.createPort(PORT_NUMBER, overlyingHandle));
+    MovableTestPortReflection testPort = TestPorts.create(overlyingReflection -> this.createPort(PORT_NUMBER, overlyingReflection));
     testPort.open();
     HttpResponse<String> res = callServer();
     String message = res.body();

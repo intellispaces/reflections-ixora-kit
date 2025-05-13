@@ -8,12 +8,12 @@ import java.util.Deque;
 
 @Factory
 public class TransactionProvider implements TransactionAssistantCustomizer {
-  private static final ThreadLocal<Deque<MovableTransactionHandle>> CURRENT_TRANSACTIONS = new ThreadLocal<>();
+  private static final ThreadLocal<Deque<MovableTransactionReflection>> CURRENT_TRANSACTIONS = new ThreadLocal<>();
 
   @Override
-  public MovableTransactionHandle current() {
-    MovableTransactionHandle tx = null;
-    Deque<MovableTransactionHandle> transactions = CURRENT_TRANSACTIONS.get();
+  public MovableTransactionReflection current() {
+    MovableTransactionReflection tx = null;
+    Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
     if (transactions != null) {
       tx = transactions.peek();
     }
@@ -23,16 +23,16 @@ public class TransactionProvider implements TransactionAssistantCustomizer {
     return tx;
   }
 
-  public static void setCurrentTransaction(MovableTransactionHandle tx) {
+  public static void setCurrentTransaction(MovableTransactionReflection tx) {
     if (tx != null) {
-      Deque<MovableTransactionHandle> transactions = CURRENT_TRANSACTIONS.get();
+      Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
       if (transactions == null) {
         transactions = new ArrayDeque<>();
         CURRENT_TRANSACTIONS.set(transactions);
       }
       transactions.push(tx);
     } else {
-      Deque<MovableTransactionHandle> transactions = CURRENT_TRANSACTIONS.get();
+      Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
       if (transactions != null) {
         transactions.pop();
       }

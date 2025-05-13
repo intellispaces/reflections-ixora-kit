@@ -6,16 +6,16 @@ import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(PropertiesSetDomain.class)
-abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {
+@Reflection(PropertiesSetDomain.class)
+abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesSet {
   private final Map<String, Object> map;
 
-  PropertiesSetHandleBasedOnMap(Map<String, Object> map) {
+  PropertiesSetReflectionBasedOnMap(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -46,7 +46,7 @@ abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new PropertiesSetHandleBasedOnMapWrapper((Map<String, Object>) result);
+      return new PropertiesSetReflectionBasedOnMapWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -103,7 +103,7 @@ abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new PropertiesSetHandleBasedOnMapWrapper((Map<String, Object>) value);
+    return new PropertiesSetReflectionBasedOnMapWrapper((Map<String, Object>) value);
   }
 
   @Mapper
@@ -157,7 +157,7 @@ abstract class PropertiesSetHandleBasedOnMap implements UnmovablePropertiesSet {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<PropertiesSet> propsList = values.stream()
-        .map(PropertiesSetHandleBasedOnMapWrapper::new)
+        .map(PropertiesSetReflectionBasedOnMapWrapper::new)
         .map(props -> (PropertiesSet) props)
         .toList();
     return Lists.handleOf(propsList, PropertiesSet.class);

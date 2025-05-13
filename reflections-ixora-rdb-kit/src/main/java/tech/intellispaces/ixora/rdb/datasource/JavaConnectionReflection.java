@@ -1,21 +1,21 @@
 package tech.intellispaces.ixora.rdb.datasource;
 
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
-import tech.intellispaces.ixora.rdb.statement.JavaPreparedStatementHandleWrapper;
-import tech.intellispaces.ixora.rdb.statement.JavaStatementHandleWrapper;
+import tech.intellispaces.ixora.rdb.statement.JavaPreparedStatementReflectionWrapper;
+import tech.intellispaces.ixora.rdb.statement.JavaStatementReflectionWrapper;
 import tech.intellispaces.ixora.rdb.statement.MovablePreparedStatement;
 import tech.intellispaces.ixora.rdb.statement.MovableStatement;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.sql.SQLException;
 
-@ObjectHandle(ConnectionDomain.class)
-abstract class JavaConnectionHandle implements MovableConnection {
+@Reflection(ConnectionDomain.class)
+abstract class JavaConnectionReflection implements MovableConnection {
   private final java.sql.Connection connection;
 
-  JavaConnectionHandle(java.sql.Connection connection) {
+  JavaConnectionReflection(java.sql.Connection connection) {
     this.connection = connection;
   }
 
@@ -23,7 +23,7 @@ abstract class JavaConnectionHandle implements MovableConnection {
   @MapperOfMoving
   public MovableStatement createStatement() {
     try {
-      return new JavaStatementHandleWrapper(connection.createStatement());
+      return new JavaStatementReflectionWrapper(connection.createStatement());
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not create statement");
     }
@@ -33,7 +33,7 @@ abstract class JavaConnectionHandle implements MovableConnection {
   @MapperOfMoving
   public MovablePreparedStatement createPreparedStatement(String query) {
     try {
-      return new JavaPreparedStatementHandleWrapper(connection.prepareStatement(query));
+      return new JavaPreparedStatementReflectionWrapper(connection.prepareStatement(query));
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not create statement");
     }

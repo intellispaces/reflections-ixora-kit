@@ -9,7 +9,7 @@ import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.dataset.DatasetFunctions;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -28,7 +28,7 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
 
   @SuppressWarnings("unchecked")
   private <D> D process(PropertiesSet properties, Type<D> dataType) {
-    Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
+    Class<?> domainClass = ReflectionFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
     String dataHandleObjectCanonicalName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
@@ -51,7 +51,7 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof PropertiesSet && ObjectReferenceFunctions.isObjectHandleClass(param.getType())) {
+      if (value instanceof PropertiesSet && ReflectionFunctions.isObjectHandleClass(param.getType())) {
         value = process((PropertiesSet) value, Types.get(param.getType()));
       }
       arguments[index++] = value;

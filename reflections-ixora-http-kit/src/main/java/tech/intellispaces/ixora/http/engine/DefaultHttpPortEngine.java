@@ -6,7 +6,7 @@ import tech.intellispaces.commons.abstraction.References;
 import tech.intellispaces.commons.exception.NotImplementedExceptions;
 import tech.intellispaces.commons.type.Classes;
 import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponseHandle;
+import tech.intellispaces.ixora.http.HttpResponseReflection;
 import tech.intellispaces.ixora.http.pathtree.FinalExecutor;
 import tech.intellispaces.ixora.http.pathtree.PathSegment;
 import tech.intellispaces.ixora.http.pathtree.PathTreeFunctions;
@@ -22,7 +22,7 @@ public class DefaultHttpPortEngine implements HttpPortEngine {
   }
 
   @Override
-  public HttpResponseHandle exchange(Reference<?> reference, HttpRequest request) {
+  public HttpResponseReflection exchange(Reference<?> reference, HttpRequest request) {
     var descriptor = (PortDescriptor) reference.get();
 
     List<PathSegment> rootSegments = ConditionalActions.getOrSetIfAbsentAction(

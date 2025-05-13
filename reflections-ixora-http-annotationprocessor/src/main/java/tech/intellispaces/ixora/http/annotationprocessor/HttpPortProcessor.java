@@ -36,7 +36,7 @@ public class HttpPortProcessor extends ArtifactProcessor {
   @Override
   public List<ArtifactGenerator> makeGenerators(CustomType portDomain, ArtifactGeneratorContext context) {
     List<ArtifactGenerator> generators = new ArrayList<>();
-    generators.add(new HttpPortHandleGenerator(portDomain));
+    generators.add(new HttpPortReflectionGenerator(portDomain));
     generators.add(new HttpPortFactoryGenerator(portDomain));
     generators.add(new HttpPortAssistantCustomizerGenerator(portDomain));
 

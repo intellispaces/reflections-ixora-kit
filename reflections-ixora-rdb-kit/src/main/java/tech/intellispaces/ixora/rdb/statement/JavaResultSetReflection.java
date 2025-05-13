@@ -2,17 +2,17 @@ package tech.intellispaces.ixora.rdb.statement;
 
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@ObjectHandle(ResultSetDomain.class)
-abstract class JavaResultSetHandle implements MovableResultSet {
+@Reflection(ResultSetDomain.class)
+abstract class JavaResultSetReflection implements MovableResultSet {
   private final ResultSet rs;
 
-  JavaResultSetHandle(ResultSet rs) {
+  JavaResultSetReflection(ResultSet rs) {
     this.rs = rs;
   }
 

@@ -4,8 +4,8 @@ import com.sun.net.httpserver.HttpServer;
 import org.assertj.core.api.Fail;
 import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.ixora.internet.uri.Uris;
-import tech.intellispaces.reflections.framework.object.reference.ObjectHandles;
-import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.reflection.Reflections;
+import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -25,11 +25,11 @@ public abstract class OutboundHttpPortTest {
   private static final String HELLO_ENDPOINT = "/hello";
   private static final String HELLO_RESPONSE = "Hello!";
 
-  protected abstract MovableOutboundHttpPortHandle getPort();
+  protected abstract MovableOutboundHttpPortReflection getPort();
 
   public void testHello() {
     HttpServer server = null;
-    HttpResponseHandle response = null;
+    HttpResponseReflection response = null;
     try {
       // Given
       server = getServer();
@@ -42,7 +42,7 @@ public abstract class OutboundHttpPortTest {
       when(requestHandle.method()).thenReturn(methodHandle);
       when(requestHandle.requestURI()).thenReturn(Uris.create(TEST_ADDRESS + HELLO_ENDPOINT));
 
-      MovableOutboundHttpPortHandle port = getPort();
+      MovableOutboundHttpPortReflection port = getPort();
 
       // When
       response = port.exchange(requestHandle);
@@ -56,7 +56,7 @@ public abstract class OutboundHttpPortTest {
     } catch (Exception e) {
       Fail.fail("Unexpected exception", e);
     } finally {
-      ObjectReferenceFunctions.unbindSilently(ObjectHandles.handle(response));
+      ReflectionFunctions.unbindSilently(Reflections.reflection(response));
       if (server != null) {
         server.stop(0);
       }

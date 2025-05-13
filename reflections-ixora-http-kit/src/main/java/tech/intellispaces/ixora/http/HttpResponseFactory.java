@@ -8,22 +8,22 @@ import java.io.InputStream;
 public class HttpResponseFactory implements HttpResponseAssistantCustomizer {
 
   @Override
-  public HttpResponseHandle create(HttpStatusHandle status) {
+  public HttpResponseReflection create(HttpStatusReflection status) {
     return new HttpResponseImplWrapper(status);
   }
 
   @Override
-  public HttpResponseHandle create(HttpStatusHandle status, InputStream body) {
+  public HttpResponseReflection create(HttpStatusReflection status, InputStream body) {
     return new HttpResponseImplWrapper(status, body);
   }
 
   @Override
-  public HttpResponseHandle create(HttpStatusHandle status, String body) {
+  public HttpResponseReflection create(HttpStatusReflection status, String body) {
     return new HttpResponseImplWrapper(status, body);
   }
 
   @Override
-  public HttpResponseHandle create(HttpStatusHandle status, byte[] body) {
+  public HttpResponseReflection create(HttpStatusReflection status, byte[] body) {
     return new HttpResponseImplWrapper(status, body);
   }
 }

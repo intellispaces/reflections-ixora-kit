@@ -3,22 +3,22 @@ package tech.intellispaces.ixora.data.collection;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.util.Arrays;
 import java.util.Iterator;
 
-@ObjectHandle(Real64ListDomain.class)
-abstract class Real64ArrayHandle implements UnmovableReal64ListHandle {
+@Reflection(Real64ListDomain.class)
+abstract class DoubleArrayReflection implements UnmovableReal64ListReflection {
   private final double[] array;
   private final Type<Double> elementType = Types.get(Double.class);
   private java.util.List<Double> list;
 
-  Real64ArrayHandle(double[] array) {
+  DoubleArrayReflection(double[] array) {
     this.array = array;
   }
 
-  Real64ArrayHandle(java.util.List<Double> list) {
+  DoubleArrayReflection(java.util.List<Double> list) {
     this.array = list.stream().mapToDouble(d -> d).toArray();
     this.list = list;
   }
@@ -29,8 +29,8 @@ abstract class Real64ArrayHandle implements UnmovableReal64ListHandle {
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<Double> asCollection() {
-    return new JavaCollectionHandleWrapper<>(list(), elementType);
+  public UnmovableCollectionReflection<Double> asCollection() {
+    return new JavaCollectionReflectionWrapper<>(list(), elementType);
   }
 
   @Mapper

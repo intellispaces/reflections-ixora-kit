@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory;
 
 public interface TestPorts {
 
-  static MovableTestPortHandle create(
+  static MovableTestPortReflection create(
       DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory
   ) {
     return new TestPortImplWrapper(underlyingPortHandleFactory);

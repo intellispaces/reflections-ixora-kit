@@ -7,7 +7,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class OkHttpResponseFactory implements OkHttpResponseAssistantCustomizer {
 
   @Override
-  public UnmovableOkHttpResponseHandle handleOf(Response response) {
+  public UnmovableOkHttpResponseReflection handleOf(Response response) {
     return new OkHttpResponseImplWrapper(response);
   }
 }

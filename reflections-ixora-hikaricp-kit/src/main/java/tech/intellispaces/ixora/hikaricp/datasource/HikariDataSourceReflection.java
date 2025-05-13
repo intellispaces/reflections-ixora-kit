@@ -2,26 +2,26 @@ package tech.intellispaces.ixora.hikaricp.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.intellispaces.ixora.rdb.datasource.JavaConnectionHandleWrapper;
+import tech.intellispaces.ixora.rdb.datasource.JavaConnectionReflectionWrapper;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 
 import java.sql.SQLException;
 
-@ObjectHandle(value = HikariDataSourceDomain.class)
-public abstract class HikariDataSourceHandle implements MovableHikariDataSource {
-  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceHandle.class);
+@Reflection(value = HikariDataSourceDomain.class)
+public abstract class HikariDataSourceReflection implements MovableHikariDataSource {
+  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceReflection.class);
 
   private final HikariDataSourceSettings dataSourceProperties;
   private final com.zaxxer.hikari.HikariDataSource dataSource;
 
-  public HikariDataSourceHandle(
+  public HikariDataSourceReflection(
       com.zaxxer.hikari.HikariDataSource dataSource,
       HikariDataSourceSettings dataSourceSettings
   ) {
@@ -43,7 +43,7 @@ public abstract class HikariDataSourceHandle implements MovableHikariDataSource 
     }
     try {
       java.sql.Connection connection = dataSource.getConnection();
-      return new JavaConnectionHandleWrapper(connection);
+      return new JavaConnectionReflectionWrapper(connection);
     } catch (SQLException e) {
       throw TraverseExceptions.withCauseAndMessage(e, "Could not get JDBC connection from Hikari data source. " +
           "URL '{}', username '{}'");

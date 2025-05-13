@@ -1,15 +1,15 @@
 package tech.intellispaces.ixora.internet.uri;
 
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.net.URI;
 
-@ObjectHandle(UriDomain.class)
-public abstract class JavaUriHandle implements UnmovableUri {
+@Reflection(UriDomain.class)
+public abstract class JavaUriReflection implements UnmovableUri {
   private final URI uri;
 
-  public JavaUriHandle(URI uri) {
+  public JavaUriReflection(URI uri) {
     this.uri = uri;
   }
 

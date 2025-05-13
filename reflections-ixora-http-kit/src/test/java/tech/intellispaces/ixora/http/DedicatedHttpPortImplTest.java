@@ -32,15 +32,15 @@ public class DedicatedHttpPortImplTest {
     HttpMethod httpGetMethod = HttpMethods.get();
     HttpMethod httpPostMethod = HttpMethods.post();
 
-    MovableHttpPort underlyingPort = mock(MovableHttpPortHandle.class);
+    MovableHttpPort underlyingPort = mock(MovableHttpPortReflection.class);
 
-    HttpResponse response1 = mock(HttpResponseHandle.class);
+    HttpResponse response1 = mock(HttpResponseReflection.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpGetMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response1);
 
-    HttpResponse response2 = mock(HttpResponseHandle.class);
+    HttpResponse response2 = mock(HttpResponseReflection.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpPostMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))

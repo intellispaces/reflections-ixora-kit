@@ -1,16 +1,16 @@
 package tech.intellispaces.ixora.cli;
 
 import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.io.PrintStream;
 import java.util.Objects;
 
-@ObjectHandle(DummyConsoleDomain.class)
-public abstract class PrintStreamBasedConsole implements MovableDummyConsoleHandle {
+@Reflection(DummyConsoleDomain.class)
+public abstract class PrintStreamConsoleReflection implements MovableDummyConsoleReflection {
   private final PrintStream ps;
 
-  public PrintStreamBasedConsole(PrintStream ps) {
+  public PrintStreamConsoleReflection(PrintStream ps) {
     this.ps = ps;
   }
 
@@ -20,7 +20,7 @@ public abstract class PrintStreamBasedConsole implements MovableDummyConsoleHand
 
   @Mover
   @Override
-  public MovableDummyConsoleHandle print(String string) {
+  public MovableDummyConsoleReflection print(String string) {
     Objects.requireNonNull(string);
     ps.print(string);
     return this;
@@ -28,14 +28,14 @@ public abstract class PrintStreamBasedConsole implements MovableDummyConsoleHand
 
   @Mover
   @Override
-  public MovableDummyConsoleHandle print(int number) {
+  public MovableDummyConsoleReflection print(int number) {
     ps.print(number);
     return this;
   }
 
   @Mover
   @Override
-  public MovableDummyConsoleHandle println(String string) {
+  public MovableDummyConsoleReflection println(String string) {
     Objects.requireNonNull(string);
     ps.println(string);
     return this;
@@ -43,7 +43,7 @@ public abstract class PrintStreamBasedConsole implements MovableDummyConsoleHand
 
   @Mover
   @Override
-  public MovableDummyConsoleHandle println(int number) {
+  public MovableDummyConsoleReflection println(int number) {
     ps.println(number);
     return this;
   }

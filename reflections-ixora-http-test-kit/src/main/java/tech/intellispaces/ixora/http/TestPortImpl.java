@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
-import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
+import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory;
 
-@ObjectHandle(TestPortDomain.class)
-public abstract class TestPortImpl implements MovableTestPortHandle {
+@Reflection(TestPortDomain.class)
+public abstract class TestPortImpl implements MovableTestPortReflection {
   private final MovableInboundHttpPort underlyingPort;
 
   public TestPortImpl(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory) {
@@ -14,14 +14,14 @@ public abstract class TestPortImpl implements MovableTestPortHandle {
 
   @Mover
   @Override
-  public MovableTestPortHandle open() {
+  public MovableTestPortReflection open() {
     underlyingPort.open();
     return this;
   }
 
   @Mover
   @Override
-  public MovableTestPortHandle shut() {
+  public MovableTestPortReflection shut() {
     underlyingPort.shut();
     return this;
   }

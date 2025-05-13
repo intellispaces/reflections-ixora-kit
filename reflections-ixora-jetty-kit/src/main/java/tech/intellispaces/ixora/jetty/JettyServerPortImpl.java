@@ -7,20 +7,20 @@ import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
-import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
-import tech.intellispaces.reflections.framework.object.reference.OverlyingHandleController;
-import tech.intellispaces.reflections.framework.object.reference.PostRegistrationHandleProcessor;
+import tech.intellispaces.reflections.framework.reflection.MovableReflection;
+import tech.intellispaces.reflections.framework.reflection.OverlyingHandleController;
+import tech.intellispaces.reflections.framework.reflection.PostRegistrationHandleProcessor;
 
-@ObjectHandle(JettyServerPortDomain.class)
-public abstract class JettyServerPortImpl implements MovableJettyServerPortHandle, OverlyingHandleController, PostRegistrationHandleProcessor {
+@Reflection(JettyServerPortDomain.class)
+public abstract class JettyServerPortImpl implements MovableJettyServerPortReflection, OverlyingHandleController, PostRegistrationHandleProcessor {
   private final int portNumber;
   private final Server server;
   private final JettyServlet servlet;
-  private MovableObjectHandle<?> overlyingHandle;
+  private MovableReflection<?> overlyingHandle;
 
-  public JettyServerPortImpl(int portNumber, MovableObjectHandle<?> overlyingHandle) {
+  public JettyServerPortImpl(int portNumber, MovableReflection<?> overlyingHandle) {
     this.portNumber = portNumber;
     this.overlyingHandle = overlyingHandle;
 
@@ -51,7 +51,7 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPortHandl
 
   @Mover
   @Override
-  public MovableJettyServerPortHandle open() {
+  public MovableJettyServerPortReflection open() {
     try {
       servlet.init(this);
       server.start();
@@ -63,7 +63,7 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPortHandl
 
   @Mover
   @Override
-  public MovableJettyServerPortHandle shut() {
+  public MovableJettyServerPortReflection shut() {
     stopServer();
     return this;
   }

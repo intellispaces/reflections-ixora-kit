@@ -3,17 +3,17 @@ package tech.intellispaces.ixora.okhttp;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
-import tech.intellispaces.ixora.http.HttpStatusHandle;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStreamReflection;
+import tech.intellispaces.ixora.http.HttpStatusReflection;
 import tech.intellispaces.ixora.http.HttpStatuses;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(OkHttpResponseDomain.class)
-public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseHandle {
+@Reflection(OkHttpResponseDomain.class)
+public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseReflection {
   private final Response underlyingResponse;
-  private final MovableByteInputStreamHandle bodyStream;
+  private final MovableByteInputStreamReflection bodyStream;
 
   OkHttpResponseImpl(Response underlyingResponse) {
     this.underlyingResponse = underlyingResponse;
@@ -28,13 +28,13 @@ public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, Unm
 
   @Mapper
   @Override
-  public HttpStatusHandle status() {
+  public HttpStatusReflection status() {
     return HttpStatuses.get(underlyingResponse.code());
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStreamHandle bodyStream() {
+  public MovableByteInputStreamReflection bodyStream() {
     return bodyStream;
   }
 

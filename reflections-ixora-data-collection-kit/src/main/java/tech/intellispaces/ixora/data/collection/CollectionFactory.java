@@ -9,12 +9,12 @@ import java.util.List;
 public class CollectionFactory implements CollectionAssistantCustomizer {
 
   @Override
-  public <E> UnmovableCollectionHandle<E> handleOf(List<E> list, Class<E> elementClass) {
-    return new JavaCollectionHandleWrapper<>(list, elementClass);
+  public <E> UnmovableCollectionReflection<E> handleOf(List<E> list, Class<E> elementClass) {
+    return new JavaCollectionReflectionWrapper<>(list, elementClass);
   }
 
   @Override
-  public <E> UnmovableCollectionHandle<E> handleOf(List<E> list, Type<E> elementType) {
-    return new JavaCollectionHandleWrapper<>(list, elementType);
+  public <E> UnmovableCollectionReflection<E> handleOf(List<E> list, Type<E> elementType) {
+    return new JavaCollectionReflectionWrapper<>(list, elementType);
   }
 }

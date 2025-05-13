@@ -13,12 +13,12 @@ import java.util.List;
 
 public interface HttpNameConventionFunctions {
 
-  static String getPortHandleCanonicalName(CustomType httpPortDomain) {
-    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "HandleGenerated");
+  static String getPortReflectionCanonicalName(CustomType httpPortDomain) {
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "ReflectionGenerated");
   }
 
-  static String getPortHandleImplCanonicalName(CustomType httpPortDomain) {
-    return getPortHandleCanonicalName(httpPortDomain) + "Wrapper";
+  static String getPortReflectionImplCanonicalName(CustomType httpPortDomain) {
+    return getPortReflectionCanonicalName(httpPortDomain) + "Wrapper";
   }
 
   static String getPortAssistantCustomizerCanonicalName(CustomType httpPortDomain) {

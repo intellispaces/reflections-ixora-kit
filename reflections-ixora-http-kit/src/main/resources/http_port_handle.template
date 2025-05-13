@@ -9,33 +9,33 @@ import {{$importedClass}};
  *
  * This class was generated automatically. Don't try to change it.
  */
-@ObjectHandle({{$sourceArtifactSimpleName}}.class)
+@Reflection({{$sourceArtifactSimpleName}}.class)
 {{$generatedAnnotation}}
-public abstract class {{$generatedArtifactSimpleName}} implements {{$movableHandleSimpleName}} {
+public abstract class {{$generatedArtifactSimpleName}} implements {{$movableReflectionSimpleName}} {
   private final MovableInboundHttpPort underlyingPort;
   private final Reference<?> bridge = HttpPortEngines.get().bridge(this, {{$sourceArtifactSimpleName}}.class);
 
-  public {{$generatedArtifactSimpleName}}(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory) {
-    this.underlyingPort = underlyingPortHandleFactory.create(this);
+  public {{$generatedArtifactSimpleName}}(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
+    this.underlyingPort = underlyingPortReflectionFactory.create(this);
   }
 
   @Mover
   @Override
-  public {{$movableHandleSimpleName}} open() {
+  public {{$movableReflectionSimpleName}} open() {
     underlyingPort.open();
     return this;
   }
 
   @Mover
   @Override
-  public {{$movableHandleSimpleName}} shut() {
+  public {{$movableReflectionSimpleName}} shut() {
     underlyingPort.shut();
     return this;
   }
 
   @Override
   @MapperOfMoving
-  public HttpResponseHandle exchange(HttpRequest request) throws HttpException {
+  public HttpResponseReflection exchange(HttpRequest request) throws HttpException {
     return HttpPortEngines.get().exchange(bridge, request);
   }
 }

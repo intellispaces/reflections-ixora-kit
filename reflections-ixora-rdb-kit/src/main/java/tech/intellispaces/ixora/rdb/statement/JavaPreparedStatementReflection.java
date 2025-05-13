@@ -3,16 +3,16 @@ package tech.intellispaces.ixora.rdb.statement;
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@ObjectHandle(PreparedStatementDomain.class)
-abstract class JavaPreparedStatementHandle implements MovablePreparedStatement {
+@Reflection(PreparedStatementDomain.class)
+abstract class JavaPreparedStatementReflection implements MovablePreparedStatement {
   private final PreparedStatement preparedStatement;
 
-  JavaPreparedStatementHandle(PreparedStatement preparedStatement) {
+  JavaPreparedStatementReflection(PreparedStatement preparedStatement) {
     this.preparedStatement = preparedStatement;
   }
 
@@ -21,7 +21,7 @@ abstract class JavaPreparedStatementHandle implements MovablePreparedStatement {
   public MovableResultSet executeQuery() {
     try {
       java.sql.ResultSet rs = preparedStatement.executeQuery();
-      return new JavaResultSetHandleWrapper(rs);
+      return new JavaResultSetReflectionWrapper(rs);
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not execute prepared statement");
     }

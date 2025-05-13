@@ -15,14 +15,14 @@ public class {{$generatedArtifactSimpleName}} implements {{$guideType}} {
 
 {{when $entityHasIdentifier}}
   @Override
-  public {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id) {
+  public {{$entityReflectionSimpleName}} getById(Transaction tx, {{$identifierType}} id) {
     Map<String, Object> params = Maps.create(String.class, Object.class, "id", id);
-    return tx.fetchData(Types.get({{$entityHandleSimpleName}}.class), "SELECT * FROM {{$entityTable}} {{$entityAlias}} WHERE {{$entityAlias}}.{{$identifierColumn}} = :id", params);
+    return tx.fetchData(Types.get({{$entityReflectionSimpleName}}.class), "SELECT * FROM {{$entityTable}} {{$entityAlias}} WHERE {{$entityAlias}}.{{$identifierColumn}} = :id", params);
   }
 {{end}}
 
   @Override
-  public {{$entityHandleSimpleName}} create(Transaction tx, {{$entityHandleSimpleName}} contract) {
+  public {{$entityReflectionSimpleName}} create(Transaction tx, {{$entityReflectionSimpleName}} contract) {
     throw new RuntimeException("Not implemented");
   }
 }

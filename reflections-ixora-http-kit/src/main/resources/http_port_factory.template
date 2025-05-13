@@ -14,7 +14,7 @@ import {{$importedClass}};
 public class {{$generatedArtifactSimpleName}} implements {{$providerCustomizerSimpleName}} {
 
   @Override
-  public {{$movableHandleSimpleName}} create(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory) {
-    return new {{$handleImplSimpleName}}(underlyingPortHandleFactory);
+  public {{$movableReflectionSimpleName}} create(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
+    return new {{$handleImplSimpleName}}(underlyingPortReflectionFactory);
   }
 }

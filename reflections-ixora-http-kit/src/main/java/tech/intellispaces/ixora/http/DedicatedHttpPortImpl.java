@@ -9,9 +9,9 @@ import tech.intellispaces.ixora.internet.uri.Uris;
 import tech.intellispaces.reflections.framework.annotation.AutoGuide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(DedicatedHttpPortDomain.class)
+@Reflection(DedicatedHttpPortDomain.class)
 public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort {
   private final String baseUrl;
   private final MovableHttpPort underlyingPort;

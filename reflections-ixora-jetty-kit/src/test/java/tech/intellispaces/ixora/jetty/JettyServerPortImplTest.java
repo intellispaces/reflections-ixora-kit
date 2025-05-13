@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.http.AbstractInboundHttpPortTest;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
-import tech.intellispaces.reflections.framework.object.reference.MovableObjectHandle;
+import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 /**
  * Tests for {@link JettyServerPortImpl} class.
@@ -24,9 +24,9 @@ public class JettyServerPortImplTest extends AbstractInboundHttpPortTest {
 
   @Override
   public MovableInboundHttpPort createPort(
-      int portNumber, MovableObjectHandle<?> overlyingHandle
+      int portNumber, MovableReflection<?> overlyingReflection
   ) {
-    return JettyServerPorts.create(portNumber, overlyingHandle);
+    return JettyServerPorts.create(portNumber, overlyingReflection);
   }
 
   @Test

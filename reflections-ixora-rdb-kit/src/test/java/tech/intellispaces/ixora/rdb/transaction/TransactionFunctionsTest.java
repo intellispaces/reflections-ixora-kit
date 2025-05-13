@@ -31,7 +31,7 @@ public class TransactionFunctionsTest {
   public void testTransactional_whenOk() {
     // Given
     var transactionFactory = Mockito.mock(MovableTransactionFactory.class);
-    var tx = Mockito.mock(MovableTransactionHandle.class);
+    var tx = Mockito.mock(MovableTransactionReflection.class);
     when(transactionFactory.getTransaction()).thenReturn(tx);
 
     List<Transaction> appliedTransactions = new ArrayList<>();

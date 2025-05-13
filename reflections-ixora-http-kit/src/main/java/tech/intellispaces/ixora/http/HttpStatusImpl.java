@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(HttpStatusDomain.class)
+@Reflection(HttpStatusDomain.class)
 abstract class HttpStatusImpl implements UnmovableHttpStatus {
   private final int code;
 

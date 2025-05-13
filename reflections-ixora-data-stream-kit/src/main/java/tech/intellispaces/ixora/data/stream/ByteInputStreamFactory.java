@@ -8,12 +8,12 @@ import java.io.InputStream;
 public class ByteInputStreamFactory implements ByteInputStreamAssistantCustomizer {
 
   @Override
-  public MovableByteInputStreamHandle empty() {
+  public MovableByteInputStreamReflection empty() {
     return handleOf(InputStream.nullInputStream());
   }
 
   @Override
-  public MovableByteInputStreamHandle handleOf(InputStream is) {
-    return new JavaByteInputStreamHandleWrapper(is);
+  public MovableByteInputStreamReflection handleOf(InputStream is) {
+    return new JavaByteInputStreamReflectionWrapper(is);
   }
 }

@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.okhttp;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.ixora.http.MovableOutboundHttpPortHandle;
+import tech.intellispaces.ixora.http.MovableOutboundHttpPortReflection;
 import tech.intellispaces.ixora.http.OutboundHttpPortTest;
 import tech.intellispaces.reflections.framework.Jaquarius;
 
@@ -20,7 +20,7 @@ public class OkHttpPortImplTest extends OutboundHttpPortTest {
   }
 
   @Override
-  protected MovableOutboundHttpPortHandle getPort() {
+  protected MovableOutboundHttpPortReflection getPort() {
     return OkHttpPorts.create().asOutboundHttpPort();
   }
 

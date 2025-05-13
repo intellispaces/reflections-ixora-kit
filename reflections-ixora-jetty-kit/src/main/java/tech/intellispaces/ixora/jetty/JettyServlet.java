@@ -12,10 +12,10 @@ import java.io.IOException;
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 class JettyServlet extends HttpServlet {
-  private MovableJettyServerPortHandle port;
+  private MovableJettyServerPortReflection port;
   private String httpPortExchangeChannelCid;
 
-  void init(MovableJettyServerPortHandle port) {
+  void init(MovableJettyServerPortReflection port) {
     this.port = port;
     this.httpPortExchangeChannelCid = ChannelFunctions.getChannelId(HttpPortExchangeChannel.class);
   }
@@ -24,12 +24,12 @@ class JettyServlet extends HttpServlet {
   protected void doGet(
       HttpServletRequest servletRequest, HttpServletResponse servletResponse
   ) throws IOException {
-    HttpRequestHandle req = requestHandle(servletRequest);
-    UnmovableHttpResponseHandle res = port.mapOfMovingThru(httpPortExchangeChannelCid, req);
+    HttpRequestReflection req = requestReflection(servletRequest);
+    UnmovableHttpResponseReflection res = port.mapOfMovingThru(httpPortExchangeChannelCid, req);
     populateResponse(servletResponse, res);
   }
 
-  private HttpRequestHandle requestHandle(HttpServletRequest req) {
+  private HttpRequestReflection requestReflection(HttpServletRequest req) {
     String url = req.getRequestURL().toString();
     String query = req.getQueryString();
     String uri = (query == null ? url : url + '?' + query);
@@ -37,15 +37,15 @@ class JettyServlet extends HttpServlet {
   }
 
   private void populateResponse(
-      HttpServletResponse servletResponse, UnmovableHttpResponseHandle responseHandle
+      HttpServletResponse servletResponse, UnmovableHttpResponseReflection responseReflection
   ) throws IOException {
-    if (responseHandle.status().isOkStatus()) {
+    if (responseReflection.status().isOkStatus()) {
       servletResponse.setStatus(HttpServletResponse.SC_OK);
     } else {
       throw new RuntimeException();
     }
 
-    byte[] body = ArraysFunctions.toByteArray(toList(responseHandle.bodyStream().readAll().iterator()));
+    byte[] body = ArraysFunctions.toByteArray(toList(responseReflection.bodyStream().readAll().iterator()));
     servletResponse.getOutputStream().write(body);
   }
 }

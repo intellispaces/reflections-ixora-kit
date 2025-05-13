@@ -19,7 +19,7 @@ import tech.intellispaces.jstatements.reference.TypeReference;
 import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.AutoGuide;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +90,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addImportAndGetSimpleName(ObjectReferenceFunctions.getGeneralRegularObjectTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ReflectionFunctions.getGeneralRegularObjectTypename(portDomain)));
     sb.append(" port, ");
     sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
@@ -135,7 +135,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   private String getGeneralPureObjectDeclaration(TypeReference domain) {
-    return ObjectReferenceFunctions.geGeneralRegularObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
+    return ReflectionFunctions.geGeneralRegularObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {

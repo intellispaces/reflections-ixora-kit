@@ -5,44 +5,44 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 @Factory
 public class HttpMethodFactory implements HttpMethodAssistantCustomizer {
 
-  public HttpMethodHandle get() {
+  public HttpMethodReflection get() {
     return GET;
   }
 
-  public HttpMethodHandle head() {
+  public HttpMethodReflection head() {
     return HEAD;
   }
 
-  public HttpMethodHandle post() {
+  public HttpMethodReflection post() {
     return POST;
   }
 
-  public HttpMethodHandle put() {
+  public HttpMethodReflection put() {
     return PUT;
   }
 
-  public HttpMethodHandle patch() {
+  public HttpMethodReflection patch() {
     return PATCH;
   }
 
-  public HttpMethodHandle delete() {
+  public HttpMethodReflection delete() {
     return DELETE;
   }
 
-  public HttpMethodHandle options() {
+  public HttpMethodReflection options() {
     return OPTIONS;
   }
 
-  public HttpMethodHandle trace() {
+  public HttpMethodReflection trace() {
     return TRACE;
   }
 
-  private static final HttpMethodHandle GET = new HttpMethodImplWrapper("GET");
-  private static final HttpMethodHandle HEAD = new HttpMethodImplWrapper("HEAD");
-  private static final HttpMethodHandle POST = new HttpMethodImplWrapper("POST");
-  private static final HttpMethodHandle PUT = new HttpMethodImplWrapper("PUT");
-  private static final HttpMethodHandle PATCH = new HttpMethodImplWrapper("PATCH");
-  private static final HttpMethodHandle DELETE = new HttpMethodImplWrapper("DELETE");
-  private static final HttpMethodHandle OPTIONS = new HttpMethodImplWrapper("OPTIONS");
-  private static final HttpMethodHandle TRACE = new HttpMethodImplWrapper("TRACE");
+  private static final HttpMethodReflection GET = new HttpMethodImplWrapper("GET");
+  private static final HttpMethodReflection HEAD = new HttpMethodImplWrapper("HEAD");
+  private static final HttpMethodReflection POST = new HttpMethodImplWrapper("POST");
+  private static final HttpMethodReflection PUT = new HttpMethodImplWrapper("PUT");
+  private static final HttpMethodReflection PATCH = new HttpMethodImplWrapper("PATCH");
+  private static final HttpMethodReflection DELETE = new HttpMethodImplWrapper("DELETE");
+  private static final HttpMethodReflection OPTIONS = new HttpMethodImplWrapper("OPTIONS");
+  private static final HttpMethodReflection TRACE = new HttpMethodImplWrapper("TRACE");
 }

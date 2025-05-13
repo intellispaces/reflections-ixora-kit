@@ -6,75 +6,75 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class HttpStatusFactory implements HttpStatusAssistantCustomizer {
 
   @Override
-  public HttpStatusHandle ok() {
+  public HttpStatusReflection ok() {
     return STATUS_OK;
   }
 
   @Override
-  public HttpStatusHandle created() {
+  public HttpStatusReflection created() {
     return STATUS_CREATED;
   }
 
   @Override
-  public HttpStatusHandle accepted() {
+  public HttpStatusReflection accepted() {
     return STATUS_ACCEPTED;
   }
 
   @Override
-  public HttpStatusHandle noContent() {
+  public HttpStatusReflection noContent() {
     return STATUS_NO_CONTENT;
   }
 
   @Override
-  public HttpStatusHandle movedPermanently() {
+  public HttpStatusReflection movedPermanently() {
     return STATUS_MOVED_PERMANENTLY;
   }
 
   @Override
-  public HttpStatusHandle notModified() {
+  public HttpStatusReflection notModified() {
     return STATUS_NOT_MODIFIED;
   }
 
   @Override
-  public HttpStatusHandle badRequest() {
+  public HttpStatusReflection badRequest() {
     return STATUS_BAD_REQUEST;
   }
 
   @Override
-  public HttpStatusHandle unauthorized() {
+  public HttpStatusReflection unauthorized() {
     return STATUS_UNAUTHORIZED;
   }
 
   @Override
-  public HttpStatusHandle forbidden() {
+  public HttpStatusReflection forbidden() {
     return STATUS_FORBIDDEN;
   }
 
   @Override
-  public HttpStatusHandle notFound() {
+  public HttpStatusReflection notFound() {
     return STATUS_NOT_FOUND;
   }
 
   @Override
-  public HttpStatusHandle notAcceptable() {
+  public HttpStatusReflection notAcceptable() {
     return STATUS_NOT_ACCEPTABLE;
   }
 
   @Override
-  public HttpStatusHandle internalServerError() {
+  public HttpStatusReflection internalServerError() {
     return STATUS_INTERNAL_SERVER_ERROR;
   }
 
-  private final HttpStatusHandle STATUS_OK = new HttpStatusImplWrapper(HttpStatusCodes.OK);
-  private final HttpStatusHandle STATUS_CREATED = new HttpStatusImplWrapper(HttpStatusCodes.CREATED);
-  private final HttpStatusHandle STATUS_ACCEPTED = new HttpStatusImplWrapper(HttpStatusCodes.ACCEPTED);
-  private final HttpStatusHandle STATUS_NO_CONTENT = new HttpStatusImplWrapper(HttpStatusCodes.NO_CONTENT);
-  private final HttpStatusHandle STATUS_MOVED_PERMANENTLY = new HttpStatusImplWrapper(HttpStatusCodes.MOVED_PERMANENTLY);
-  private final HttpStatusHandle STATUS_NOT_MODIFIED = new HttpStatusImplWrapper(HttpStatusCodes.NOT_MODIFIED);
-  private final HttpStatusHandle STATUS_BAD_REQUEST = new HttpStatusImplWrapper(HttpStatusCodes.BAD_REQUEST);
-  private final HttpStatusHandle STATUS_UNAUTHORIZED = new HttpStatusImplWrapper(HttpStatusCodes.UNAUTHORIZED);
-  private final HttpStatusHandle STATUS_FORBIDDEN = new HttpStatusImplWrapper(HttpStatusCodes.FORBIDDEN);
-  private final HttpStatusHandle STATUS_NOT_FOUND = new HttpStatusImplWrapper(HttpStatusCodes.NOT_FOUND);
-  private final HttpStatusHandle STATUS_NOT_ACCEPTABLE = new HttpStatusImplWrapper(HttpStatusCodes.NOT_ACCEPTABLE);
-  private final HttpStatusHandle STATUS_INTERNAL_SERVER_ERROR = new HttpStatusImplWrapper(HttpStatusCodes.INTERNAL_SERVER_ERROR);
+  private final HttpStatusReflection STATUS_OK = new HttpStatusImplWrapper(HttpStatusCodes.OK);
+  private final HttpStatusReflection STATUS_CREATED = new HttpStatusImplWrapper(HttpStatusCodes.CREATED);
+  private final HttpStatusReflection STATUS_ACCEPTED = new HttpStatusImplWrapper(HttpStatusCodes.ACCEPTED);
+  private final HttpStatusReflection STATUS_NO_CONTENT = new HttpStatusImplWrapper(HttpStatusCodes.NO_CONTENT);
+  private final HttpStatusReflection STATUS_MOVED_PERMANENTLY = new HttpStatusImplWrapper(HttpStatusCodes.MOVED_PERMANENTLY);
+  private final HttpStatusReflection STATUS_NOT_MODIFIED = new HttpStatusImplWrapper(HttpStatusCodes.NOT_MODIFIED);
+  private final HttpStatusReflection STATUS_BAD_REQUEST = new HttpStatusImplWrapper(HttpStatusCodes.BAD_REQUEST);
+  private final HttpStatusReflection STATUS_UNAUTHORIZED = new HttpStatusImplWrapper(HttpStatusCodes.UNAUTHORIZED);
+  private final HttpStatusReflection STATUS_FORBIDDEN = new HttpStatusImplWrapper(HttpStatusCodes.FORBIDDEN);
+  private final HttpStatusReflection STATUS_NOT_FOUND = new HttpStatusImplWrapper(HttpStatusCodes.NOT_FOUND);
+  private final HttpStatusReflection STATUS_NOT_ACCEPTABLE = new HttpStatusImplWrapper(HttpStatusCodes.NOT_ACCEPTABLE);
+  private final HttpStatusReflection STATUS_INTERNAL_SERVER_ERROR = new HttpStatusImplWrapper(HttpStatusCodes.INTERNAL_SERVER_ERROR);
 }

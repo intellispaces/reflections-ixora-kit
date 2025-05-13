@@ -6,10 +6,10 @@ import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSourceFactory;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(HikariDataSourceFactoryDomain.class)
-public abstract class HikariDataSourceFactoryHandle implements MovableHikariDataSourceFactory {
+@Reflection(HikariDataSourceFactoryDomain.class)
+public abstract class HikariDataSourceFactoryReflection implements MovableHikariDataSourceFactory {
 
   @Override
   @MapperOfMoving
@@ -19,6 +19,6 @@ public abstract class HikariDataSourceFactoryHandle implements MovableHikariData
     config.setUsername(settings.username().trim());
     config.setPassword(settings.password().trim());
     var hds = new com.zaxxer.hikari.HikariDataSource(config);
-    return new HikariDataSourceHandleWrapper(hds, settings);
+    return new HikariDataSourceReflectionWrapper(hds, settings);
   }
 }

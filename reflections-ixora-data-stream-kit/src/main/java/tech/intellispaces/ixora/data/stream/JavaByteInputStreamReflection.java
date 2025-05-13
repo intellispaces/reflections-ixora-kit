@@ -4,22 +4,22 @@ import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.ByteLists;
-import tech.intellispaces.ixora.data.collection.UnmovableByteListHandle;
+import tech.intellispaces.ixora.data.collection.UnmovableByteListReflection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-@ObjectHandle(ByteInputStreamDomain.class)
-abstract class JavaByteInputStreamHandle implements MovableByteInputStream, MovableByteInputStreamHandle {
+@Reflection(ByteInputStreamDomain.class)
+abstract class JavaByteInputStreamReflection implements MovableByteInputStream, MovableByteInputStreamReflection {
   private final InputStream is;
   private int buffer;
   private boolean buffered;
 
-  JavaByteInputStreamHandle(InputStream is) {
+  JavaByteInputStreamReflection(InputStream is) {
     this.is = is;
   }
 
@@ -49,13 +49,13 @@ abstract class JavaByteInputStreamHandle implements MovableByteInputStream, Mova
 
   @Override
   @MapperOfMoving
-  public UnmovableByteListHandle readMultiple(int number) {
+  public UnmovableByteListReflection readMultiple(int number) {
     return ByteLists.handleOf(nextBytes(number));
   }
 
   @Override
   @MapperOfMoving
-  public UnmovableByteListHandle readAll() {
+  public UnmovableByteListReflection readAll() {
     return ByteLists.handleOf(allBytes());
   }
 

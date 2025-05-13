@@ -3,23 +3,23 @@ package tech.intellispaces.ixora.data.collection;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-@ObjectHandle(Integer32ListDomain.class)
-abstract class IntegerArrayHandle implements UnmovableInteger32ListHandle {
+@Reflection(Integer32ListDomain.class)
+abstract class IntegerArrayReflection implements UnmovableInteger32ListReflection {
   private final int[] array;
   private final Type<Integer> elementType = Types.get(Integer.class);
   private List<Integer> list;
 
-  IntegerArrayHandle(int[] array) {
+  IntegerArrayReflection(int[] array) {
     this.array = array;
   }
 
-  IntegerArrayHandle(List<Integer> list) {
+  IntegerArrayReflection(List<Integer> list) {
     this.array = list.stream().mapToInt(i -> i).toArray();
     this.list = list;
   }
@@ -30,8 +30,8 @@ abstract class IntegerArrayHandle implements UnmovableInteger32ListHandle {
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<Integer> asCollection() {
-    return new JavaCollectionHandleWrapper<>(list(), elementType);
+  public UnmovableCollectionReflection<Integer> asCollection() {
+    return new JavaCollectionReflectionWrapper<>(list(), elementType);
   }
 
   @Mapper

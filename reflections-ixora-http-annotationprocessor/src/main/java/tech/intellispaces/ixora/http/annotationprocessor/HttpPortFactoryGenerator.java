@@ -7,7 +7,7 @@ import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Factory;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory;
 
 public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
 
@@ -40,15 +40,15 @@ public class HttpPortFactoryGenerator extends JaquariusArtifactGenerator {
         HttpNameConventionFunctions.getPortAssistantCustomizerCanonicalName(sourceArtifact())
     );
     String handleImplSimpleName = addImportAndGetSimpleName(
-        HttpNameConventionFunctions.getPortHandleImplCanonicalName(sourceArtifact())
+        HttpNameConventionFunctions.getPortReflectionImplCanonicalName(sourceArtifact())
     );
-    String movableHandleSimpleName = addImportAndGetSimpleName(
-        NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName(), true)
+    String movableReflectionSimpleName = addImportAndGetSimpleName(
+        NameConventionFunctions.getMovableReflectionTypeName(sourceArtifact().canonicalName(), true)
     );
 
     addVariable("providerCustomizerSimpleName", providerCustomizerSimpleName);
     addVariable("handleImplSimpleName", handleImplSimpleName);
-    addVariable("movableHandleSimpleName", movableHandleSimpleName);
+    addVariable("movableReflectionSimpleName", movableReflectionSimpleName);
     return true;
   }
 }

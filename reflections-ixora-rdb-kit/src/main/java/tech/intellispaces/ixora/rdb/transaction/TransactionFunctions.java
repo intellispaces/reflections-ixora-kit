@@ -39,10 +39,10 @@ public class TransactionFunctions {
     );
   }
 
-  public static void transactional(MovableTransactionFactoryHandle factory, Consumer<TransactionHandle> operation) {
+  public static void transactional(MovableTransactionFactoryReflection factory, Consumer<TransactionReflection> operation) {
     transactional(factory,
         data -> {
-          operation.accept((TransactionHandle) Transactions.current());
+          operation.accept((TransactionReflection) Transactions.current());
           return null;
         },
         null
@@ -55,9 +55,9 @@ public class TransactionFunctions {
       Object[] data
   ) {
     R result;
-    MovableTransactionHandle tx = null;
+    MovableTransactionReflection tx = null;
     try {
-      tx = (MovableTransactionHandle) factory.getTransaction();
+      tx = (MovableTransactionReflection) factory.getTransaction();
       storeTransactionInContext(tx);
       result = operation.applyThrows(data);
       tx.commit();
@@ -89,7 +89,7 @@ public class TransactionFunctions {
     return result;
   }
 
-  private static void storeTransactionInContext(MovableTransactionHandle tx) {
+  private static void storeTransactionInContext(MovableTransactionReflection tx) {
     TransactionProvider.setCurrentTransaction(tx);
     ContextProjections.add(TRANSACTION_PROJECTION_NAME, MovableTransaction.class, tx);
   }

@@ -4,22 +4,22 @@ import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.util.Iterator;
 import java.util.List;
 
-@ObjectHandle(ByteListDomain.class)
-abstract class ByteArrayHandle implements UnmovableByteListHandle {
+@Reflection(ByteListDomain.class)
+abstract class ByteArrayReflection implements UnmovableByteListReflection {
   private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;
 
-  ByteArrayHandle(byte[] array) {
+  ByteArrayReflection(byte[] array) {
     this.array = array;
   }
 
-  ByteArrayHandle(List<Byte> list) {
+  ByteArrayReflection(List<Byte> list) {
     this.array = ArraysFunctions.toByteArray(list);
     this.list = list;
   }
@@ -30,8 +30,8 @@ abstract class ByteArrayHandle implements UnmovableByteListHandle {
 
   @Mapper
   @Override
-  public UnmovableCollectionHandle<Byte> asCollection() {
-    return new JavaCollectionHandleWrapper<>(list(), elementType);
+  public UnmovableCollectionReflection<Byte> asCollection() {
+    return new JavaCollectionReflectionWrapper<>(list(), elementType);
   }
 
   @Mapper

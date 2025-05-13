@@ -11,7 +11,7 @@ import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.reflections.framework.annotation.*;
 import tech.intellispaces.reflections.framework.dataset.DatasetFunctions;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.framework.object.reference.ObjectReferenceFunctions;
+import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -27,8 +27,8 @@ public class ResultSetToDataGuideImpl {
   public <D> D resultSetToData(ResultSet resultSet, Type<D> dataType) {
     var dataClass = (Class<D>) dataType.asClassType().baseClass();
     Class<?> domainClass = getDomainClass(dataClass);
-    Constructor<D> constructor = getDataHandleConstructor(dataClass, domainClass);
-    Object[] arguments = makeDataHandleArguments(resultSet, dataClass, domainClass, constructor);
+    Constructor<D> constructor = getDataReflectionConstructor(dataClass, domainClass);
+    Object[] arguments = makeDataReflectionArguments(resultSet, dataClass, domainClass, constructor);
     try {
       return constructor.newInstance(arguments);
     } catch (Exception e) {
@@ -41,10 +41,10 @@ public class ResultSetToDataGuideImpl {
   public <D> List<D> resultSetToDataList(ResultSet resultSet, Type<D> dataType) {
     var dataClass = (Class<D>) dataType.asClassType().baseClass();
     Class<?> domainClass = getDomainClass(dataClass);
-    Constructor<D> constructor = getDataHandleConstructor(dataClass, domainClass);
+    Constructor<D> constructor = getDataReflectionConstructor(dataClass, domainClass);
     java.util.List<D> values = new ArrayList<>();
     while (((MovableResultSet) resultSet).next()) {
-      Object[] arguments = makeDataHandleArguments(resultSet, dataClass, domainClass, constructor);
+      Object[] arguments = makeDataReflectionArguments(resultSet, dataClass, domainClass, constructor);
       try {
         values.add(constructor.newInstance(arguments));
       } catch (Exception e) {
@@ -55,14 +55,14 @@ public class ResultSetToDataGuideImpl {
   }
 
   @SuppressWarnings("unchecked")
-  private <D> Constructor<D> getDataHandleConstructor(Class<D> dataClass, Class<?> domainClass) {
-    String dataHandleClassName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getCanonicalName());
-    Class<D> dataHandleClass = (Class<D>) ClassFunctions.getClass(dataHandleClassName).orElseThrow(() ->
+  private <D> Constructor<D> getDataReflectionConstructor(Class<D> dataClass, Class<?> domainClass) {
+    String dataReflectionClassName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getCanonicalName());
+    Class<D> dataReflectionClass = (Class<D>) ClassFunctions.getClass(dataReflectionClassName).orElseThrow(() ->
         UnexpectedExceptions.withMessage("Could not find data handle class by name {0} ",
-            dataHandleClassName)
+            dataReflectionClassName)
     );
 
-    Constructor<?>[] constructors = dataHandleClass.getConstructors();
+    Constructor<?>[] constructors = dataReflectionClass.getConstructors();
     if (constructors.length > 1) {
       throw UnexpectedExceptions.withMessage("Data handle class should have one constructor");
     }
@@ -70,7 +70,7 @@ public class ResultSetToDataGuideImpl {
   }
 
   private <D> Class<?> getDomainClass(Class<D> dataClass) {
-    Class<?> domainClass = ObjectReferenceFunctions.getDomainClassOfObjectHandle(dataClass);
+    Class<?> domainClass = ReflectionFunctions.getDomainClassOfObjectHandle(dataClass);
     if (!DatasetFunctions.isDatasetDomain(domainClass)) {
       throw UnexpectedExceptions.withMessage("Expected object handle class of the data domain. " +
           "Data domain should be annotated with @{0}", Dataset.class.getSimpleName());
@@ -78,7 +78,7 @@ public class ResultSetToDataGuideImpl {
     return domainClass;
   }
 
-  private <D> Object[] makeDataHandleArguments(
+  private <D> Object[] makeDataReflectionArguments(
       ResultSet resultSet, Class<D> dataClass, Class<?> domainClass, Constructor<D> constructor
   ) {
     Map<String, String> mapping = makeChannelAliasToColumnNameMapping(domainClass);

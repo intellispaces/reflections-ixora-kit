@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(HttpMethodDomain.class)
+@Reflection(HttpMethodDomain.class)
 abstract class HttpMethodImpl implements UnmovableHttpMethod {
   private final String name;
 

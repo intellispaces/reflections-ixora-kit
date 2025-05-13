@@ -13,5 +13,5 @@ import {{$importedClass}};
 {{$generatedAnnotation}}
 public interface {{$generatedArtifactSimpleName}} {
 
-  {{$movableHandleSimpleName}} create(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory);
+  {{$movableReflectionSimpleName}} create(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory);
 }

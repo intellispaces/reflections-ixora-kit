@@ -8,7 +8,7 @@ import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGener
 import tech.intellispaces.reflections.framework.annotation.AssistantCustomizer;
 import tech.intellispaces.reflections.framework.artifact.ArtifactTypes;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
-import tech.intellispaces.reflections.framework.object.reference.DownwardObjectFactory;
+import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory;
 
 public class HttpPortAssistantCustomizerGenerator extends JaquariusArtifactGenerator {
 
@@ -38,10 +38,10 @@ public class HttpPortAssistantCustomizerGenerator extends JaquariusArtifactGener
     addImport(MovableInboundHttpPort.class);
     addImport(DownwardObjectFactory.class);
 
-    String movableHandleSimpleName = addImportAndGetSimpleName(
-        NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName(), true)
+    String movableReflectionSimpleName = addImportAndGetSimpleName(
+        NameConventionFunctions.getMovableReflectionTypeName(sourceArtifact().canonicalName(), true)
     );
-    addVariable("movableHandleSimpleName", movableHandleSimpleName);
+    addVariable("movableReflectionSimpleName", movableReflectionSimpleName);
     return true;
   }
 }

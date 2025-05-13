@@ -4,44 +4,44 @@ import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamHandle;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStreamReflection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import java.io.InputStream;
 
-@ObjectHandle(HttpResponseDomain.class)
-abstract class HttpResponseImpl implements UnmovableHttpResponseHandle {
-  private final HttpStatusHandle status;
-  private final MovableByteInputStreamHandle bodyStream;
+@Reflection(HttpResponseDomain.class)
+abstract class HttpResponseImpl implements UnmovableHttpResponseReflection {
+  private final HttpStatusReflection status;
+  private final MovableByteInputStreamReflection bodyStream;
 
-  HttpResponseImpl(HttpStatusHandle status, InputStream body) {
+  HttpResponseImpl(HttpStatusReflection status, InputStream body) {
     this.status = status;
     this.bodyStream = ByteInputStreams.handleOf(body);
   }
 
-  HttpResponseImpl(HttpStatusHandle status, String body) {
+  HttpResponseImpl(HttpStatusReflection status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusHandle status, byte[] body) {
+  HttpResponseImpl(HttpStatusReflection status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusHandle status) {
+  HttpResponseImpl(HttpStatusReflection status) {
     this(status, InputStream.nullInputStream());
   }
 
   @Mapper
   @Override
-  public HttpStatusHandle status() {
+  public HttpStatusReflection status() {
     return this.status;
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStreamHandle bodyStream() {
+  public MovableByteInputStreamReflection bodyStream() {
     return bodyStream;
   }
 

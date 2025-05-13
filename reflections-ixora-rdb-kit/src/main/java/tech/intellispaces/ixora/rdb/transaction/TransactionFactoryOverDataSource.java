@@ -6,9 +6,9 @@ import tech.intellispaces.ixora.rdb.datasource.MovableDataSource;
 import tech.intellispaces.ixora.rdb.exception.TransactionException;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
-import tech.intellispaces.reflections.framework.annotation.ObjectHandle;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@ObjectHandle(TransactionFactoryDomain.class)
+@Reflection(TransactionFactoryDomain.class)
 abstract class TransactionFactoryOverDataSource implements MovableTransactionFactory {
   private final MovableDataSource dataSource;
 
@@ -26,6 +26,6 @@ abstract class TransactionFactoryOverDataSource implements MovableTransactionFac
   @MapperOfMoving
   public MovableTransaction getTransaction() throws TransactionException {
     MovableConnection connection = dataSource.getConnection();
-    return new TransactionOverConnectionHandleWrapper(connection);
+    return new TransactionOverConnectionReflectionWrapper(connection);
   }
 }

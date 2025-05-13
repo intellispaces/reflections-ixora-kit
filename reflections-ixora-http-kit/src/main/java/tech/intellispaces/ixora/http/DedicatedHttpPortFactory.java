@@ -6,7 +6,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class DedicatedHttpPortFactory implements DedicatedHttpPortAssistantCustomizer {
 
   @Override
-  public MovableDedicatedHttpPortHandle create(String baseUrl, MovableHttpPort httpPort) {
+  public MovableDedicatedHttpPortReflection create(String baseUrl, MovableHttpPort httpPort) {
     return new DedicatedHttpPortImplWrapper(baseUrl, httpPort);
   }
 }

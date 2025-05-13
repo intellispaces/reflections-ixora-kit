@@ -15,10 +15,10 @@ public interface {{$generatedArtifactSimpleName}} {
 
 {{when $entityHasIdentifier}}
   @Mapper({{$transactionToEntityByIdentifierChannelSimpleName}}.class)
-  {{$entityHandleSimpleName}} getById(Transaction tx, {{$identifierType}} id);
+  {{$entityReflectionSimpleName}} getById(Transaction tx, {{$identifierType}} id);
 {{end}}
 
   @MapperOfMoving({{$transactionToNewEntityChannelSimpleName}}.class)
-  {{$entityHandleSimpleName}} create(Transaction tx, {{$entityHandleSimpleName}} contract);
+  {{$entityReflectionSimpleName}} create(Transaction tx, {{$entityReflectionSimpleName}} contract);
 
 }

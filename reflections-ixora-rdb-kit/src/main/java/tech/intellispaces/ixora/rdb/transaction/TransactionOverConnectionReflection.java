@@ -2,8 +2,8 @@ package tech.intellispaces.ixora.rdb.transaction;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.association.Map;
-import tech.intellispaces.ixora.data.association.MapHandle;
-import tech.intellispaces.ixora.data.collection.ListHandle;
+import tech.intellispaces.ixora.data.association.MapReflection;
+import tech.intellispaces.ixora.data.collection.ListReflection;
 import tech.intellispaces.ixora.data.cursor.MovableCursor;
 import tech.intellispaces.ixora.rdb.datasource.Connection;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
@@ -17,15 +17,15 @@ import tech.intellispaces.reflections.framework.annotation.*;
 import static tech.intellispaces.ixora.data.association.Maps.mapHandle;
 import static tech.intellispaces.ixora.data.collection.Lists.listHandle;
 
-@ObjectHandle(TransactionDomain.class)
-abstract class TransactionOverConnectionHandle implements MovableTransaction {
+@Reflection(TransactionDomain.class)
+abstract class TransactionOverConnectionReflection implements MovableTransaction {
   private final MovableConnection connection;
 
   @Inject
   @AutoGuide
   abstract CastStringToParameterizedNamedQueryGuide castStringToParameterizedNamedQueryGuide();
 
-  TransactionOverConnectionHandle(MovableConnection connection) {
+  TransactionOverConnectionReflection(MovableConnection connection) {
     this.connection = connection;
     connection.disableAutoCommit();
   }
@@ -105,7 +105,7 @@ abstract class TransactionOverConnectionHandle implements MovableTransaction {
   }
 
   private void setParamValues(
-      MovablePreparedStatement ps, ListHandle<String> paramNames, MapHandle<String, Object> params
+      MovablePreparedStatement ps, ListReflection<String> paramNames, MapReflection<String, Object> params
   ) {
     int index = 1;
     for (String paramName : paramNames) {
