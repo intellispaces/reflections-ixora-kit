@@ -9,21 +9,21 @@ public class HttpResponseFactory implements HttpResponseAssistantCustomizer {
 
   @Override
   public HttpResponseReflection create(HttpStatusReflection status) {
-    return new HttpResponseImplWrapper(status);
+    return new HttpResponseReflectionImplWrapper(status);
   }
 
   @Override
   public HttpResponseReflection create(HttpStatusReflection status, InputStream body) {
-    return new HttpResponseImplWrapper(status, body);
+    return new HttpResponseReflectionImplWrapper(status, body);
   }
 
   @Override
   public HttpResponseReflection create(HttpStatusReflection status, String body) {
-    return new HttpResponseImplWrapper(status, body);
+    return new HttpResponseReflectionImplWrapper(status, body);
   }
 
   @Override
   public HttpResponseReflection create(HttpStatusReflection status, byte[] body) {
-    return new HttpResponseImplWrapper(status, body);
+    return new HttpResponseReflectionImplWrapper(status, body);
   }
 }

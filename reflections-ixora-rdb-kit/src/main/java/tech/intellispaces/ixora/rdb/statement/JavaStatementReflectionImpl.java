@@ -8,10 +8,10 @@ import java.sql.Statement;
 import java.sql.SQLException;
 
 @Reflection(StatementDomain.class)
-abstract class JavaStatementReflection implements MovableStatement {
+abstract class JavaStatementReflectionImpl implements MovableStatement {
   private final Statement statement;
 
-  JavaStatementReflection(Statement statement) {
+  JavaStatementReflectionImpl(Statement statement) {
     this.statement = statement;
   }
 
@@ -20,7 +20,7 @@ abstract class JavaStatementReflection implements MovableStatement {
   public MovableResultSet executeQuery(String query) {
     try {
       java.sql.ResultSet rs = statement.executeQuery(query);
-      return new JavaResultSetReflectionWrapper(rs);
+      return new JavaResultSetReflectionImplWrapper(rs);
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not execute query {0}", query);
     }

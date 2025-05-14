@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.hikaricp.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.intellispaces.ixora.rdb.datasource.JavaConnectionReflectionWrapper;
+import tech.intellispaces.ixora.rdb.datasource.JavaConnectionReflectionImplWrapper;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
@@ -15,13 +15,13 @@ import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 import java.sql.SQLException;
 
 @Reflection(value = HikariDataSourceDomain.class)
-public abstract class HikariDataSourceReflection implements MovableHikariDataSource {
-  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceReflection.class);
+public abstract class HikariDataSourceReflectionImpl implements MovableHikariDataSource {
+  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceReflectionImpl.class);
 
   private final HikariDataSourceSettings dataSourceProperties;
   private final com.zaxxer.hikari.HikariDataSource dataSource;
 
-  public HikariDataSourceReflection(
+  public HikariDataSourceReflectionImpl(
       com.zaxxer.hikari.HikariDataSource dataSource,
       HikariDataSourceSettings dataSourceSettings
   ) {
@@ -43,7 +43,7 @@ public abstract class HikariDataSourceReflection implements MovableHikariDataSou
     }
     try {
       java.sql.Connection connection = dataSource.getConnection();
-      return new JavaConnectionReflectionWrapper(connection);
+      return new JavaConnectionReflectionImplWrapper(connection);
     } catch (SQLException e) {
       throw TraverseExceptions.withCauseAndMessage(e, "Could not get JDBC connection from Hikari data source. " +
           "URL '{}', username '{}'");

@@ -6,10 +6,10 @@ import tech.intellispaces.reflections.framework.annotation.Reflection;
 import java.net.URI;
 
 @Reflection(UriDomain.class)
-public abstract class JavaUriReflection implements UnmovableUri {
+public abstract class JavaUriReflectionImpl implements UnmovableUri {
   private final URI uri;
 
-  public JavaUriReflection(URI uri) {
+  public JavaUriReflectionImpl(URI uri) {
     this.uri = uri;
   }
 

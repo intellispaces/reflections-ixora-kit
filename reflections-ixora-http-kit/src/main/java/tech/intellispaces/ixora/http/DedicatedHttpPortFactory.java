@@ -7,6 +7,6 @@ public class DedicatedHttpPortFactory implements DedicatedHttpPortAssistantCusto
 
   @Override
   public MovableDedicatedHttpPortReflection create(String baseUrl, MovableHttpPort httpPort) {
-    return new DedicatedHttpPortImplWrapper(baseUrl, httpPort);
+    return new DedicatedHttpPortReflectionImplWrapper(baseUrl, httpPort);
   }
 }

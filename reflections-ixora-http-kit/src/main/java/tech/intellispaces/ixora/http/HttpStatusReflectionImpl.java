@@ -4,10 +4,10 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(HttpStatusDomain.class)
-abstract class HttpStatusImpl implements UnmovableHttpStatus {
+abstract class HttpStatusReflectionImpl implements UnmovableHttpStatus {
   private final int code;
 
-  HttpStatusImpl(int code) {
+  HttpStatusReflectionImpl(int code) {
     this.code = code;
   }
 

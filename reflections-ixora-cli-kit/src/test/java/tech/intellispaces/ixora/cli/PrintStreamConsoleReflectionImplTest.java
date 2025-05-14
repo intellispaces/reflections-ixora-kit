@@ -12,9 +12,9 @@ import java.nio.charset.StandardCharsets;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests fo {@link PrintStreamConsoleReflection} class.
+ * Tests fo {@link PrintStreamConsoleReflectionImpl} class.
  */
-public class PrintStreamConsoleReflectionTest {
+public class PrintStreamConsoleReflectionImplTest {
 
   @BeforeEach
   public void init() {
@@ -31,7 +31,7 @@ public class PrintStreamConsoleReflectionTest {
     // Given
     var os = new ByteArrayOutputStream();
     var ps = new PrintStream(os, true, StandardCharsets.UTF_8);
-    var console = new PrintStreamConsoleReflectionWrapper(ps);
+    var console = new PrintStreamConsoleReflectionImplWrapper(ps);
 
     // When
     console.println("abc");

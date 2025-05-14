@@ -9,10 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Reflection(PreparedStatementDomain.class)
-abstract class JavaPreparedStatementReflection implements MovablePreparedStatement {
+abstract class JavaPreparedStatementReflectionImpl implements MovablePreparedStatement {
   private final PreparedStatement preparedStatement;
 
-  JavaPreparedStatementReflection(PreparedStatement preparedStatement) {
+  JavaPreparedStatementReflectionImpl(PreparedStatement preparedStatement) {
     this.preparedStatement = preparedStatement;
   }
 
@@ -21,7 +21,7 @@ abstract class JavaPreparedStatementReflection implements MovablePreparedStateme
   public MovableResultSet executeQuery() {
     try {
       java.sql.ResultSet rs = preparedStatement.executeQuery();
-      return new JavaResultSetReflectionWrapper(rs);
+      return new JavaResultSetReflectionImplWrapper(rs);
     } catch (SQLException e) {
       throw RdbExceptions.withCauseAndMessage(e, "Could not execute prepared statement");
     }

@@ -9,15 +9,15 @@ import tech.intellispaces.reflections.framework.annotation.Reflection;
 import java.io.InputStream;
 
 @Reflection(HttpRequestDomain.class)
-abstract class HttpRequestImpl implements UnmovableHttpRequest {
+abstract class HttpRequestReflectionImpl implements UnmovableHttpRequest {
   private final HttpMethod method;
   private final Uri requestURI;
   private final MovableByteInputStream bodyStream;
 
-  HttpRequestImpl(HttpMethod method, Uri requestURI) {
+  HttpRequestReflectionImpl(HttpMethod method, Uri requestURI) {
     this.method = method;
     this.requestURI = requestURI;
-    this.bodyStream = ByteInputStreams.handleOf(InputStream.nullInputStream());
+    this.bodyStream = ByteInputStreams.reflectionOf(InputStream.nullInputStream());
   }
 
   @Mapper

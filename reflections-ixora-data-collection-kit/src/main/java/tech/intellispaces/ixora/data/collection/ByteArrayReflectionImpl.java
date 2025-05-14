@@ -10,16 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 
 @Reflection(ByteListDomain.class)
-abstract class ByteArrayReflection implements UnmovableByteListReflection {
+abstract class ByteArrayReflectionImpl implements UnmovableByteListReflection {
   private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;
 
-  ByteArrayReflection(byte[] array) {
+  ByteArrayReflectionImpl(byte[] array) {
     this.array = array;
   }
 
-  ByteArrayReflection(List<Byte> list) {
+  ByteArrayReflectionImpl(List<Byte> list) {
     this.array = ArraysFunctions.toByteArray(list);
     this.list = list;
   }
@@ -31,7 +31,7 @@ abstract class ByteArrayReflection implements UnmovableByteListReflection {
   @Mapper
   @Override
   public UnmovableCollectionReflection<Byte> asCollection() {
-    return new JavaCollectionReflectionWrapper<>(list(), elementType);
+    return new JavaCollectionReflectionImplWrapper<>(list(), elementType);
   }
 
   @Mapper

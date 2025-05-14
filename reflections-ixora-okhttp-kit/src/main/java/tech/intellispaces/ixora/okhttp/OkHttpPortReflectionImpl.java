@@ -15,10 +15,10 @@ import tech.intellispaces.reflections.framework.annotation.Reflection;
 import java.io.IOException;
 
 @Reflection(OkHttpPortDomain.class)
-public abstract class OkHttpPortImpl implements MovableOkHttpPort {
+public abstract class OkHttpPortReflectionImpl implements MovableOkHttpPort {
   private final OkHttpClient client;
 
-  public OkHttpPortImpl(OkHttpClient client) {
+  public OkHttpPortReflectionImpl(OkHttpClient client) {
     this.client = client;
   }
 
@@ -32,7 +32,7 @@ public abstract class OkHttpPortImpl implements MovableOkHttpPort {
     Request req = buildRequest(request);
     try {
       Response res = client.newCall(req).execute();
-      return OkHttpResponses.handleOf(res).asHttpResponse();
+      return OkHttpResponses.reflectionOf(res).asHttpResponse();
     } catch (IOException e) {
       throw HttpExceptions.withCauseAndMessage(e, "Could not call HTTP server");
     }

@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.hikaricp.configuration;
 
-import tech.intellispaces.ixora.hikaricp.datasource.HikariDataSourceFactoryReflectionWrapper;
+import tech.intellispaces.ixora.hikaricp.datasource.HikariDataSourceFactoryReflectionImplWrapper;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactory;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;
@@ -18,7 +18,7 @@ public abstract class HikariCpConfiguration {
 
   @Projection
   public HikariDataSourceFactory hikariDataSourceFactory() {
-    return new HikariDataSourceFactoryReflectionWrapper();
+    return new HikariDataSourceFactoryReflectionImplWrapper();
   }
 
   @Projection

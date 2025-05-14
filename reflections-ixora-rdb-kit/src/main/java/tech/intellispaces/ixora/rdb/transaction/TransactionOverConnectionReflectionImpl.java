@@ -14,18 +14,18 @@ import tech.intellispaces.ixora.rdb.statement.MovablePreparedStatement;
 import tech.intellispaces.ixora.rdb.statement.MovableResultSet;
 import tech.intellispaces.reflections.framework.annotation.*;
 
-import static tech.intellispaces.ixora.data.association.Maps.mapHandle;
-import static tech.intellispaces.ixora.data.collection.Lists.listHandle;
+import static tech.intellispaces.ixora.data.association.Maps.mapReflection;
+import static tech.intellispaces.ixora.data.collection.Lists.listReflection;
 
 @Reflection(TransactionDomain.class)
-abstract class TransactionOverConnectionReflection implements MovableTransaction {
+abstract class TransactionOverConnectionReflectionImpl implements MovableTransaction {
   private final MovableConnection connection;
 
   @Inject
   @AutoGuide
   abstract CastStringToParameterizedNamedQueryGuide castStringToParameterizedNamedQueryGuide();
 
-  TransactionOverConnectionReflection(MovableConnection connection) {
+  TransactionOverConnectionReflectionImpl(MovableConnection connection) {
     this.connection = connection;
     connection.disableAutoCommit();
   }
@@ -86,8 +86,8 @@ abstract class TransactionOverConnectionReflection implements MovableTransaction
     MovablePreparedStatement ps = connection.createPreparedStatement(parameterizedQuery.query());
     setParamValues(
         ps,
-        listHandle(parameterizedQuery.paramNames(), String.class),
-        mapHandle(params, String.class, Object.class)
+        listReflection(parameterizedQuery.paramNames(), String.class),
+        mapReflection(params, String.class, Object.class)
     );
     MovableResultSet rs = ps.executeQuery();
     return fetchData(dataType, rs);

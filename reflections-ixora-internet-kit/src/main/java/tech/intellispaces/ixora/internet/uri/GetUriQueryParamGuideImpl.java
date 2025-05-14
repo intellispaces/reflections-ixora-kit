@@ -31,7 +31,7 @@ public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {
         .filter(p -> paramName.equals(p.value1()))
         .map(Pair::value2)
         .toList();
-    return Lists.handleOf(values, String.class);
+    return Lists.reflectionOf(values, String.class);
   }
 
   private Pair<String, String> decode(String pair) {

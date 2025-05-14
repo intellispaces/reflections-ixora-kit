@@ -5,7 +5,7 @@ import tech.intellispaces.ixora.rdb.datasource.MovableDataSource;
 import tech.intellispaces.ixora.rdb.query.CastStringToParameterizedNamedQueryGuideImpl;
 import tech.intellispaces.ixora.rdb.statement.ResultSetToDataGuideImpl;
 import tech.intellispaces.ixora.rdb.transaction.MovableTransactionFactoryReflection;
-import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryOverDataSourceWrapper;
+import tech.intellispaces.ixora.rdb.transaction.TransactionFactoryOverDataSourceReflectionImplWrapper;
 import tech.intellispaces.reflections.framework.annotation.Configuration;
 import tech.intellispaces.reflections.framework.annotation.Projection;
 import tech.intellispaces.reflections.framework.annotation.Properties;
@@ -28,6 +28,6 @@ public abstract class RdbConfiguration {
    */
   @Projection
   public MovableTransactionFactoryReflection transactionFactory(MovableDataSource dataSource) {
-    return new TransactionFactoryOverDataSourceWrapper(dataSource);
+    return new TransactionFactoryOverDataSourceReflectionImplWrapper(dataSource);
   }
 }

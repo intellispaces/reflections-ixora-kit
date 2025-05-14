@@ -17,7 +17,7 @@ public class SnakeyamlGuide implements YamlStringToPropertiesSetGuide {
   public PropertiesSetReflection yamlStringToPropertiesSet(String string) throws InvalidPropertyException {
     try {
       var yaml = new Yaml();
-      return PropertiesSets.handleOf(yaml.load(string));
+      return PropertiesSets.reflectionOf(yaml.load(string));
     } catch (Exception e) {
       throw InvalidPropertyExceptions.withCauseAndMessage(e, "Failed to parse YAML string");
     }

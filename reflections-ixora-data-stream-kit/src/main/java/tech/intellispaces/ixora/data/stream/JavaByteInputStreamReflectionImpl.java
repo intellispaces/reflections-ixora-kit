@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Reflection(ByteInputStreamDomain.class)
-abstract class JavaByteInputStreamReflection implements MovableByteInputStream, MovableByteInputStreamReflection {
+abstract class JavaByteInputStreamReflectionImpl implements MovableByteInputStream, MovableByteInputStreamReflection {
   private final InputStream is;
   private int buffer;
   private boolean buffered;
 
-  JavaByteInputStreamReflection(InputStream is) {
+  JavaByteInputStreamReflectionImpl(InputStream is) {
     this.is = is;
   }
 
@@ -50,13 +50,13 @@ abstract class JavaByteInputStreamReflection implements MovableByteInputStream, 
   @Override
   @MapperOfMoving
   public UnmovableByteListReflection readMultiple(int number) {
-    return ByteLists.handleOf(nextBytes(number));
+    return ByteLists.reflectionOf(nextBytes(number));
   }
 
   @Override
   @MapperOfMoving
   public UnmovableByteListReflection readAll() {
-    return ByteLists.handleOf(allBytes());
+    return ByteLists.reflectionOf(allBytes());
   }
 
   @Override

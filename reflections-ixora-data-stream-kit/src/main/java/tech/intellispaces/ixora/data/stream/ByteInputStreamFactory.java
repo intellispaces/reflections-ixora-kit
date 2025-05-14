@@ -9,11 +9,11 @@ public class ByteInputStreamFactory implements ByteInputStreamAssistantCustomize
 
   @Override
   public MovableByteInputStreamReflection empty() {
-    return handleOf(InputStream.nullInputStream());
+    return reflectionOf(InputStream.nullInputStream());
   }
 
   @Override
-  public MovableByteInputStreamReflection handleOf(InputStream is) {
-    return new JavaByteInputStreamReflectionWrapper(is);
+  public MovableByteInputStreamReflection reflectionOf(InputStream is) {
+    return new JavaByteInputStreamReflectionImplWrapper(is);
   }
 }

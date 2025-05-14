@@ -7,7 +7,7 @@ import tech.intellispaces.ixora.http.MovableOutboundHttpPortReflection;
 import tech.intellispaces.ixora.http.OutboundHttpPortTest;
 import tech.intellispaces.reflections.framework.Jaquarius;
 
-public class OkHttpPortImplTest extends OutboundHttpPortTest {
+public class OkHttpPortReflectionImplTest extends OutboundHttpPortTest {
 
   @BeforeEach
   public void init() {

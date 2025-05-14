@@ -9,16 +9,16 @@ import java.util.Collection;
 import java.util.Iterator;
 
 @Reflection(CollectionDomain.class)
-abstract class JavaCollectionReflection<E> implements UnmovableCollection<E>, UnmovableCollectionReflection<E> {
+abstract class JavaCollectionReflectionImpl<E> implements UnmovableCollection<E>, UnmovableCollectionReflection<E> {
   private final Collection<E> collection;
   private final Type<E> elementDomain;
 
-  JavaCollectionReflection(Collection<E> collection, Class<E> elementClass) {
+  JavaCollectionReflectionImpl(Collection<E> collection, Class<E> elementClass) {
     this.collection = collection;
     this.elementDomain = Types.get(elementClass);
   }
 
-  JavaCollectionReflection(Collection<E> collection, Type<E> elementType) {
+  JavaCollectionReflectionImpl(Collection<E> collection, Type<E> elementType) {
     this.collection = collection;
     this.elementDomain = elementType;
   }

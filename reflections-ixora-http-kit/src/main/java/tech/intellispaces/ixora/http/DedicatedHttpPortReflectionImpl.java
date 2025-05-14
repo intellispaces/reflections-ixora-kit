@@ -12,11 +12,11 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(DedicatedHttpPortDomain.class)
-public abstract class DedicatedHttpPortImpl implements MovableDedicatedHttpPort {
+public abstract class DedicatedHttpPortReflectionImpl implements MovableDedicatedHttpPort {
   private final String baseUrl;
   private final MovableHttpPort underlyingPort;
 
-  public DedicatedHttpPortImpl(String baseUrl, MovableHttpPort underlyingPort) {
+  public DedicatedHttpPortReflectionImpl(String baseUrl, MovableHttpPort underlyingPort) {
     this.baseUrl = baseUrl;
     this.underlyingPort = underlyingPort;
   }

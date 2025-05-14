@@ -8,9 +8,9 @@ import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 /**
- * Tests for {@link JettyServerPortImpl} class.
+ * Tests for {@link JettyServerPortReflectionImpl} class.
  */
-public class JettyServerPortImplTest extends AbstractInboundHttpPortTest {
+public class JettyServerPortReflectionImplTest extends AbstractInboundHttpPortTest {
 
   @BeforeEach
   public void init() {

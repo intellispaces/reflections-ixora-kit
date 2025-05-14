@@ -10,7 +10,7 @@ public class OkHttpPortFactory implements OkHttpPortAssistantCustomizer {
 
   @Override
   public MovableOkHttpPortReflection create() {
-    return new OkHttpPortImplWrapper(new OkHttpClient());
+    return new OkHttpPortReflectionImplWrapper(new OkHttpClient());
   }
 
   @Override
@@ -19,6 +19,6 @@ public class OkHttpPortFactory implements OkHttpPortAssistantCustomizer {
     builder.connectTimeout(properties.connectTimeoutMs(), TimeUnit.MILLISECONDS);
     builder.readTimeout(properties.readTimeoutMs(), TimeUnit.MILLISECONDS);
     builder.writeTimeout(properties.writeTimeoutMs(), TimeUnit.MILLISECONDS);
-    return new OkHttpPortImplWrapper(builder.build());
+    return new OkHttpPortReflectionImplWrapper(builder.build());
   }
 }

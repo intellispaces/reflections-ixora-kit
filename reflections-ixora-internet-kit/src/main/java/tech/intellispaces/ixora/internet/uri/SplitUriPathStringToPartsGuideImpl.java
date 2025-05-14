@@ -19,6 +19,6 @@ public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToP
     }
     String path = uriPath.startsWith(SLASH) ? uriPath.substring(1) : uriPath;
     path = path.endsWith(SLASH) ? path.substring(0, path.length() - 1) : path;
-    return Lists.handleOf(Arrays.asList(path.split(SLASH)), String.class);
+    return Lists.reflectionOf(Arrays.asList(path.split(SLASH)), String.class);
   }
 }

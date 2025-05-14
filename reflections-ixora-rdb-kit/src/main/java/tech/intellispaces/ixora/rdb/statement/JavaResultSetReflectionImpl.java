@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Reflection(ResultSetDomain.class)
-abstract class JavaResultSetReflection implements MovableResultSet {
+abstract class JavaResultSetReflectionImpl implements MovableResultSet {
   private final ResultSet rs;
 
-  JavaResultSetReflection(ResultSet rs) {
+  JavaResultSetReflectionImpl(ResultSet rs) {
     this.rs = rs;
   }
 

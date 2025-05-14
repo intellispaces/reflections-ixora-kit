@@ -12,24 +12,24 @@ import tech.intellispaces.reflections.framework.annotation.Reflection;
 import java.io.InputStream;
 
 @Reflection(HttpResponseDomain.class)
-abstract class HttpResponseImpl implements UnmovableHttpResponseReflection {
+abstract class HttpResponseReflectionImpl implements UnmovableHttpResponseReflection {
   private final HttpStatusReflection status;
   private final MovableByteInputStreamReflection bodyStream;
 
-  HttpResponseImpl(HttpStatusReflection status, InputStream body) {
+  HttpResponseReflectionImpl(HttpStatusReflection status, InputStream body) {
     this.status = status;
-    this.bodyStream = ByteInputStreams.handleOf(body);
+    this.bodyStream = ByteInputStreams.reflectionOf(body);
   }
 
-  HttpResponseImpl(HttpStatusReflection status, String body) {
+  HttpResponseReflectionImpl(HttpStatusReflection status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusReflection status, byte[] body) {
+  HttpResponseReflectionImpl(HttpStatusReflection status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseImpl(HttpStatusReflection status) {
+  HttpResponseReflectionImpl(HttpStatusReflection status) {
     this(status, InputStream.nullInputStream());
   }
 

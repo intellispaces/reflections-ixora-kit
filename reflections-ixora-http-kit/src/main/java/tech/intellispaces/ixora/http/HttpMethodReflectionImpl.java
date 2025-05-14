@@ -4,10 +4,10 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(HttpMethodDomain.class)
-abstract class HttpMethodImpl implements UnmovableHttpMethod {
+abstract class HttpMethodReflectionImpl implements UnmovableHttpMethod {
   private final String name;
 
-  HttpMethodImpl(String name) {
+  HttpMethodReflectionImpl(String name) {
     this.name = name;
   }
 

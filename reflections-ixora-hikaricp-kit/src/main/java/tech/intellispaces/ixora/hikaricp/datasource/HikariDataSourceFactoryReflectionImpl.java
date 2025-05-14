@@ -9,7 +9,7 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(HikariDataSourceFactoryDomain.class)
-public abstract class HikariDataSourceFactoryReflection implements MovableHikariDataSourceFactory {
+public abstract class HikariDataSourceFactoryReflectionImpl implements MovableHikariDataSourceFactory {
 
   @Override
   @MapperOfMoving
@@ -19,6 +19,6 @@ public abstract class HikariDataSourceFactoryReflection implements MovableHikari
     config.setUsername(settings.username().trim());
     config.setPassword(settings.password().trim());
     var hds = new com.zaxxer.hikari.HikariDataSource(config);
-    return new HikariDataSourceReflectionWrapper(hds, settings);
+    return new HikariDataSourceReflectionImplWrapper(hds, settings);
   }
 }

@@ -8,6 +8,6 @@ public class HttpRequestFactory implements HttpRequestAssistantCustomizer {
 
   @Override
   public UnmovableHttpRequestReflection create(HttpMethod method, Uri requestURI) {
-    return new HttpRequestImplWrapper(method, requestURI);
+    return new HttpRequestReflectionImplWrapper(method, requestURI);
   }
 }

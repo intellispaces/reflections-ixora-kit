@@ -9,10 +9,10 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(TransactionFactoryDomain.class)
-abstract class TransactionFactoryOverDataSource implements MovableTransactionFactory {
+abstract class TransactionFactoryOverDataSourceReflectionImpl implements MovableTransactionFactory {
   private final MovableDataSource dataSource;
 
-  TransactionFactoryOverDataSource(MovableDataSource dataSource) {
+  TransactionFactoryOverDataSourceReflectionImpl(MovableDataSource dataSource) {
     this.dataSource = dataSource;
   }
 
@@ -26,6 +26,6 @@ abstract class TransactionFactoryOverDataSource implements MovableTransactionFac
   @MapperOfMoving
   public MovableTransaction getTransaction() throws TransactionException {
     MovableConnection connection = dataSource.getConnection();
-    return new TransactionOverConnectionReflectionWrapper(connection);
+    return new TransactionOverConnectionReflectionImplWrapper(connection);
   }
 }

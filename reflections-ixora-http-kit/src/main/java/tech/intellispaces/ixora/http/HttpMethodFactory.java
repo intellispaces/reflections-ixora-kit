@@ -37,12 +37,12 @@ public class HttpMethodFactory implements HttpMethodAssistantCustomizer {
     return TRACE;
   }
 
-  private static final HttpMethodReflection GET = new HttpMethodImplWrapper("GET");
-  private static final HttpMethodReflection HEAD = new HttpMethodImplWrapper("HEAD");
-  private static final HttpMethodReflection POST = new HttpMethodImplWrapper("POST");
-  private static final HttpMethodReflection PUT = new HttpMethodImplWrapper("PUT");
-  private static final HttpMethodReflection PATCH = new HttpMethodImplWrapper("PATCH");
-  private static final HttpMethodReflection DELETE = new HttpMethodImplWrapper("DELETE");
-  private static final HttpMethodReflection OPTIONS = new HttpMethodImplWrapper("OPTIONS");
-  private static final HttpMethodReflection TRACE = new HttpMethodImplWrapper("TRACE");
+  private static final HttpMethodReflection GET = new HttpMethodReflectionImplWrapper("GET");
+  private static final HttpMethodReflection HEAD = new HttpMethodReflectionImplWrapper("HEAD");
+  private static final HttpMethodReflection POST = new HttpMethodReflectionImplWrapper("POST");
+  private static final HttpMethodReflection PUT = new HttpMethodReflectionImplWrapper("PUT");
+  private static final HttpMethodReflection PATCH = new HttpMethodReflectionImplWrapper("PATCH");
+  private static final HttpMethodReflection DELETE = new HttpMethodReflectionImplWrapper("DELETE");
+  private static final HttpMethodReflection OPTIONS = new HttpMethodReflectionImplWrapper("OPTIONS");
+  private static final HttpMethodReflection TRACE = new HttpMethodReflectionImplWrapper("TRACE");
 }

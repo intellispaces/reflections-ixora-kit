@@ -51,7 +51,7 @@ public class ResultSetToDataGuideImpl {
         throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data handle");
       }
     }
-    return Lists.handleOf(values, dataClass);
+    return Lists.reflectionOf(values, dataClass);
   }
 
   @SuppressWarnings("unchecked")

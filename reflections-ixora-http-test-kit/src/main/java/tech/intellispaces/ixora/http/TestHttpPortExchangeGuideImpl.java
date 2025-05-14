@@ -17,7 +17,7 @@ public class TestHttpPortExchangeGuideImpl implements TestHttpPortExchangeGuide 
 
     var res = mock(UnmovableHttpResponseReflection.class);
     when(res.status()).thenReturn(status);
-    when(res.bodyStream()).thenReturn(ByteInputStreams.handleOf(StringFunctions.stringToInputStream("Hello")));
+    when(res.bodyStream()).thenReturn(ByteInputStreams.reflectionOf(StringFunctions.stringToInputStream("Hello")));
     return res;
   }
 }

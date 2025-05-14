@@ -10,19 +10,19 @@ import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
-import tech.intellispaces.reflections.framework.reflection.OverlyingHandleController;
-import tech.intellispaces.reflections.framework.reflection.PostRegistrationHandleProcessor;
+import tech.intellispaces.reflections.framework.reflection.OverlyingReflectionController;
+import tech.intellispaces.reflections.framework.reflection.PostRegistrationReflectionHandler;
 
 @Reflection(JettyServerPortDomain.class)
-public abstract class JettyServerPortImpl implements MovableJettyServerPortReflection, OverlyingHandleController, PostRegistrationHandleProcessor {
+public abstract class JettyServerPortReflectionImpl implements MovableJettyServerPortReflection, OverlyingReflectionController, PostRegistrationReflectionHandler {
   private final int portNumber;
   private final Server server;
   private final JettyServlet servlet;
-  private MovableReflection<?> overlyingHandle;
+  private MovableReflection<?> overlyingReflection;
 
-  public JettyServerPortImpl(int portNumber, MovableReflection<?> overlyingHandle) {
+  public JettyServerPortReflectionImpl(int portNumber, MovableReflection<?> overlyingReflection) {
     this.portNumber = portNumber;
-    this.overlyingHandle = overlyingHandle;
+    this.overlyingReflection = overlyingReflection;
 
     this.server = new Server();
 
@@ -40,7 +40,7 @@ public abstract class JettyServerPortImpl implements MovableJettyServerPortRefle
 
   @Override
   public void postRegistration() {
-    setOverlyingHandle(overlyingHandle);
+    setOverlyingReflection(overlyingReflection);
   }
 
   @Mapper

@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.List;
 
 @Reflection(ListDomain.class)
-abstract class JavaListReflection<E> implements UnmovableList<E>, UnmovableListReflection<E> {
+abstract class JavaListReflectionImpl<E> implements UnmovableList<E>, UnmovableListReflection<E> {
   private final List<E> list;
   private final Type<E> elementType;
 
-  JavaListReflection(List<E> list, Class<E> elementClass) {
+  JavaListReflectionImpl(List<E> list, Class<E> elementClass) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = Types.get(elementClass);
   }
 
-  JavaListReflection(List<E> list, Type<E> elementType) {
+  JavaListReflectionImpl(List<E> list, Type<E> elementType) {
     this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = elementType;
   }
@@ -30,7 +30,7 @@ abstract class JavaListReflection<E> implements UnmovableList<E>, UnmovableListR
   @Mapper
   @Override
   public UnmovableCollectionReflection<E> asCollection() {
-    return Collections.handleOf(list, elementType);
+    return Collections.reflectionOf(list, elementType);
   }
 
   @Override

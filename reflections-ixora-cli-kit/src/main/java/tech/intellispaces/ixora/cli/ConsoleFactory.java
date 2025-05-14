@@ -8,6 +8,6 @@ import java.io.PrintStream;
 public class ConsoleFactory {
 
   public MovableConsoleReflection dummy(PrintStream ps) {
-    return new PrintStreamConsoleReflectionWrapper(ps).asConsole();
+    return new PrintStreamConsoleReflectionImplWrapper(ps).asConsole();
   }
 }

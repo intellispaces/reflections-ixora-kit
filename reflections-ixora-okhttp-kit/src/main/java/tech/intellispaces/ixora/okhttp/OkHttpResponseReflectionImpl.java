@@ -11,15 +11,15 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(OkHttpResponseDomain.class)
-public abstract class OkHttpResponseImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseReflection {
+public abstract class OkHttpResponseReflectionImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseReflection {
   private final Response underlyingResponse;
   private final MovableByteInputStreamReflection bodyStream;
 
-  OkHttpResponseImpl(Response underlyingResponse) {
+  OkHttpResponseReflectionImpl(Response underlyingResponse) {
     this.underlyingResponse = underlyingResponse;
 
     ResponseBody body = underlyingResponse.body();
-    this.bodyStream = (body != null ? ByteInputStreams.handleOf(body.byteStream()) : ByteInputStreams.empty());
+    this.bodyStream = (body != null ? ByteInputStreams.reflectionOf(body.byteStream()) : ByteInputStreams.empty());
   }
 
   public Response getUnderlyingResponse() {

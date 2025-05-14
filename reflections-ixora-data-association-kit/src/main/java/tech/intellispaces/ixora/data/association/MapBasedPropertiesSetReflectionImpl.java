@@ -12,10 +12,10 @@ import java.util.Collections;
 import java.util.Map;
 
 @Reflection(PropertiesSetDomain.class)
-abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesSet {
+abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertiesSet {
   private final Map<String, Object> map;
 
-  PropertiesSetReflectionBasedOnMap(Map<String, Object> map) {
+  MapBasedPropertiesSetReflectionImpl(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -46,7 +46,7 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new PropertiesSetReflectionBasedOnMapWrapper((Map<String, Object>) result);
+      return new MapBasedPropertiesSetReflectionImplWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -103,7 +103,7 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new PropertiesSetReflectionBasedOnMapWrapper((Map<String, Object>) value);
+    return new MapBasedPropertiesSetReflectionImplWrapper((Map<String, Object>) value);
   }
 
   @Mapper
@@ -116,7 +116,7 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
   @SuppressWarnings("unchecked")
   private UnmovableList<Integer> integer32List(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return Lists.handleOfIntegerList((java.util.List<Integer>) value);
+    return Lists.reflectionOfIntegerList((java.util.List<Integer>) value);
   }
 
   @Mapper
@@ -129,7 +129,7 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
   @SuppressWarnings("unchecked")
   private UnmovableList<Double> float64List(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return Lists.handleOfDoubleList((java.util.List<Double>) value);
+    return Lists.reflectionOfDoubleList((java.util.List<Double>) value);
   }
 
   @Mapper
@@ -142,7 +142,7 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
   @SuppressWarnings("unchecked")
   private UnmovableList<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return Lists.handleOf((java.util.List<String>) value, String.class);
+    return Lists.reflectionOf((java.util.List<String>) value, String.class);
   }
 
   @Mapper
@@ -157,10 +157,10 @@ abstract class PropertiesSetReflectionBasedOnMap implements UnmovablePropertiesS
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<PropertiesSet> propsList = values.stream()
-        .map(PropertiesSetReflectionBasedOnMapWrapper::new)
+        .map(MapBasedPropertiesSetReflectionImplWrapper::new)
         .map(props -> (PropertiesSet) props)
         .toList();
-    return Lists.handleOf(propsList, PropertiesSet.class);
+    return Lists.reflectionOf(propsList, PropertiesSet.class);
   }
 
   @Mapper

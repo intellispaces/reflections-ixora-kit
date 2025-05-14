@@ -31,7 +31,7 @@ public class CastStringToParameterizedNamedQueryGuideImpl implements CastStringT
     }
     return ParameterizedNamedQueries.create(
         new String(blindQuery, 0, index2),
-        Lists.handleOf(paramNames, String.class)
+        Lists.reflectionOf(paramNames, String.class)
     );
   }
 }

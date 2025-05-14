@@ -65,16 +65,16 @@ public class HttpStatusFactory implements HttpStatusAssistantCustomizer {
     return STATUS_INTERNAL_SERVER_ERROR;
   }
 
-  private final HttpStatusReflection STATUS_OK = new HttpStatusImplWrapper(HttpStatusCodes.OK);
-  private final HttpStatusReflection STATUS_CREATED = new HttpStatusImplWrapper(HttpStatusCodes.CREATED);
-  private final HttpStatusReflection STATUS_ACCEPTED = new HttpStatusImplWrapper(HttpStatusCodes.ACCEPTED);
-  private final HttpStatusReflection STATUS_NO_CONTENT = new HttpStatusImplWrapper(HttpStatusCodes.NO_CONTENT);
-  private final HttpStatusReflection STATUS_MOVED_PERMANENTLY = new HttpStatusImplWrapper(HttpStatusCodes.MOVED_PERMANENTLY);
-  private final HttpStatusReflection STATUS_NOT_MODIFIED = new HttpStatusImplWrapper(HttpStatusCodes.NOT_MODIFIED);
-  private final HttpStatusReflection STATUS_BAD_REQUEST = new HttpStatusImplWrapper(HttpStatusCodes.BAD_REQUEST);
-  private final HttpStatusReflection STATUS_UNAUTHORIZED = new HttpStatusImplWrapper(HttpStatusCodes.UNAUTHORIZED);
-  private final HttpStatusReflection STATUS_FORBIDDEN = new HttpStatusImplWrapper(HttpStatusCodes.FORBIDDEN);
-  private final HttpStatusReflection STATUS_NOT_FOUND = new HttpStatusImplWrapper(HttpStatusCodes.NOT_FOUND);
-  private final HttpStatusReflection STATUS_NOT_ACCEPTABLE = new HttpStatusImplWrapper(HttpStatusCodes.NOT_ACCEPTABLE);
-  private final HttpStatusReflection STATUS_INTERNAL_SERVER_ERROR = new HttpStatusImplWrapper(HttpStatusCodes.INTERNAL_SERVER_ERROR);
+  private final HttpStatusReflection STATUS_OK = new HttpStatusReflectionImplWrapper(HttpStatusCodes.OK);
+  private final HttpStatusReflection STATUS_CREATED = new HttpStatusReflectionImplWrapper(HttpStatusCodes.CREATED);
+  private final HttpStatusReflection STATUS_ACCEPTED = new HttpStatusReflectionImplWrapper(HttpStatusCodes.ACCEPTED);
+  private final HttpStatusReflection STATUS_NO_CONTENT = new HttpStatusReflectionImplWrapper(HttpStatusCodes.NO_CONTENT);
+  private final HttpStatusReflection STATUS_MOVED_PERMANENTLY = new HttpStatusReflectionImplWrapper(HttpStatusCodes.MOVED_PERMANENTLY);
+  private final HttpStatusReflection STATUS_NOT_MODIFIED = new HttpStatusReflectionImplWrapper(HttpStatusCodes.NOT_MODIFIED);
+  private final HttpStatusReflection STATUS_BAD_REQUEST = new HttpStatusReflectionImplWrapper(HttpStatusCodes.BAD_REQUEST);
+  private final HttpStatusReflection STATUS_UNAUTHORIZED = new HttpStatusReflectionImplWrapper(HttpStatusCodes.UNAUTHORIZED);
+  private final HttpStatusReflection STATUS_FORBIDDEN = new HttpStatusReflectionImplWrapper(HttpStatusCodes.FORBIDDEN);
+  private final HttpStatusReflection STATUS_NOT_FOUND = new HttpStatusReflectionImplWrapper(HttpStatusCodes.NOT_FOUND);
+  private final HttpStatusReflection STATUS_NOT_ACCEPTABLE = new HttpStatusReflectionImplWrapper(HttpStatusCodes.NOT_ACCEPTABLE);
+  private final HttpStatusReflection STATUS_INTERNAL_SERVER_ERROR = new HttpStatusReflectionImplWrapper(HttpStatusCodes.INTERNAL_SERVER_ERROR);
 }

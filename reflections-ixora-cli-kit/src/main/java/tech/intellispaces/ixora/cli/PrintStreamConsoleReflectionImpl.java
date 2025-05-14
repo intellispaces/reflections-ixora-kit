@@ -7,10 +7,10 @@ import java.io.PrintStream;
 import java.util.Objects;
 
 @Reflection(DummyConsoleDomain.class)
-public abstract class PrintStreamConsoleReflection implements MovableDummyConsoleReflection {
+public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyConsoleReflection {
   private final PrintStream ps;
 
-  public PrintStreamConsoleReflection(PrintStream ps) {
+  public PrintStreamConsoleReflectionImpl(PrintStream ps) {
     this.ps = ps;
   }
 
