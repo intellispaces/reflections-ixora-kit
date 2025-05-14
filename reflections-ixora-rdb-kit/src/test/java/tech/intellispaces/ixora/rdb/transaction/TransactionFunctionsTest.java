@@ -5,7 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +19,12 @@ public class TransactionFunctionsTest {
 
   @BeforeEach
   public void init() {
-    Jaquarius.createModule().start();
+    ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void deinit() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   @Test

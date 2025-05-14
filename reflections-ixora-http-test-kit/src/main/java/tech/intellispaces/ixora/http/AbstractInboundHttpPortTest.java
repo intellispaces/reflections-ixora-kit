@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 import java.net.URI;
@@ -18,11 +18,11 @@ public abstract class AbstractInboundHttpPortTest {
   );
 
   public void init() {
-    Jaquarius.createModule(TestHttpPortExchangeGuideImpl.class).start();
+    ReflectionsFramework.loadModule(TestHttpPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   public void testHello() throws Exception {

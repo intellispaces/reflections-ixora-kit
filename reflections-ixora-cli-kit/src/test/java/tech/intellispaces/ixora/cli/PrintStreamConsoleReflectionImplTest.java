@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.cli;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -18,12 +18,12 @@ public class PrintStreamConsoleReflectionImplTest {
 
   @BeforeEach
   public void init() {
-    Jaquarius.createModule().start();
+    ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void destroy() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   @Test

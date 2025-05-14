@@ -7,11 +7,11 @@ import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Channel;
 import tech.intellispaces.reflections.framework.space.channel.ChannelFunctions;
 
-public class HttpPortExchangeChannelGenerator extends JaquariusArtifactGenerator {
+public class HttpPortExchangeChannelGenerator extends ReflectionsArtifactGenerator {
   private final CustomType portDomain;
   private final CustomType ontology;
   private final MethodStatement channelMethod;

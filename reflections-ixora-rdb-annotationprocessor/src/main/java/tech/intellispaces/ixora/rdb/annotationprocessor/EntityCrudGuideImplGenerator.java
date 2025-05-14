@@ -13,13 +13,13 @@ import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.ixora.rdb.transaction.Transactions;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Ontology;
 
 import java.util.Optional;
 
-public class EntityCrudGuideImplGenerator extends JaquariusArtifactGenerator {
+public class EntityCrudGuideImplGenerator extends ReflectionsArtifactGenerator {
   private String entityHandleSimpleName;
   private String entityTable;
   private String entityAlias;

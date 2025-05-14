@@ -16,7 +16,7 @@ import tech.intellispaces.jstatements.method.MethodParam;
 import tech.intellispaces.jstatements.method.MethodSignatureDeclarations;
 import tech.intellispaces.jstatements.method.MethodStatement;
 import tech.intellispaces.jstatements.reference.TypeReference;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.AutoGuide;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
+public class HttpPortGuideGenerator extends ReflectionsArtifactGenerator {
   private final CustomType portDomain;
   private final CustomType ontology;
   private final java.util.List<Map<String, Object>> guideMethods = new ArrayList<>();

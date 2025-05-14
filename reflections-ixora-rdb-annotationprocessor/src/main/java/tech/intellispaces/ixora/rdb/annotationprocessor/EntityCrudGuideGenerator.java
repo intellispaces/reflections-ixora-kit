@@ -4,7 +4,7 @@ import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactGenerator;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
@@ -12,7 +12,7 @@ import tech.intellispaces.reflections.framework.annotation.Ontology;
 
 import java.util.Optional;
 
-public class EntityCrudGuideGenerator extends JaquariusArtifactGenerator {
+public class EntityCrudGuideGenerator extends ReflectionsArtifactGenerator {
   private boolean entityHasIdentifier;
   private String entityHandleSimpleName;
   private String identifierType;

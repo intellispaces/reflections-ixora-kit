@@ -8,7 +8,7 @@ import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.rdb.annotation.PersistedEntity;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.reflections.annotationprocessor.AnnotationFunctions;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactProcessor;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactProcessor;
 
 import javax.annotation.processing.Processor;
 import javax.lang.model.element.ElementKind;
@@ -19,7 +19,7 @@ import java.util.List;
 public class PersistedEntityAnnotationProcessor extends ArtifactProcessor {
 
   public PersistedEntityAnnotationProcessor() {
-    super(ElementKind.INTERFACE, PersistedEntity.class, JaquariusArtifactProcessor.SOURCE_VERSION);
+    super(ElementKind.INTERFACE, PersistedEntity.class, ReflectionsArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override

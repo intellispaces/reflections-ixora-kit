@@ -24,7 +24,7 @@
     </build>
 
     <dependencies>
-        <!-- Intellispaces Jaquarius -->
+        <!-- Intellispaces Reflections -->
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
             <artifactId>reflections-ixora-jetty-ontology</artifactId>

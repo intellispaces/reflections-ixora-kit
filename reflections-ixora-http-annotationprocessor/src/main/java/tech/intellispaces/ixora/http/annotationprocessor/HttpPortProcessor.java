@@ -9,7 +9,7 @@ import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
 import tech.intellispaces.reflections.annotationprocessor.AnnotationFunctions;
-import tech.intellispaces.reflections.annotationprocessor.JaquariusArtifactProcessor;
+import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactProcessor;
 
 import javax.annotation.processing.Processor;
 import javax.lang.model.element.ElementKind;
@@ -20,7 +20,7 @@ import java.util.List;
 public class HttpPortProcessor extends ArtifactProcessor {
 
   public HttpPortProcessor() {
-    super(ElementKind.INTERFACE, HttpPort.class, JaquariusArtifactProcessor.SOURCE_VERSION);
+    super(ElementKind.INTERFACE, HttpPort.class, ReflectionsArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override

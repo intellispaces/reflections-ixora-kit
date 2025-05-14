@@ -5,18 +5,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.http.MovableOutboundHttpPortReflection;
 import tech.intellispaces.ixora.http.OutboundHttpPortTest;
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 public class OkHttpPortReflectionImplTest extends OutboundHttpPortTest {
 
   @BeforeEach
   public void init() {
-    Jaquarius.createModule().start();
+    ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void deinit() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   @Override

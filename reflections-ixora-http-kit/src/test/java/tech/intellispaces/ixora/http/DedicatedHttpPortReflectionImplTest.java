@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuideImpl;
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -18,12 +18,12 @@ public class DedicatedHttpPortReflectionImplTest {
 
   @BeforeEach
   public void init() {
-    Jaquarius.createModule(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
+    ReflectionsFramework.loadModule(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
   }
 
   @AfterEach
   public void deinit() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   @Test

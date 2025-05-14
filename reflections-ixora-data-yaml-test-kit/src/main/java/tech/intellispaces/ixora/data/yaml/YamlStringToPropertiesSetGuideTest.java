@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.ixora.data.association.PropertiesSet;
 import tech.intellispaces.ixora.data.collection.List;
-import tech.intellispaces.reflections.framework.Jaquarius;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,12 +16,12 @@ public abstract class YamlStringToPropertiesSetGuideTest {
 
   @BeforeEach
   public void init() {
-    Jaquarius.createModule().start();
+    ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void destroy() {
-    Jaquarius.releaseModule();
+    ReflectionsFramework.uploadModule();
   }
 
   public abstract YamlStringToPropertiesSetGuide guide();
