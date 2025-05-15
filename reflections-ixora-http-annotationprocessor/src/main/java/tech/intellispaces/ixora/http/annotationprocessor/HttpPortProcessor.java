@@ -8,8 +8,8 @@ import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.AnnotationFunctions;
-import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactProcessor;
+import tech.intellispaces.reflections.framework.annotationprocessor.AnnotationFunctions;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactProcessor;
 
 import javax.annotation.processing.Processor;
 import javax.lang.model.element.ElementKind;

@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>reflections-ixora-data-snakeyaml</artifactId>
+    <artifactId>reflections-ixora-data-snakeyaml-kit</artifactId>
     <packaging>jar</packaging>
 	
     <build>

@@ -10,11 +10,17 @@ import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
+import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 import tech.intellispaces.reflections.framework.reflection.OverlyingReflectionController;
 import tech.intellispaces.reflections.framework.reflection.PostRegistrationReflectionHandler;
 
 @Reflection(JettyServerPortDomain.class)
-public abstract class JettyServerPortReflectionImpl implements MovableJettyServerPortReflection, OverlyingReflectionController, PostRegistrationReflectionHandler {
+public abstract class JettyServerPortReflectionImpl implements
+    MovableJettyServerPortReflection,
+    OverlyingReflectionController,
+    PostRegistrationReflectionHandler,
+    NativeReflection<JettyServerPortDomain>
+{
   private final int portNumber;
   private final Server server;
   private final JettyServlet servlet;
@@ -36,6 +42,11 @@ public abstract class JettyServerPortReflectionImpl implements MovableJettyServe
     servlet = new JettyServlet();
     var servletHolder = new ServletHolder(servlet);
     servletHandler.addServletWithMapping(servletHolder, "/");
+  }
+
+  @Override
+  public Server boundObject() {
+    return server;
   }
 
   @Override

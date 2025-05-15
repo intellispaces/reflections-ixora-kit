@@ -5,7 +5,7 @@ import tech.intellispaces.core.id.IdentifierFunctions;
 import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Channel;
 import tech.intellispaces.reflections.framework.annotation.Ontology;
 import tech.intellispaces.reflections.framework.id.RepetableUuidIdentifierGenerator;

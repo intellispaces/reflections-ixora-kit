@@ -9,18 +9,28 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
+import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @Reflection(ByteInputStreamDomain.class)
-abstract class JavaByteInputStreamReflectionImpl implements MovableByteInputStream, MovableByteInputStreamReflection {
+abstract class JavaByteInputStreamReflectionImpl implements
+    MovableByteInputStream,
+    MovableByteInputStreamReflection,
+    NativeReflection<InputDataStreamDomain<Byte>>
+{
   private final InputStream is;
   private int buffer;
   private boolean buffered;
 
   JavaByteInputStreamReflectionImpl(InputStream is) {
     this.is = is;
+  }
+
+  @Override
+  public InputStream boundObject() {
+    return is;
   }
 
   @Mapper

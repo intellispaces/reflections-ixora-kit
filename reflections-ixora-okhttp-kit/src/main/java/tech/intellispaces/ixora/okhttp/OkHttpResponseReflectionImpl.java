@@ -9,9 +9,14 @@ import tech.intellispaces.ixora.http.HttpStatuses;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
+import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
 @Reflection(OkHttpResponseDomain.class)
-public abstract class OkHttpResponseReflectionImpl implements UnmovableOkHttpResponse, UnmovableOkHttpResponseReflection {
+public abstract class OkHttpResponseReflectionImpl implements
+    UnmovableOkHttpResponse,
+    UnmovableOkHttpResponseReflection,
+    NativeReflection<OkHttpResponseDomain>
+{
   private final Response underlyingResponse;
   private final MovableByteInputStreamReflection bodyStream;
 
@@ -22,7 +27,8 @@ public abstract class OkHttpResponseReflectionImpl implements UnmovableOkHttpRes
     this.bodyStream = (body != null ? ByteInputStreams.reflectionOf(body.byteStream()) : ByteInputStreams.empty());
   }
 
-  public Response getUnderlyingResponse() {
+  @Override
+  public Response boundObject() {
     return underlyingResponse;
   }
 

@@ -4,12 +4,17 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
+import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
 import java.util.Iterator;
 import java.util.List;
 
 @Reflection(ListDomain.class)
-abstract class JavaListReflectionImpl<E> implements UnmovableList<E>, UnmovableListReflection<E> {
+abstract class JavaListReflectionImpl<E> implements
+    UnmovableList<E>,
+    UnmovableListReflection<E>,
+    NativeReflection<ListDomain<E>>
+{
   private final List<E> list;
   private final Type<E> elementType;
 
@@ -23,7 +28,8 @@ abstract class JavaListReflectionImpl<E> implements UnmovableList<E>, UnmovableL
     this.elementType = elementType;
   }
 
-  List<E> list() {
+  @Override
+  public List<E> boundObject() {
     return list;
   }
 

@@ -9,7 +9,7 @@ import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;

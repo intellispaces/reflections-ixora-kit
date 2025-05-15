@@ -19,7 +19,7 @@
         <module>reflections-ixora-data-collection-kit</module>
         <module>reflections-ixora-data-cursor-kit</module>
         <module>reflections-ixora-data-stream-kit</module>
-        <module>reflections-ixora-data-snakeyaml</module>
+        <module>reflections-ixora-data-snakeyaml-kit</module>
         <module>reflections-ixora-data-yaml-test-kit</module>
         <module>reflections-ixora-rdb-kit</module>
         <module>reflections-ixora-rdb-annotationprocessor</module>
@@ -39,7 +39,7 @@
             <!-- Intellispaces -->
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
-                <artifactId>reflections-annotationprocessor</artifactId>
+                <artifactId>reflections-framework-annotationprocessor</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -148,7 +148,7 @@
         </dependency>
         <dependency>
             <groupId>tech.intellispaces.reflections</groupId>
-            <artifactId>reflections-annotationprocessor</artifactId>
+            <artifactId>reflections-framework-annotationprocessor</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

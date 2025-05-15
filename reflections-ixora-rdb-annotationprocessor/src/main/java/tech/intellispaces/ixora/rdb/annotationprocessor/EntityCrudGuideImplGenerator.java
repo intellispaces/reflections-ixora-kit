@@ -13,7 +13,7 @@ import tech.intellispaces.ixora.rdb.transaction.Transaction;
 import tech.intellispaces.ixora.rdb.transaction.Transactions;
 import tech.intellispaces.jstatements.customtype.CustomType;
 import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Ontology;
 

@@ -5,12 +5,17 @@ import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.UnmovableCollectionReflection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
+import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
 import java.util.Collections;
 import java.util.Map;
 
 @Reflection(MapDomain.class)
-abstract class JavaMapReflectionImpl<K, V> implements UnmovableMap<K, V>, UnmovableMapReflection<K, V> {
+abstract class JavaMapReflectionImpl<K, V> implements
+    UnmovableMap<K, V>,
+    UnmovableMapReflection<K, V>,
+    NativeReflection<MapDomain<K, V>>
+{
   private final Map<K, V> map;
   private final Type<K> keyType;
   private final Type<V> valueType;
@@ -27,7 +32,8 @@ abstract class JavaMapReflectionImpl<K, V> implements UnmovableMap<K, V>, Unmova
     this.valueType = valueType;
   }
 
-  Map<K, V> map() {
+  @Override
+  public Map<K, V> boundObject() {
     return map;
   }
 
