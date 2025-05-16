@@ -4,16 +4,16 @@ import tech.intellispaces.actions.Action;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
 import tech.intellispaces.jstatements.method.MethodStatement;
 import tech.intellispaces.reflections.framework.aop.Interceptor;
-import tech.intellispaces.reflections.framework.system.ProjectionProvider;
+import tech.intellispaces.reflections.framework.engine.ProjectionRegistry;
 
 import java.util.List;
 
 public class TransactionalInterceptor extends Interceptor {
 
   public TransactionalInterceptor(
-      MethodStatement joinPoint, Action nextAction, ProjectionProvider projectionProvider
+      MethodStatement joinPoint, Action nextAction, ProjectionRegistry projectionRegistry
   ) {
-    super(joinPoint, nextAction, projectionProvider);
+    super(joinPoint, nextAction, projectionRegistry);
   }
 
   @Override
@@ -29,7 +29,7 @@ public class TransactionalInterceptor extends Interceptor {
   }
 
   private MovableTransactionFactory getDefaultTransactionFactory() {
-    List<MovableTransactionFactory> transactionFactories = projectionProvider.getProjections(MovableTransactionFactory.class);
+    List<MovableTransactionFactory> transactionFactories = projectionRegistry.findProjections(MovableTransactionFactory.class);
     if (transactionFactories.isEmpty()) {
       throw TransactionExceptions.withMessage("Transaction factory is not found");
     }
