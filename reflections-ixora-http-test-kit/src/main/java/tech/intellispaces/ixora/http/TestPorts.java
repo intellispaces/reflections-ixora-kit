@@ -5,8 +5,8 @@ import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory
 public interface TestPorts {
 
   static MovableTestPortReflection create(
-      DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory
+      DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory
   ) {
-    return new TestPortImplWrapper(underlyingPortHandleFactory);
+    return new TestPortImplWrapper(underlyingPortReflectionFactory);
   }
 }

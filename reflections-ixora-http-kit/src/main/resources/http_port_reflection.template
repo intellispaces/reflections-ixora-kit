@@ -5,7 +5,7 @@ import {{$importedClass}};
 {{end}}
 
 /**
- * Logical HTTP port handle for {@link {{$sourceArtifactSimpleName}}}.<p/>
+ * Logical HTTP port reflection for {@link {{$sourceArtifactSimpleName}}}.<p/>
  *
  * This class was generated automatically. Don't try to change it.
  */

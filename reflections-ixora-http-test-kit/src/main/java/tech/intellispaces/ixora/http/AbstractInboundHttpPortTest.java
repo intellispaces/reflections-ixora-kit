@@ -14,7 +14,7 @@ public abstract class AbstractInboundHttpPortTest {
   private static final int PORT_NUMBER = 8080;
 
   public abstract MovableInboundHttpPort createPort(
-      int portNumber, MovableReflection<?> overlyingHandle
+      int portNumber, MovableReflection<?> overlyingReflection
   );
 
   public void init() {

@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public interface EntityAnnotationFunctions {
 
-  static String getEntityHandleCanonicalName(CustomType entityType) {
+  static String getEntityReflectionCanonicalName(CustomType entityType) {
     return ReflectionFunctions.getGeneralRegularObjectTypename(entityType);
   }
 

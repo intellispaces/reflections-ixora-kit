@@ -32,7 +32,7 @@ public class ResultSetToDataGuideImpl {
     try {
       return constructor.newInstance(arguments);
     } catch (Exception e) {
-      throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data handle");
+      throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data reflection");
     }
   }
 
@@ -48,7 +48,7 @@ public class ResultSetToDataGuideImpl {
       try {
         values.add(constructor.newInstance(arguments));
       } catch (Exception e) {
-        throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data handle");
+        throw UnexpectedExceptions.withCauseAndMessage(e, "Failed to create data reflection");
       }
     }
     return Lists.reflectionOf(values, dataClass);
@@ -58,21 +58,21 @@ public class ResultSetToDataGuideImpl {
   private <D> Constructor<D> getDataReflectionConstructor(Class<D> dataClass, Class<?> domainClass) {
     String dataReflectionClassName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getCanonicalName());
     Class<D> dataReflectionClass = (Class<D>) ClassFunctions.getClass(dataReflectionClassName).orElseThrow(() ->
-        UnexpectedExceptions.withMessage("Could not find data handle class by name {0} ",
+        UnexpectedExceptions.withMessage("Could not find data reflection class by name {0} ",
             dataReflectionClassName)
     );
 
     Constructor<?>[] constructors = dataReflectionClass.getConstructors();
     if (constructors.length > 1) {
-      throw UnexpectedExceptions.withMessage("Data handle class should have one constructor");
+      throw UnexpectedExceptions.withMessage("Data reflection class should have one constructor");
     }
     return (Constructor<D>) constructors[0];
   }
 
   private <D> Class<?> getDomainClass(Class<D> dataClass) {
-    Class<?> domainClass = ReflectionFunctions.getDomainClassOfObjectHandle(dataClass);
+    Class<?> domainClass = ReflectionFunctions.getReflectionDomainClass(dataClass);
     if (!DatasetFunctions.isDatasetDomain(domainClass)) {
-      throw UnexpectedExceptions.withMessage("Expected object handle class of the data domain. " +
+      throw UnexpectedExceptions.withMessage("Expected reflection class of the data domain. " +
           "Data domain should be annotated with @{0}", Dataset.class.getSimpleName());
     }
     return domainClass;

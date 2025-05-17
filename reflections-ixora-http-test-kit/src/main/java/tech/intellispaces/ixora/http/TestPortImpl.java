@@ -8,8 +8,8 @@ import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory
 public abstract class TestPortImpl implements MovableTestPortReflection {
   private final MovableInboundHttpPort underlyingPort;
 
-  public TestPortImpl(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortHandleFactory) {
-    this.underlyingPort = underlyingPortHandleFactory.create(this);
+  public TestPortImpl(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
+    this.underlyingPort = underlyingPortReflectionFactory.create(this);
   }
 
   @Mover

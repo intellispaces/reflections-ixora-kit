@@ -39,7 +39,7 @@ public class HttpPortFactoryGenerator extends ReflectionsArtifactGenerator {
     String providerCustomizerSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortAssistantCustomizerCanonicalName(sourceArtifact())
     );
-    String handleImplSimpleName = addImportAndGetSimpleName(
+    String reflectionImplSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortReflectionImplCanonicalName(sourceArtifact())
     );
     String movableReflectionSimpleName = addImportAndGetSimpleName(
@@ -47,7 +47,7 @@ public class HttpPortFactoryGenerator extends ReflectionsArtifactGenerator {
     );
 
     addVariable("providerCustomizerSimpleName", providerCustomizerSimpleName);
-    addVariable("handleImplSimpleName", handleImplSimpleName);
+    addVariable("reflectionImplSimpleName", reflectionImplSimpleName);
     addVariable("movableReflectionSimpleName", movableReflectionSimpleName);
     return true;
   }

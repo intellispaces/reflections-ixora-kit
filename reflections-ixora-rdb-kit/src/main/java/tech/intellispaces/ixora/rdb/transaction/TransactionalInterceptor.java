@@ -4,7 +4,7 @@ import tech.intellispaces.actions.Action;
 import tech.intellispaces.ixora.rdb.exception.TransactionExceptions;
 import tech.intellispaces.jstatements.method.MethodStatement;
 import tech.intellispaces.reflections.framework.aop.Interceptor;
-import tech.intellispaces.reflections.framework.engine.ProjectionRegistry;
+import tech.intellispaces.reflections.framework.system.ProjectionRegistry;
 
 import java.util.List;
 

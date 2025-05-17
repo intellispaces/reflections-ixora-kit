@@ -20,7 +20,7 @@ import tech.intellispaces.reflections.framework.annotation.Ontology;
 import java.util.Optional;
 
 public class EntityCrudGuideImplGenerator extends ReflectionsArtifactGenerator {
-  private String entityHandleSimpleName;
+  private String entityReflectionSimpleName;
   private String entityTable;
   private String entityAlias;
   private boolean entityHasIdentifier;
@@ -60,14 +60,14 @@ public class EntityCrudGuideImplGenerator extends ReflectionsArtifactGenerator {
     addImport(Transactions.class);
 
     guideType = addImportAndGetSimpleName(EntityAnnotationFunctions.getCrudGuideCanonicalName(sourceArtifact()));
-    entityHandleSimpleName = addImportAndGetSimpleName(
-        EntityAnnotationFunctions.getEntityHandleCanonicalName(sourceArtifact())
+    entityReflectionSimpleName = addImportAndGetSimpleName(
+        EntityAnnotationFunctions.getEntityReflectionCanonicalName(sourceArtifact())
     );
 
     analyzeEntity();
 
     addVariable("guideType", guideType);
-    addVariable("entityReflectionSimpleName", entityHandleSimpleName);
+    addVariable("entityReflectionSimpleName", entityReflectionSimpleName);
     addVariable("entityTable", entityTable);
     addVariable("entityAlias", entityAlias);
     addVariable("entityHasIdentifier", entityHasIdentifier);

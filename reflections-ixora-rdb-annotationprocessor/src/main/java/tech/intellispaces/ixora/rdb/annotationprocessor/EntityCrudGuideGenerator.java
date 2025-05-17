@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class EntityCrudGuideGenerator extends ReflectionsArtifactGenerator {
   private boolean entityHasIdentifier;
-  private String entityHandleSimpleName;
+  private String entityReflectionSimpleName;
   private String identifierType;
   private String transactionToEntityByIdentifierChannelSimpleName;
   private String transactionToNewEntityChannelSimpleName;
@@ -47,14 +47,14 @@ public class EntityCrudGuideGenerator extends ReflectionsArtifactGenerator {
     addImport(MapperOfMoving.class);
     addImport(Transaction.class);
 
-    entityHandleSimpleName = addImportAndGetSimpleName(
-        EntityAnnotationFunctions.getEntityHandleCanonicalName(sourceArtifact())
+    entityReflectionSimpleName = addImportAndGetSimpleName(
+        EntityAnnotationFunctions.getEntityReflectionCanonicalName(sourceArtifact())
     );
 
     analyzeEntityIdentifier();
 
     addVariable("entityHasIdentifier", entityHasIdentifier);
-    addVariable("entityReflectionSimpleName", entityHandleSimpleName);
+    addVariable("entityReflectionSimpleName", entityReflectionSimpleName);
     addVariable("identifierType", identifierType);
     addVariable("transactionToEntityByIdentifierChannelSimpleName", transactionToEntityByIdentifierChannelSimpleName);
     addVariable("transactionToNewEntityChannelSimpleName", transactionToNewEntityChannelSimpleName);

@@ -36,7 +36,7 @@ public class HttpPortReflectionGenerator extends ReflectionsArtifactGenerator {
 
   @Override
   protected String templateName() {
-    return "/http_port_handle.template";
+    return "/http_port_reflection.template";
   }
 
   @Override

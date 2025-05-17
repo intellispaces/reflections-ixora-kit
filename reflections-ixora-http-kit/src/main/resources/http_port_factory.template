@@ -15,6 +15,6 @@ public class {{$generatedArtifactSimpleName}} implements {{$providerCustomizerSi
 
   @Override
   public {{$movableReflectionSimpleName}} create(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
-    return new {{$handleImplSimpleName}}(underlyingPortReflectionFactory);
+    return new {{$reflectionImplSimpleName}}(underlyingPortReflectionFactory);
   }
 }

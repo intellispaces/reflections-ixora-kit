@@ -20,7 +20,7 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
   @Mapper
   @Override
   public <D> D propertiesSetToData(PropertiesSet props, Type<D> dataType) {
-    if (DatasetFunctions.isDatasetObjectHandle(dataType.asClassType().baseClass())) {
+    if (DatasetFunctions.isDatasetReflection(dataType.asClassType().baseClass())) {
       return process(props, dataType);
     }
     throw new UnsupportedOperationException("Not implemented");
@@ -28,20 +28,20 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
 
   @SuppressWarnings("unchecked")
   private <D> D process(PropertiesSet properties, Type<D> dataType) {
-    Class<?> domainClass = ReflectionFunctions.getDomainClassOfObjectHandle(dataType.asClassType().baseClass());
-    String dataHandleObjectCanonicalName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getName());
-    Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
-        UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
-                "expected data handle class {1}", domainClass.getCanonicalName(), dataHandleObjectCanonicalName));
-    Constructor<?>[] constructors = dataHandleObjectClass.getDeclaredConstructors();
+    Class<?> domainClass = ReflectionFunctions.getReflectionDomainClass(dataType.asClassType().baseClass());
+    String dataReflectionCanonicalName = NameConventionFunctions.getUnmovableDatasetClassName(domainClass.getName());
+    Class<?> dataReflectionClass = ClassFunctions.getClassOrElseThrow(dataReflectionCanonicalName, () ->
+        UnexpectedExceptions.withMessage("Can't find data reflection class. Domain class {0}, " +
+                "expected data reflection class {1}", domainClass.getCanonicalName(), dataReflectionCanonicalName));
+    Constructor<?>[] constructors = dataReflectionClass.getDeclaredConstructors();
     if (constructors.length != 1) {
       throw UnexpectedExceptions.withMessage("Data class {0} must contain one constructor",
-          dataHandleObjectCanonicalName);
+          dataReflectionCanonicalName);
     }
     Constructor<?> constructor = constructors[0];
     if (constructor.getParameterCount() != domainClass.getMethods().length) {
       throw UnexpectedExceptions.withMessage("Data class {0} must contain constructor with {1} parameters",
-          dataHandleObjectCanonicalName, dataType.asClassType().baseClass().getMethods().length);
+          dataReflectionCanonicalName, dataType.asClassType().baseClass().getMethods().length);
     }
 
     Object[] arguments = new Object[constructor.getParameterCount()];
@@ -51,7 +51,7 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof PropertiesSet && ReflectionFunctions.isObjectHandleClass(param.getType())) {
+      if (value instanceof PropertiesSet && ReflectionFunctions.isReflectionClass(param.getType())) {
         value = process((PropertiesSet) value, Types.get(param.getType()));
       }
       arguments[index++] = value;

@@ -35,17 +35,17 @@ public abstract class OutboundHttpPortTest {
       server = getServer();
       server.start();
 
-      HttpMethod methodHandle = mock(HttpMethod.class);
-      when(methodHandle.isGetMethod()).thenReturn(true);
+      HttpMethod method = mock(HttpMethod.class);
+      when(method.isGetMethod()).thenReturn(true);
 
-      HttpRequest requestHandle = mock(HttpRequest.class);
-      when(requestHandle.method()).thenReturn(methodHandle);
-      when(requestHandle.requestURI()).thenReturn(Uris.create(TEST_ADDRESS + HELLO_ENDPOINT));
+      HttpRequest request = mock(HttpRequest.class);
+      when(request.method()).thenReturn(method);
+      when(request.requestURI()).thenReturn(Uris.create(TEST_ADDRESS + HELLO_ENDPOINT));
 
       MovableOutboundHttpPortReflection port = getPort();
 
       // When
-      response = port.exchange(requestHandle);
+      response = port.exchange(request);
 
       // Then
       HttpStatus status = response.status();
