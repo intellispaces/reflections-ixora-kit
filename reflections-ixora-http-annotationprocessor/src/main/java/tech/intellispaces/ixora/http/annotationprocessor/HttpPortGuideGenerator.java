@@ -1,5 +1,10 @@
 package tech.intellispaces.ixora.http.annotationprocessor;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.exception.NotImplementedExceptions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
@@ -11,20 +16,15 @@ import tech.intellispaces.ixora.http.annotation.QueryParam;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.uri.GetUriQueryParamGuide;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodParam;
-import tech.intellispaces.jstatements.method.MethodSignatureDeclarations;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.jstatements.reference.TypeReference;
-import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodParam;
+import tech.intellispaces.javareflection.method.MethodSignatureDeclarations;
+import tech.intellispaces.javareflection.method.MethodStatement;
+import tech.intellispaces.javareflection.reference.TypeReference;
 import tech.intellispaces.reflections.framework.annotation.AutoGuide;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
 
 public class HttpPortGuideGenerator extends ReflectionsArtifactGenerator {
   private final CustomType portDomain;

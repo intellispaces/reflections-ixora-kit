@@ -1,16 +1,16 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.rdb.transaction.Transaction;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodStatement;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Ontology;
-
-import java.util.Optional;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 
 public class EntityCrudGuideGenerator extends ReflectionsArtifactGenerator {
   private boolean entityHasIdentifier;

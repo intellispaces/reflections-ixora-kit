@@ -1,18 +1,18 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.core.id.IdentifierFunctions;
 import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodStatement;
 import tech.intellispaces.reflections.framework.annotation.Channel;
 import tech.intellispaces.reflections.framework.annotation.Ontology;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.id.RepetableUuidIdentifierGenerator;
 import tech.intellispaces.reflections.framework.space.domain.DomainFunctions;
-
-import java.util.Optional;
-import java.util.UUID;
 
 public class EntityCrudOntologyGenerator extends ReflectionsArtifactGenerator {
   private String transactionToEntityByIdentifierCid;

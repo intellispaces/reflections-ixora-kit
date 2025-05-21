@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.hikaricp.datasource;
 
 import com.zaxxer.hikari.HikariConfig;
+
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceFactoryDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.MovableHikariDataSource;

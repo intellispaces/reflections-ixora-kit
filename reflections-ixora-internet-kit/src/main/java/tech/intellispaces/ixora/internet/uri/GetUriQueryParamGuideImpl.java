@@ -1,5 +1,9 @@
 package tech.intellispaces.ixora.internet.uri;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 import tech.intellispaces.commons.data.Pair;
 import tech.intellispaces.commons.data.Pairs;
 import tech.intellispaces.commons.text.StringFunctions;
@@ -7,10 +11,6 @@ import tech.intellispaces.ixora.data.collection.ListReflection;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
-
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 @Guide
 public class GetUriQueryParamGuideImpl implements GetUriQueryParamGuide {

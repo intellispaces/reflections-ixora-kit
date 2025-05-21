@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 @Reflection(Integer32ListDomain.class)
 abstract class IntegerArrayReflectionImpl implements UnmovableInteger32ListReflection {

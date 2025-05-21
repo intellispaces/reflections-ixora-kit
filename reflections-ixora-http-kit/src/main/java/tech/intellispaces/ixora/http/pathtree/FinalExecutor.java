@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http.pathtree;
 import tech.intellispaces.actions.Action2;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponseReflection;
-import tech.intellispaces.jstatements.method.MethodSignature;
+import tech.intellispaces.javareflection.method.MethodSignature;
 import tech.intellispaces.reflections.framework.action.TraverseActions;
 import tech.intellispaces.reflections.framework.channel.Channel1;
 

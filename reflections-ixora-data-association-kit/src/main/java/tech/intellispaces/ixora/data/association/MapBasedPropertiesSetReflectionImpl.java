@@ -1,5 +1,8 @@
 package tech.intellispaces.ixora.data.association;
 
+import java.util.Collections;
+import java.util.Map;
+
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.collection.List;
@@ -7,9 +10,6 @@ import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-
-import java.util.Collections;
-import java.util.Map;
 
 @Reflection(PropertiesSetDomain.class)
 abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertiesSet {

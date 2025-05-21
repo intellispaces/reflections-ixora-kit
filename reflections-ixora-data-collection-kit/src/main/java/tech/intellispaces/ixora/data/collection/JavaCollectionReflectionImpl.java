@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.reflection.NativeReflection;
-
-import java.util.Collection;
-import java.util.Iterator;
 
 @Reflection(CollectionDomain.class)
 abstract class JavaCollectionReflectionImpl<E> implements

@@ -1,13 +1,14 @@
 package tech.intellispaces.ixora.cli;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import tech.intellispaces.reflections.framework.ReflectionsFramework;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

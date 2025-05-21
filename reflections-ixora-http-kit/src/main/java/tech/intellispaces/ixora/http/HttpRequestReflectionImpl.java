@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.http;
 
+import java.io.InputStream;
+
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
 import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
 import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-
-import java.io.InputStream;
 
 @Reflection(HttpRequestDomain.class)
 abstract class HttpRequestReflectionImpl implements UnmovableHttpRequest {

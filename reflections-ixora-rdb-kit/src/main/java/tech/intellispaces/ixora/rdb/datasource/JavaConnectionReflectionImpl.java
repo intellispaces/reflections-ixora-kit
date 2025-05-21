@@ -1,5 +1,7 @@
 package tech.intellispaces.ixora.rdb.datasource;
 
+import java.sql.SQLException;
+
 import tech.intellispaces.ixora.rdb.exception.RdbExceptions;
 import tech.intellispaces.ixora.rdb.statement.JavaPreparedStatementReflectionImplWrapper;
 import tech.intellispaces.ixora.rdb.statement.JavaStatementReflectionImplWrapper;
@@ -8,8 +10,6 @@ import tech.intellispaces.ixora.rdb.statement.MovableStatement;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-
-import java.sql.SQLException;
 
 @Reflection(ConnectionDomain.class)
 abstract class JavaConnectionReflectionImpl implements MovableConnection {

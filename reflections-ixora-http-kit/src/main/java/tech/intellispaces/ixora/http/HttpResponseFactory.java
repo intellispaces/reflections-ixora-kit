@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.reflections.framework.annotation.Factory;
-
 import java.io.InputStream;
+
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class HttpResponseFactory implements HttpResponseAssistantCustomizer {

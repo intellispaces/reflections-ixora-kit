@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.data.collection;
 
+import java.util.Arrays;
+import java.util.Iterator;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-
-import java.util.Arrays;
-import java.util.Iterator;
 
 @Reflection(Real64ListDomain.class)
 abstract class DoubleArrayReflectionImpl implements UnmovableReal64ListReflection {

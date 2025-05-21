@@ -5,10 +5,10 @@ import tech.intellispaces.ixora.http.HttpRequestDomain;
 import tech.intellispaces.ixora.http.HttpResponseDomain;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodStatement;
 import tech.intellispaces.reflections.framework.annotation.Channel;
+import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsArtifactGenerator;
 import tech.intellispaces.reflections.framework.space.channel.ChannelFunctions;
 
 public class HttpPortExchangeChannelGenerator extends ReflectionsArtifactGenerator {

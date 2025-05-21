@@ -1,15 +1,15 @@
 package tech.intellispaces.ixora.http.common;
 
+import java.util.List;
+
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
 import tech.intellispaces.ixora.http.HttpRequestDomain;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodParam;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.jstatements.reference.CustomTypeReferences;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodParam;
+import tech.intellispaces.javareflection.method.MethodStatement;
+import tech.intellispaces.javareflection.reference.CustomTypeReferences;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
-
-import java.util.List;
 
 public interface HttpNameConventionFunctions {
 

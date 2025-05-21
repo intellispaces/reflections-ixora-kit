@@ -1,12 +1,12 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.core.Module;
-import tech.intellispaces.reflections.framework.ReflectionsFramework;
-import tech.intellispaces.reflections.framework.reflection.MovableReflection;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
+
+import tech.intellispaces.core.Module;
+import tech.intellispaces.reflections.framework.ReflectionsFramework;
+import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

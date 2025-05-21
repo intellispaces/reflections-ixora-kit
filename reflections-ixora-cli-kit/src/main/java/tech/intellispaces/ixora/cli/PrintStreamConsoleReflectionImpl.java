@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.cli;
 
-import tech.intellispaces.reflections.framework.annotation.Mover;
-import tech.intellispaces.reflections.framework.annotation.Reflection;
-
 import java.io.PrintStream;
 import java.util.Objects;
+
+import tech.intellispaces.reflections.framework.annotation.Mover;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(DummyConsoleDomain.class)
 public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyConsoleReflection {

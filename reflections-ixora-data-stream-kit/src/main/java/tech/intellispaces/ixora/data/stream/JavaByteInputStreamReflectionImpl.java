@@ -1,5 +1,8 @@
 package tech.intellispaces.ixora.data.stream;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
@@ -10,9 +13,6 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 import tech.intellispaces.reflections.framework.reflection.NativeReflection;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 @Reflection(ByteInputStreamDomain.class)
 abstract class JavaByteInputStreamReflectionImpl implements

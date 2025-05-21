@@ -1,17 +1,18 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
+import java.util.Optional;
+import java.util.function.Function;
+
 import jakarta.persistence.Id;
+
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.stream.Collectors;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.commons.type.ClassNameFunctions;
-import tech.intellispaces.jstatements.customtype.CustomType;
-import tech.intellispaces.jstatements.method.MethodStatement;
-import tech.intellispaces.jstatements.reference.TypeReference;
+import tech.intellispaces.javareflection.customtype.CustomType;
+import tech.intellispaces.javareflection.method.MethodStatement;
+import tech.intellispaces.javareflection.reference.TypeReference;
 import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
-
-import java.util.Optional;
-import java.util.function.Function;
 
 public interface EntityAnnotationFunctions {
 

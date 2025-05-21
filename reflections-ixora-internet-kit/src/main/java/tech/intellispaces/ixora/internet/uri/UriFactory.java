@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.internet.uri;
 
-import tech.intellispaces.reflections.framework.annotation.Factory;
-
 import java.net.URI;
+
+import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
 public class UriFactory implements UriAssistantCustomizer {

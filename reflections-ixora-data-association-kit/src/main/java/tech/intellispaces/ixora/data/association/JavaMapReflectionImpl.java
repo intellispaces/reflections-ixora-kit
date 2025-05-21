@@ -1,14 +1,14 @@
 package tech.intellispaces.ixora.data.association;
 
+import java.util.Collections;
+import java.util.Map;
+
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.UnmovableCollectionReflection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.reflection.NativeReflection;
-
-import java.util.Collections;
-import java.util.Map;
 
 @Reflection(MapDomain.class)
 abstract class JavaMapReflectionImpl<K, V> implements

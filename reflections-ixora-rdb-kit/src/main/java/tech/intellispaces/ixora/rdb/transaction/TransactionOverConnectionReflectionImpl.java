@@ -12,7 +12,11 @@ import tech.intellispaces.ixora.rdb.query.CastStringToParameterizedNamedQueryGui
 import tech.intellispaces.ixora.rdb.query.ParameterizedNamedQuery;
 import tech.intellispaces.ixora.rdb.statement.MovablePreparedStatement;
 import tech.intellispaces.ixora.rdb.statement.MovableResultSet;
-import tech.intellispaces.reflections.framework.annotation.*;
+import tech.intellispaces.reflections.framework.annotation.AutoGuide;
+import tech.intellispaces.reflections.framework.annotation.Inject;
+import tech.intellispaces.reflections.framework.annotation.Mapper;
+import tech.intellispaces.reflections.framework.annotation.Mover;
+import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 import static tech.intellispaces.ixora.data.association.Maps.mapReflection;
 import static tech.intellispaces.ixora.data.collection.Lists.listReflection;
