@@ -3,6 +3,8 @@ package tech.intellispaces.ixora.data.yaml;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import tech.intellispaces.core.Module;
 import tech.intellispaces.ixora.data.association.PropertiesSet;
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
@@ -13,15 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests for guide {@link YamlStringToPropertiesSetGuide}.
  */
 public abstract class YamlStringToPropertiesSetGuideTest {
+  private Module module;
 
   @BeforeEach
   public void init() {
-    ReflectionsFramework.loadModule().start();
+    module = ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void destroy() {
-    ReflectionsFramework.uploadModule();
+    module.stop().upload();
   }
 
   public abstract YamlStringToPropertiesSetGuide guide();

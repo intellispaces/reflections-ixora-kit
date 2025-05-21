@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import tech.intellispaces.core.Module;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
 import java.util.ArrayList;
@@ -16,15 +18,16 @@ import static org.mockito.Mockito.*;
  * Tests for {@link TransactionFunctions} class.
  */
 public class TransactionFunctionsTest {
+  private Module module;
 
   @BeforeEach
   public void init() {
-    ReflectionsFramework.loadModule().start();
+    module = ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void deinit() {
-    ReflectionsFramework.uploadModule();
+    module.stop().upload();
   }
 
   @Test

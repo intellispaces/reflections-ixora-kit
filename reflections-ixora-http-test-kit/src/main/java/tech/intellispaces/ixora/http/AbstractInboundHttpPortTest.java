@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.http;
 
+import tech.intellispaces.core.Module;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
@@ -10,7 +11,7 @@ import java.net.http.HttpResponse;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class AbstractInboundHttpPortTest {
-
+  private Module module;
   private static final int PORT_NUMBER = 8080;
 
   public abstract MovableInboundHttpPort createPort(
@@ -18,11 +19,11 @@ public abstract class AbstractInboundHttpPortTest {
   );
 
   public void init() {
-    ReflectionsFramework.loadModule(TestHttpPortExchangeGuideImpl.class).start();
+    module = ReflectionsFramework.loadModule(TestHttpPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {
-    ReflectionsFramework.uploadModule();
+    module.stop().upload();
   }
 
   public void testHello() throws Exception {

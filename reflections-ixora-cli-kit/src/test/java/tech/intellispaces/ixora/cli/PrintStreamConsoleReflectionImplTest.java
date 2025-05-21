@@ -15,15 +15,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests fo {@link PrintStreamConsoleReflectionImpl} class.
  */
 public class PrintStreamConsoleReflectionImplTest {
+  private tech.intellispaces.core.Module module;
 
   @BeforeEach
   public void init() {
-    ReflectionsFramework.loadModule().start();
+    module = ReflectionsFramework.loadModule().start();
   }
 
   @AfterEach
   public void destroy() {
-    ReflectionsFramework.uploadModule();
+    module.stop().upload();
   }
 
   @Test

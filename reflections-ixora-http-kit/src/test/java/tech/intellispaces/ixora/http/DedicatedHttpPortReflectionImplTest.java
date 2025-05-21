@@ -3,6 +3,8 @@ package tech.intellispaces.ixora.http;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import tech.intellispaces.core.Module;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuideImpl;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
 
@@ -15,15 +17,16 @@ import static org.mockito.Mockito.when;
  * Tests for {@link DedicatedHttpPortReflectionImpl} class.
  */
 public class DedicatedHttpPortReflectionImplTest {
+  private Module module;
 
   @BeforeEach
   public void init() {
-    ReflectionsFramework.loadModule(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
+    module = ReflectionsFramework.loadModule(JoinBasePathStringWithEndpointStringGuideImpl.class).start();
   }
 
   @AfterEach
   public void deinit() {
-    ReflectionsFramework.uploadModule();
+    module.stop().upload();
   }
 
   @Test
