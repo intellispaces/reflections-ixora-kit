@@ -6,7 +6,7 @@ import tech.intellispaces.ixora.data.yaml.YamlStringToPropertiesSetGuideTest;
 /**
  * Tests for {@link SnakeyamlGuide} class.
  */
-public class SnakeyamlGuideTestYaml extends YamlStringToPropertiesSetGuideTest {
+public class SnakeyamlGuideTest extends YamlStringToPropertiesSetGuideTest {
 
   @Override
   public YamlStringToPropertiesSetGuide guide() {

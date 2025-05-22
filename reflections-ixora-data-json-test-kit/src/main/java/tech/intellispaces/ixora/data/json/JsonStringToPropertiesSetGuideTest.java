@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.data.yaml;
+package tech.intellispaces.ixora.data.json;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,9 +12,9 @@ import tech.intellispaces.reflections.framework.ReflectionsFramework;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for guide {@link YamlStringToPropertiesSetGuide}.
+ * Tests for guide {@link JsonStringToPropertiesSetGuide}.
  */
-public abstract class YamlStringToPropertiesSetGuideTest {
+public abstract class JsonStringToPropertiesSetGuideTest {
   private Module module;
 
   @BeforeEach
@@ -27,15 +27,15 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     module.stop().upload();
   }
 
-  public abstract YamlStringToPropertiesSetGuide guide();
+  public abstract JsonStringToPropertiesSetGuide guide();
 
   @Test
-  public void testEmptyYaml() {
+  public void testEmptyJson() {
     // Given
-    String yaml = "";
+    String json = "{}";
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();
@@ -45,14 +45,16 @@ public abstract class YamlStringToPropertiesSetGuideTest {
   @Test
   public void testSimpleData() {
     // Given
-    String yaml = """
-        intValue: 1
-        doubleValue: 2.2
-        stringValue: abc
+    String json = """
+        {
+          "intValue": 1,
+          "doubleValue": 2.2,
+          "stringValue": "abc"
+        }
         """;
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();
@@ -72,15 +74,14 @@ public abstract class YamlStringToPropertiesSetGuideTest {
   @SuppressWarnings("unchecked")
   public void testIntegerList() {
     // Given
-    String yaml = """
-        values:
-          - 1
-          - 2
-          - 3
+    String json = """
+        {
+          "values": [ 1, 2, 3 ]
+        }
         """;
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();
@@ -101,15 +102,14 @@ public abstract class YamlStringToPropertiesSetGuideTest {
   @SuppressWarnings("unchecked")
   public void testDoubleList() {
     // Given
-    String yaml = """
-        values:
-          - 1.1
-          - 2.2
-          - 3.3
+    String json = """
+        {
+          "values": [ 1.1, 2.2, 3.3 ]
+        }
         """;
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();
@@ -130,15 +130,14 @@ public abstract class YamlStringToPropertiesSetGuideTest {
   @SuppressWarnings("unchecked")
   public void testStringList() {
     // Given
-    String yaml = """
-        values:
-          - "a"
-          - "b"
-          - "c"
+    String json = """
+        {
+          "values": [ "a", "b", "c" ]
+        }
         """;
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();
@@ -158,14 +157,17 @@ public abstract class YamlStringToPropertiesSetGuideTest {
   @Test
   public void testNestedData() {
     // Given
-    String yaml = """
-        value1: 1
-        nestedValue:
-          value2: abc
+    String json = """
+        {
+          "value1": 1,
+          "nestedValue": {
+            "value2": "abc"
+          }
+        }
         """;
 
     // When
-    PropertiesSet props = guide().traverse(yaml);
+    PropertiesSet props = guide().traverse(json);
 
     // Then
     assertThat(props).isNotNull();

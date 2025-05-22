@@ -32,6 +32,8 @@
         <module>reflections-ixora-http-test-ontology</module>
         <module>reflections-ixora-okhttp-kit</module>
         <module>reflections-ixora-jetty-kit</module>
+        <module>reflections-ixora-data-jackson-kit</module>
+        <module>reflections-ixora-data-json-test-kit</module>
     </modules>
 
     <dependencyManagement>
@@ -122,6 +124,12 @@
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
                 <artifactId>reflections-framework-engine</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>tech.intellispaces.reflections</groupId>
+                <artifactId>reflections-ixora-data-json-test-kit</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
                 <scope>test</scope>
             </dependency>
