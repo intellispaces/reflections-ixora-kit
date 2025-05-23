@@ -3,6 +3,7 @@ package tech.intellispaces.ixora.data.association;
 import java.util.Collections;
 import java.util.Map;
 
+import tech.intellispaces.commons.properties.PropertiesSets;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.collection.List;
@@ -12,19 +13,20 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(PropertiesSetDomain.class)
-abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertiesSet {
+abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertiesSet, NativePropertiesSetPresentable {
   private final Map<String, Object> map;
 
   MapBasedPropertiesSetReflectionImpl(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
-  public Map<String, Object> nativeMap() {
+  public Map<String, Object> asNativeMap() {
     return Collections.unmodifiableMap(map);
   }
 
-  Map<String, Object> map() {
-    return map;
+  @Override
+  public tech.intellispaces.commons.properties.PropertiesSet asNativePropertiesSet() {
+    return PropertiesSets.create(map, ".");
   }
 
   @Mapper
@@ -166,7 +168,7 @@ abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertie
   @Mapper
   @Override
   public int size() {
-    return nativeMap().size();
+    return asNativeMap().size();
   }
 
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
@@ -231,7 +233,7 @@ abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertie
     }
 
     Object result = null;
-    Map<String, Object> curMap = nativeMap();
+    Map<String, Object> curMap = asNativeMap();
     String[] parts = path.split("\\.");
     for (String part : parts) {
       if (curMap == null) {
