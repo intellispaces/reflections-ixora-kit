@@ -33,11 +33,6 @@ abstract class JavaCollectionReflectionImpl<E> implements
     return collection;
   }
 
-  @Override
-  public Type<CollectionDomain<E>> domainType() {
-    return Types.get(CollectionDomain.class, elementDomain);
-  }
-
   @Mapper
   @Override
   public Type<E> elementDomain() {

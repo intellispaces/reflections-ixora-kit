@@ -39,11 +39,6 @@ abstract class JavaListReflectionImpl<E> implements
     return Collections.reflectionOf(list, elementType);
   }
 
-  @Override
-  public Type<ListDomain<E>> domainType() {
-    return Types.get(ListDomain.class, elementType);
-  }
-
   @Mapper
   @Override
   public Type<E> elementDomain() {

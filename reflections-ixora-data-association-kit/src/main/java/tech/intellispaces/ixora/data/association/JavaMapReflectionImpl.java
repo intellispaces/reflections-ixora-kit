@@ -38,11 +38,6 @@ abstract class JavaMapReflectionImpl<K, V> implements
   }
 
   @Override
-  public Type<MapDomain<K, V>> domainType() {
-    return Types.get(MapDomain.class, keyType, valueType);
-  }
-
-  @Override
   public UnmovableCollectionReflection<KeyValuePair<K, V>> keyValuePairs() {
     throw new RuntimeException("Not implemented");
   }
