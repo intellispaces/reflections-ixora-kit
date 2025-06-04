@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.java.r21.java.util;
+package tech.intellispaces.ixora.java.collection;
 
 import java.util.ArrayList;
 
