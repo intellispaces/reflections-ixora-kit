@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import tech.intellispaces.commons.collection.ArraysFunctions;
+import tech.intellispaces.core.Rid;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
 import tech.intellispaces.ixora.http.HttpRequestReflection;
@@ -18,7 +19,7 @@ import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 class JettyServlet extends HttpServlet {
   private MovableJettyServerPortReflection port;
-  private String httpPortExchangeChannelCid;
+  private Rid httpPortExchangeChannelCid;
 
   void init(MovableJettyServerPortReflection port) {
     this.port = port;

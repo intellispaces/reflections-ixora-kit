@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.rdb.annotationprocessor;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
+import tech.intellispaces.core.Rid;
 import tech.intellispaces.core.id.IdentifierFunctions;
 import tech.intellispaces.ixora.rdb.transaction.TransactionDomain;
 import tech.intellispaces.javareflection.customtype.CustomType;
@@ -62,8 +62,8 @@ public class EntityCrudOntologyGenerator extends ReflectionsArtifactGenerator {
   }
 
   private void defineIdentifiers() {
-    String did = DomainFunctions.getDomainId(sourceArtifact());
-    var identifierGenerator = new RepetableUuidIdentifierGenerator(UUID.fromString(did));
+    Rid did = DomainFunctions.getDomainId(sourceArtifact());
+    var identifierGenerator = new RepetableUuidIdentifierGenerator(did.raw());
     transactionToEntityByIdentifierCid = IdentifierFunctions.convertToHexString(identifierGenerator.next());
     transactionToNewEntityCid = IdentifierFunctions.convertToHexString(identifierGenerator.next());
   }
