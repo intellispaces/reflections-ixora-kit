@@ -8,12 +8,12 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class ByteInputStreamFactory implements ByteInputStreamAssistantCustomizer {
 
   @Override
-  public MovableByteInputStreamReflection empty() {
+  public MovableByteInputStream empty() {
     return reflectionOf(InputStream.nullInputStream());
   }
 
   @Override
-  public MovableByteInputStreamReflection reflectionOf(InputStream is) {
-    return new JavaByteInputStreamReflectionImplWrapper(is);
+  public MovableByteInputStream reflectionOf(InputStream is) {
+    return new JavaByteInputStreamReflectionWrapper(is);
   }
 }

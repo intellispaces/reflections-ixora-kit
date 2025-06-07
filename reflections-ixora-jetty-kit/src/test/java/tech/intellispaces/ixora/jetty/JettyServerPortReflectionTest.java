@@ -9,9 +9,9 @@ import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 
 /**
- * Tests for {@link JettyServerPortReflectionImpl} class.
+ * Tests for {@link JettyServerPortReflection} class.
  */
-public class JettyServerPortReflectionImplTest extends AbstractInboundHttpPortTest {
+public class JettyServerPortReflectionTest extends AbstractInboundHttpPortTest {
 
   @BeforeEach
   public void init() {
@@ -24,9 +24,7 @@ public class JettyServerPortReflectionImplTest extends AbstractInboundHttpPortTe
   }
 
   @Override
-  public MovableInboundHttpPort createPort(
-      int portNumber, MovableReflection<?> overlyingReflection
-  ) {
+  public MovableInboundHttpPort createPort(int portNumber, MovableReflection overlyingReflection) {
     return JettyServerPorts.create(portNumber, overlyingReflection);
   }
 

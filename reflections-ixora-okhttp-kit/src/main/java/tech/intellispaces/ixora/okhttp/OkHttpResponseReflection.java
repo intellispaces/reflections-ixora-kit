@@ -4,24 +4,20 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamReflection;
-import tech.intellispaces.ixora.http.HttpStatusReflection;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
+import tech.intellispaces.ixora.http.HttpStatus;
 import tech.intellispaces.ixora.http.HttpStatuses;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
-@Reflection(OkHttpResponseDomain.class)
-public abstract class OkHttpResponseReflectionImpl implements
-    UnmovableOkHttpResponse,
-    UnmovableOkHttpResponseReflection,
-    NativeReflection<OkHttpResponseDomain>
-{
+@Reflection(domainClass = OkHttpResponseDomain.class)
+public abstract class OkHttpResponseReflection implements OkHttpResponse, NativeReflection {
   private final Response underlyingResponse;
-  private final MovableByteInputStreamReflection bodyStream;
+  private final MovableByteInputStream bodyStream;
 
-  OkHttpResponseReflectionImpl(Response underlyingResponse) {
+  OkHttpResponseReflection(Response underlyingResponse) {
     this.underlyingResponse = underlyingResponse;
 
     ResponseBody body = underlyingResponse.body();
@@ -35,13 +31,13 @@ public abstract class OkHttpResponseReflectionImpl implements
 
   @Mapper
   @Override
-  public HttpStatusReflection status() {
+  public HttpStatus status() {
     return HttpStatuses.get(underlyingResponse.code());
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStreamReflection bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 

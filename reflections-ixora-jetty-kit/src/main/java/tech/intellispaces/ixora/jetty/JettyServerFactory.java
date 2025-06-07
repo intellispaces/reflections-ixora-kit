@@ -7,7 +7,7 @@ import tech.intellispaces.reflections.framework.reflection.MovableReflection;
 public class JettyServerFactory implements JettyServerPortAssistantCustomizer {
 
   @Override
-  public MovableJettyServerPortReflection create(int portNumber, MovableReflection<?> overlyingReflection) {
-    return new JettyServerPortReflectionImplWrapper(portNumber, overlyingReflection);
+  public MovableJettyServerPort create(int portNumber, MovableReflection overlyingReflection) {
+    return new JettyServerPortReflectionWrapper(portNumber, overlyingReflection);
   }
 }

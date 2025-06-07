@@ -9,7 +9,7 @@ import {{$importedClass}};
  *
  * This class was generated automatically. Don't try to change it.
  */
-@Reflection({{$sourceArtifactSimpleName}}.class)
+@Reflection(domainClass = {{$sourceArtifactSimpleName}}.class)
 {{$generatedAnnotation}}
 public abstract class {{$generatedArtifactSimpleName}} implements {{$movableReflectionSimpleName}} {
   private final MovableInboundHttpPort underlyingPort;
@@ -35,7 +35,7 @@ public abstract class {{$generatedArtifactSimpleName}} implements {{$movableRefl
 
   @Override
   @MapperOfMoving
-  public HttpResponseReflection exchange(HttpRequest request) throws HttpException {
+  public HttpResponse exchange(HttpRequest request) throws HttpException {
     return HttpPortEngines.get().exchange(bridge, request);
   }
 }

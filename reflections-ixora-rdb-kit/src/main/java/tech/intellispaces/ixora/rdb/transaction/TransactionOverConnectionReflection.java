@@ -2,8 +2,9 @@ package tech.intellispaces.ixora.rdb.transaction;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.ixora.data.association.Map;
-import tech.intellispaces.ixora.data.association.MapReflection;
-import tech.intellispaces.ixora.data.collection.ListReflection;
+import tech.intellispaces.ixora.data.association.Maps;
+import tech.intellispaces.ixora.data.collection.List;
+import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.ixora.data.cursor.MovableCursor;
 import tech.intellispaces.ixora.rdb.datasource.Connection;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
@@ -18,18 +19,15 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-import static tech.intellispaces.ixora.data.association.Maps.mapReflection;
-import static tech.intellispaces.ixora.data.collection.Lists.listReflection;
-
-@Reflection(TransactionDomain.class)
-abstract class TransactionOverConnectionReflectionImpl implements MovableTransaction {
+@Reflection(domainClass = TransactionDomain.class)
+abstract class TransactionOverConnectionReflection implements MovableTransaction {
   private final MovableConnection connection;
 
   @Inject
   @AutoGuide
   abstract CastStringToParameterizedNamedQueryGuide castStringToParameterizedNamedQueryGuide();
 
-  TransactionOverConnectionReflectionImpl(MovableConnection connection) {
+  TransactionOverConnectionReflection(MovableConnection connection) {
     this.connection = connection;
     connection.disableAutoCommit();
   }
@@ -90,8 +88,8 @@ abstract class TransactionOverConnectionReflectionImpl implements MovableTransac
     MovablePreparedStatement ps = connection.createPreparedStatement(parameterizedQuery.query());
     setParamValues(
         ps,
-        listReflection(parameterizedQuery.paramNames(), String.class),
-        mapReflection(params, String.class, Object.class)
+        Lists.reflection(parameterizedQuery.paramNames(), String.class),
+        Maps.reflection(params, String.class, Object.class)
     );
     MovableResultSet rs = ps.executeQuery();
     return fetchData(dataType, rs);
@@ -109,7 +107,7 @@ abstract class TransactionOverConnectionReflectionImpl implements MovableTransac
   }
 
   private void setParamValues(
-      MovablePreparedStatement ps, ListReflection<String> paramNames, MapReflection<String, Object> params
+      MovablePreparedStatement ps, List<String> paramNames, Map<String, Object> params
   ) {
     int index = 1;
     for (String paramName : paramNames) {

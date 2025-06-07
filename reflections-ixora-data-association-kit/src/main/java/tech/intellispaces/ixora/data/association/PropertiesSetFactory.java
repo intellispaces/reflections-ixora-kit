@@ -5,7 +5,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 @Factory
 public class PropertiesSetFactory implements PropertiesSetAssistantCustomizer {
 
-  public UnmovablePropertiesSetReflection reflectionOf(java.util.Map<String, Object> map) {
-    return new MapBasedPropertiesSetReflectionImplWrapper(map);
+  public PropertiesSet reflectionOf(java.util.Map<String, Object> map) {
+    return new MapBasedPropertiesSetReflectionWrapper(map);
   }
 }

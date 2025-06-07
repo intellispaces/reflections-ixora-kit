@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.internet.uri;
 
 import java.util.Arrays;
 
-import tech.intellispaces.ixora.data.collection.ListReflection;
+import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
@@ -13,7 +13,7 @@ public class SplitUriPathStringToPartsGuideImpl implements SplitUriPathStringToP
 
   @Mapper
   @Override
-  public ListReflection<String> splitUriPathStringToParts(String uriPath) {
+  public List<String> splitUriPathStringToParts(String uriPath) {
     if (uriPath == null) {
       return null;
     }

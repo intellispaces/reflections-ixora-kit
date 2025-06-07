@@ -135,7 +135,7 @@ public class HttpPortGuideGenerator extends ReflectionsArtifactGenerator {
   }
 
   private String getGeneralPureObjectDeclaration(TypeReference domain) {
-    return ReflectionFunctions.geGeneralRegularObjectDeclaration(domain, true, this::addImportAndGetSimpleName);
+    return ReflectionFunctions.getGeneralReflectionDeclaration(domain, true, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {

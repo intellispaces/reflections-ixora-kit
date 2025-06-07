@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link DedicatedHttpPortReflectionImpl} class.
+ * Tests for {@link DedicatedHttpPortReflection} class.
  */
 public class DedicatedHttpPortReflectionImplTest {
   private Module module;
@@ -35,7 +35,7 @@ public class DedicatedHttpPortReflectionImplTest {
     HttpMethod httpGetMethod = HttpMethods.get();
     HttpMethod httpPostMethod = HttpMethods.post();
 
-    MovableHttpPort underlyingPort = mock(MovableHttpPortReflection.class);
+    MovableHttpPort underlyingPort = mock(MovableHttpPort.class);
 
     HttpResponse response1 = mock(HttpResponseReflection.class);
     when(underlyingPort.exchange(argThat(req -> req != null
@@ -50,7 +50,7 @@ public class DedicatedHttpPortReflectionImplTest {
     ).thenReturn(response2);
 
     String baseUrl = "http:localhost:8080/api";
-    var dedicatedHttpPort = new DedicatedHttpPortReflectionImplWrapper(baseUrl, underlyingPort);
+    var dedicatedHttpPort = new DedicatedHttpPortReflectionWrapper(baseUrl, underlyingPort);
 
     // When
     HttpResponse actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);

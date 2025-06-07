@@ -3,11 +3,11 @@ package tech.intellispaces.ixora.http;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(HttpStatusDomain.class)
-abstract class HttpStatusReflectionImpl implements UnmovableHttpStatus {
+@Reflection(domainClass = HttpStatusDomain.class)
+abstract class HttpStatusReflection implements HttpStatus {
   private final int code;
 
-  HttpStatusReflectionImpl(int code) {
+  HttpStatusReflection(int code) {
     this.code = code;
   }
 

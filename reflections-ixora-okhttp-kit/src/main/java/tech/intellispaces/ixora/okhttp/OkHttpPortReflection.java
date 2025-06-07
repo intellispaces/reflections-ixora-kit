@@ -15,11 +15,11 @@ import tech.intellispaces.ixora.http.exception.HttpExceptions;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(OkHttpPortDomain.class)
-public abstract class OkHttpPortReflectionImpl implements MovableOkHttpPort {
+@Reflection(domainClass = OkHttpPortDomain.class)
+public abstract class OkHttpPortReflection implements MovableOkHttpPort {
   private final OkHttpClient client;
 
-  public OkHttpPortReflectionImpl(OkHttpClient client) {
+  public OkHttpPortReflection(OkHttpClient client) {
     this.client = client;
   }
 
@@ -33,7 +33,7 @@ public abstract class OkHttpPortReflectionImpl implements MovableOkHttpPort {
     Request req = buildRequest(request);
     try {
       Response res = client.newCall(req).execute();
-      return OkHttpResponses.reflectionOf(res).asHttpResponse();
+      return OkHttpResponses.reflectionOf(res);
     } catch (IOException e) {
       throw HttpExceptions.withCauseAndMessage(e, "Could not call HTTP server");
     }

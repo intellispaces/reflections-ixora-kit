@@ -15,19 +15,19 @@ import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 import tech.intellispaces.reflections.framework.reflection.OverlyingReflectionController;
 import tech.intellispaces.reflections.framework.reflection.PostRegistrationReflectionHandler;
 
-@Reflection(JettyServerPortDomain.class)
-public abstract class JettyServerPortReflectionImpl implements
-    MovableJettyServerPortReflection,
+@Reflection(domainClass = JettyServerPortDomain.class)
+public abstract class JettyServerPortReflection implements
+    MovableJettyServerPort,
     OverlyingReflectionController,
     PostRegistrationReflectionHandler,
-    NativeReflection<JettyServerPortDomain>
+    NativeReflection
 {
   private final int portNumber;
   private final Server server;
   private final JettyServlet servlet;
-  private MovableReflection<?> overlyingReflection;
+  private final MovableReflection overlyingReflection;
 
-  public JettyServerPortReflectionImpl(int portNumber, MovableReflection<?> overlyingReflection) {
+  public JettyServerPortReflection(int portNumber, MovableReflection overlyingReflection) {
     this.portNumber = portNumber;
     this.overlyingReflection = overlyingReflection;
 
@@ -63,7 +63,7 @@ public abstract class JettyServerPortReflectionImpl implements
 
   @Mover
   @Override
-  public MovableJettyServerPortReflection open() {
+  public MovableJettyServerPort open() {
     try {
       servlet.init(this);
       server.start();
@@ -75,7 +75,7 @@ public abstract class JettyServerPortReflectionImpl implements
 
   @Mover
   @Override
-  public MovableJettyServerPortReflection shut() {
+  public MovableJettyServerPort shut() {
     stopServer();
     return this;
   }

@@ -5,11 +5,11 @@ import java.net.URI;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(UriDomain.class)
-public abstract class JavaUriReflectionImpl implements UnmovableUri {
+@Reflection(domainClass = UriDomain.class)
+public abstract class JavaUriReflection implements Uri {
   private final URI uri;
 
-  public JavaUriReflectionImpl(URI uri) {
+  public JavaUriReflection(URI uri) {
     this.uri = uri;
   }
 

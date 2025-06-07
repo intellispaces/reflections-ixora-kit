@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tech.intellispaces.ixora.rdb.datasource.JavaConnectionReflectionImplWrapper;
+import tech.intellispaces.ixora.rdb.datasource.JavaConnectionReflectionWrapper;
 import tech.intellispaces.ixora.rdb.datasource.MovableConnection;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceDomain;
 import tech.intellispaces.ixora.rdb.hikaricp.datasource.HikariDataSourceSettings;
@@ -15,14 +15,14 @@ import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 
-@Reflection(value = HikariDataSourceDomain.class)
-public abstract class HikariDataSourceReflectionImpl implements MovableHikariDataSource {
-  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceReflectionImpl.class);
+@Reflection(domainClass = HikariDataSourceDomain.class)
+public abstract class HikariDataSourceReflection implements MovableHikariDataSource {
+  private static final Logger LOG = LoggerFactory.getLogger(HikariDataSourceReflection.class);
 
   private final HikariDataSourceSettings dataSourceProperties;
   private final com.zaxxer.hikari.HikariDataSource dataSource;
 
-  public HikariDataSourceReflectionImpl(
+  public HikariDataSourceReflection(
       com.zaxxer.hikari.HikariDataSource dataSource,
       HikariDataSourceSettings dataSourceSettings
   ) {
@@ -44,7 +44,7 @@ public abstract class HikariDataSourceReflectionImpl implements MovableHikariDat
     }
     try {
       java.sql.Connection connection = dataSource.getConnection();
-      return new JavaConnectionReflectionImplWrapper(connection);
+      return new JavaConnectionReflectionWrapper(connection);
     } catch (SQLException e) {
       throw TraverseExceptions.withCauseAndMessage(e, "Could not get JDBC connection from Hikari data source. " +
           "URL '{}', username '{}'");

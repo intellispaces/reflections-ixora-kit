@@ -2,11 +2,11 @@ package tech.intellispaces.ixora.http.engine;
 
 import tech.intellispaces.commons.abstraction.Reference;
 import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponseReflection;
+import tech.intellispaces.ixora.http.HttpResponse;
 
 public interface HttpPortEngine {
 
   Reference<?> bridge(Object port, Class<?> portDomain);
 
-  HttpResponseReflection exchange(Reference<?> bridge, HttpRequest request);
+  HttpResponse exchange(Reference<?> bridge, HttpRequest request);
 }

@@ -15,7 +15,7 @@ public abstract class AbstractInboundHttpPortTest {
   private static final int PORT_NUMBER = 8080;
 
   public abstract MovableInboundHttpPort createPort(
-      int portNumber, MovableReflection<?> overlyingReflection
+      int portNumber, MovableReflection overlyingReflection
   );
 
   public void init() {
@@ -27,7 +27,7 @@ public abstract class AbstractInboundHttpPortTest {
   }
 
   public void testHello() throws Exception {
-    MovableTestPortReflection testPort = TestPorts.create(overlyingReflection -> this.createPort(PORT_NUMBER, overlyingReflection));
+    MovableTestPort testPort = TestPorts.create(overlyingReflection -> this.createPort(PORT_NUMBER, overlyingReflection));
     testPort.open();
     HttpResponse<String> res = callServer();
     String message = res.body();

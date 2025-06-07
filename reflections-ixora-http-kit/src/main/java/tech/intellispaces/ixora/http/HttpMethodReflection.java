@@ -3,11 +3,11 @@ package tech.intellispaces.ixora.http;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(HttpMethodDomain.class)
-abstract class HttpMethodReflectionImpl implements UnmovableHttpMethod {
+@Reflection(domainClass = HttpMethodDomain.class)
+abstract class HttpMethodReflection implements HttpMethod {
   private final String name;
 
-  HttpMethodReflectionImpl(String name) {
+  HttpMethodReflection(String name) {
     this.name = name;
   }
 

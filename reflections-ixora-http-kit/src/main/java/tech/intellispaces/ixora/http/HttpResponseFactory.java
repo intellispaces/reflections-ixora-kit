@@ -8,22 +8,22 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class HttpResponseFactory implements HttpResponseAssistantCustomizer {
 
   @Override
-  public HttpResponseReflection create(HttpStatusReflection status) {
-    return new HttpResponseReflectionImplWrapper(status);
+  public HttpResponse create(HttpStatus status) {
+    return new HttpResponseReflectionWrapper(status);
   }
 
   @Override
-  public HttpResponseReflection create(HttpStatusReflection status, InputStream body) {
-    return new HttpResponseReflectionImplWrapper(status, body);
+  public HttpResponse create(HttpStatus status, InputStream body) {
+    return new HttpResponseReflectionWrapper(status, body);
   }
 
   @Override
-  public HttpResponseReflection create(HttpStatusReflection status, String body) {
-    return new HttpResponseReflectionImplWrapper(status, body);
+  public HttpResponse create(HttpStatus status, String body) {
+    return new HttpResponseReflectionWrapper(status, body);
   }
 
   @Override
-  public HttpResponseReflection create(HttpStatusReflection status, byte[] body) {
-    return new HttpResponseReflectionImplWrapper(status, body);
+  public HttpResponse create(HttpStatus status, byte[] body) {
+    return new HttpResponseReflectionWrapper(status, body);
   }
 }

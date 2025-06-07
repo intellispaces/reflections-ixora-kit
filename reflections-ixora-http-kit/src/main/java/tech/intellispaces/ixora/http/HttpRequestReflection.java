@@ -8,13 +8,13 @@ import tech.intellispaces.ixora.internet.uri.Uri;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(HttpRequestDomain.class)
-abstract class HttpRequestReflectionImpl implements UnmovableHttpRequest {
+@Reflection(domainClass = HttpRequestDomain.class)
+abstract class HttpRequestReflection implements HttpRequest {
   private final HttpMethod method;
   private final Uri requestURI;
   private final MovableByteInputStream bodyStream;
 
-  HttpRequestReflectionImpl(HttpMethod method, Uri requestURI) {
+  HttpRequestReflection(HttpMethod method, Uri requestURI) {
     this.method = method;
     this.requestURI = requestURI;
     this.bodyStream = ByteInputStreams.reflectionOf(InputStream.nullInputStream());

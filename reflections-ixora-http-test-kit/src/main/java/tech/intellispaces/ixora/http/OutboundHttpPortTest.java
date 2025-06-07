@@ -26,11 +26,11 @@ public abstract class OutboundHttpPortTest {
   private static final String HELLO_ENDPOINT = "/hello";
   private static final String HELLO_RESPONSE = "Hello!";
 
-  protected abstract MovableOutboundHttpPortReflection getPort();
+  protected abstract MovableOutboundHttpPort getPort();
 
   public void testHello() {
     HttpServer server = null;
-    HttpResponseReflection response = null;
+    HttpResponse response = null;
     try {
       // Given
       server = getServer();
@@ -43,7 +43,7 @@ public abstract class OutboundHttpPortTest {
       when(request.method()).thenReturn(method);
       when(request.requestURI()).thenReturn(Uris.create(TEST_ADDRESS + HELLO_ENDPOINT));
 
-      MovableOutboundHttpPortReflection port = getPort();
+      MovableOutboundHttpPort port = getPort();
 
       // When
       response = port.exchange(request);

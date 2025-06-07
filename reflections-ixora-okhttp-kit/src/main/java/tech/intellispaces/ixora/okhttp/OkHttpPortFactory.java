@@ -10,16 +10,16 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class OkHttpPortFactory implements OkHttpPortAssistantCustomizer {
 
   @Override
-  public MovableOkHttpPortReflection create() {
-    return new OkHttpPortReflectionImplWrapper(new OkHttpClient());
+  public MovableOkHttpPort create() {
+    return new OkHttpPortReflectionWrapper(new OkHttpClient());
   }
 
   @Override
-  public MovableOkHttpPortReflection create(OkHttpPortSettings properties) {
+  public MovableOkHttpPort create(OkHttpPortSettings properties) {
     var builder = new OkHttpClient().newBuilder();
     builder.connectTimeout(properties.connectTimeoutMs(), TimeUnit.MILLISECONDS);
     builder.readTimeout(properties.readTimeoutMs(), TimeUnit.MILLISECONDS);
     builder.writeTimeout(properties.writeTimeoutMs(), TimeUnit.MILLISECONDS);
-    return new OkHttpPortReflectionImplWrapper(builder.build());
+    return new OkHttpPortReflectionWrapper(builder.build());
   }
 }

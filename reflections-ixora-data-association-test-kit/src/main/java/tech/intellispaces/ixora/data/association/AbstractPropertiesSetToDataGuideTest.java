@@ -21,7 +21,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    PrimitiveData data = getGuide().propertiesSetToData(props, Types.get(PrimitiveData.class));
+    PrimitiveDataDomain data = getGuide().propertiesSetToData(props, Types.get(PrimitiveDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -35,7 +35,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    SimpleData data = getGuide().propertiesSetToData(props, Types.get(SimpleData.class));
+    SimpleDataDomain data = getGuide().propertiesSetToData(props, Types.get(SimpleDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -50,7 +50,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    NestedData data = getGuide().propertiesSetToData(props, Types.get(NestedData.class));
+    NestedDataDomain data = getGuide().propertiesSetToData(props, Types.get(NestedDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -66,7 +66,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     when(props.value("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveData data = getGuide().propertiesSetToData(props, Types.get(PrimitiveData.class));
+    PrimitiveDataDomain data = getGuide().propertiesSetToData(props, Types.get(PrimitiveDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -83,7 +83,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     when(props.value("stringValue")).thenReturn("abc");
 
     // When
-    SimpleData data = getGuide().propertiesSetToData(props, Types.get(SimpleData.class));
+    SimpleDataDomain data = getGuide().propertiesSetToData(props, Types.get(SimpleDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -102,7 +102,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     when(nestedProps.value("stringValue")).thenReturn("def");
 
     // When
-    NestedData data = getGuide().propertiesSetToData(props, Types.get(NestedData.class));
+    NestedDataDomain data = getGuide().propertiesSetToData(props, Types.get(NestedDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();

@@ -2,56 +2,57 @@ package tech.intellispaces.ixora.data.collection;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(Real64ListDomain.class)
-abstract class DoubleArrayReflectionImpl implements UnmovableReal64ListReflection {
-  private final double[] array;
-  private final Type<Double> elementType = Types.get(Double.class);
-  private java.util.List<Double> list;
+@Reflection(domainClass = Integer32ListDomain.class)
+abstract class IntegerArrayReflection implements Integer32List {
+  private final int[] array;
+  private final Type<Integer> elementType = Types.get(Integer.class);
+  private List<Integer> list;
 
-  DoubleArrayReflectionImpl(double[] array) {
+  IntegerArrayReflection(int[] array) {
     this.array = array;
   }
 
-  DoubleArrayReflectionImpl(java.util.List<Double> list) {
-    this.array = list.stream().mapToDouble(d -> d).toArray();
+  IntegerArrayReflection(List<Integer> list) {
+    this.array = list.stream().mapToInt(i -> i).toArray();
     this.list = list;
   }
 
-  public double[] array() {
+  public int[] array() {
     return array;
   }
 
   @Mapper
   @Override
-  public UnmovableCollectionReflection<Double> asCollection() {
-    return new JavaCollectionReflectionImplWrapper<>(list(), elementType);
+  public Collection<Integer> asCollection() {
+    return new JavaCollectionReflectionWrapper<>(list(), elementType);
   }
 
   @Mapper
   @Override
-  public Type<Double> elementDomain() {
+  public Type<Integer> elementDomain() {
     return elementType;
   }
 
   @Mapper
   @Override
-  public Double get(int index) {
+  public Integer get(int index) {
     return getElement(index);
   }
 
   @Mapper
   @Override
-  public double getAsPrimitive(int index) {
+  public int getAsPrimitive(int index) {
     return getElement(index);
   }
 
-  private double getElement(int index) {
+  private int getElement(int index) {
     return array[index];
   }
 
@@ -62,14 +63,15 @@ abstract class DoubleArrayReflectionImpl implements UnmovableReal64ListReflectio
   }
 
   @Override
-  public Iterator<Double> iterator() {
+  public Iterator<Integer> iterator() {
     return list().iterator();
   }
 
-  private java.util.List<Double> list() {
+  private List<Integer> list() {
     if (list == null) {
       list = Arrays.stream(array).boxed().toList();
     }
     return list;
   }
 }
+

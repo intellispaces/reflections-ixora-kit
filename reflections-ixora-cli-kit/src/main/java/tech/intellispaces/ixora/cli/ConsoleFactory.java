@@ -7,7 +7,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 @Factory
 public class ConsoleFactory {
 
-  public MovableConsoleReflection dummy(PrintStream ps) {
-    return new PrintStreamConsoleReflectionImplWrapper(ps).asConsole();
+  public MovableConsole dummy(PrintStream ps) {
+    return new PrintStreamConsoleReflectionWrapper(ps);
   }
 }

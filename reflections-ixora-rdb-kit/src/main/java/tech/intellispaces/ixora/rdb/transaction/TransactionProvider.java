@@ -8,12 +8,12 @@ import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 
 @Factory
 public class TransactionProvider implements TransactionAssistantCustomizer {
-  private static final ThreadLocal<Deque<MovableTransactionReflection>> CURRENT_TRANSACTIONS = new ThreadLocal<>();
+  private static final ThreadLocal<Deque<MovableTransaction>> CURRENT_TRANSACTIONS = new ThreadLocal<>();
 
   @Override
-  public MovableTransactionReflection current() {
-    MovableTransactionReflection tx = null;
-    Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
+  public MovableTransaction current() {
+    MovableTransaction tx = null;
+    Deque<MovableTransaction> transactions = CURRENT_TRANSACTIONS.get();
     if (transactions != null) {
       tx = transactions.peek();
     }
@@ -23,16 +23,16 @@ public class TransactionProvider implements TransactionAssistantCustomizer {
     return tx;
   }
 
-  public static void setCurrentTransaction(MovableTransactionReflection tx) {
+  public static void setCurrentTransaction(MovableTransaction tx) {
     if (tx != null) {
-      Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
+      Deque<MovableTransaction> transactions = CURRENT_TRANSACTIONS.get();
       if (transactions == null) {
         transactions = new ArrayDeque<>();
         CURRENT_TRANSACTIONS.set(transactions);
       }
       transactions.push(tx);
     } else {
-      Deque<MovableTransactionReflection> transactions = CURRENT_TRANSACTIONS.get();
+      Deque<MovableTransaction> transactions = CURRENT_TRANSACTIONS.get();
       if (transactions != null) {
         transactions.pop();
       }

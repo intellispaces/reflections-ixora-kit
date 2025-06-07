@@ -4,24 +4,24 @@ import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.reflection.DownwardObjectFactory;
 
-@Reflection(TestPortDomain.class)
-public abstract class TestPortImpl implements MovableTestPortReflection {
+@Reflection(domainClass = TestPortDomain.class)
+public abstract class TestPortReflection implements MovableTestPort {
   private final MovableInboundHttpPort underlyingPort;
 
-  public TestPortImpl(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
+  public TestPortReflection(DownwardObjectFactory<? extends MovableInboundHttpPort> underlyingPortReflectionFactory) {
     this.underlyingPort = underlyingPortReflectionFactory.create(this);
   }
 
   @Mover
   @Override
-  public MovableTestPortReflection open() {
+  public MovableTestPort open() {
     underlyingPort.open();
     return this;
   }
 
   @Mover
   @Override
-  public MovableTestPortReflection shut() {
+  public MovableTestPort shut() {
     underlyingPort.shut();
     return this;
   }

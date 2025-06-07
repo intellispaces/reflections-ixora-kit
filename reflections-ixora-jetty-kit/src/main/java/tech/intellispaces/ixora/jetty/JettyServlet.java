@@ -10,18 +10,18 @@ import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.core.Rid;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpPortExchangeChannel;
-import tech.intellispaces.ixora.http.HttpRequestReflection;
+import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpRequests;
-import tech.intellispaces.ixora.http.UnmovableHttpResponseReflection;
+import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.reflections.framework.space.channel.ChannelFunctions;
 
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 class JettyServlet extends HttpServlet {
-  private MovableJettyServerPortReflection port;
+  private MovableJettyServerPort port;
   private Rid httpPortExchangeChannelCid;
 
-  void init(MovableJettyServerPortReflection port) {
+  void init(MovableJettyServerPort port) {
     this.port = port;
     this.httpPortExchangeChannelCid = ChannelFunctions.getChannelId(HttpPortExchangeChannel.class);
   }
@@ -30,12 +30,12 @@ class JettyServlet extends HttpServlet {
   protected void doGet(
       HttpServletRequest servletRequest, HttpServletResponse servletResponse
   ) throws IOException {
-    HttpRequestReflection req = requestReflection(servletRequest);
-    UnmovableHttpResponseReflection res = port.mapOfMovingThru(httpPortExchangeChannelCid, req);
+    HttpRequest req = requestReflection(servletRequest);
+    HttpResponse res = port.mapOfMovingThru(httpPortExchangeChannelCid, req);
     populateResponse(servletResponse, res);
   }
 
-  private HttpRequestReflection requestReflection(HttpServletRequest req) {
+  private HttpRequest requestReflection(HttpServletRequest req) {
     String url = req.getRequestURL().toString();
     String query = req.getQueryString();
     String uri = (query == null ? url : url + '?' + query);
@@ -43,7 +43,7 @@ class JettyServlet extends HttpServlet {
   }
 
   private void populateResponse(
-      HttpServletResponse servletResponse, UnmovableHttpResponseReflection responseReflection
+      HttpServletResponse servletResponse, HttpResponse responseReflection
   ) throws IOException {
     if (responseReflection.status().isOkStatus()) {
       servletResponse.setStatus(HttpServletResponse.SC_OK);

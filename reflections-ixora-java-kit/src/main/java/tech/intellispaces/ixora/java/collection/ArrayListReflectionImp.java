@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.reflection.NativeReflection;
 
-@Reflection(ArrayListDomain.class)
-public abstract class ArrayListReflectionImp implements MovableArrayListReflection, NativeReflection<ArrayListDomain> {
+@Reflection(domainClass = ArrayListDomain.class)
+public abstract class ArrayListReflectionImp implements MovableArrayList, NativeReflection {
   private final ArrayList<?> arrayList;
 
   public ArrayListReflectionImp(ArrayList<?> arrayList) {

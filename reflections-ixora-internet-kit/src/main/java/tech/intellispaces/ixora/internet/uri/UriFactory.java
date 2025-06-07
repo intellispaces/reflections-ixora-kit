@@ -8,7 +8,7 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class UriFactory implements UriAssistantCustomizer {
 
   @Override
-  public UriReflection create(String string) {
-    return new JavaUriReflectionImplWrapper(URI.create(string));
+  public Uri create(String string) {
+    return new JavaUriReflectionWrapper(URI.create(string));
   }
 }

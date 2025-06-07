@@ -13,9 +13,9 @@ import tech.intellispaces.reflections.framework.ReflectionsFramework;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests fo {@link PrintStreamConsoleReflectionImpl} class.
+ * Tests fo {@link PrintStreamConsoleReflection} class.
  */
-public class PrintStreamConsoleReflectionImplTest {
+public class PrintStreamConsoleReflectionTest {
   private tech.intellispaces.core.Module module;
 
   @BeforeEach
@@ -33,7 +33,7 @@ public class PrintStreamConsoleReflectionImplTest {
     // Given
     var os = new ByteArrayOutputStream();
     var ps = new PrintStream(os, true, StandardCharsets.UTF_8);
-    var console = new PrintStreamConsoleReflectionImplWrapper(ps);
+    var console = new PrintStreamConsoleReflectionWrapper(ps);
 
     // When
     console.println("abc");

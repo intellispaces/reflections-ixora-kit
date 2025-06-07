@@ -6,11 +6,11 @@ import java.util.Objects;
 import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(DummyConsoleDomain.class)
-public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyConsoleReflection {
+@Reflection(domainClass = DummyConsoleDomain.class)
+public abstract class PrintStreamConsoleReflection implements MovableDummyConsole {
   private final PrintStream ps;
 
-  public PrintStreamConsoleReflectionImpl(PrintStream ps) {
+  public PrintStreamConsoleReflection(PrintStream ps) {
     this.ps = ps;
   }
 
@@ -20,7 +20,7 @@ public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyCo
 
   @Mover
   @Override
-  public MovableDummyConsoleReflection print(String string) {
+  public MovableDummyConsole print(String string) {
     Objects.requireNonNull(string);
     ps.print(string);
     return this;
@@ -28,14 +28,14 @@ public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyCo
 
   @Mover
   @Override
-  public MovableDummyConsoleReflection print(int number) {
+  public MovableDummyConsole print(int number) {
     ps.print(number);
     return this;
   }
 
   @Mover
   @Override
-  public MovableDummyConsoleReflection println(String string) {
+  public MovableDummyConsole println(String string) {
     Objects.requireNonNull(string);
     ps.println(string);
     return this;
@@ -43,7 +43,7 @@ public abstract class PrintStreamConsoleReflectionImpl implements MovableDummyCo
 
   @Mover
   @Override
-  public MovableDummyConsoleReflection println(int number) {
+  public MovableDummyConsole println(int number) {
     ps.println(number);
     return this;
   }

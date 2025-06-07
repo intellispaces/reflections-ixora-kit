@@ -6,42 +6,42 @@ import tech.intellispaces.commons.collection.ArraysFunctions;
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.text.StringFunctions;
 import tech.intellispaces.ixora.data.stream.ByteInputStreams;
-import tech.intellispaces.ixora.data.stream.MovableByteInputStreamReflection;
+import tech.intellispaces.ixora.data.stream.MovableByteInputStream;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(HttpResponseDomain.class)
-abstract class HttpResponseReflectionImpl implements UnmovableHttpResponseReflection {
-  private final HttpStatusReflection status;
-  private final MovableByteInputStreamReflection bodyStream;
+@Reflection(domainClass = HttpResponseDomain.class)
+abstract class HttpResponseReflection implements HttpResponse {
+  private final HttpStatus status;
+  private final MovableByteInputStream bodyStream;
 
-  HttpResponseReflectionImpl(HttpStatusReflection status, InputStream body) {
+  HttpResponseReflection(HttpStatus status, InputStream body) {
     this.status = status;
     this.bodyStream = ByteInputStreams.reflectionOf(body);
   }
 
-  HttpResponseReflectionImpl(HttpStatusReflection status, String body) {
+  HttpResponseReflection(HttpStatus status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseReflectionImpl(HttpStatusReflection status, byte[] body) {
+  HttpResponseReflection(HttpStatus status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseReflectionImpl(HttpStatusReflection status) {
+  HttpResponseReflection(HttpStatus status) {
     this(status, InputStream.nullInputStream());
   }
 
   @Mapper
   @Override
-  public HttpStatusReflection status() {
+  public HttpStatus status() {
     return this.status;
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStreamReflection bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 

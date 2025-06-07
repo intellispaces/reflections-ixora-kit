@@ -9,12 +9,12 @@ import tech.intellispaces.reflections.framework.annotation.Factory;
 public class CollectionFactory implements CollectionAssistantCustomizer {
 
   @Override
-  public <E> UnmovableCollectionReflection<E> reflectionOf(List<E> list, Class<E> elementClass) {
-    return new JavaCollectionReflectionImplWrapper<>(list, elementClass);
+  public <E> Collection<E> reflectionOf(List<E> list, Class<E> elementClass) {
+    return new JavaCollectionReflectionWrapper<>(list, elementClass);
   }
 
   @Override
-  public <E> UnmovableCollectionReflection<E> reflectionOf(List<E> list, Type<E> elementType) {
-    return new JavaCollectionReflectionImplWrapper<>(list, elementType);
+  public <E> Collection<E> reflectionOf(List<E> list, Type<E> elementType) {
+    return new JavaCollectionReflectionWrapper<>(list, elementType);
   }
 }

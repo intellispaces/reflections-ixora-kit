@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http.annotationprocessor;
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.commons.abstraction.Reference;
 import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponseReflection;
+import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
@@ -44,7 +44,7 @@ public class HttpPortReflectionGenerator extends ReflectionsArtifactGenerator {
     addImport(Reflection.class);
     addImport(Mover.class);
     addImport(MapperOfMoving.class);
-    addImport(HttpResponseReflection.class);
+    addImport(HttpResponse.class);
     addImport(HttpRequest.class);
     addImport(HttpException.class);
     addImport(MovableReflection.class);

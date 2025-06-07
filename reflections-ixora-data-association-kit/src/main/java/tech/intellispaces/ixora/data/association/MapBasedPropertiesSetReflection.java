@@ -8,15 +8,14 @@ import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExcept
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
 import tech.intellispaces.ixora.data.collection.List;
 import tech.intellispaces.ixora.data.collection.Lists;
-import tech.intellispaces.ixora.data.collection.UnmovableList;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
-@Reflection(PropertiesSetDomain.class)
-abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertiesSet, NativePropertiesSetPresentable {
+@Reflection(domainClass = PropertiesSetDomain.class)
+abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativePropertiesSetPresentable {
   private final Map<String, Object> map;
 
-  MapBasedPropertiesSetReflectionImpl(Map<String, Object> map) {
+  MapBasedPropertiesSetReflection(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -48,7 +47,7 @@ abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertie
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedPropertiesSetReflectionImplWrapper((Map<String, Object>) result);
+      return new MapBasedPropertiesSetReflectionWrapper((Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -105,61 +104,61 @@ abstract class MapBasedPropertiesSetReflectionImpl implements UnmovablePropertie
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, Map.class);
-    return new MapBasedPropertiesSetReflectionImplWrapper((Map<String, Object>) value);
+    return new MapBasedPropertiesSetReflectionWrapper((Map<String, Object>) value);
   }
 
   @Mapper
   @Override
-  public UnmovableList<Integer> integer32List(String path) throws InvalidPropertyException {
+  public List<Integer> integer32List(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return integer32List(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableList<Integer> integer32List(String path, Object value) {
+  private List<Integer> integer32List(String path, Object value) {
     validateListValueType(path, value, Integer.class);
     return Lists.reflectionOfIntegerList((java.util.List<Integer>) value);
   }
 
   @Mapper
   @Override
-  public UnmovableList<Double> real64List(String path) throws InvalidPropertyException {
+  public List<Double> real64List(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return float64List(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableList<Double> float64List(String path, Object value) {
+  private List<Double> float64List(String path, Object value) {
     validateListValueType(path, value, Double.class);
     return Lists.reflectionOfDoubleList((java.util.List<Double>) value);
   }
 
   @Mapper
   @Override
-  public UnmovableList<String> stringList(String path) throws InvalidPropertyException {
+  public List<String> stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableList<String> stringList(String path, Object value) {
+  private List<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
     return Lists.reflectionOf((java.util.List<String>) value, String.class);
   }
 
   @Mapper
   @Override
-  public UnmovableList<PropertiesSet> propertiesSetList(String path) throws InvalidPropertyException {
+  public List<PropertiesSet> propertiesSetList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesSetList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableList<PropertiesSet> propertiesSetList(String path, Object value) {
+  private List<PropertiesSet> propertiesSetList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<PropertiesSet> propsList = values.stream()
-        .map(MapBasedPropertiesSetReflectionImplWrapper::new)
+        .map(MapBasedPropertiesSetReflectionWrapper::new)
         .map(props -> (PropertiesSet) props)
         .toList();
     return Lists.reflectionOf(propsList, PropertiesSet.class);
