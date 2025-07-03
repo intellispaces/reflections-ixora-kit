@@ -4,14 +4,14 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 
-import tech.intellispaces.core.Module;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
+import tech.intellispaces.reflections.framework.system.ReflectionModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public abstract class AbstractInboundHttpPortTest {
-  private Module module;
+  private ReflectionModule module;
   private static final int PORT_NUMBER = 8080;
 
   public abstract MovableInboundHttpPort createPort(

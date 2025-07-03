@@ -11,7 +11,7 @@ import tech.intellispaces.reflections.framework.annotation.Mover;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
 import tech.intellispaces.reflections.framework.reflection.MovableReflection;
-import tech.intellispaces.reflections.framework.reflection.NativeReflection;
+import tech.intellispaces.reflections.framework.reflection.NativePoint;
 import tech.intellispaces.reflections.framework.reflection.OverlyingReflectionController;
 import tech.intellispaces.reflections.framework.reflection.PostRegistrationReflectionHandler;
 
@@ -20,7 +20,7 @@ public abstract class JettyServerPortReflection implements
     MovableJettyServerPort,
     OverlyingReflectionController,
     PostRegistrationReflectionHandler,
-    NativeReflection
+    NativePoint
 {
   private final int portNumber;
   private final Server server;

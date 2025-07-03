@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
+import tech.intellispaces.reflections.framework.system.ReflectionModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests fo {@link PrintStreamConsoleReflection} class.
  */
 public class PrintStreamConsoleReflectionTest {
-  private tech.intellispaces.core.Module module;
+  private ReflectionModule module;
 
   @BeforeEach
   public void init() {

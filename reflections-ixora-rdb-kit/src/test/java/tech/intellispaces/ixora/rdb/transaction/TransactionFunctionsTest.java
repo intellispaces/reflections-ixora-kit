@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import tech.intellispaces.core.Module;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
+import tech.intellispaces.reflections.framework.system.ReflectionModule;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
  * Tests for {@link TransactionFunctions} class.
  */
 public class TransactionFunctionsTest {
-  private Module module;
+  private ReflectionModule module;
 
   @BeforeEach
   public void init() {

@@ -4,13 +4,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tech.intellispaces.core.Module;
 import tech.intellispaces.ixora.http.MovableOutboundHttpPort;
 import tech.intellispaces.ixora.http.OutboundHttpPortTest;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
+import tech.intellispaces.reflections.framework.system.ReflectionModule;
 
 public class OkHttpPortReflectionTest extends OutboundHttpPortTest {
-  private Module module;
+  private ReflectionModule module;
 
   @BeforeEach
   public void init() {

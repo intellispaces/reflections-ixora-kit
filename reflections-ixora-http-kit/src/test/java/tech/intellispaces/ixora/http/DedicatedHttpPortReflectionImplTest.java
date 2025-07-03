@@ -4,9 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tech.intellispaces.core.Module;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuideImpl;
 import tech.intellispaces.reflections.framework.ReflectionsFramework;
+import tech.intellispaces.reflections.framework.system.ReflectionModule;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.argThat;
@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
  * Tests for {@link DedicatedHttpPortReflection} class.
  */
 public class DedicatedHttpPortReflectionImplTest {
-  private Module module;
+  private ReflectionModule module;
 
   @BeforeEach
   public void init() {

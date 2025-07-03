@@ -10,10 +10,10 @@ import tech.intellispaces.ixora.http.HttpStatuses;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-import tech.intellispaces.reflections.framework.reflection.NativeReflection;
+import tech.intellispaces.reflections.framework.reflection.NativePoint;
 
 @Reflection(domainClass = OkHttpResponseDomain.class)
-public abstract class OkHttpResponseReflection implements OkHttpResponse, NativeReflection {
+public abstract class OkHttpResponseReflection implements OkHttpResponse, NativePoint {
   private final Response underlyingResponse;
   private final MovableByteInputStream bodyStream;
 

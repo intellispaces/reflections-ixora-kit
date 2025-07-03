@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.commons.type.Type;
-import tech.intellispaces.core.Point;
+import tech.intellispaces.core.ReflectionPoint;
 import tech.intellispaces.reflections.framework.annotation.Factory;
 
 @Factory
@@ -43,8 +43,8 @@ public class ListFactory implements ListAssistantCustomizer {
   }
 
   @Override
-  public List<Point> of(Point point) {
-    return new JavaListReflectionWrapper<Point>(java.util.List.of(point), (Type<Point>) null);
+  public List<ReflectionPoint> of(ReflectionPoint point) {
+    return new JavaListReflectionWrapper<ReflectionPoint>(java.util.List.of(point), (Type<ReflectionPoint>) null);
   }
 
   @Override

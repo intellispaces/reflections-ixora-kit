@@ -6,10 +6,10 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-import tech.intellispaces.reflections.framework.reflection.NativeReflection;
+import tech.intellispaces.reflections.framework.reflection.NativePoint;
 
 @Reflection(domainClass = CollectionDomain.class)
-abstract class JavaCollectionReflection<E> implements Collection<E>, NativeReflection {
+abstract class JavaCollectionReflection<E> implements Collection<E>, NativePoint {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;
 
