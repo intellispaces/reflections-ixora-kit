@@ -6,10 +6,10 @@ import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-import tech.intellispaces.reflections.framework.reflection.NativePoint;
+import tech.intellispaces.reflections.framework.reflection.NativeReflectionPoint;
 
 @Reflection(domainClass = ListDomain.class)
-abstract class JavaListReflection<E> implements List<E>, NativePoint {
+abstract class JavaListReflection<E> implements List<E>, NativeReflectionPoint {
   private final java.util.List<E> list;
   private final Type<E> elementType;
 

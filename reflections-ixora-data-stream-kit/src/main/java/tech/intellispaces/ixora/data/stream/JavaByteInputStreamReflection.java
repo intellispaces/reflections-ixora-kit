@@ -12,10 +12,10 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.MapperOfMoving;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 import tech.intellispaces.reflections.framework.exception.TraverseExceptions;
-import tech.intellispaces.reflections.framework.reflection.NativePoint;
+import tech.intellispaces.reflections.framework.reflection.NativeReflectionPoint;
 
 @Reflection(domainClass = ByteInputStreamDomain.class)
-abstract class JavaByteInputStreamReflection implements MovableByteInputStream, NativePoint {
+abstract class JavaByteInputStreamReflection implements MovableByteInputStream, NativeReflectionPoint {
   private final InputStream is;
   private int buffer;
   private boolean buffered;

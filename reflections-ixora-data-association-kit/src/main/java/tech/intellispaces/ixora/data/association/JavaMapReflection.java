@@ -7,10 +7,10 @@ import tech.intellispaces.commons.type.Types;
 import tech.intellispaces.ixora.data.collection.Collection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
-import tech.intellispaces.reflections.framework.reflection.NativePoint;
+import tech.intellispaces.reflections.framework.reflection.NativeReflectionPoint;
 
 @Reflection(domainClass = MapDomain.class)
-abstract class JavaMapReflection<K, V> implements Map<K, V>, NativePoint {
+abstract class JavaMapReflection<K, V> implements Map<K, V>, NativeReflectionPoint {
   private final java.util.Map<K, V> map;
   private final Type<K> keyType;
   private final Type<V> valueType;
