@@ -9,10 +9,6 @@ public class ParameterizedNamedQueryFactory implements ParameterizedNamedQueryAs
 
   @Override
   public ParameterizedNamedQuery create(String query, List<String> paramNames) {
-    return new ParameterizedNamedQueryDataset(
-        null,
-        query,
-            Reflections.reflection(paramNames, List.class)
-    );
+    return new ParameterizedNamedQueryDataset(query, Reflections.reflection(paramNames, List.class));
   }
 }

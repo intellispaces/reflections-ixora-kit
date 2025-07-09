@@ -13,6 +13,7 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.dataset.DatasetFunctions;
 import tech.intellispaces.reflections.framework.naming.NameConventionFunctions;
 import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
+import tech.intellispaces.reflections.framework.space.domain.DomainFunctions;
 
 @Guide
 public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide {
@@ -38,10 +39,12 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
       throw UnexpectedExceptions.withMessage("Data class {0} must contain one constructor",
           dataReflectionCanonicalName);
     }
+    int projectionChannelCount = DomainFunctions.getDomainProjectionChannelsExcludeConversionMethodsCount(
+        domainClass);
     Constructor<?> constructor = constructors[0];
-    if (constructor.getParameterCount() != domainClass.getMethods().length) {
+    if (constructor.getParameterCount() != projectionChannelCount) {
       throw UnexpectedExceptions.withMessage("Data class {0} must contain constructor with {1} parameters",
-          dataReflectionCanonicalName, dataType.asClassType().baseClass().getMethods().length);
+          dataReflectionCanonicalName, projectionChannelCount);
     }
 
     Object[] arguments = new Object[constructor.getParameterCount()];
