@@ -11,9 +11,9 @@ import tech.intellispaces.ixora.http.annotation.Get;
 import tech.intellispaces.ixora.http.annotation.HttpOntology;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
 import tech.intellispaces.ixora.http.port.PortFunctions;
-import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringAutoGuide;
+import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringActionGuide;
 import tech.intellispaces.ixora.internet.uri.JoinBasePathStringWithEndpointStringGuide;
-import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsAutoGuide;
+import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsActionGuide;
 import tech.intellispaces.ixora.internet.uri.SplitUriPathStringToPartsGuide;
 import tech.intellispaces.javareflection.customtype.ClassType;
 import tech.intellispaces.javareflection.customtype.Classes;
@@ -24,8 +24,8 @@ import tech.intellispaces.javareflection.method.MethodStatement;
 import static tech.intellispaces.commons.collection.CollectionFunctions.toList;
 
 public class PathTreeFunctions {
-  private static final JoinBasePathStringWithEndpointStringGuide JOIN_URL_GUIDE = new JoinBasePathStringWithEndpointStringAutoGuide();
-  private static final SplitUriPathStringToPartsGuide SPLIT_URI_PATH_GUIDE = new SplitUriPathStringToPartsAutoGuide();
+  private static final JoinBasePathStringWithEndpointStringGuide JOIN_URL_GUIDE = new JoinBasePathStringWithEndpointStringActionGuide();
+  private static final SplitUriPathStringToPartsGuide SPLIT_URI_PATH_GUIDE = new SplitUriPathStringToPartsActionGuide();
 
   public static List<PathSegment> readPathTree(
       Object port, Class<?> portDomain

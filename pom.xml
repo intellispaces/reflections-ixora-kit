@@ -33,6 +33,7 @@
         <module>reflections-ixora-okhttp-kit</module>
         <module>reflections-ixora-jetty-kit</module>
         <module>reflections-ixora-data-jackson-kit</module>
+        <module>reflections-ixora-data-json-test-ontology</module>
         <module>reflections-ixora-data-json-test-kit</module>
         <module>reflections-ixora-java-kit</module>
     </modules>

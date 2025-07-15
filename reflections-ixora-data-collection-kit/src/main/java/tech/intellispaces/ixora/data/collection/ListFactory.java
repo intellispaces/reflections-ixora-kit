@@ -28,6 +28,11 @@ public class ListFactory implements ListAssistantCustomizer {
   }
 
   @Override
+  public List<Object> empty() {
+    return empty(Object.class);
+  }
+
+  @Override
   public <E> List<E> empty(Class<E> elementClass) {
     return reflectionOf(java.util.List.of(), elementClass);
   }

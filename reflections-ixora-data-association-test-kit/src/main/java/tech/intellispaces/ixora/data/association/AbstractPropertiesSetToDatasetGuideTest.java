@@ -9,11 +9,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for guide {@link PropertiesSetToDataGuide}.
+ * Tests for guide {@link PropertiesSetToDatasetGuide}.
  */
-public abstract class AbstractPropertiesSetToDataGuideTest {
+public abstract class AbstractPropertiesSetToDatasetGuideTest {
 
-  public abstract PropertiesSetToDataGuide getGuide();
+  public abstract PropertiesSetToDatasetGuide getGuide();
 
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
@@ -21,7 +21,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    PrimitiveDataDomain data = getGuide().propertiesSetToData(props, Types.get(PrimitiveDataDomain.class));
+    PrimitiveDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(PrimitiveDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -35,7 +35,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    SimpleDataDomain data = getGuide().propertiesSetToData(props, Types.get(SimpleDataDomain.class));
+    SimpleDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(SimpleDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -50,7 +50,7 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     PropertiesSet props = mock(PropertiesSet.class);
 
     // When
-    NestedDataDomain data = getGuide().propertiesSetToData(props, Types.get(NestedDataDomain.class));
+    NestedDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(NestedDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -62,11 +62,11 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
   public void testPrimitiveData_whenNotEmptyProperties() {
     // Given
     PropertiesSet props = mock(PropertiesSet.class);
-    when(props.value("intValue")).thenReturn(1);
-    when(props.value("doubleValue")).thenReturn(2.2);
+    when(props.property("intValue")).thenReturn(1);
+    when(props.property("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveDataDomain data = getGuide().propertiesSetToData(props, Types.get(PrimitiveDataDomain.class));
+    PrimitiveDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(PrimitiveDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -78,12 +78,12 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
   public void testSimpleData_whenNotEmptyProperties() {
     // Given
     PropertiesSet props = mock(PropertiesSet.class);
-    when(props.value("intValue")).thenReturn(1);
-    when(props.value("doubleValue")).thenReturn(2.2);
-    when(props.value("stringValue")).thenReturn("abc");
+    when(props.property("intValue")).thenReturn(1);
+    when(props.property("doubleValue")).thenReturn(2.2);
+    when(props.property("stringValue")).thenReturn("abc");
 
     // When
-    SimpleDataDomain data = getGuide().propertiesSetToData(props, Types.get(SimpleDataDomain.class));
+    SimpleDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(SimpleDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();
@@ -97,12 +97,12 @@ public abstract class AbstractPropertiesSetToDataGuideTest {
     // Given
     PropertiesSet props = mock(PropertiesSet.class);
     PropertiesSet nestedProps = mock(PropertiesSet.class);
-    when(props.value("stringValue")).thenReturn("abc");
-    when(props.value("nestedValue")).thenReturn(nestedProps);
-    when(nestedProps.value("stringValue")).thenReturn("def");
+    when(props.property("stringValue")).thenReturn("abc");
+    when(props.property("nestedValue")).thenReturn(nestedProps);
+    when(nestedProps.property("stringValue")).thenReturn("def");
 
     // When
-    NestedDataDomain data = getGuide().propertiesSetToData(props, Types.get(NestedDataDomain.class));
+    NestedDataDomain data = getGuide().propertiesSetToDataset(props, Types.get(NestedDataDomain.class));
 
     // Then
     assertThat(data).isNotNull();

@@ -4,6 +4,7 @@ import java.util.Collections;
 
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
+import tech.intellispaces.ixora.data.Association;
 import tech.intellispaces.ixora.data.collection.Collection;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
@@ -33,7 +34,7 @@ abstract class JavaMapReflection<K, V> implements Map<K, V>, NativeReflectionPoi
   }
 
   @Override
-  public Collection<KeyValuePair<K, V>> keyValuePairs() {
+  public Collection<Association<K, V>> associations() {
     throw new RuntimeException("Not implemented");
   }
 

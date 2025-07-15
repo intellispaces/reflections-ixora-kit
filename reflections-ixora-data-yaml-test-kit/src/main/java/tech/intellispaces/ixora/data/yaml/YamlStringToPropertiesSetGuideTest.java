@@ -58,14 +58,14 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     assertThat(props).isNotNull();
     assertThat(props.size()).isEqualTo(3);
 
-    assertThat(props.integer32Value("intValue")).isEqualTo(1);
-    assertThat(props.value("intValue")).isEqualTo(1);
+    assertThat(props.integer32Property("intValue")).isEqualTo(1);
+    assertThat(props.property("intValue")).isEqualTo(1);
 
-    assertThat(props.real64Value("doubleValue")).isEqualTo(2.2);
-    assertThat(props.value("doubleValue")).isEqualTo(2.2);
+    assertThat(props.real64Property("doubleValue")).isEqualTo(2.2);
+    assertThat(props.property("doubleValue")).isEqualTo(2.2);
 
-    assertThat(props.stringValue("stringValue")).isEqualTo("abc");
-    assertThat(props.value("stringValue")).isEqualTo("abc");
+    assertThat(props.stringProperty("stringValue")).isEqualTo("abc");
+    assertThat(props.property("stringValue")).isEqualTo("abc");
   }
 
   @Test
@@ -86,15 +86,15 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     assertThat(props).isNotNull();
     assertThat(props.size()).isEqualTo(1);
 
-    assertThat(props.integer32List("values").size()).isEqualTo(3);
-    assertThat(props.integer32List("values").get(0)).isEqualTo(1);
-    assertThat(props.integer32List("values").get(1)).isEqualTo(2);
-    assertThat(props.integer32List("values").get(2)).isEqualTo(3);
+    assertThat(props.integer32ListProperty("values").size()).isEqualTo(3);
+    assertThat(props.integer32ListProperty("values").get(0)).isEqualTo(1);
+    assertThat(props.integer32ListProperty("values").get(1)).isEqualTo(2);
+    assertThat(props.integer32ListProperty("values").get(2)).isEqualTo(3);
 
-    assertThat(((List<Integer>) props.value("values")).size()).isEqualTo(3);
-    assertThat(((List<Integer>) props.value("values")).get(0)).isEqualTo(1);
-    assertThat(((List<Integer>) props.value("values")).get(1)).isEqualTo(2);
-    assertThat(((List<Integer>) props.value("values")).get(2)).isEqualTo(3);
+    assertThat(((List<Integer>) props.property("values")).size()).isEqualTo(3);
+    assertThat(((List<Integer>) props.property("values")).get(0)).isEqualTo(1);
+    assertThat(((List<Integer>) props.property("values")).get(1)).isEqualTo(2);
+    assertThat(((List<Integer>) props.property("values")).get(2)).isEqualTo(3);
   }
 
   @Test
@@ -115,15 +115,15 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     assertThat(props).isNotNull();
     assertThat(props.size()).isEqualTo(1);
 
-    assertThat(props.real64List("values").size()).isEqualTo(3);
-    assertThat(props.real64List("values").get(0)).isEqualTo(1.1);
-    assertThat(props.real64List("values").get(1)).isEqualTo(2.2);
-    assertThat(props.real64List("values").get(2)).isEqualTo(3.3);
+    assertThat(props.real64ListProperty("values").size()).isEqualTo(3);
+    assertThat(props.real64ListProperty("values").get(0)).isEqualTo(1.1);
+    assertThat(props.real64ListProperty("values").get(1)).isEqualTo(2.2);
+    assertThat(props.real64ListProperty("values").get(2)).isEqualTo(3.3);
 
-    assertThat(((List<Double>) props.value("values")).size()).isEqualTo(3);
-    assertThat(((List<Double>) props.value("values")).get(0)).isEqualTo(1.1);
-    assertThat(((List<Double>) props.value("values")).get(1)).isEqualTo(2.2);
-    assertThat(((List<Double>) props.value("values")).get(2)).isEqualTo(3.3);
+    assertThat(((List<Double>) props.property("values")).size()).isEqualTo(3);
+    assertThat(((List<Double>) props.property("values")).get(0)).isEqualTo(1.1);
+    assertThat(((List<Double>) props.property("values")).get(1)).isEqualTo(2.2);
+    assertThat(((List<Double>) props.property("values")).get(2)).isEqualTo(3.3);
   }
 
   @Test
@@ -144,15 +144,15 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     assertThat(props).isNotNull();
     assertThat(props.size()).isEqualTo(1);
 
-    assertThat(props.stringList("values").size()).isEqualTo(3);
-    assertThat(props.stringList("values").get(0)).isEqualTo("a");
-    assertThat(props.stringList("values").get(1)).isEqualTo("b");
-    assertThat(props.stringList("values").get(2)).isEqualTo("c");
+    assertThat(props.stringListProperty("values").size()).isEqualTo(3);
+    assertThat(props.stringListProperty("values").get(0)).isEqualTo("a");
+    assertThat(props.stringListProperty("values").get(1)).isEqualTo("b");
+    assertThat(props.stringListProperty("values").get(2)).isEqualTo("c");
 
-    assertThat(((List<String>) props.value("values")).size()).isEqualTo(3);
-    assertThat(((List<String>) props.value("values")).get(0)).isEqualTo("a");
-    assertThat(((List<String>) props.value("values")).get(1)).isEqualTo("b");
-    assertThat(((List<String>) props.value("values")).get(2)).isEqualTo("c");
+    assertThat(((List<String>) props.property("values")).size()).isEqualTo(3);
+    assertThat(((List<String>) props.property("values")).get(0)).isEqualTo("a");
+    assertThat(((List<String>) props.property("values")).get(1)).isEqualTo("b");
+    assertThat(((List<String>) props.property("values")).get(2)).isEqualTo("c");
   }
 
   @Test
@@ -170,8 +170,8 @@ public abstract class YamlStringToPropertiesSetGuideTest {
     // Then
     assertThat(props).isNotNull();
     assertThat(props.size()).isEqualTo(2);
-    assertThat(props.value("value1")).isEqualTo(1);
-    assertThat(props.value("nestedValue.value2")).isEqualTo("abc");
-    assertThat(props.propertiesSetValue("nestedValue").size()).isEqualTo(1);
+    assertThat(props.property("value1")).isEqualTo(1);
+    assertThat(props.property("nestedValue.value2")).isEqualTo("abc");
+    assertThat(props.propertiesSetProperty("nestedValue").size()).isEqualTo(1);
   }
 }

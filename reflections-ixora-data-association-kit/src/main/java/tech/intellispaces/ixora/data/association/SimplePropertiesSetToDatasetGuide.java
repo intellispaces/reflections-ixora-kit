@@ -16,11 +16,11 @@ import tech.intellispaces.reflections.framework.reflection.ReflectionFunctions;
 import tech.intellispaces.reflections.framework.space.domain.DomainFunctions;
 
 @Guide
-public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide {
+public class SimplePropertiesSetToDatasetGuide implements PropertiesSetToDatasetGuide {
 
   @Mapper
   @Override
-  public <D> D propertiesSetToData(PropertiesSet props, Type<D> dataType) {
+  public <D> D propertiesSetToDataset(PropertiesSet props, Type<D> dataType) {
     if (DatasetFunctions.isDatasetReflection(dataType.asClassType().baseClass())) {
       return process(props, dataType);
     }
@@ -50,7 +50,7 @@ public class SimplePropertiesSetToDataGuide implements PropertiesSetToDataGuide 
     Object[] arguments = new Object[constructor.getParameterCount()];
     int index = 0;
     for (Parameter param : constructor.getParameters()) {
-      Object value = properties.value(param.getName());
+      Object value = properties.property(param.getName());
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }

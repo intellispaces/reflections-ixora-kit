@@ -6,10 +6,11 @@ import tech.intellispaces.ixora.data.json.JsonStringToPropertiesSetGuideTest;
 /**
  * Tests for {@link JacksonGuide} class.
  */
-public class JacksonGuideTest extends JsonStringToPropertiesSetGuideTest {
+public class JacksonGuideJsonStringToPropertiesSetTest extends JsonStringToPropertiesSetGuideTest {
 
   @Override
   public JsonStringToPropertiesSetGuide guide() {
-    return new JacksonGuide();
+    var jacksonGuide = new JacksonGuide();
+    return jacksonGuide::jsonStringToPropertiesSet;
   }
 }

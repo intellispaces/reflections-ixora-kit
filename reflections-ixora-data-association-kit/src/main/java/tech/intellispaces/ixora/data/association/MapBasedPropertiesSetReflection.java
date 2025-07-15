@@ -31,7 +31,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public Object value(String path) throws InvalidPropertyException {
+  public Object property(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
@@ -55,17 +55,17 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   private List<?> convertObjectToList(String path, java.util.List<?> list) {
     if (list.isEmpty()) {
-      throw new UnsupportedOperationException("Not implemented");
+      return Lists.empty();
     }
     Object firstElement = list.get(0);
     if (firstElement instanceof Integer) {
-      return integer32List(path, list);
+      return integer32ListProperty(path, list);
     } else if (firstElement instanceof Double) {
-      return float64List(path, list);
+      return float64ListProperty(path, list);
     } else if (firstElement instanceof String) {
-      return stringList(path, list);
+      return stringListProperty(path, list);
     } else if (firstElement instanceof Map<?, ?>) {
-      return propertiesSetList(path, list);
+      return propertiesSetListProperty(path, list);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -73,7 +73,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   @Mapper
   @Override
-  public int integer32Value(String path) throws InvalidPropertyException {
+  public int integer32Property(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Integer.class);
     return (int) value;
@@ -81,7 +81,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   @Mapper
   @Override
-  public double real64Value(String path) throws InvalidPropertyException {
+  public double real64Property(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Double.class);
     return (double) value;
@@ -89,7 +89,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   @Mapper
   @Override
-  public String stringValue(String path) throws InvalidPropertyException {
+  public String stringProperty(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, String.class);
     return (String) value;
@@ -98,7 +98,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public PropertiesSet propertiesSetValue(String path) throws InvalidPropertyException {
+  public PropertiesSet propertiesSetProperty(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
@@ -109,52 +109,52 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   @Mapper
   @Override
-  public List<Integer> integer32List(String path) throws InvalidPropertyException {
+  public List<Integer> integer32ListProperty(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return integer32List(path, value);
+    return integer32ListProperty(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private List<Integer> integer32List(String path, Object value) {
+  private List<Integer> integer32ListProperty(String path, Object value) {
     validateListValueType(path, value, Integer.class);
     return Lists.reflectionOfIntegerList((java.util.List<Integer>) value);
   }
 
   @Mapper
   @Override
-  public List<Double> real64List(String path) throws InvalidPropertyException {
+  public List<Double> real64ListProperty(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return float64List(path, value);
+    return float64ListProperty(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private List<Double> float64List(String path, Object value) {
+  private List<Double> float64ListProperty(String path, Object value) {
     validateListValueType(path, value, Double.class);
     return Lists.reflectionOfDoubleList((java.util.List<Double>) value);
   }
 
   @Mapper
   @Override
-  public List<String> stringList(String path) throws InvalidPropertyException {
+  public List<String> stringListProperty(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return stringList(path, value);
+    return stringListProperty(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private List<String> stringList(String path, Object value) {
+  private List<String> stringListProperty(String path, Object value) {
     validateListValueType(path, value, String.class);
     return Lists.reflectionOf((java.util.List<String>) value, String.class);
   }
 
   @Mapper
   @Override
-  public List<PropertiesSet> propertiesSetList(String path) throws InvalidPropertyException {
+  public List<PropertiesSet> propertiesSetListProperty(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return propertiesSetList(path, value);
+    return propertiesSetListProperty(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private List<PropertiesSet> propertiesSetList(String path, Object value) {
+  private List<PropertiesSet> propertiesSetListProperty(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<PropertiesSet> propsList = values.stream()
