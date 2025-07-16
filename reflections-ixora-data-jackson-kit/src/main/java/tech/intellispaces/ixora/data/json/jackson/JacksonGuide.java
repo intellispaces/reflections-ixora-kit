@@ -70,6 +70,8 @@ public class JacksonGuide {
       return rootNode.booleanNode(bool);
     } else if (value instanceof Integer number) {
       return rootNode.numberNode(number);
+    } else if (value instanceof Float number) {
+      return rootNode.numberNode(number);
     } else if (value instanceof Double number) {
       return rootNode.numberNode(number);
     } else if (value instanceof String string) {
@@ -85,7 +87,7 @@ public class JacksonGuide {
       populateObjectNode(objectNode, dataset);
       return objectNode;
     } else {
-      throw NotImplementedExceptions.withCode("XM5UFwlH");
+      throw NotImplementedExceptions.withCodeAndMessage("XM5UFwlH", value.getClass().getCanonicalName());
     }
   }
 }
