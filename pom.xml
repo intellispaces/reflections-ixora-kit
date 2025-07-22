@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>reflections-ixora-basic-kit</module>
         <module>reflections-ixora-cli-kit</module>
         <module>reflections-ixora-data-association-kit</module>
         <module>reflections-ixora-data-association-test-kit</module>
@@ -59,6 +60,11 @@
             <dependency>
                 <groupId>tech.intellispaces.reflections</groupId>
                 <artifactId>reflections-framework-engine</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>tech.intellispaces.reflections</groupId>
+                <artifactId>reflections-ixora-basic-ontology</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
