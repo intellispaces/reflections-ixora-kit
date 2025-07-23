@@ -80,6 +80,8 @@ public class JacksonGuide {
       return rootNode.numberNode(number);
     } else if (value instanceof Double number) {
       return rootNode.numberNode(number);
+    } else if (value instanceof Character character) {
+      return rootNode.textNode("" + character);
     } else if (value instanceof String string) {
       return rootNode.textNode(string);
     } else if (value instanceof List<?> list) {
