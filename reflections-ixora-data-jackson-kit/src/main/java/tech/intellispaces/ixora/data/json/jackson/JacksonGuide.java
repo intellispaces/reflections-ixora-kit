@@ -68,7 +68,13 @@ public class JacksonGuide {
       return rootNode.nullNode();
     } else if (value instanceof Boolean bool) {
       return rootNode.booleanNode(bool);
+    } else if (value instanceof Byte number) {
+      return rootNode.numberNode(number);
+    } else if (value instanceof Short number) {
+      return rootNode.numberNode(number);
     } else if (value instanceof Integer number) {
+      return rootNode.numberNode(number);
+    } else if (value instanceof Long number) {
       return rootNode.numberNode(number);
     } else if (value instanceof Float number) {
       return rootNode.numberNode(number);
