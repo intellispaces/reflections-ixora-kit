@@ -2,12 +2,16 @@ package tech.intellispaces.ixora.data.association;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
+import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 
 import tech.intellispaces.commons.exception.UnexpectedExceptions;
 import tech.intellispaces.commons.function.FunctionFunctions;
 import tech.intellispaces.commons.type.ClassFunctions;
 import tech.intellispaces.commons.type.Type;
 import tech.intellispaces.commons.type.Types;
+import tech.intellispaces.ixora.data.collection.List;
+import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.reflections.framework.annotation.Guide;
 import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.dataset.DatasetFunctions;
@@ -49,15 +53,27 @@ public class SimplePropertiesSetToDatasetGuide implements PropertiesSetToDataset
 
     Object[] arguments = new Object[constructor.getParameterCount()];
     int index = 0;
-    for (Parameter param : constructor.getParameters()) {
-      Object value = properties.property(param.getName());
-      if (value == null && param.getType().isPrimitive()) {
-        value = ClassFunctions.getDefaultValueOf(param.getType());
+    for (Parameter argParam : constructor.getParameters()) {
+      Object argValue = properties.property(argParam.getName());
+      if (argValue == null && argParam.getType().isPrimitive()) {
+        argValue = ClassFunctions.getDefaultValueOf(argParam.getType());
       }
-      if (value instanceof PropertiesSet && ReflectionFunctions.isReflectionClass(param.getType())) {
-        value = process((PropertiesSet) value, Types.get(param.getType()));
+      if (argValue instanceof PropertiesSet && ReflectionFunctions.isReflectionClass(argParam.getType())) {
+        argValue = process((PropertiesSet) argValue, Types.get(argParam.getType()));
+      } else if (argValue instanceof List<?> list) {
+        java.lang.reflect.Type argParamType = argParam.getParameterizedType();
+        if (argParamType instanceof ParameterizedType argParameterizedType) {
+          var argElementClass = (Class<Object>) argParameterizedType.getActualTypeArguments()[0];
+          if (DatasetFunctions.isDatasetReflection(argElementClass)) {
+            var newList = new ArrayList<>();
+            for (Object element : list) {
+                newList.add(process((PropertiesSet) element, Types.get(argElementClass)));
+            }
+            argValue = Lists.reflectionOf(newList, argElementClass);
+          }
+        }
       }
-      arguments[index++] = value;
+      arguments[index++] = argValue;
     }
     return (D) FunctionFunctions.applyAndWrap(arguments, constructor::newInstance);
   }
