@@ -20,7 +20,7 @@ import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsA
 public class PersistedEntityAnnotationProcessor extends ArtifactProcessor {
 
   public PersistedEntityAnnotationProcessor() {
-    super(ElementKind.INTERFACE, PersistedEntity.class, ReflectionsArtifactProcessor.SOURCE_VERSION);
+    super(PersistedEntity.class, ElementKind.INTERFACE, ReflectionsArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override

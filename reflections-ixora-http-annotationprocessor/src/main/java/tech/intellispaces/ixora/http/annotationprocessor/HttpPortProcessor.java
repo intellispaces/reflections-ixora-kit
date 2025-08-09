@@ -21,7 +21,7 @@ import tech.intellispaces.reflections.framework.annotationprocessor.ReflectionsA
 public class HttpPortProcessor extends ArtifactProcessor {
 
   public HttpPortProcessor() {
-    super(ElementKind.INTERFACE, HttpPort.class, ReflectionsArtifactProcessor.SOURCE_VERSION);
+    super(HttpPort.class, ElementKind.INTERFACE, ReflectionsArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override
