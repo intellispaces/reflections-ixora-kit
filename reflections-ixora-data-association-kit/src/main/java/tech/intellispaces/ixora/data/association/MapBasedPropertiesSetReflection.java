@@ -3,6 +3,8 @@ package tech.intellispaces.ixora.data.association;
 import java.util.Collections;
 import java.util.Map;
 
+import org.jetbrains.annotations.Nullable;
+
 import tech.intellispaces.commons.properties.PropertiesSets;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.data.association.exception.InvalidPropertyExceptions;
@@ -12,8 +14,9 @@ import tech.intellispaces.reflections.framework.annotation.Mapper;
 import tech.intellispaces.reflections.framework.annotation.Reflection;
 
 @Reflection(domainClass = PropertiesSetDomain.class)
-abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativePropertiesSetPresentable {
+abstract class MapBasedPropertiesSetReflection implements PropertiesSet, tech.intellispaces.commons.properties.PropertiesSet {
   private final Map<String, Object> map;
+  private tech.intellispaces.commons.properties.PropertiesSet commonPropertiesSet;
 
   MapBasedPropertiesSetReflection(Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
@@ -21,11 +24,6 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
 
   public Map<String, Object> asNativeMap() {
     return Collections.unmodifiableMap(map);
-  }
-
-  @Override
-  public tech.intellispaces.commons.properties.PropertiesSet asNativePropertiesSet() {
-    return PropertiesSets.create(map, ".");
   }
 
   @Mapper
@@ -170,6 +168,182 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
     return asNativeMap().size();
   }
 
+  @Override
+  public @Nullable String name() {
+    return asCommonPropertiesSet().name();
+  }
+
+  @Override
+  public java.util.List<String> path() {
+    return asCommonPropertiesSet().path();
+  }
+
+  @Override
+  public String delimiter() {
+    return asCommonPropertiesSet().delimiter();
+  }
+
+  @Override
+  public java.util.List<String> propertiesNames() {
+    return asCommonPropertiesSet().propertiesNames();
+  }
+
+  @Override
+  public boolean hasProperty(String name) {
+    return asCommonPropertiesSet().hasProperty(name);
+  }
+
+  @Override
+  public @Nullable Object propertyValue(String name) {
+    return asCommonPropertiesSet().propertyValue(name);
+  }
+
+  @Override
+  public java.util.List<tech.intellispaces.commons.properties.PropertiesSet> subProperties() {
+    return asCommonPropertiesSet().subProperties();
+  }
+
+  @Override
+  public boolean hasTraversePath(String... path) {
+    return asCommonPropertiesSet().hasTraversePath(path);
+  }
+
+  @Override
+  public boolean traverseTargetIsSpecified(String name) {
+    return asCommonPropertiesSet().traverseTargetIsSpecified(name);
+  }
+
+  @Override
+  public boolean traverseTargetIsString(String... path) {
+    return asCommonPropertiesSet().traverseTargetIsString(path);
+  }
+
+  @Override
+  public boolean traverseTargetIsStringCompatible(String... path) {
+    return asCommonPropertiesSet().traverseTargetIsStringCompatible(path);
+  }
+
+  @Override
+  public boolean traverseTargetIsProperties(String... path) {
+    return asCommonPropertiesSet().traverseTargetIsProperties(path);
+  }
+
+  @Override
+  public boolean traverseTargetIsPropertiesCompatible(String... path) {
+    return asCommonPropertiesSet().traverseTargetIsPropertiesCompatible(path);
+  }
+
+  @Override
+  public @Nullable Object traverse(String... path) {
+    return asCommonPropertiesSet().traverse(path);
+  }
+
+  @Override
+  public @Nullable Integer traverseToInteger(String... path) {
+    return asCommonPropertiesSet().traverseToInteger(path);
+  }
+
+  @Override
+  public @Nullable Integer traverseAndCastToInteger(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToInteger(path);
+  }
+
+  @Override
+  public @Nullable Double traverseToDouble(String... path) {
+    return asCommonPropertiesSet().traverseToDouble(path);
+  }
+
+  @Override
+  public @Nullable Double traverseAndCastToDouble(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToDouble(path);
+  }
+
+  @Override
+  public @Nullable String traverseToString(String... path) {
+    return asCommonPropertiesSet().traverseToString(path);
+  }
+
+  @Override
+  public @Nullable String traverseToString(String[] headPath, String... tailPath) {
+    return asCommonPropertiesSet().traverseToString(headPath, tailPath);
+  }
+
+  @Override
+  public String traverseToStringOrThrow(String... path) {
+    return asCommonPropertiesSet().traverseToStringOrThrow(path);
+  }
+
+  @Override
+  public @Nullable String traverseAndCastToString(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToString(path);
+  }
+
+  @Override
+  public @Nullable tech.intellispaces.commons.properties.PropertiesSet traverseToProperties(String... path) {
+    return asCommonPropertiesSet().traverseToProperties(path);
+  }
+
+  @Override
+  public tech.intellispaces.commons.properties.PropertiesSet traverseToPropertiesOrThrow(String... path) {
+    return asCommonPropertiesSet().traverseToPropertiesOrThrow(path);
+  }
+
+  @Override
+  public @Nullable tech.intellispaces.commons.properties.PropertiesSet traverseAndCastToProperties(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToProperties(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<Integer> traverseToIntegerList(String... path) {
+    return asCommonPropertiesSet().traverseToIntegerList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<Integer> traverseAndCastToIntegerList(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToIntegerList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<Double> traverseToDoubleList(String... path) {
+    return asCommonPropertiesSet().traverseToDoubleList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<Double> traverseAndCastToDoubleList(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToDoubleList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<String> traverseToStringList(String... path) {
+    return asCommonPropertiesSet().traverseToStringList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<String> traverseAndCastToStringList(String... path) {
+    return asCommonPropertiesSet().traverseAndCastToStringList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<tech.intellispaces.commons.properties.PropertiesSet> traverseToPropertiesList(
+      String... path
+  ) {
+    return asCommonPropertiesSet().traverseToPropertiesList(path);
+  }
+
+  @Override
+  public @Nullable java.util.List<tech.intellispaces.commons.properties.PropertiesSet> traverseToPropertiesList(
+      String[] headPath, String... tailPath
+  ) {
+    return asCommonPropertiesSet().traverseToPropertiesList(headPath, tailPath);
+  }
+
+  @Override
+  public @Nullable java.util.List<tech.intellispaces.commons.properties.PropertiesSet> traverseAndCastToPropertiesList(
+      String... path
+  ) {
+    return asCommonPropertiesSet().traverseToPropertiesList(path);
+  }
+
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
     if (value == null) {
       throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
@@ -208,7 +382,7 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
     }
   }
 
-  private static Class<?> getActualType(Object value) {
+  private Class<?> getActualType(Object value) {
     final Class<?> actualType;
     if (PropertiesSet.class.isAssignableFrom(value.getClass())) {
       actualType = PropertiesSet.class;
@@ -253,5 +427,12 @@ abstract class MapBasedPropertiesSetReflection implements PropertiesSet, NativeP
       }
     }
     return result;
+  }
+
+  private tech.intellispaces.commons.properties.PropertiesSet asCommonPropertiesSet() {
+    if (commonPropertiesSet == null) {
+      commonPropertiesSet = PropertiesSets.create(map, ".");
+    }
+    return commonPropertiesSet;
   }
 }
