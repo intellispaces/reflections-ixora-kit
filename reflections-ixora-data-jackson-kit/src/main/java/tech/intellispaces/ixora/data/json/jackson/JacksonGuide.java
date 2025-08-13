@@ -45,7 +45,7 @@ public class JacksonGuide {
   }
 
   void populateObjectNode(ObjectNode objectNode, Dataset dataset) {
-    for (ReflectionChannel channel : dataset.domain().domainChannels()) {
+    for (ReflectionChannel channel : dataset.domain().contextChannels()) {
       String alias = channel.alias();
       Object value = getValue(dataset, channel);
       objectNode.set(alias, createNode(objectNode, value));
