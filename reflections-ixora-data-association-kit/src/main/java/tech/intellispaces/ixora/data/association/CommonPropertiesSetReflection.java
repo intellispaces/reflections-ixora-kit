@@ -29,12 +29,8 @@ abstract class CommonPropertiesSetReflection implements PropertiesSet, Traversab
 
   @Mapper
   @Override
-  public Object property(String path) throws InvalidPropertyException {
-    Object value = convertValue(props.traverse(splitPath(path)));
-    if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
-    }
-    return value;
+  public @Nullable Object property(String path) throws InvalidPropertyException {
+    return convertValue(props.traverse(splitPath(path)));
   }
 
   @Mapper
@@ -59,60 +55,56 @@ abstract class CommonPropertiesSetReflection implements PropertiesSet, Traversab
 
   @Mapper
   @Override
-  public String stringProperty(String path) throws InvalidPropertyException {
-    String value = props.traverseToString(splitPath(path));
-    if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
-    }
-    return value;
+  public @Nullable String stringProperty(String path) throws InvalidPropertyException {
+    return props.traverseToString(splitPath(path));
   }
 
   @Mapper
   @Override
-  public PropertiesSet propertiesSetProperty(String path) throws InvalidPropertyException {
+  public @Nullable PropertiesSet propertiesSetProperty(String path) throws InvalidPropertyException {
     TraversablePropertiesSet value = props.traverseToProperties(splitPath(path));
     if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
+      return null;
     }
     return new CommonPropertiesSetReflectionWrapper(value);
   }
 
   @Mapper
   @Override
-  public List<Integer> integer32ListProperty(String path) throws InvalidPropertyException {
+  public @Nullable List<Integer> integer32ListProperty(String path) throws InvalidPropertyException {
     java.util.List<Integer> value = props.traverseToIntegerList(splitPath(path));
     if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
+      return null;
     }
     return Lists.reflectionOfIntegerList(value);
   }
 
   @Mapper
   @Override
-  public List<Double> real64ListProperty(String path) throws InvalidPropertyException {
+  public @Nullable List<Double> real64ListProperty(String path) throws InvalidPropertyException {
     java.util.List<Double> value = props.traverseToDoubleList(splitPath(path));
     if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
+      return null;
     }
     return Lists.reflectionOfDoubleList(value);
   }
 
   @Mapper
   @Override
-  public List<String> stringListProperty(String path) throws InvalidPropertyException {
+  public @Nullable List<String> stringListProperty(String path) throws InvalidPropertyException {
     java.util.List<String> value = props.traverseToStringList(splitPath(path));
     if (value == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
+      return null;
     }
     return Lists.reflectionOf(value, String.class);
   }
 
   @Mapper
   @Override
-  public List<PropertiesSet> propertiesSetListProperty(String path) throws InvalidPropertyException {
+  public @Nullable List<PropertiesSet> propertiesSetListProperty(String path) throws InvalidPropertyException {
     java.util.List<TraversablePropertiesSet> values = props.traverseToPropertiesList(splitPath(path));
     if (values == null) {
-      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
+      return null;
     }
     java.util.List<PropertiesSet> propsList = values.stream()
         .map(CommonPropertiesSetReflectionWrapper::new)
